@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "config": {},
+    "experiment": "phase0d",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "s0a",
+    "seed": 1,
+    "solver_schedule": "engine all-open vs 0c explicit",
+    "source_hash": "e7f969ff8e4c11bb",
+    "unix_time": 1794044789
+  },
+  "result": {
+    "H": 0.00013576450198781714,
+    "d_end_engine": 14.5426786122808,
+    "d_end_ref": 14.54267861228091,
+    "d_maxdiff_rel": 8.550349084453496e-15,
+    "h": 3.3941125496954284e-6,
+    "pass": true,
+    "rows": 443,
+    "tip_maxdiff_rel": 0.0,
+    "wall_engine_s": 3.8700578329999997,
+    "wall_ref_s": 3.392451791
+  }
+}

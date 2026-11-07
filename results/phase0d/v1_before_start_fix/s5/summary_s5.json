@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "config": {
+      "engine": {
+        "absorbing": false,
+        "chi_lte": 0.5,
+        "chi_rr": 0.7,
+        "chi_trig": 0.9,
+        "cost_switch": 1.0,
+        "coupling_ebudget": 1e-6,
+        "coupling_ftol": 0.00001,
+        "coupling_tol": 0.1,
+        "deg": 2,
+        "eps_rr": 0.05,
+        "h_e_cap_cfl": true,
+        "h_e_fixed": null,
+        "h_macro": 0.004166666666666667,
+        "h_min": 1e-7,
+        "h_min_coupling": 0.00026041666666666666,
+        "he_scale": 1.0,
+        "implicit": true,
+        "lp": 0.2,
+        "lte_atol": 0.1,
+        "lte_rtol": 0.02,
+        "max_coupling": 4,
+        "min_cells": 4,
+        "nvib": 0,
+        "open0": "None",
+        "quiet_steps": 3,
+        "r_e": 0.2,
+        "rereduce": true
+      },
+      "lam0": 1.15
+    },
+    "experiment": "phase0d",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "s5",
+    "seed": 1,
+    "solver_schedule": "post-hoc: cantilevers of growing length, same root moment",
+    "source_hash": "550bf411f5ed74bd",
+    "unix_time": 1794053376
+  },
+  "runs": [
+    {
+      "D_rel": -0.992689229991895,
+      "cells": 360,
+      "d_num": 0.6584902057200093,
+      "e_rise_engine": 0.0,
+      "frag_dv_rel": 1.0072599341539312,
+      "ke_max": 0.6897957079567258,
+      "len": 2.0,
+      "omega": [
+        -2.1673371046385888,
+        0.02067234981695322
+      ],
+      "separated": [
+        true,
+        false
+      ],
+      "wall_engine": 0.17704375,
+      "wall_ratio": 13.69897812263918,
+      "wall_ref": 2.425318458,
+      "work_engine": 242921525.0,
+      "work_ratio": 22.679936856151386,
+      "work_ref": 5509444848.0,
+      "zone_max": 90,
+      "zone_mean": 0.22916666666666677
+    }
+  ]
+}

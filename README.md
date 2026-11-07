@@ -1,5 +1,13 @@
 # Shatterbird — Phase 0 (mechanics and solver truth, CPU f64)
 
+**Phase 0d (current): adaptive engine for fracture without computing every internal oscillation** — [`docs/phase0d/adaptive-engine.md`](docs/phase0d/adaptive-engine.md).
+- **What it is:** one implicit Newton system over coarse patches (multiscale P2 bases) and single-cell patches. Cells are split where damage, stress or impact demands it and merged back when quiet, with the projection loss booked.
+- **Time integration:** variable-step BDF2, with the step set by the local error of fracture- and contact-relevant openings. A cost switch runs the whole model explicitly whenever that is cheaper.
+- **Results:** pre-registered support-removal and impact criteria, scaling and mass-failure experiments, plus the multirate explicit/implicit coupling and why it was set aside.
+- **Code:** library `crates/experiments/src/engine/`, binary `cargo run --release --bin phase0d -- <s0a|s0b|s0c|s1|s2|s3|s3b|s4|s4b|s5|s1noise>`. Outputs go to `results/phase0d/`.
+
+**Phase 0c:** reduced intact regions — notched beam, support removal, impact. See [`docs/phase0c/reduced-fracture.md`](docs/phase0c/reduced-fracture.md).
+
 **Current continuation:** [Phase 0b context and assignment 1](shatterbird-phase0b.md) — geometry contract and spectrum. It records the post-Phase-0 corrections and supersedes the old “E1 only” handoff.
 
 **Phase 0b / 1 result:** [`docs/phase0b/geometry-spectrum.md`](docs/phase0b/geometry-spectrum.md). It contains the theory, the pre-registration (written before any comparison), the results and the answers to §4.5. Run with `cargo run --release --bin geo_spectrum` (≈3 min), plot with `python3 analysis/plot_geo_spectrum.py`; outputs go to `results/phase0b/geometry-spectrum/`. Spectral tools: `crates/solvers/src/spectrum.rs`; linearised 3D model: `crates/model/src/rbsn3.rs`.

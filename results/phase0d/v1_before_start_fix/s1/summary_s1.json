@@ -1,0 +1,691 @@
+{
+  "meta": {
+    "config": {
+      "chi_lte": 0.5,
+      "chi_rr": 0.7,
+      "chi_trig": 0.9,
+      "cost_switch": 1.0,
+      "coupling_ebudget": 1e-6,
+      "coupling_ftol": 0.00001,
+      "coupling_tol": 0.1,
+      "deg": 2,
+      "eps_rr": 0.05,
+      "h_e_cap_cfl": true,
+      "h_e_fixed": null,
+      "h_macro": 0.004166666666666667,
+      "h_min": 1e-7,
+      "h_min_coupling": 0.00026041666666666666,
+      "he_scale": 1.0,
+      "implicit": true,
+      "lp": 0.2,
+      "lte_atol": 0.1,
+      "lte_rtol": 0.02,
+      "max_coupling": 4,
+      "min_cells": 4,
+      "nvib": 0,
+      "open0": "None",
+      "quiet_steps": 3,
+      "r_e": 0.2,
+      "rereduce": true
+    },
+    "experiment": "phase0d",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "s1",
+    "seed": null,
+    "solver_schedule": "implicit adaptive engine vs explicit reference",
+    "source_hash": "5e53fe8d35e34b5b",
+    "unix_time": 1794052334
+  },
+  "results": [
+    {
+      "criteria": {
+        "D": {
+          "engine": 14.451458287926476,
+          "pass": true,
+          "ref": 14.543018771204379,
+          "rel": -0.0062958375230316695
+        },
+        "crack_x": {
+          "engine": 0.2413133661471987,
+          "pass": true,
+          "ref": 0.22866896116615434
+        },
+        "d_fric": 0.0,
+        "d_red": 0.0002622513090733136,
+        "frag_ke": {
+          "engine": 4815.660295727757,
+          "pass": true,
+          "ref": 4767.83465280457,
+          "rel": 0.0100308937716736
+        },
+        "frag_omega": {
+          "engine": -0.2508780997766549,
+          "pass": false,
+          "ref": -0.30496070310260465,
+          "rel": 0.17734286016435885
+        },
+        "frag_v": {
+          "engine": [
+            0.20108886643831153,
+            -2.9532660185678976
+          ],
+          "pass": true,
+          "ref": [
+            0.23174376859666893,
+            -2.93623768716004
+          ],
+          "rel": 0.011905774069963912
+        },
+        "no_creation": {
+          "e_rise": 0.0,
+          "ke_max": 4858.115582364869,
+          "pass": true
+        },
+        "numerical_dissipation": 10.637218913180146,
+        "onset": {
+          "engine": 0.01875,
+          "pass": true,
+          "ref": 0.020833333333333332
+        },
+        "sep_t": {
+          "engine": 0.04223437500000002,
+          "pass": true,
+          "ref": 0.041666666666666664
+        },
+        "separation": {
+          "engine": true,
+          "pass": true,
+          "ref": true
+        },
+        "threshold": {
+          "engine": 0.9671875000000001,
+          "pass": true,
+          "ref": 0.9203125000000001,
+          "rel": 0.05093378607809847
+        },
+        "wall_ratio": 5.759206994988242,
+        "work_ratio": 9.39164404032801,
+        "zone": {
+          "cells": 716,
+          "max": 716,
+          "mean_frac": 0.14720506721368737
+        }
+      },
+      "engine": {
+        "cells": 716,
+        "chi_r_max": 0.8988539892962842,
+        "crack": [
+          0.2413133661471987,
+          0.23111882370984393,
+          0.04744395488322574,
+          0.705901370525491,
+          0.0421970073395246,
+          0.3932158836337937
+        ],
+        "d_end": 14.451458287926476,
+        "e0": -0.21922433791095491,
+        "e_end": -10.856701436242632,
+        "e_max_rise": 0.0,
+        "events": 24,
+        "failed_at": null,
+        "fragment": {
+          "cells": 683,
+          "cm": [
+            2.1378990313989648,
+            -0.19390445603277293
+          ],
+          "mass": 1099.187647587892,
+          "omega": -0.2508780997766549,
+          "separated": true,
+          "v": [
+            0.20108886643831153,
+            -2.9532660185678976
+          ]
+        },
+        "frags": [
+          {
+            "cells": 683,
+            "cm": [
+              2.1378990313989648,
+              -0.19390445603277293
+            ],
+            "mass": 1099.187647587892,
+            "omega": -0.2508780997766549,
+            "separated": true,
+            "v": [
+              0.20108886643831153,
+              -2.9532660185678976
+            ]
+          }
+        ],
+        "h_e": 0.0,
+        "ke_max": 4858.115582364869,
+        "label": "engine",
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 0.0,
+          "d_num_r": 10.637218913180146,
+          "d_red": 0.0002622513090733136,
+          "w_ext": -0.7835825334733236,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "max_e_cells": 716,
+        "mean_e_frac": 0.14720506721368737,
+        "momentum_drift": 3253.709978484071,
+        "onset_t": 0.01875,
+        "patches": 40,
+        "scene": "cantilever_SBIL1_s1_g1.1504",
+        "sep_t": 0.04223437500000002,
+        "v_impactor": null,
+        "wall_s": 3.265307333,
+        "work": {
+          "activations": 47,
+          "contact_flops": 0.0,
+          "coupling_flops": 764578152.0,
+          "coupling_iters": 0,
+          "e_body_flops": 47049792.0,
+          "e_pts": 43281456,
+          "e_substeps": 5476,
+          "fact_flops": 441530825.0,
+          "factorizations": 226,
+          "iface_flops": 0.0,
+          "macro_steps": 130,
+          "monitor_flops": 58678320.0,
+          "newton_iters": 1160,
+          "pts_force": 2224716,
+          "pts_tangent": 435708,
+          "rebuild_flops": 148824852.0,
+          "region_flops": 47487886.0,
+          "rejected": 10,
+          "rereductions": 45,
+          "solve_flops": 201889136.0,
+          "step_flops": 47249894.0
+        },
+        "work_total": 4574800777.0
+      },
+      "ref": {
+        "cells": 716,
+        "chi_r_max": 0.0,
+        "crack": [
+          0.22866896116615434,
+          0.19851419709095292,
+          0.04744395488322574,
+          0.705901370525491,
+          0.0421970073395246,
+          0.3932158836337937
+        ],
+        "d_end": 14.543018771204379,
+        "e0": -0.21941067691029653,
+        "e_end": -0.21991689763583544,
+        "e_max_rise": 1.1174177458328494e-7,
+        "events": 11,
+        "failed_at": null,
+        "fragment": {
+          "cells": 683,
+          "cm": [
+            2.143313187694639,
+            -0.19096992432567142
+          ],
+          "mass": 1099.187647587892,
+          "omega": -0.30496070310260465,
+          "separated": true,
+          "v": [
+            0.23174376859666893,
+            -2.93623768716004
+          ]
+        },
+        "frags": [
+          {
+            "cells": 683,
+            "cm": [
+              2.143313187694639,
+              -0.19096992432567142
+            ],
+            "mass": 1099.187647587892,
+            "omega": -0.30496070310260465,
+            "separated": true,
+            "v": [
+              0.23174376859666893,
+              -2.93623768716004
+            ]
+          }
+        ],
+        "h_e": 3.3941125496954284e-6,
+        "ke_max": 4831.941884989772,
+        "label": "reference",
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 0.0,
+          "d_num_r": 0.0,
+          "d_red": 0.0,
+          "w_ext": -0.10280136618087,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "max_e_cells": 716,
+        "mean_e_frac": 1.0000000000000009,
+        "momentum_drift": 3237.1260507784473,
+        "onset_t": 0.020833333333333332,
+        "patches": 1,
+        "scene": "cantilever_SBIL1_s1_g1.1504",
+        "sep_t": 0.041666666666666664,
+        "v_impactor": null,
+        "wall_s": 18.805580833,
+        "work": {
+          "activations": 0,
+          "contact_flops": 0.0,
+          "coupling_flops": 0.0,
+          "coupling_iters": 0,
+          "e_body_flops": 759670272.0,
+          "e_pts": 693745920,
+          "e_substeps": 88416,
+          "fact_flops": 0.0,
+          "factorizations": 0,
+          "iface_flops": 0.0,
+          "macro_steps": 72,
+          "monitor_flops": 0.0,
+          "newton_iters": 0,
+          "pts_force": 0,
+          "pts_tangent": 0,
+          "rebuild_flops": 580474981.0,
+          "region_flops": 0.0,
+          "rejected": 0,
+          "rereductions": 0,
+          "solve_flops": 0.0,
+          "step_flops": 0.0
+        },
+        "work_total": 42964900453.0
+      },
+      "seed": 1
+    },
+    {
+      "criteria": {
+        "D": {
+          "engine": 14.307023383973796,
+          "pass": true,
+          "ref": 14.635698927771143,
+          "rel": -0.022457112941404355
+        },
+        "crack_x": {
+          "engine": 0.17084033219933573,
+          "pass": true,
+          "ref": 0.1779468474430191
+        },
+        "d_fric": 0.0,
+        "d_red": 0.000056073862270800134,
+        "frag_ke": {
+          "engine": 3585.8074209210863,
+          "pass": false,
+          "ref": 4745.736375143907,
+          "rel": -0.2444149574548687
+        },
+        "frag_omega": {
+          "engine": -0.8959876228878143,
+          "pass": false,
+          "ref": -0.20874466829658542,
+          "rel": -3.2922659064747504
+        },
+        "frag_v": {
+          "engine": [
+            0.5248573190062816,
+            -2.4962652154498577
+          ],
+          "pass": false,
+          "ref": [
+            0.13649306400322148,
+            -2.9313810557216047
+          ],
+          "rel": 0.19874413858580328
+        },
+        "no_creation": {
+          "e_rise": 0.0,
+          "ke_max": 4131.756606435725,
+          "pass": true
+        },
+        "numerical_dissipation": 16.248867122973202,
+        "onset": {
+          "engine": 0.01875,
+          "pass": true,
+          "ref": 0.020833333333333332
+        },
+        "sep_t": {
+          "engine": 0.05209570312500002,
+          "pass": true,
+          "ref": 0.05416666666666666
+        },
+        "separation": {
+          "engine": true,
+          "pass": true,
+          "ref": true
+        },
+        "threshold": {
+          "engine": 0.9671875000000001,
+          "pass": true,
+          "ref": 0.9046875000000001,
+          "rel": 0.06908462867012088
+        },
+        "wall_ratio": 3.860581788649042,
+        "work_ratio": 5.83211795254748,
+        "zone": {
+          "cells": 713,
+          "max": 713,
+          "mean_frac": 0.32506706429211424
+        }
+      },
+      "engine": {
+        "cells": 713,
+        "chi_r_max": 0.8908994258231456,
+        "crack": [
+          0.17084033219933573,
+          0.17945746467217855,
+          0.05207143711901259,
+          0.7597547707930775,
+          0.05591293289663847,
+          0.3991174810328823
+        ],
+        "d_end": 14.307023383973796,
+        "e0": -0.21777749548928263,
+        "e_end": -16.466869552119025,
+        "e_max_rise": 0.0,
+        "events": 45,
+        "failed_at": null,
+        "fragment": {
+          "cells": 684,
+          "cm": [
+            2.1658200916842,
+            -0.14108189078210137
+          ],
+          "mass": 1102.1697385038992,
+          "omega": -0.8959876228878143,
+          "separated": true,
+          "v": [
+            0.5248573190062816,
+            -2.4962652154498577
+          ]
+        },
+        "frags": [
+          {
+            "cells": 684,
+            "cm": [
+              2.1658200916842,
+              -0.14108189078210137
+            ],
+            "mass": 1102.1697385038992,
+            "omega": -0.8959876228878143,
+            "separated": true,
+            "v": [
+              0.5248573190062816,
+              -2.4962652154498577
+            ]
+          }
+        ],
+        "h_e": 0.0,
+        "ke_max": 4131.756606435725,
+        "label": "engine",
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 0.0,
+          "d_num_r": 16.248867122973202,
+          "d_red": 0.000056073862270800134,
+          "w_ext": -0.7608086701408445,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "max_e_cells": 713,
+        "mean_e_frac": 0.32506706429211424,
+        "momentum_drift": 2811.465207358439,
+        "onset_t": 0.01875,
+        "patches": 40,
+        "scene": "cantilever_SBIL1_s2_g1.1309",
+        "sep_t": 0.05209570312500002,
+        "v_impactor": null,
+        "wall_s": 4.850970167,
+        "work": {
+          "activations": 81,
+          "contact_flops": 0.0,
+          "coupling_flops": 973183092.0,
+          "coupling_iters": 0,
+          "e_body_flops": 84824184.0,
+          "e_pts": 78261444,
+          "e_substeps": 9914,
+          "fact_flops": 604247027.0,
+          "factorizations": 320,
+          "iface_flops": 0.0,
+          "macro_steps": 132,
+          "monitor_flops": 61478400.0,
+          "newton_iters": 994,
+          "pts_force": 2567004,
+          "pts_tangent": 904878,
+          "rebuild_flops": 317488417.0,
+          "region_flops": 47269600.0,
+          "rejected": 15,
+          "rereductions": 77,
+          "solve_flops": 178950416.0,
+          "step_flops": 37082028.0
+        },
+        "work_total": 7335205644.0
+      },
+      "ref": {
+        "cells": 713,
+        "chi_r_max": 0.0,
+        "crack": [
+          0.1779468474430191,
+          0.13080873386853498,
+          0.05207143711901259,
+          0.6328660433617364,
+          0.03024033829410549,
+          0.3991174810328823
+        ],
+        "d_end": 14.635698927771143,
+        "e0": -0.21690426365245183,
+        "e_end": -0.21690518872948342,
+        "e_max_rise": 0.000035349811909946016,
+        "events": 8,
+        "failed_at": null,
+        "fragment": {
+          "cells": 684,
+          "cm": [
+            2.119970952359182,
+            -0.19249614807095272
+          ],
+          "mass": 1102.1697385038992,
+          "omega": -0.20874466829658542,
+          "separated": true,
+          "v": [
+            0.13649306400322148,
+            -2.9313810557216047
+          ]
+        },
+        "frags": [
+          {
+            "cells": 684,
+            "cm": [
+              2.119970952359182,
+              -0.19249614807095272
+            ],
+            "mass": 1102.1697385038992,
+            "omega": -0.20874466829658542,
+            "separated": true,
+            "v": [
+              0.13649306400322148,
+              -2.9313810557216047
+            ]
+          }
+        ],
+        "h_e": 3.3941125496954284e-6,
+        "ke_max": 4776.01573319793,
+        "label": "reference",
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 0.0,
+          "d_num_r": 0.0,
+          "d_red": 0.0,
+          "w_ext": -0.10163184239616183,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "max_e_cells": 713,
+        "mean_e_frac": 0.9999999999999998,
+        "momentum_drift": 3234.5928149744,
+        "onset_t": 0.020833333333333332,
+        "patches": 1,
+        "scene": "cantilever_SBIL1_s2_g1.1309",
+        "sep_t": 0.05416666666666666,
+        "v_impactor": null,
+        "wall_s": 18.727567084,
+        "work": {
+          "activations": 0,
+          "contact_flops": 0.0,
+          "coupling_flops": 0.0,
+          "coupling_iters": 0,
+          "e_body_flops": 756487296.0,
+          "e_pts": 693082260,
+          "e_substeps": 88416,
+          "fact_flops": 0.0,
+          "factorizations": 0,
+          "iface_flops": 0.0,
+          "macro_steps": 72,
+          "monitor_flops": 0.0,
+          "newton_iters": 0,
+          "pts_force": 0,
+          "pts_tangent": 0,
+          "rebuild_flops": 438361626.0,
+          "region_flops": 0.0,
+          "rejected": 0,
+          "rereductions": 0,
+          "solve_flops": 0.0,
+          "step_flops": 0.0
+        },
+        "work_total": 42779784522.0
+      },
+      "seed": 2
+    }
+  ],
+  "thresholds": [
+    {
+      "bisection": [
+        [
+          1.1,
+          true
+        ],
+        [
+          0.8500000000000001,
+          false
+        ],
+        [
+          0.9750000000000001,
+          true
+        ],
+        [
+          0.9125000000000001,
+          false
+        ],
+        [
+          0.9437500000000001,
+          true
+        ],
+        [
+          0.9281250000000001,
+          true
+        ]
+      ],
+      "engine": false,
+      "lambda_crit": 0.9203125000000001,
+      "seed": 1
+    },
+    {
+      "bisection": [
+        [
+          1.1,
+          true
+        ],
+        [
+          0.8500000000000001,
+          false
+        ],
+        [
+          0.9750000000000001,
+          true
+        ],
+        [
+          0.9125000000000001,
+          false
+        ],
+        [
+          0.9437500000000001,
+          false
+        ],
+        [
+          0.9593750000000001,
+          false
+        ]
+      ],
+      "engine": true,
+      "lambda_crit": 0.9671875000000001,
+      "seed": 1
+    },
+    {
+      "bisection": [
+        [
+          1.1,
+          true
+        ],
+        [
+          0.8500000000000001,
+          false
+        ],
+        [
+          0.9750000000000001,
+          true
+        ],
+        [
+          0.9125000000000001,
+          true
+        ],
+        [
+          0.8812500000000001,
+          false
+        ],
+        [
+          0.8968750000000001,
+          false
+        ]
+      ],
+      "engine": false,
+      "lambda_crit": 0.9046875000000001,
+      "seed": 2
+    },
+    {
+      "bisection": [
+        [
+          1.1,
+          true
+        ],
+        [
+          0.8500000000000001,
+          false
+        ],
+        [
+          0.9750000000000001,
+          true
+        ],
+        [
+          0.9125000000000001,
+          false
+        ],
+        [
+          0.9437500000000001,
+          false
+        ],
+        [
+          0.9593750000000001,
+          false
+        ]
+      ],
+      "engine": true,
+      "lambda_crit": 0.9671875000000001,
+      "seed": 2
+    }
+  ]
+}

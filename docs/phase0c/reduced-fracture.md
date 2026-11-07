@@ -1,5 +1,7 @@
 # Phase 0c — Fracture with reduced intact regions
 
+*Continued in Phase 0d: [`docs/phase0d/adaptive-engine.md`](../phase0d/adaptive-engine.md) (adaptive engine: split/merge patches, error-controlled steps, explicit windows, scaling and mass failure).*
+
 *Started 2026-11-07. Sections 0–2 were written before any Phase 0c run. Any later change to them is marked **post-hoc**.*
 
 ## 0. Scope

@@ -1,0 +1,426 @@
+{
+  "meta": {
+    "config": {
+      "engine": {
+        "chi_lte": 0.5,
+        "chi_rr": 0.7,
+        "chi_trig": 0.9,
+        "cost_switch": 1.0,
+        "coupling_ebudget": 1e-6,
+        "coupling_ftol": 0.00001,
+        "coupling_tol": 0.1,
+        "deg": 2,
+        "eps_rr": 0.05,
+        "h_e_cap_cfl": true,
+        "h_e_fixed": null,
+        "h_macro": 0.004166666666666667,
+        "h_min": 1e-7,
+        "h_min_coupling": 0.00026041666666666666,
+        "he_scale": 1.0,
+        "implicit": true,
+        "lp": 0.2,
+        "lte_atol": 0.1,
+        "lte_rtol": 0.02,
+        "max_coupling": 4,
+        "min_cells": 4,
+        "nvib": 0,
+        "open0": "None",
+        "quiet_steps": 3,
+        "r_e": 0.2,
+        "rereduce": true
+      },
+      "mp": 50.0,
+      "v0": 3.0
+    },
+    "experiment": "phase0d",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "s3b",
+    "seed": 1,
+    "solver_schedule": "post-hoc: wall on a foundation, impact at the top centre",
+    "source_hash": "ff71dc16349482a1",
+    "unix_time": 1794052239
+  },
+  "runs": [
+    {
+      "cells": 425,
+      "criteria": {
+        "D": {
+          "engine": 145.32767243443752,
+          "pass": true,
+          "ref": 145.35516528413842,
+          "rel": -0.00018914257121281544
+        },
+        "crack_x": {
+          "engine": 0.5551730184844172,
+          "pass": true,
+          "ref": 0.555096423590446
+        },
+        "d_red": 0.0,
+        "fragments": {
+          "detail": [
+            {
+              "dv": 0.005680671028909932,
+              "mass": 120.36719617037501,
+              "mass_ref": 120.36719617037501
+            },
+            {
+              "dv": 0.04090995358495039,
+              "mass": 167.17941365332112,
+              "mass_ref": 167.17941365332112
+            },
+            {
+              "dv": 0.006796901078336434,
+              "mass": 31.395588948052215,
+              "mass_ref": 31.395588948052215
+            },
+            {
+              "dv": 0.15192316351243385,
+              "mass": 31.943214971307313,
+              "mass_ref": 31.943214971307313
+            },
+            {
+              "dv": 0.008500205942712896,
+              "mass": 96.17225265758746,
+              "mass_ref": 96.17225265758746
+            }
+          ],
+          "engine": 5,
+          "pass": true,
+          "ref": 5
+        },
+        "impulse": {
+          "engine": 198.32154507721498,
+          "pass": true,
+          "ref": 197.76741906254856,
+          "rel": 0.0028019074996937063
+        },
+        "no_creation": {
+          "e_rise": 0.0,
+          "ke0": 225.0,
+          "pass": true
+        },
+        "numerical_dissipation_over_ke0": 0.00312675201859501,
+        "rebound": {
+          "engine": 0.9664309015442997,
+          "pass": true,
+          "ref": 0.9553483812509713
+        },
+        "wall_ratio": 0.36619193462113303,
+        "work_ratio": 0.46396142380118294,
+        "zone": {
+          "cells": 425,
+          "max": 425,
+          "mean_frac": 0.99784486060049
+        }
+      },
+      "engine": {
+        "cells": 425,
+        "chi_r_max": 0.639374095575059,
+        "crack": [
+          0.5551730184844172,
+          0.5587569590407064,
+          0.0031186463289802555,
+          0.9921641146072113,
+          0.025698468393821616,
+          0.9948528279262441
+        ],
+        "d_end": 145.32767243443752,
+        "e0": 224.99938267332246,
+        "e_end": 224.31098944110676,
+        "e_max_rise": 0.0,
+        "events": 12,
+        "failed_at": null,
+        "fragment": {
+          "cells": 0,
+          "cm": [
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "omega": 0.0,
+          "separated": false,
+          "v": [
+            0.0,
+            0.0
+          ]
+        },
+        "frags": [
+          {
+            "cells": 109,
+            "cm": [
+              0.20485298452358636,
+              0.7045305769222769
+            ],
+            "mass": 120.36719617037501,
+            "omega": 0.8628711821799899,
+            "separated": true,
+            "v": [
+              -0.19640362597288102,
+              0.35942557153955557
+            ]
+          },
+          {
+            "cells": 142,
+            "cm": [
+              0.42465536006961746,
+              0.2097508269712097
+            ],
+            "mass": 167.17941365332112,
+            "omega": -0.09610727569568131,
+            "separated": true,
+            "v": [
+              0.04331888373424634,
+              -0.02620050255597722
+            ]
+          },
+          {
+            "cells": 26,
+            "cm": [
+              0.5787488292126876,
+              0.6356414707188881
+            ],
+            "mass": 31.395588948052215,
+            "omega": -1.151639153576311,
+            "separated": true,
+            "v": [
+              0.16649236509844378,
+              0.3921756078838583
+            ]
+          },
+          {
+            "cells": 30,
+            "cm": [
+              0.8267475201932888,
+              0.3181002102470869
+            ],
+            "mass": 31.943214971307313,
+            "omega": -0.5519576347968774,
+            "separated": true,
+            "v": [
+              0.1403922937458893,
+              0.0949769060499511
+            ]
+          },
+          {
+            "cells": 91,
+            "cm": [
+              0.8330266109452017,
+              0.7270473957351473
+            ],
+            "mass": 96.17225265758746,
+            "omega": -0.615803139877134,
+            "separated": true,
+            "v": [
+              0.49093018872864036,
+              0.3633663954219256
+            ]
+          }
+        ],
+        "h_e": 0.0,
+        "ke_max": 225.0,
+        "label": "engine",
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 0.0,
+          "d_num_r": 0.7035192041838773,
+          "d_red": 0.0,
+          "w_ext": 0.0,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "max_e_cells": 425,
+        "mean_e_frac": 0.99784486060049,
+        "momentum_drift": 302.16753169708267,
+        "onset_t": 0.0005132242838541667,
+        "patches": 26,
+        "scene": "wall_W1_s1_v3.00",
+        "sep_t": null,
+        "v_impactor": 0.9664309015442997,
+        "wall_s": 0.868906584,
+        "work": {
+          "activations": 25,
+          "contact_flops": 0.0,
+          "coupling_flops": 139995405.0,
+          "coupling_iters": 0,
+          "e_body_flops": 7509528.0,
+          "e_pts": 7161944,
+          "e_substeps": 1469,
+          "fact_flops": 201058722.0,
+          "factorizations": 71,
+          "iface_flops": 0.0,
+          "macro_steps": 20,
+          "monitor_flops": 5741760.0,
+          "newton_iters": 172,
+          "pts_force": 258986,
+          "pts_tangent": 116258,
+          "rebuild_flops": 296010585.0,
+          "region_flops": 5377950.0,
+          "rejected": 9,
+          "rereductions": 0,
+          "solve_flops": 27617532.0,
+          "step_flops": 3423816.0
+        },
+        "work_total": 1155242698.0
+      },
+      "ref": {
+        "cells": 425,
+        "chi_r_max": 0.0,
+        "crack": [
+          0.555096423590446,
+          0.5598857536373839,
+          0.0031186463289802555,
+          0.9921641146072113,
+          0.025698468393821616,
+          0.9948528279262441
+        ],
+        "d_end": 145.35516528413842,
+        "e0": 224.99938285894063,
+        "e_end": 225.09138596847214,
+        "e_max_rise": 0.09200310953150392,
+        "events": 2,
+        "failed_at": null,
+        "fragment": {
+          "cells": 0,
+          "cm": [
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "omega": 0.0,
+          "separated": false,
+          "v": [
+            0.0,
+            0.0
+          ]
+        },
+        "frags": [
+          {
+            "cells": 109,
+            "cm": [
+              0.20484458775085593,
+              0.7045426117558227
+            ],
+            "mass": 120.36719617037501,
+            "omega": 0.8088972204055389,
+            "separated": true,
+            "v": [
+              -0.2010494458952505,
+              0.362694574535518
+            ]
+          },
+          {
+            "cells": 142,
+            "cm": [
+              0.4246568254547845,
+              0.20975168621729423
+            ],
+            "mass": 167.17941365332112,
+            "omega": -0.08790527285641689,
+            "separated": true,
+            "v": [
+              0.018508010378313355,
+              0.006327099040799789
+            ]
+          },
+          {
+            "cells": 26,
+            "cm": [
+              0.5787329996969853,
+              0.6356320880579406
+            ],
+            "mass": 31.395588948052215,
+            "omega": -1.2093230308913914,
+            "separated": true,
+            "v": [
+              0.16827049170268557,
+              0.3987358007200468
+            ]
+          },
+          {
+            "cells": 30,
+            "cm": [
+              0.8265973650175551,
+              0.3179714997410753
+            ],
+            "mass": 31.943214971307313,
+            "omega": 0.027147580460759057,
+            "separated": true,
+            "v": [
+              0.0934688414765037,
+              -0.04951820542012044
+            ]
+          },
+          {
+            "cells": 91,
+            "cm": [
+              0.8330551544027742,
+              0.7270635798728043
+            ],
+            "mass": 96.17225265758746,
+            "omega": -0.5998744514953104,
+            "separated": true,
+            "v": [
+              0.49908980463285385,
+              0.3657484469251971
+            ]
+          }
+        ],
+        "h_e": 3.3941125496954284e-6,
+        "ke_max": 225.0,
+        "label": "reference",
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 0.0,
+          "d_num_r": 0.0,
+          "d_red": 0.0,
+          "w_ext": 0.0,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "max_e_cells": 425,
+        "mean_e_frac": 1.0,
+        "momentum_drift": 304.10170734653764,
+        "onset_t": 0.004166666666666667,
+        "patches": 1,
+        "scene": "wall_W1_s1_v3.00",
+        "sep_t": null,
+        "v_impactor": 0.9553483812509713,
+        "wall_s": 0.318186583,
+        "work": {
+          "activations": 0,
+          "contact_flops": 0.0,
+          "coupling_flops": 0.0,
+          "coupling_iters": 0,
+          "e_body_flops": 7535088.0,
+          "e_pts": 7180204,
+          "e_substeps": 1474,
+          "fact_flops": 0.0,
+          "factorizations": 0,
+          "iface_flops": 0.0,
+          "macro_steps": 2,
+          "monitor_flops": 0.0,
+          "newton_iters": 0,
+          "pts_force": 0,
+          "pts_tangent": 0,
+          "rebuild_flops": 97640719.0,
+          "region_flops": 0.0,
+          "rejected": 0,
+          "rereductions": 0,
+          "solve_flops": 0.0,
+          "step_flops": 0.0
+        },
+        "work_total": 535988047.0
+      },
+      "wall_engine": 0.868906584,
+      "wall_ref": 0.318186583,
+      "width": 1.0,
+      "work_engine": 1155242698.0,
+      "work_ref": 535988047.0
+    }
+  ],
+  "scaling": {
+    "b_engine": null,
+    "b_ref": null,
+    "marginal_ratio": null
+  }
+}

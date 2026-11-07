@@ -1,6 +1,8 @@
 //! Shared experiment plumbing: provenance, output files, common geometries and
 //! error metrics.
 
+pub mod engine;
+
 use geometry::rng::Rng;
 use geometry::rsa::rsa_rect;
 use geometry::voronoi2d::{rect, voronoi_convex, Tessellation};

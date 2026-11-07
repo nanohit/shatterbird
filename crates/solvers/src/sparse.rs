@@ -9,7 +9,7 @@ use faer::sparse::linalg::cholesky::{
     factorize_symbolic_cholesky, CholeskySymbolicParams, LltRef, SymbolicCholesky, SymbolicCholeskyRaw,
     SymmetricOrdering,
 };
-use faer::sparse::{SparseColMat, Triplet};
+use faer::sparse::{SparseColMat, SymbolicSparseColMat, Triplet};
 use faer::{Conj, Par, Side};
 
 #[derive(Clone, Copy, Debug, Default)]
@@ -132,6 +132,60 @@ fn l_stats(sym: &SymbolicCholesky<usize>) -> (usize, f64) {
             }
             (nnz, fl)
         }
+    }
+}
+
+
+/// A fixed sparsity pattern (CSC, sorted rows) into which triplets are scattered
+/// without sorting; the symbolic Cholesky can then be reused across factorisations.
+#[derive(Clone, Debug)]
+pub struct Pattern {
+    pub n: usize,
+    col_ptr: Vec<usize>,
+    row_idx: Vec<usize>,
+}
+
+impl Pattern {
+    pub fn from_entries(n: usize, entries: &[(usize, usize)]) -> Pattern {
+        let mut cols: Vec<Vec<usize>> = vec![Vec::new(); n];
+        for &(r, c) in entries {
+            cols[c].push(r);
+        }
+        for (c, col) in cols.iter_mut().enumerate() {
+            col.push(c);
+            col.sort_unstable();
+            col.dedup();
+        }
+        let mut col_ptr = Vec::with_capacity(n + 1);
+        let mut row_idx = Vec::new();
+        col_ptr.push(0);
+        for col in &cols {
+            row_idx.extend_from_slice(col);
+            col_ptr.push(row_idx.len());
+        }
+        Pattern { n, col_ptr, row_idx }
+    }
+
+    pub fn nnz(&self) -> usize {
+        self.row_idx.len()
+    }
+
+    /// Scatter-add triplets; None if an entry falls outside the pattern.
+    pub fn scatter(&self, trip: &[(usize, usize, f64)]) -> Option<Vec<f64>> {
+        let mut v = vec![0.0; self.row_idx.len()];
+        for &(r, c, x) in trip {
+            let (a, b) = (self.col_ptr[c], self.col_ptr[c + 1]);
+            match self.row_idx[a..b].binary_search(&r) {
+                Ok(k) => v[a + k] += x,
+                Err(_) => return None,
+            }
+        }
+        Some(v)
+    }
+
+    pub fn matrix(&self, vals: Vec<f64>) -> SparseColMat<usize, f64> {
+        let sym = SymbolicSparseColMat::new_checked(self.n, self.n, self.col_ptr.clone(), None, self.row_idx.clone());
+        SparseColMat::new(sym, vals)
     }
 }
 

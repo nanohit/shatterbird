@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "config": {
+      "engine": {
+        "absorbing": false,
+        "chi_lte": 0.5,
+        "chi_rr": 0.7,
+        "chi_trig": 0.9,
+        "cost_switch": 1.0,
+        "coupling_ebudget": 1e-6,
+        "coupling_ftol": 0.00001,
+        "coupling_tol": 0.1,
+        "deg": 2,
+        "eps_rr": 0.05,
+        "h_e_cap_cfl": true,
+        "h_e_fixed": null,
+        "h_macro": 0.004166666666666667,
+        "h_min": 1e-7,
+        "h_min_coupling": 0.00026041666666666666,
+        "he_scale": 1.0,
+        "implicit": true,
+        "lp": 0.2,
+        "lte_atol": 0.1,
+        "lte_rtol": 0.02,
+        "max_coupling": 4,
+        "min_cells": 4,
+        "nvib": 0,
+        "open0": "None",
+        "quiet_steps": 3,
+        "r_e": 0.2,
+        "rereduce": true
+      },
+      "lam0": 1.15
+    },
+    "experiment": "phase0d",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "s5",
+    "seed": 1,
+    "solver_schedule": "post-hoc: cantilevers of growing length, same root moment",
+    "source_hash": "baa6b6cbee96e8e0",
+    "unix_time": 1794053961
+  },
+  "runs": [
+    {
+      "D_rel": -0.01603833099142861,
+      "cells": 360,
+      "d_num": 0.5669833198619103,
+      "e_rise_engine": 5.062616992290714e-14,
+      "frag_dv_rel": 0.04086415249397689,
+      "ke_max": 1414.7127629820966,
+      "len": 2.0,
+      "omega": [
+        -2.1673371046385888,
+        -2.057194603122257
+      ],
+      "separated": [
+        true,
+        true
+      ],
+      "wall_engine": 1.575970042,
+      "wall_ratio": 2.4211303605478056,
+      "wall_ref": 3.815628916,
+      "work_engine": 1998265812.0,
+      "work_ratio": 2.757113100226528,
+      "work_ref": 5509444848.0,
+      "zone_max": 360,
+      "zone_mean": 0.46055507330246914
+    },
+    {
+      "D_rel": -0.0030734669150322656,
+      "cells": 716,
+      "d_num": 10.237871236965535,
+      "e_rise_engine": 0.0,
+      "frag_dv_rel": 0.012062102777363642,
+      "ke_max": 4858.156688583299,
+      "len": 4.0,
+      "omega": [
+        -0.3050895938969947,
+        -0.2645016636528041
+      ],
+      "separated": [
+        true,
+        true
+      ],
+      "wall_engine": 5.80189925,
+      "wall_ratio": 4.232487548452345,
+      "wall_ref": 24.556466333,
+      "work_engine": 5707430381.0,
+      "work_ratio": 7.527888661774988,
+      "work_ref": 42964900453.0,
+      "zone_max": 716,
+      "zone_mean": 0.21011422932185034
+    },
+    {
+      "D_rel": 0.0006928262629449007,
+      "cells": 1428,
+      "d_num": 8.018393614836937,
+      "e_rise_engine": 0.0,
+      "frag_dv_rel": 0.0012266224670803537,
+      "ke_max": 11075.347556430674,
+      "len": 8.0,
+      "omega": [
+        -0.06511602511786878,
+        -0.0638631562208554
+      ],
+      "separated": [
+        true,
+        true
+      ],
+      "wall_engine": 18.399693333,
+      "wall_ratio": 8.291771461776026,
+      "wall_ref": 152.566052084,
+      "work_engine": 17343833299.0,
+      "work_ratio": 19.696632646007767,
+      "work_ref": 341615113164.0,
+      "zone_max": 1428,
+      "zone_mean": 0.08000490408837184
+    }
+  ]
+}

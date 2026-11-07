@@ -1,0 +1,294 @@
+{
+  "meta": {
+    "config": {
+      "engine": {
+        "chi_lte": 0.5,
+        "chi_rr": 0.7,
+        "chi_trig": 0.9,
+        "cost_switch": 1.0,
+        "coupling_ebudget": 1e-6,
+        "coupling_ftol": 0.00001,
+        "coupling_tol": 0.1,
+        "deg": 2,
+        "eps_rr": 0.05,
+        "h_e_cap_cfl": true,
+        "h_e_fixed": null,
+        "h_macro": 0.004166666666666667,
+        "h_min": 1e-7,
+        "h_min_coupling": 0.00026041666666666666,
+        "he_scale": 1.0,
+        "implicit": true,
+        "lp": 0.2,
+        "lte_atol": 0.1,
+        "lte_rtol": 0.02,
+        "max_coupling": 4,
+        "min_cells": 4,
+        "nvib": 0,
+        "open0": "None",
+        "quiet_steps": 3,
+        "r_e": 0.2,
+        "rereduce": true
+      },
+      "mp": 50.0,
+      "v0": 1.0
+    },
+    "experiment": "phase0d",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "s3b",
+    "seed": 1,
+    "solver_schedule": "post-hoc: wall on a foundation, impact at the top centre",
+    "source_hash": "ff71dc16349482a1",
+    "unix_time": 1794052249
+  },
+  "runs": [
+    {
+      "cells": 858,
+      "criteria": {
+        "D": {
+          "engine": 1.9695553439817937,
+          "pass": false,
+          "ref": 2.3751583851464844,
+          "rel": -0.17076883954401034
+        },
+        "crack_x": {
+          "engine": 1.0170314655375934,
+          "pass": true,
+          "ref": 1.031632288449087
+        },
+        "d_red": 0.005310533293268804,
+        "fragments": {
+          "detail": [
+            {
+              "dv": 0.0017072492238325225,
+              "mass": 960.0000000000002,
+              "mass_ref": 960.0000000000002
+            }
+          ],
+          "engine": 1,
+          "pass": true,
+          "ref": 1
+        },
+        "impulse": {
+          "engine": 73.99881726381636,
+          "pass": true,
+          "ref": 74.01763401991226,
+          "rel": -0.00025421990779710027
+        },
+        "no_creation": {
+          "e_rise": 0.0,
+          "ke0": 25.0,
+          "pass": true
+        },
+        "numerical_dissipation_over_ke0": 0.12357029502657355,
+        "rebound": {
+          "engine": 0.4799763452763273,
+          "pass": true,
+          "ref": 0.48035268039824525
+        },
+        "wall_ratio": 0.8779253486297891,
+        "work_ratio": 0.8985129774856114,
+        "zone": {
+          "cells": 858,
+          "max": 858,
+          "mean_frac": 0.9992960643595409
+        }
+      },
+      "engine": {
+        "cells": 858,
+        "chi_r_max": 0.6892928139463619,
+        "crack": [
+          1.0170314655375934,
+          0.8969185194452854,
+          0.001777591823023528,
+          1.9984881340245542,
+          0.04994158832063593,
+          0.9987847970522747
+        ],
+        "d_end": 1.9695553439817937,
+        "e0": 24.998770077482394,
+        "e_end": 21.90429875229655,
+        "e_max_rise": 0.0,
+        "events": 12,
+        "failed_at": null,
+        "fragment": {
+          "cells": 0,
+          "cm": [
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "omega": 0.0,
+          "separated": false,
+          "v": [
+            0.0,
+            0.0
+          ]
+        },
+        "frags": [
+          {
+            "cells": 858,
+            "cm": [
+              1.000000003584878,
+              0.49998756390229004
+            ],
+            "mass": 960.0000000000002,
+            "omega": -0.0001953919782622941,
+            "separated": true,
+            "v": [
+              0.00008948494719961704,
+              0.063792660534988
+            ]
+          }
+        ],
+        "h_e": 0.0,
+        "ke_max": 25.0,
+        "label": "engine",
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 0.0,
+          "d_num_r": 3.0892573756643387,
+          "d_red": 0.005310533293268804,
+          "w_ext": 0.0,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "max_e_cells": 858,
+        "mean_e_frac": 0.9992960643595409,
+        "momentum_drift": 135.2397986614,
+        "onset_t": 0.000518310546875,
+        "patches": 51,
+        "scene": "wall_W2_s1_v1.00",
+        "sep_t": null,
+        "v_impactor": 0.4799763452763273,
+        "wall_s": 2.862954791,
+        "work": {
+          "activations": 54,
+          "contact_flops": 0.0,
+          "coupling_flops": 50225742.0,
+          "coupling_iters": 0,
+          "e_body_flops": 90803172.0,
+          "e_pts": 88238592,
+          "e_substeps": 8809,
+          "fact_flops": 158482769.0,
+          "factorizations": 22,
+          "iface_flops": 0.0,
+          "macro_steps": 53,
+          "monitor_flops": 22287720.0,
+          "newton_iters": 193,
+          "pts_force": 969888,
+          "pts_tangent": 76896,
+          "rebuild_flops": 320104053.0,
+          "region_flops": 1995494.0,
+          "rejected": 4,
+          "rereductions": 4,
+          "solve_flops": 76490608.0,
+          "step_flops": 5841470.0
+        },
+        "work_total": 6094119028.0
+      },
+      "ref": {
+        "cells": 858,
+        "chi_r_max": 0.0,
+        "crack": [
+          1.031632288449087,
+          0.8690869416495791,
+          0.001777591823023528,
+          1.9984881340245542,
+          0.042834798370630395,
+          0.9987847970522747
+        ],
+        "d_end": 2.3751583851464844,
+        "e0": 24.99876537699288,
+        "e_end": 24.999693123212005,
+        "e_max_rise": 0.0037437272151272794,
+        "events": 0,
+        "failed_at": null,
+        "fragment": {
+          "cells": 0,
+          "cm": [
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "omega": 0.0,
+          "separated": false,
+          "v": [
+            0.0,
+            0.0
+          ]
+        },
+        "frags": [
+          {
+            "cells": 858,
+            "cm": [
+              0.9999999976931527,
+              0.4999868803668672
+            ],
+            "mass": 960.0000000000002,
+            "omega": 0.00024348863279170744,
+            "separated": true,
+            "v": [
+              -0.00019625780977222264,
+              0.06210949358274741
+            ]
+          }
+        ],
+        "h_e": 3.3941125496954284e-6,
+        "ke_max": 25.0,
+        "label": "reference",
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 0.0,
+          "d_num_r": 0.0,
+          "d_red": 0.0,
+          "w_ext": 0.0,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "max_e_cells": 858,
+        "mean_e_frac": 1.0000000000000002,
+        "momentum_drift": 133.6428806662847,
+        "onset_t": 0.004166666666666667,
+        "patches": 1,
+        "scene": "wall_W2_s1_v1.00",
+        "sep_t": null,
+        "v_impactor": 0.48035268039824525,
+        "wall_s": 2.513460583,
+        "work": {
+          "activations": 0,
+          "contact_flops": 0.0,
+          "coupling_flops": 0.0,
+          "coupling_iters": 0,
+          "e_body_flops": 91143336.0,
+          "e_pts": 88358400,
+          "e_substeps": 8842,
+          "fact_flops": 0.0,
+          "factorizations": 0,
+          "iface_flops": 0.0,
+          "macro_steps": 8,
+          "monitor_flops": 0.0,
+          "newton_iters": 0,
+          "pts_force": 0,
+          "pts_tangent": 0,
+          "rebuild_flops": 82997697.0,
+          "region_flops": 0.0,
+          "rejected": 0,
+          "rereductions": 0,
+          "solve_flops": 0.0,
+          "step_flops": 0.0
+        },
+        "work_total": 5475645033.0
+      },
+      "wall_engine": 2.862954791,
+      "wall_ref": 2.513460583,
+      "width": 2.0,
+      "work_engine": 6094119028.0,
+      "work_ref": 5475645033.0
+    }
+  ],
+  "scaling": {
+    "b_engine": null,
+    "b_ref": null,
+    "marginal_ratio": null
+  }
+}

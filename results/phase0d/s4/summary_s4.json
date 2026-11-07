@@ -1,0 +1,610 @@
+{
+  "meta": {
+    "config": {
+      "engine": {
+        "absorbing": false,
+        "chi_lte": 0.5,
+        "chi_rr": 0.7,
+        "chi_trig": 0.9,
+        "cost_switch": 1.0,
+        "coupling_ebudget": 1e-6,
+        "coupling_ftol": 0.00001,
+        "coupling_tol": 0.1,
+        "deg": 2,
+        "eps_rr": 0.05,
+        "h_e_cap_cfl": true,
+        "h_e_fixed": null,
+        "h_macro": 0.004166666666666667,
+        "h_min": 1e-7,
+        "h_min_coupling": 0.00026041666666666666,
+        "he_scale": 1.0,
+        "implicit": true,
+        "lp": 0.2,
+        "lte_atol": 0.1,
+        "lte_rtol": 0.02,
+        "max_coupling": 4,
+        "min_cells": 4,
+        "nvib": 0,
+        "open0": "None",
+        "quiet_steps": 3,
+        "r_e": 0.2,
+        "rereduce": true
+      },
+      "scene": {
+        "depth": 0.3,
+        "height": 1.0,
+        "len": 6.0,
+        "mu": 0.5,
+        "t2": 0.5
+      },
+      "t_end": 1.2
+    },
+    "experiment": "phase0d",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "s4",
+    "seed": null,
+    "solver_schedule": "mass failure: reference at h_E and h_E/2 and the engine",
+    "source_hash": "8faad8068a6f537a",
+    "unix_time": 1794053387
+  },
+  "results": [
+    {
+      "criteria": {
+        "D": {
+          "engine": 2051.252454993972,
+          "noise": 0.0031910178692857584,
+          "pass": true,
+          "ref": 2044.727692389769,
+          "ref_half": 2051.252454994008,
+          "rel": 0.0031910178692681887
+        },
+        "d_red_over_ke_max": 0.000034475826831459525,
+        "fragments": {
+          "engine": [],
+          "ref": []
+        },
+        "large_fragments": {
+          "engine": 0,
+          "pass": true,
+          "ref": 0,
+          "ref_half": 0
+        },
+        "mass_cdf_distance": {
+          "engine": 0.0,
+          "noise": 0.0,
+          "pass": true
+        },
+        "no_creation": {
+          "e_rise": 0.014048026853205497,
+          "ke_max": 6178.442978858083,
+          "pass": true
+        },
+        "numerical_dissipation_over_ke_max": 0.003783226195979016,
+        "wall_ratio": 0.8320484395498005,
+        "work_ratio": 0.5532028587875036,
+        "zone": {
+          "cells": 813,
+          "max": 813,
+          "mean_frac": 0.8108953079988903
+        }
+      },
+      "engine": {
+        "cells": 813,
+        "chi_r_max": 0.8778365761480945,
+        "crack": [
+          0.7942735635401131,
+          0.28049355072117155,
+          0.7942735635401131,
+          0.7942735635401131,
+          0.28049355072117155,
+          0.28049355072117155
+        ],
+        "d_end": 2051.252454993972,
+        "e0": -1.3880734378159298,
+        "e_end": -613.2756638527362,
+        "e_max_rise": 0.014048026853205497,
+        "events": 388,
+        "failed_at": null,
+        "fragment": {
+          "cells": 0,
+          "cm": [
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "omega": 0.0,
+          "separated": false,
+          "v": [
+            0.0,
+            0.0
+          ]
+        },
+        "frags": [],
+        "h_e": 0.0,
+        "ke_max": 6178.442978858083,
+        "label": "engine",
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 9392.708411077352,
+          "d_num_r": 23.374447327978526,
+          "d_rad": 0.0,
+          "d_red": 0.21300693022715822,
+          "w_ext": -1.2659361803389344,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "max_e_cells": 813,
+        "mean_e_frac": 0.8108953079988903,
+        "momentum_drift": 238.71111532297536,
+        "onset_t": 0.022395833333333334,
+        "patches": 60,
+        "scene": "collapse_s1_L6.0",
+        "sep_t": null,
+        "v_impactor": null,
+        "wall_s": 83.540308708,
+        "work": {
+          "activations": 213,
+          "contact_flops": 302191922220.0,
+          "coupling_flops": 1237929327.0,
+          "coupling_iters": 0,
+          "e_body_flops": 2692207224.0,
+          "e_pts": 795055544,
+          "e_substeps": 275954,
+          "fact_flops": 10807237514.0,
+          "factorizations": 749,
+          "iface_flops": 0.0,
+          "macro_steps": 842,
+          "monitor_flops": 146640240.0,
+          "newton_iters": 2935,
+          "pts_force": 6953990,
+          "pts_tangent": 2256818,
+          "rebuild_flops": 8590804439.0,
+          "region_flops": 87579114.0,
+          "rejected": 57,
+          "rereductions": 150,
+          "solve_flops": 1691719076.0,
+          "step_flops": 93348846.0
+        },
+        "work_total": 376111323640.0
+      },
+      "ref": {
+        "cells": 813,
+        "chi_r_max": 0.0,
+        "crack": [
+          5.260106244311848,
+          0.12827565029956678,
+          3.1505734309379934,
+          5.951344361730049,
+          0.012053327222168902,
+          0.2085694095276322
+        ],
+        "d_end": 2044.727692389769,
+        "e0": -1.3893816142914839,
+        "e_end": -691.2630052367159,
+        "e_max_rise": 0.0015919454810580103,
+        "events": 533,
+        "failed_at": null,
+        "fragment": {
+          "cells": 0,
+          "cm": [
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "omega": 0.0,
+          "separated": false,
+          "v": [
+            0.0,
+            0.0
+          ]
+        },
+        "frags": [],
+        "h_e": 3.3941125496954284e-6,
+        "ke_max": 6320.086938545995,
+        "label": "reference",
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 9457.661842259065,
+          "d_num_r": 0.0,
+          "d_rad": 0.0,
+          "d_red": 0.0,
+          "w_ext": -0.41147660674770004,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "max_e_cells": 813,
+        "mean_e_frac": 0.9999999999999821,
+        "momentum_drift": 267.64718757927784,
+        "onset_t": 0.025000000000000015,
+        "patches": 1,
+        "scene": "collapse_s1_L6.0",
+        "sep_t": null,
+        "v_impactor": null,
+        "wall_s": 69.5095835,
+        "work": {
+          "activations": 0,
+          "contact_flops": 96293864560.0,
+          "coupling_flops": 0.0,
+          "coupling_iters": 0,
+          "e_body_flops": 3453624000.0,
+          "e_pts": 1472049440,
+          "e_substeps": 354000,
+          "fact_flops": 0.0,
+          "factorizations": 0,
+          "iface_flops": 0.0,
+          "macro_steps": 1200,
+          "monitor_flops": 0.0,
+          "newton_iters": 0,
+          "pts_force": 0,
+          "pts_tangent": 0,
+          "rebuild_flops": 19995404500.0,
+          "region_flops": 0.0,
+          "rejected": 0,
+          "rereductions": 0,
+          "solve_flops": 0.0,
+          "step_flops": 0.0
+        },
+        "work_total": 208065859460.0
+      },
+      "ref_half": {
+        "cells": 813,
+        "chi_r_max": 0.0,
+        "crack": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "d_end": 2051.252454994008,
+        "e0": -1.3893816142914839,
+        "e_end": -595.2822956190512,
+        "e_max_rise": 0.0003690428292897341,
+        "events": 525,
+        "failed_at": null,
+        "fragment": {
+          "cells": 0,
+          "cm": [
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "omega": 0.0,
+          "separated": false,
+          "v": [
+            0.0,
+            0.0
+          ]
+        },
+        "frags": [],
+        "h_e": 1.6970562748477142e-6,
+        "ke_max": 6320.57046950926,
+        "label": "reference_half",
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 9352.745713059101,
+          "d_num_r": 0.0,
+          "d_rad": 0.0,
+          "d_red": 0.0,
+          "w_ext": -0.6663450481237275,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "max_e_cells": 813,
+        "mean_e_frac": 0.9999999999999821,
+        "momentum_drift": 307.01899067490217,
+        "onset_t": 0.025000000000000015,
+        "patches": 1,
+        "scene": "collapse_s1_L6.0",
+        "sep_t": null,
+        "v_impactor": null,
+        "wall_s": 126.324731875,
+        "work": {
+          "activations": 0,
+          "contact_flops": 197696000160.0,
+          "coupling_flops": 0.0,
+          "coupling_iters": 0,
+          "e_body_flops": 6907248000.0,
+          "e_pts": 2900987328,
+          "e_substeps": 708000,
+          "fact_flops": 0.0,
+          "factorizations": 0,
+          "iface_flops": 0.0,
+          "macro_steps": 1200,
+          "monitor_flops": 0.0,
+          "newton_iters": 0,
+          "pts_force": 0,
+          "pts_tangent": 0,
+          "rebuild_flops": 20538781768.0,
+          "region_flops": 0.0,
+          "rejected": 0,
+          "rereductions": 0,
+          "solve_flops": 0.0,
+          "step_flops": 0.0
+        },
+        "work_total": 399201269608.0
+      },
+      "seed": 1
+    },
+    {
+      "criteria": {
+        "D": {
+          "engine": 2067.1670992250038,
+          "noise": 0.00010236891935324766,
+          "pass": true,
+          "ref": 2067.1670992249824,
+          "ref_half": 2066.955485562912,
+          "rel": 1.0339331300153227e-14
+        },
+        "d_red_over_ke_max": 6.377947907811932e-8,
+        "fragments": {
+          "engine": [],
+          "ref": []
+        },
+        "large_fragments": {
+          "engine": 0,
+          "pass": true,
+          "ref": 0,
+          "ref_half": 0
+        },
+        "mass_cdf_distance": {
+          "engine": 0.0,
+          "noise": 0.0,
+          "pass": true
+        },
+        "no_creation": {
+          "e_rise": 0.0014047258838234544,
+          "ke_max": 6105.755327271199,
+          "pass": true
+        },
+        "numerical_dissipation_over_ke_max": 0.0035253247184894,
+        "wall_ratio": 0.849621397817883,
+        "work_ratio": 0.4897394878394459,
+        "zone": {
+          "cells": 826,
+          "max": 826,
+          "mean_frac": 0.7447767814449501
+        }
+      },
+      "engine": {
+        "cells": 826,
+        "chi_r_max": 0.8985454532608772,
+        "crack": [
+          2.2053415465995863,
+          0.015254820435838853,
+          2.1665129714525575,
+          2.256885833567445,
+          0.014144906052406475,
+          0.016009441648452902
+        ],
+        "d_end": 2067.1670992250038,
+        "e0": -1.3781036236105908,
+        "e_end": -674.5051508694177,
+        "e_max_rise": 0.0014047258838234544,
+        "events": 355,
+        "failed_at": null,
+        "fragment": {
+          "cells": 0,
+          "cm": [
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "omega": 0.0,
+          "separated": false,
+          "v": [
+            0.0,
+            0.0
+          ]
+        },
+        "frags": [],
+        "h_e": 0.0,
+        "ke_max": 6105.755327271199,
+        "label": "engine",
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 9066.837809661187,
+          "d_num_r": 21.524770180277496,
+          "d_rad": 0.0,
+          "d_red": 0.00038942189415180906,
+          "w_ext": -1.3203411382747525,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "max_e_cells": 826,
+        "mean_e_frac": 0.7447767814449501,
+        "momentum_drift": 410.5087703404752,
+        "onset_t": 0.0234375,
+        "patches": 60,
+        "scene": "collapse_s2_L6.0",
+        "sep_t": null,
+        "v_impactor": null,
+        "wall_s": 135.68174175,
+        "work": {
+          "activations": 143,
+          "contact_flops": 376791565600.0,
+          "coupling_flops": 1859794953.0,
+          "coupling_iters": 0,
+          "e_body_flops": 2476047336.0,
+          "e_pts": 593373816,
+          "e_substeps": 249803,
+          "fact_flops": 16233776506.0,
+          "factorizations": 816,
+          "iface_flops": 0.0,
+          "macro_steps": 821,
+          "monitor_flops": 163295880.0,
+          "newton_iters": 2960,
+          "pts_force": 7367554,
+          "pts_tangent": 1823808,
+          "rebuild_flops": 9287628404.0,
+          "region_flops": 113387656.0,
+          "rejected": 51,
+          "rereductions": 83,
+          "solve_flops": 2014877860.0,
+          "step_flops": 83117134.0
+        },
+        "work_total": 445432735129.0
+      },
+      "ref": {
+        "cells": 826,
+        "chi_r_max": 0.0,
+        "crack": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "d_end": 2067.1670992249824,
+        "e0": -1.3867365000662364,
+        "e_end": -564.1657504171802,
+        "e_max_rise": 0.0071138814795328464,
+        "events": 521,
+        "failed_at": null,
+        "fragment": {
+          "cells": 0,
+          "cm": [
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "omega": 0.0,
+          "separated": false,
+          "v": [
+            0.0,
+            0.0
+          ]
+        },
+        "frags": [],
+        "h_e": 3.3941125496954284e-6,
+        "ke_max": 6134.670696954503,
+        "label": "reference",
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 9469.829525634672,
+          "d_num_r": 0.0,
+          "d_rad": 0.0,
+          "d_red": 0.0,
+          "w_ext": -0.41619200981917737,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "max_e_cells": 826,
+        "mean_e_frac": 1.0000000000000138,
+        "momentum_drift": 278.72553285150485,
+        "onset_t": 0.025000000000000015,
+        "patches": 1,
+        "scene": "collapse_s2_L6.0",
+        "sep_t": null,
+        "v_impactor": null,
+        "wall_s": 115.278111084,
+        "work": {
+          "activations": 0,
+          "contact_flops": 102799032880.0,
+          "coupling_flops": 0.0,
+          "coupling_iters": 0,
+          "e_body_flops": 3508848000.0,
+          "e_pts": 1526287296,
+          "e_substeps": 354000,
+          "fact_flops": 0.0,
+          "factorizations": 0,
+          "iface_flops": 0.0,
+          "macro_steps": 1200,
+          "monitor_flops": 0.0,
+          "newton_iters": 0,
+          "pts_force": 0,
+          "pts_tangent": 0,
+          "rebuild_flops": 20260880929.0,
+          "region_flops": 0.0,
+          "rejected": 0,
+          "rereductions": 0,
+          "solve_flops": 0.0,
+          "step_flops": 0.0
+        },
+        "work_total": 218145999569.0
+      },
+      "ref_half": {
+        "cells": 826,
+        "chi_r_max": 0.0,
+        "crack": [
+          5.982403749345603,
+          0.20479899461312545,
+          5.982403749345603,
+          5.982403749345603,
+          0.20479899461312545,
+          0.20479899461312545
+        ],
+        "d_end": 2066.955485562912,
+        "e0": -1.3867365000662364,
+        "e_end": -616.7552830883858,
+        "e_max_rise": 0.0004608707002160539,
+        "events": 530,
+        "failed_at": null,
+        "fragment": {
+          "cells": 0,
+          "cm": [
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "omega": 0.0,
+          "separated": false,
+          "v": [
+            0.0,
+            0.0
+          ]
+        },
+        "frags": [],
+        "h_e": 1.6970562748477142e-6,
+        "ke_max": 6138.296288967938,
+        "label": "reference_half",
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 9533.594814331782,
+          "d_num_r": 0.0,
+          "d_rad": 0.0,
+          "d_red": 0.0,
+          "w_ext": -0.8063988703300193,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "max_e_cells": 826,
+        "mean_e_frac": 1.0000000000000138,
+        "momentum_drift": 266.942420829519,
+        "onset_t": 0.025000000000000015,
+        "patches": 1,
+        "scene": "collapse_s2_L6.0",
+        "sep_t": null,
+        "v_impactor": null,
+        "wall_s": 175.612092625,
+        "work": {
+          "activations": 0,
+          "contact_flops": 204372739420.0,
+          "coupling_flops": 0.0,
+          "coupling_iters": 0,
+          "e_body_flops": 7017696000.0,
+          "e_pts": 3015343464,
+          "e_substeps": 708000,
+          "fact_flops": 0.0,
+          "factorizations": 0,
+          "iface_flops": 0.0,
+          "macro_steps": 1200,
+          "monitor_flops": 0.0,
+          "newton_iters": 0,
+          "pts_force": 0,
+          "pts_tangent": 0,
+          "rebuild_flops": 19835041345.0,
+          "region_flops": 0.0,
+          "rejected": 0,
+          "rereductions": 0,
+          "solve_flops": 0.0,
+          "step_flops": 0.0
+        },
+        "work_total": 412146084605.0
+      },
+      "seed": 2
+    }
+  ]
+}
