@@ -1,0 +1,154 @@
+{
+ "adapter": {
+  "vendor": "apple",
+  "architecture": "metal-3"
+ },
+ "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Claude/4.4212.0 Chrome/152.0.7977.167 Safari/537.36",
+ "steps": 800,
+ "meshes": [
+  {
+   "label": "1k",
+   "cells": 991,
+   "facets": 6336,
+   "scales": {
+    "SK": 5,
+    "SR": 0,
+    "SM": 34,
+    "SI": 23,
+    "SH": 37,
+    "wc": 17896,
+    "ch": 756324886,
+    "knMax": 32571592704,
+    "krMax": 648686400,
+    "gMax": 1,
+    "cmMax": 0.051821801796589226,
+    "ciMax": 91.32658619344122
+   },
+   "timings": [
+    {
+     "substeps": 250,
+     "gpu_ms": {
+      "median": 45.744128,
+      "p95": 45.8752,
+      "min": 45.416448,
+      "max": 45.8752,
+      "n": 10
+     }
+    },
+    {
+     "substeps": 800,
+     "gpu_ms": {
+      "median": 145.096704,
+      "p95": 145.48992,
+      "min": 143.654912,
+      "max": 145.48992,
+      "n": 10
+     }
+    }
+   ],
+   "run": {
+    "steps": 800,
+    "overflow_flag": 1,
+    "fnv1a32": "fa66298e",
+    "pair_force_exact_opposite": "6244/6244",
+    "pair_kappa_equal": "6244/6244"
+   }
+  },
+  {
+   "label": "10k",
+   "cells": 8975,
+   "facets": 62414,
+   "scales": {
+    "SK": 6,
+    "SR": 0,
+    "SM": 34,
+    "SI": 23,
+    "SH": 37,
+    "wc": 17896,
+    "ch": 756324886,
+    "knMax": 41609859072,
+    "krMax": 1028254016,
+    "gMax": 1,
+    "cmMax": 0.05945697158087721,
+    "ciMax": 124.52751966575994
+   },
+   "timings": [
+    {
+     "substeps": 250,
+     "gpu_ms": {
+      "median": 72.024064,
+      "p95": 72.548352,
+      "min": 70.909952,
+      "max": 72.548352,
+      "n": 10
+     }
+    },
+    {
+     "substeps": 800,
+     "gpu_ms": {
+      "median": 229.900288,
+      "p95": 234.815488,
+      "min": 225.705984,
+      "max": 234.815488,
+      "n": 10
+     }
+    }
+   ],
+   "run": {
+    "steps": 800,
+    "overflow_flag": 0,
+    "fnv1a32": "bc4685d7",
+    "pair_force_exact_opposite": "62019/62019",
+    "pair_kappa_equal": "62019/62019"
+   }
+  },
+  {
+   "label": "30k",
+   "cells": 25920,
+   "facets": 184543,
+   "scales": {
+    "SK": 6,
+    "SR": 0,
+    "SM": 34,
+    "SI": 23,
+    "SH": 37,
+    "wc": 17896,
+    "ch": 756324886,
+    "knMax": 41959804928,
+    "krMax": 991372928,
+    "gMax": 1,
+    "cmMax": 0.05004502242403473,
+    "ciMax": 71.1368923878692
+   },
+   "timings": [
+    {
+     "substeps": 250,
+     "gpu_ms": {
+      "median": 184.942592,
+      "p95": 186.908672,
+      "min": 181.20704,
+      "max": 186.908672,
+      "n": 10
+     }
+    },
+    {
+     "substeps": 800,
+     "gpu_ms": {
+      "median": 589.561856,
+      "p95": 592.77312,
+      "min": 579.207168,
+      "max": 592.77312,
+      "n": 10
+     }
+    }
+   ],
+   "run": {
+    "steps": 800,
+    "overflow_flag": 0,
+    "fnv1a32": "1ce4a957",
+    "pair_force_exact_opposite": "183763/183763",
+    "pair_kappa_equal": "183763/183763"
+   }
+  }
+ ]
+}

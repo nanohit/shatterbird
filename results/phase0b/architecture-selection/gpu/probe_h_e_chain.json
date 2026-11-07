@@ -1,0 +1,285 @@
+{
+ "adapter": {
+  "vendor": "apple",
+  "architecture": "metal-3"
+ },
+ "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Claude/4.4212.0 Chrome/152.0.7977.167 Safari/537.36",
+ "meshes": [
+  {
+   "label": "1k",
+   "cells": 991,
+   "facets": 6336,
+   "timings": [
+    {
+     "variant": "E-B linear",
+     "substeps": 250,
+     "gpu_ms": {
+      "median": 4.58752,
+      "p95": 4.849664,
+      "min": 4.325376,
+      "max": 4.849664,
+      "n": 10
+     },
+     "wall_ms": {
+      "median": 5.199999928474426,
+      "p95": 5.5,
+      "min": 4.899999976158142,
+      "max": 5.5,
+      "n": 10
+     }
+    },
+    {
+     "variant": "E-B linear",
+     "substeps": 800,
+     "gpu_ms": {
+      "median": 14.41792,
+      "p95": 14.614528,
+      "min": 14.155776,
+      "max": 14.614528,
+      "n": 10
+     },
+     "wall_ms": {
+      "median": 15.5,
+      "p95": 15.700000047683716,
+      "min": 15.200000047683716,
+      "max": 15.700000047683716,
+      "n": 10
+     }
+    },
+    {
+     "variant": "E-B-H history",
+     "substeps": 250,
+     "gpu_ms": {
+      "median": 4.980736,
+      "p95": 6.029312,
+      "min": 4.849664,
+      "max": 6.029312,
+      "n": 10
+     },
+     "wall_ms": {
+      "median": 5.699999928474426,
+      "p95": 6.800000071525574,
+      "min": 5.400000095367432,
+      "max": 6.800000071525574,
+      "n": 10
+     }
+    },
+    {
+     "variant": "E-B-H history",
+     "substeps": 800,
+     "gpu_ms": {
+      "median": 17.498112,
+      "p95": 18.546688,
+      "min": 17.36704,
+      "max": 18.546688,
+      "n": 10
+     },
+     "wall_ms": {
+      "median": 18.699999928474426,
+      "p95": 19.899999976158142,
+      "min": 18.40000009536743,
+      "max": 19.899999976158142,
+      "n": 10
+     }
+    }
+   ],
+   "checks": {
+    "verify_substeps": 800,
+    "pos_rel_err": 4.76374624936107e-7,
+    "cpu_f64_ms": 1058.0999999046326,
+    "damage_max_abs_diff": 0.00004597073727847373,
+    "damaged_facets_gpu": 981,
+    "damaged_facets_cpu": 981,
+    "broken_gpu": 119,
+    "broken_cpu": 119,
+    "damage_onset_disagreements": 0,
+    "pair_force_bitwise_opposite": "6244/6244",
+    "pair_kappa_bitwise_equal": "6244/6244"
+   }
+  },
+  {
+   "label": "10k",
+   "cells": 8975,
+   "facets": 62414,
+   "timings": [
+    {
+     "variant": "E-B linear",
+     "substeps": 250,
+     "gpu_ms": {
+      "median": 21.430272,
+      "p95": 21.823488,
+      "min": 20.447232,
+      "max": 21.823488,
+      "n": 10
+     },
+     "wall_ms": {
+      "median": 22.100000023841858,
+      "p95": 22.699999928474426,
+      "min": 21.200000047683716,
+      "max": 22.699999928474426,
+      "n": 10
+     }
+    },
+    {
+     "variant": "E-B linear",
+     "substeps": 800,
+     "gpu_ms": {
+      "median": 66.19136,
+      "p95": 66.715648,
+      "min": 65.601536,
+      "max": 66.715648,
+      "n": 10
+     },
+     "wall_ms": {
+      "median": 67.39999997615814,
+      "p95": 67.89999997615814,
+      "min": 66.79999995231628,
+      "max": 67.89999997615814,
+      "n": 10
+     }
+    },
+    {
+     "variant": "E-B-H history",
+     "substeps": 250,
+     "gpu_ms": {
+      "median": 22.347776,
+      "p95": 23.986176,
+      "min": 21.889024,
+      "max": 23.986176,
+      "n": 10
+     },
+     "wall_ms": {
+      "median": 23.300000071525574,
+      "p95": 25.200000047683716,
+      "min": 22.700000047683716,
+      "max": 25.200000047683716,
+      "n": 10
+     }
+    },
+    {
+     "variant": "E-B-H history",
+     "substeps": 800,
+     "gpu_ms": {
+      "median": 74.645504,
+      "p95": 76.152832,
+      "min": 73.203712,
+      "max": 76.152832,
+      "n": 10
+     },
+     "wall_ms": {
+      "median": 76.10000002384186,
+      "p95": 77.69999992847443,
+      "min": 74.5,
+      "max": 77.69999992847443,
+      "n": 10
+     }
+    }
+   ],
+   "checks": {
+    "verify_substeps": 800,
+    "pos_rel_err": 0.000003581078414665759,
+    "cpu_f64_ms": 10902.5,
+    "damage_max_abs_diff": 0.00001409240870028916,
+    "damaged_facets_gpu": 4680,
+    "damaged_facets_cpu": 4680,
+    "broken_gpu": 440,
+    "broken_cpu": 440,
+    "damage_onset_disagreements": 0,
+    "pair_force_bitwise_opposite": "62019/62019",
+    "pair_kappa_bitwise_equal": "62019/62019"
+   }
+  },
+  {
+   "label": "30k",
+   "cells": 25920,
+   "facets": 184543,
+   "timings": [
+    {
+     "variant": "E-B linear",
+     "substeps": 250,
+     "gpu_ms": {
+      "median": 115.212288,
+      "p95": 122.22464,
+      "min": 88.211456,
+      "max": 122.22464,
+      "n": 10
+     },
+     "wall_ms": {
+      "median": 117.20000004768372,
+      "p95": 124.39999997615814,
+      "min": 89.39999997615814,
+      "max": 124.39999997615814,
+      "n": 10
+     }
+    },
+    {
+     "variant": "E-B linear",
+     "substeps": 800,
+     "gpu_ms": {
+      "median": 296.353792,
+      "p95": 309.460992,
+      "min": 277.020672,
+      "max": 309.460992,
+      "n": 10
+     },
+     "wall_ms": {
+      "median": 298,
+      "p95": 310.7999999523163,
+      "min": 278.5,
+      "max": 310.7999999523163,
+      "n": 10
+     }
+    },
+    {
+     "variant": "E-B-H history",
+     "substeps": 250,
+     "gpu_ms": {
+      "median": 99.155968,
+      "p95": 102.498304,
+      "min": 98.172928,
+      "max": 102.498304,
+      "n": 10
+     },
+     "wall_ms": {
+      "median": 100.39999997615814,
+      "p95": 103.79999995231628,
+      "min": 99.39999997615814,
+      "max": 103.79999995231628,
+      "n": 10
+     }
+    },
+    {
+     "variant": "E-B-H history",
+     "substeps": 800,
+     "gpu_ms": {
+      "median": 316.407808,
+      "p95": 321.978368,
+      "min": 313.786368,
+      "max": 321.978368,
+      "n": 10
+     },
+     "wall_ms": {
+      "median": 318.10000002384186,
+      "p95": 323.7000000476837,
+      "min": 315.5,
+      "max": 323.7000000476837,
+      "n": 10
+     }
+    }
+   ],
+   "checks": {
+    "verify_substeps": 800,
+    "pos_rel_err": 8.524199957772616e-7,
+    "cpu_f64_ms": 33582.89999997616,
+    "damage_max_abs_diff": 0.00000986776556902158,
+    "damaged_facets_gpu": 9734,
+    "damaged_facets_cpu": 9734,
+    "broken_gpu": 600,
+    "broken_cpu": 600,
+    "damage_onset_disagreements": 0,
+    "pair_force_bitwise_opposite": "183763/183763",
+    "pair_kappa_bitwise_equal": "183763/183763"
+   }
+  }
+ ]
+}

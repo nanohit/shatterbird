@@ -1,0 +1,249 @@
+                 E10 d0.2 s1           V0: n=  654 θ̂1= 539.973 Δt=  4.869 µs (ĉ 0.086) U_split/θ=1.00 sup-ratio 63.24 top1 1.00 rot 0.69 supE 0.99 d_sup 0.010 resid 2.0e-10 dense Some(3.617080266711002e-15)
+                 E10 d0.2 s1      V0-free: n=  654 θ̂1=  11.317 Δt= 33.631 µs (ĉ 0.595) U_split/θ=1.23 sup-ratio 0.00 top1 0.65 rot 0.76 supE 0.00 d_sup NaN resid 1.6e-12 dense Some(8.764078629753159e-15)
+                 E10 d0.2 s1     V1 a0.25: n=  642 θ̂1=  18.077 Δt= 26.610 µs (ĉ 0.470) U_split/θ=1.06 sup-ratio 2.01 top1 0.98 rot 0.76 supE 0.77 d_sup 0.261 resid 6.0e-11 dense Some(3.646587700173137e-14)
+                 E10 d0.2 s1     V1 a0.35: n=  642 θ̂1=  15.727 Δt= 28.528 µs (ĉ 0.504) U_split/θ=1.08 sup-ratio 1.73 top1 0.96 rot 0.85 supE 0.61 d_sup 0.394 resid 2.8e-11 dense Some(8.149739767952964e-15)
+                 E10 d0.2 s1      V1 a0.5: n=  642 θ̂1=  11.669 Δt= 33.119 µs (ĉ 0.585) U_split/θ=1.25 sup-ratio 1.22 top1 0.61 rot 0.91 supE 0.40 d_sup 0.517 resid 1.9e-12 dense Some(3.778978504097055e-14)
+                 E10 d0.2 s2           V0: n=  672 θ̂1= 180.232 Δt=  8.427 µs (ĉ 0.149) U_split/θ=1.00 sup-ratio 20.22 top1 1.00 rot 0.67 supE 0.98 d_sup 0.028 resid 2.9e-12 dense Some(1.8964306465563013e-15)
+                 E10 d0.2 s2      V0-free: n=  672 θ̂1=  11.339 Δt= 33.598 µs (ĉ 0.594) U_split/θ=1.28 sup-ratio 0.00 top1 0.47 rot 0.89 supE 0.00 d_sup NaN resid 6.8e-11 dense Some(3.4717397447213664e-14)
+                 E10 d0.2 s2     V1 a0.25: n=  630 θ̂1=  19.793 Δt= 25.430 µs (ĉ 0.450) U_split/θ=1.02 sup-ratio 2.20 top1 0.99 rot 0.74 supE 0.82 d_sup 0.257 resid 7.5e-11 dense Some(1.1563535822993408e-14)
+                 E10 d0.2 s2     V1 a0.35: n=  624 θ̂1=  13.187 Δt= 31.155 µs (ĉ 0.551) U_split/θ=1.17 sup-ratio 1.30 top1 0.55 rot 0.84 supE 0.44 d_sup 0.452 resid 1.1e-13 dense Some(8.099593906771477e-15)
+                 E10 d0.2 s2      V1 a0.5: n=  618 θ̂1=  11.204 Δt= 33.800 µs (ĉ 0.598) U_split/θ=1.29 sup-ratio 1.17 top1 0.36 rot 0.88 supE 0.00 d_sup NaN resid 1.9e-13 dense Some(1.6751653995177618e-14)
+                E10 d0.15 s3           V0: n= 1476 θ̂1=1692.184 Δt=  2.063 µs (ĉ 0.049) U_split/θ=1.00 sup-ratio 190.51 top1 1.00 rot 0.70 supE 1.00 d_sup 0.004 resid 1.2e-10 dense Some(1.5581753492366566e-15)
+                E10 d0.15 s3      V0-free: n= 1476 θ̂1=  10.903 Δt= 25.697 µs (ĉ 0.606) U_split/θ=1.30 sup-ratio 0.00 top1 0.34 rot 0.84 supE 0.00 d_sup NaN resid 7.7e-13 dense Some(5.368697644668092e-14)
+                E10 d0.15 s3     V1 a0.25: n= 1446 θ̂1=  22.603 Δt= 17.848 µs (ĉ 0.421) U_split/θ=1.02 sup-ratio 2.50 top1 0.99 rot 0.72 supE 0.73 d_sup 0.329 resid 6.5e-11 dense Some(1.4126250774322641e-14)
+                E10 d0.15 s3     V1 a0.35: n= 1410 θ̂1=  14.126 Δt= 22.577 µs (ĉ 0.532) U_split/θ=1.12 sup-ratio 1.55 top1 0.88 rot 0.86 supE 0.61 d_sup 0.402 resid 5.9e-11 dense Some(1.3002959542925048e-14)
+                E10 d0.15 s3      V1 a0.5: n= 1404 θ̂1=  11.891 Δt= 24.607 µs (ĉ 0.580) U_split/θ=1.22 sup-ratio 1.25 top1 0.81 rot 0.89 supE 0.45 d_sup 0.505 resid 3.5e-11 dense Some(2.6273413795737373e-14)
+                 E2 block s1           V0: n=  435 θ̂1=1629.346 Δt=  0.701 µs (ĉ 0.050) U_split/θ=1.00 sup-ratio 231.55 top1 1.00 rot 0.77 supE 1.00 d_sup 0.003 resid 7.1e-10 dense Some(5.993584027271651e-16)
+                 E2 block s1      V0-free: n=  435 θ̂1=  10.235 Δt=  8.841 µs (ĉ 0.625) U_split/θ=1.13 sup-ratio 0.00 top1 0.55 rot 0.76 supE 0.00 d_sup NaN resid 2.6e-12 dense Some(1.3119869800128498e-14)
+                 E2 block s1     V1 a0.25: n=  423 θ̂1=  14.236 Δt=  7.496 µs (ĉ 0.530) U_split/θ=1.03 sup-ratio 2.00 top1 0.98 rot 0.82 supE 0.77 d_sup 0.279 resid 1.0e-11 dense Some(1.2861842408722575e-15)
+                 E2 block s1     V1 a0.35: n=  420 θ̂1=  11.586 Δt=  8.310 µs (ĉ 0.588) U_split/θ=1.13 sup-ratio 1.57 top1 0.70 rot 0.91 supE 0.60 d_sup 0.399 resid 1.5e-11 dense Some(8.82382110676449e-15)
+                 E2 block s1      V1 a0.5: n=  417 θ̂1=  10.101 Δt=  8.900 µs (ĉ 0.629) U_split/θ=1.24 sup-ratio 1.33 top1 0.55 rot 0.88 supE 0.45 d_sup 0.510 resid 3.2e-11 dense Some(2.4019583306682056e-14)
+                 E2 block s2           V0: n=  435 θ̂1= 380.270 Δt=  1.450 µs (ĉ 0.103) U_split/θ=1.00 sup-ratio 51.07 top1 1.00 rot 0.68 supE 0.99 d_sup 0.014 resid 2.4e-12 dense Some(4.622534251032514e-15)
+                 E2 block s2      V0-free: n=  435 θ̂1=   9.781 Δt=  9.044 µs (ĉ 0.639) U_split/θ=1.19 sup-ratio 0.00 top1 0.36 rot 0.94 supE 0.00 d_sup NaN resid 8.4e-11 dense Some(1.6224148581730928e-14)
+                 E2 block s2     V1 a0.25: n=  435 θ̂1=  16.769 Δt=  6.907 µs (ĉ 0.488) U_split/θ=1.03 sup-ratio 1.79 top1 0.94 rot 0.81 supE 0.77 d_sup 0.258 resid 1.0e-10 dense Some(8.917665807544368e-15)
+                 E2 block s2     V1 a0.35: n=  435 θ̂1=  14.145 Δt=  7.520 µs (ĉ 0.532) U_split/θ=1.06 sup-ratio 1.51 top1 0.98 rot 0.85 supE 0.71 d_sup 0.352 resid 1.4e-11 dense Some(2.3732235081867796e-15)
+                 E2 block s2      V1 a0.5: n=  414 θ̂1=  10.126 Δt=  8.888 µs (ĉ 0.629) U_split/θ=1.14 sup-ratio 1.31 top1 0.85 rot 0.91 supE 0.53 d_sup 0.514 resid 6.2e-13 dense Some(1.160284015895372e-14)
+                 E2 block s3           V0: n=  438 θ̂1= 298.342 Δt=  1.638 µs (ĉ 0.116) U_split/θ=1.00 sup-ratio 40.83 top1 1.00 rot 0.71 supE 0.98 d_sup 0.016 resid 2.8e-10 dense Some(9.819893538330609e-16)
+                 E2 block s3      V0-free: n=  438 θ̂1=  10.401 Δt=  8.770 µs (ĉ 0.620) U_split/θ=1.16 sup-ratio 0.00 top1 0.31 rot 0.94 supE 0.00 d_sup NaN resid 2.0e-12 dense Some(7.188442720303558e-15)
+                 E2 block s3     V1 a0.25: n=  423 θ̂1=  22.879 Δt=  5.913 µs (ĉ 0.418) U_split/θ=1.02 sup-ratio 3.12 top1 0.99 rot 0.87 supE 0.80 d_sup 0.254 resid 2.0e-10 dense Some(6.669205269199939e-16)
+                 E2 block s3     V1 a0.35: n=  420 θ̂1=  10.716 Δt=  8.640 µs (ĉ 0.611) U_split/θ=1.13 sup-ratio 1.40 top1 0.90 rot 0.92 supE 0.51 d_sup 0.499 resid 2.6e-12 dense Some(2.150102328812602e-14)
+                 E2 block s3      V1 a0.5: n=  417 θ̂1=  10.539 Δt=  8.712 µs (ĉ 0.616) U_split/θ=1.14 sup-ratio 1.37 top1 0.89 rot 0.92 supE 0.49 d_sup 0.510 resid 2.7e-12 dense Some(3.5181703821240563e-14)
+            E3 wall 1x2 d0.1           V0: n=  447 θ̂1= 148.578 Δt=  4.641 µs (ĉ 0.164) U_split/θ=1.00 sup-ratio 19.91 top1 1.00 rot 0.73 supE 0.97 d_sup 0.032 resid 1.4e-10 dense Some(1.6431768920046423e-16)
+            E3 wall 1x2 d0.1      V0-free: n=  447 θ̂1=  10.252 Δt= 17.667 µs (ĉ 0.625) U_split/θ=1.22 sup-ratio 0.00 top1 0.38 rot 0.90 supE 0.00 d_sup NaN resid 3.3e-12 dense Some(3.214809703757701e-14)
+            E3 wall 1x2 d0.1     V1 a0.25: n=  447 θ̂1=  21.906 Δt= 12.086 µs (ĉ 0.427) U_split/θ=1.02 sup-ratio 2.92 top1 0.99 rot 0.86 supE 0.79 d_sup 0.254 resid 3.2e-11 dense Some(2.22896601450414e-15)
+            E3 wall 1x2 d0.1     V1 a0.35: n=  438 θ̂1=  11.775 Δt= 16.485 µs (ĉ 0.583) U_split/θ=1.06 sup-ratio 1.55 top1 0.97 rot 0.83 supE 0.73 d_sup 0.383 resid 5.1e-11 dense Some(1.4643149608408745e-14)
+            E3 wall 1x2 d0.1      V1 a0.5: n=  438 θ̂1=  10.252 Δt= 17.667 µs (ĉ 0.625) U_split/θ=1.22 sup-ratio 1.20 top1 0.38 rot 0.90 supE 0.00 d_sup NaN resid 4.3e-12 dense Some(3.705961305360779e-14)
+            E3 wall 1x8 d0.1           V0: n= 1713 θ̂1= 187.413 Δt=  4.132 µs (ĉ 0.146) U_split/θ=1.00 sup-ratio 24.99 top1 1.00 rot 0.74 supE 0.98 d_sup 0.025 resid 4.7e-11 dense Some(2.0842991083259864e-15)
+            E3 wall 1x8 d0.1      V0-free: n= 1713 θ̂1=   9.964 Δt= 17.921 µs (ĉ 0.634) U_split/θ=1.22 sup-ratio 0.00 top1 0.32 rot 0.90 supE 0.00 d_sup NaN resid 1.4e-11 dense Some(5.696608067505625e-14)
+            E3 wall 1x8 d0.1     V1 a0.25: n= 1734 θ̂1=  15.007 Δt= 14.602 µs (ĉ 0.516) U_split/θ=1.05 sup-ratio 1.96 top1 0.93 rot 0.83 supE 0.76 d_sup 0.274 resid 5.0e-11 dense Some(2.4402551864899938e-15)
+            E3 wall 1x8 d0.1     V1 a0.35: n= 1734 θ̂1=  12.332 Δt= 16.108 µs (ĉ 0.570) U_split/θ=1.06 sup-ratio 1.60 top1 0.94 rot 0.80 supE 0.68 d_sup 0.376 resid 4.3e-11 dense Some(6.805078219747495e-15)
+            E3 wall 1x8 d0.1      V1 a0.5: n= 1731 θ̂1=  10.256 Δt= 17.664 µs (ĉ 0.625) U_split/θ=1.20 sup-ratio 1.13 top1 0.26 rot 0.95 supE 0.00 d_sup NaN resid 3.3e-13 dense Some(8.733586359768645e-14)
+            E3 wall 4x8 d0.4           V0: n=  447 θ̂1= 148.578 Δt= 18.563 µs (ĉ 0.164) U_split/θ=1.00 sup-ratio 19.91 top1 1.00 rot 0.73 supE 0.97 d_sup 0.032 resid 1.4e-10 dense Some(1.6431768920046423e-16)
+            E3 wall 4x8 d0.4      V0-free: n=  447 θ̂1=  10.252 Δt= 70.668 µs (ĉ 0.625) U_split/θ=1.22 sup-ratio 0.00 top1 0.38 rot 0.90 supE 0.00 d_sup NaN resid 3.3e-12 dense Some(3.214809703757701e-14)
+            E3 wall 4x8 d0.4     V1 a0.25: n=  447 θ̂1=  21.906 Δt= 48.345 µs (ĉ 0.427) U_split/θ=1.02 sup-ratio 2.92 top1 0.99 rot 0.86 supE 0.79 d_sup 0.254 resid 3.2e-11 dense Some(2.22896601450414e-15)
+            E3 wall 4x8 d0.4     V1 a0.35: n=  438 θ̂1=  11.775 Δt= 65.941 µs (ĉ 0.583) U_split/θ=1.06 sup-ratio 1.55 top1 0.97 rot 0.83 supE 0.73 d_sup 0.383 resid 5.1e-11 dense Some(1.4643149608408745e-14)
+            E3 wall 4x8 d0.4      V1 a0.5: n=  438 θ̂1=  10.252 Δt= 70.668 µs (ĉ 0.625) U_split/θ=1.22 sup-ratio 1.20 top1 0.38 rot 0.90 supE 0.00 d_sup NaN resid 4.3e-12 dense Some(3.705961305360779e-14)
+               E7 cantilever           V0: n=  252 θ̂1=  97.409 Δt= 17.195 µs (ĉ 0.203) U_split/θ=1.00 sup-ratio 13.62 top1 1.00 rot 0.72 supE 0.97 d_sup 0.047 resid 6.8e-10 dense Some(7.049103402400501e-16)
+               E7 cantilever      V0-free: n=  252 θ̂1=   8.914 Δt= 56.842 µs (ĉ 0.670) U_split/θ=1.22 sup-ratio 0.00 top1 0.28 rot 0.91 supE 0.00 d_sup NaN resid 5.8e-14 dense Some(1.3865978458723061e-14)
+               E7 cantilever     V1 a0.25: n=  252 θ̂1=  18.078 Δt= 39.913 µs (ĉ 0.470) U_split/θ=1.02 sup-ratio 2.52 top1 0.99 rot 0.76 supE 0.82 d_sup 0.280 resid 7.2e-13 dense Some(1.8990848394364287e-15)
+               E7 cantilever     V1 a0.35: n=  252 θ̂1=  13.727 Δt= 45.804 µs (ĉ 0.540) U_split/θ=1.05 sup-ratio 1.89 top1 0.98 rot 0.77 supE 0.73 d_sup 0.373 resid 2.2e-12 dense Some(1.7507094598325036e-15)
+               E7 cantilever      V1 a0.5: n=  252 θ̂1=  10.211 Δt= 53.108 µs (ĉ 0.626) U_split/θ=1.14 sup-ratio 1.27 top1 0.57 rot 0.88 supE 0.42 d_sup 0.516 resid 8.6e-12 dense Some(3.698487174946644e-14)
+                   E7 column           V0: n=  156 θ̂1= 523.188 Δt=  6.183 µs (ĉ 0.087) U_split/θ=1.00 sup-ratio 69.59 top1 1.00 rot 0.70 supE 0.99 d_sup 0.009 resid 5.9e-10 dense Some(1.4582508253745695e-15)
+                   E7 column      V0-free: n=  156 θ̂1=   9.621 Δt= 45.593 µs (ĉ 0.645) U_split/θ=1.17 sup-ratio 0.00 top1 0.60 rot 0.88 supE 0.00 d_sup NaN resid 6.6e-11 dense Some(5.203960568714689e-15)
+                   E7 column     V1 a0.25: n=  153 θ̂1=  13.345 Δt= 38.713 µs (ĉ 0.547) U_split/θ=1.08 sup-ratio 1.73 top1 0.96 rot 0.87 supE 0.64 d_sup 0.414 resid 9.5e-15 dense Some(1.965233465324527e-15)
+                   E7 column     V1 a0.35: n=  153 θ̂1=  13.345 Δt= 38.713 µs (ĉ 0.547) U_split/θ=1.08 sup-ratio 1.73 top1 0.96 rot 0.87 supE 0.64 d_sup 0.414 resid 9.5e-15 dense Some(1.965233465324527e-15)
+                   E7 column      V1 a0.5: n=  150 θ̂1=   9.621 Δt= 45.593 µs (ĉ 0.645) U_split/θ=1.17 sup-ratio 0.67 top1 0.60 rot 0.88 supE 0.00 d_sup NaN resid 8.0e-12 dense Some(7.805940853072019e-15)
+                 E7 block C2           V0: n=   81 θ̂1=  24.030 Δt= 34.620 µs (ĉ 0.408) U_split/θ=1.01 sup-ratio 3.65 top1 1.00 rot 0.75 supE 0.89 d_sup 0.172 resid 3.0e-13 dense Some(1.4287492235005304e-15)
+                 E7 block C2      V0-free: n=   81 θ̂1=   8.416 Δt= 58.497 µs (ĉ 0.689) U_split/θ=1.25 sup-ratio 0.00 top1 0.23 rot 0.89 supE 0.00 d_sup NaN resid 3.9e-13 dense Some(1.4277192294395652e-15)
+                 E7 block C2     V1 a0.25: n=   81 θ̂1=   9.831 Δt= 54.126 µs (ĉ 0.638) U_split/θ=1.07 sup-ratio 1.46 top1 0.95 rot 0.82 supE 0.68 d_sup 0.437 resid 1.3e-12 dense Some(2.968542914530311e-15)
+                 E7 block C2     V1 a0.35: n=   81 θ̂1=   9.831 Δt= 54.126 µs (ĉ 0.638) U_split/θ=1.07 sup-ratio 1.46 top1 0.95 rot 0.82 supE 0.68 d_sup 0.437 resid 1.3e-12 dense Some(2.968542914530311e-15)
+                 E7 block C2      V1 a0.5: n=   81 θ̂1=   8.420 Δt= 58.486 µs (ĉ 0.689) U_split/θ=1.25 sup-ratio 0.97 top1 0.24 rot 0.89 supE 0.00 d_sup NaN resid 1.3e-12 dense Some(2.2426934917699624e-15)
+            E7 block C1 free           V0: n=   81 θ̂1=   8.416 Δt= 58.497 µs (ĉ 0.689) U_split/θ=1.25 sup-ratio 0.00 top1 0.23 rot 0.89 supE 0.00 d_sup NaN resid 3.9e-13 dense Some(1.4277192294395652e-15)
+                    E9 block           V0: n=  444 θ̂1= 607.082 Δt=  1.148 µs (ĉ 0.081) U_split/θ=1.00 sup-ratio 83.73 top1 1.00 rot 0.77 supE 0.99 d_sup 0.008 resid 1.4e-10 dense Some(1.9303410155243672e-15)
+                    E9 block      V0-free: n=  444 θ̂1=  10.118 Δt=  8.892 µs (ĉ 0.629) U_split/θ=1.16 sup-ratio 0.00 top1 0.31 rot 0.94 supE 0.00 d_sup NaN resid 7.4e-13 dense Some(2.8351651453944558e-14)
+                    E9 block     V1 a0.25: n=  450 θ̂1=  18.368 Δt=  6.599 µs (ĉ 0.467) U_split/θ=1.01 sup-ratio 2.51 top1 0.99 rot 0.82 supE 0.77 d_sup 0.251 resid 1.5e-10 dense Some(9.968537036370573e-16)
+                    E9 block     V1 a0.35: n=  447 θ̂1=  13.214 Δt=  7.781 µs (ĉ 0.550) U_split/θ=1.07 sup-ratio 1.77 top1 0.95 rot 0.87 supE 0.64 d_sup 0.374 resid 2.6e-11 dense Some(1.1547800722213905e-14)
+                    E9 block      V1 a0.5: n=  438 θ̂1=  10.602 Δt=  8.687 µs (ĉ 0.614) U_split/θ=1.19 sup-ratio 1.36 top1 0.82 rot 0.87 supE 0.48 d_sup 0.530 resid 3.2e-13 dense Some(6.332645625876721e-15)
+α decision: rule → None; final α = 0.5
+contract: κ = 4.21 (dev max 3.8246); Δt_safe ≥ 0.3800 d_min/c
+            E9 contact kc1e8           V0: n=  446 θ̂1= 607.082 Δt=  1.148 µs (ĉ 0.081) U_split/θ=1.00 sup-ratio 83.73 top1 1.00 rot 0.77 supE 0.99 d_sup 0.008 resid 1.4e-10 dense Some(1.4477557616432754e-15)
+            E9 contact kc1e8     V1 final: n=  440 θ̂1=  10.602 Δt=  8.687 µs (ĉ 0.614) U_split/θ=1.19 sup-ratio 1.36 top1 0.82 rot 0.87 supE 0.48 d_sup 0.530 resid 3.7e-13 dense Some(4.893407983632016e-15)
+            E9 contact kc1e9           V0: n=  446 θ̂1= 607.082 Δt=  1.148 µs (ĉ 0.081) U_split/θ=1.00 sup-ratio 83.73 top1 1.00 rot 0.77 supE 0.99 d_sup 0.008 resid 1.4e-10 dense Some(9.651705077621866e-16)
+            E9 contact kc1e9     V1 final: n=  440 θ̂1=  10.602 Δt=  8.687 µs (ĉ 0.614) U_split/θ=1.19 sup-ratio 1.36 top1 0.82 rot 0.87 supE 0.48 d_sup 0.530 resid 3.5e-13 dense Some(6.908340682774599e-15)
+           E9 contact kc1e10           V0: n=  446 θ̂1= 607.082 Δt=  1.148 µs (ĉ 0.081) U_split/θ=1.00 sup-ratio 83.73 top1 1.00 rot 0.77 supE 0.99 d_sup 0.008 resid 1.4e-10 dense Some(2.091202766818061e-15)
+           E9 contact kc1e10     V1 final: n=  440 θ̂1=  10.602 Δt=  8.687 µs (ĉ 0.614) U_split/θ=1.19 sup-ratio 1.36 top1 0.82 rot 0.87 supE 0.48 d_sup 0.530 resid 3.7e-13 dense Some(5.1812555120809655e-15)
+           E9 contact kc1e11           V0: n=  446 θ̂1= 607.082 Δt=  1.148 µs (ĉ 0.081) U_split/θ=1.00 sup-ratio 53.54 top1 1.00 rot 0.77 supE 0.99 d_sup 0.008 resid 6.8e-10 dense Some(3.217235025873945e-15)
+           E9 contact kc1e11     V1 final: n=  440 θ̂1=  12.947 Δt=  7.861 µs (ĉ 0.556) U_split/θ=1.01 sup-ratio 0.87 top1 0.87 rot 0.11 supE 0.00 d_sup NaN resid 2.1e-13 dense Some(3.77141607799649e-15)
+                 E10 d0.2 s1       V1 J×2: n=  642 θ̂1=   7.483 Δt= 41.358 µs (ĉ 0.731) U_split/θ=1.20 sup-ratio 1.22 top1 0.59 rot 0.25 supE 0.43 d_sup 0.517 resid 1.2e-12 dense Some(3.527609773522656e-14)
+                 E10 d0.2 s1       V1 J×4: n=  642 θ̂1=   6.950 Δt= 42.914 µs (ĉ 0.759) U_split/θ=1.20 sup-ratio 1.23 top1 0.60 rot 0.04 supE 0.35 d_sup 0.517 resid 1.6e-11 dense Some(2.8978969134604336e-14)
+                 E10 d0.2 s2       V1 J×2: n=  618 θ̂1=   7.180 Δt= 42.222 µs (ĉ 0.746) U_split/θ=1.24 sup-ratio 1.11 top1 0.39 rot 0.18 supE 0.37 d_sup 0.530 resid 1.8e-12 dense Some(2.7626465997825815e-15)
+                 E10 d0.2 s2       V1 J×4: n=  618 θ̂1=   6.821 Δt= 43.318 µs (ĉ 0.766) U_split/θ=1.21 sup-ratio 1.17 top1 0.62 rot 0.03 supE 0.27 d_sup 0.628 resid 1.2e-11 dense Some(2.684291955252107e-15)
+                E10 d0.15 s3       V1 J×2: n= 1404 θ̂1=   7.846 Δt= 30.292 µs (ĉ 0.714) U_split/θ=1.14 sup-ratio 1.19 top1 0.64 rot 0.20 supE 0.38 d_sup 0.505 resid 5.4e-11 dense Some(4.594389569834546e-14)
+                E10 d0.15 s3       V1 J×4: n= 1404 θ̂1=   7.370 Δt= 31.257 µs (ĉ 0.737) U_split/θ=1.15 sup-ratio 1.22 top1 0.56 rot 0.04 supE 0.29 d_sup 0.505 resid 5.7e-12 dense Some(1.0132421403864656e-14)
+            cube2 d0.2 s1001           V0: n= 4560 θ̂1=87189.948 Δt=  0.383 µs (ĉ 0.007) U_split/θ=1.00 sup-ratio 9367.56 top1 1.00 rot 0.68 supE 1.00 d_sup 0.000 resid 1.2e-14 dense None
+            cube2 d0.2 s1001      V-final: n= 4122 θ̂1=  11.605 Δt= 33.212 µs (ĉ 0.587) U_split/θ=1.23 sup-ratio 1.19 top1 0.89 rot 0.86 supE 0.50 d_sup 0.519 resid 2.5e-12 dense None
+            cube2 d0.2 s1002           V0: n= 4380 θ̂1=1699.406 Δt=  2.744 µs (ĉ 0.049) U_split/θ=1.00 sup-ratio 185.64 top1 1.00 rot 0.68 supE 1.00 d_sup 0.003 resid 2.2e-11 dense None
+            cube2 d0.2 s1002      V-final: n= 4224 θ̂1=  11.673 Δt= 33.114 µs (ĉ 0.585) U_split/θ=1.23 sup-ratio 1.18 top1 0.49 rot 0.83 supE 0.17 d_sup 0.533 resid 5.2e-12 dense None
+            cube2 d0.2 s1003           V0: n= 4308 θ̂1=4824.547 Δt=  1.629 µs (ĉ 0.029) U_split/θ=1.00 sup-ratio 545.30 top1 1.00 rot 0.66 supE 1.00 d_sup 0.001 resid 4.0e-12 dense None
+            cube2 d0.2 s1003      V-final: n= 4170 θ̂1=  11.511 Δt= 33.346 µs (ĉ 0.589) U_split/θ=1.23 sup-ratio 1.23 top1 0.83 rot 0.92 supE 0.47 d_sup 0.524 resid 6.9e-14 dense None
+           cube2 d0.35 s1001           V0: n=  954 θ̂1= 160.751 Δt= 15.616 µs (ĉ 0.158) U_split/θ=1.00 sup-ratio 17.46 top1 1.00 rot 0.70 supE 0.97 d_sup 0.027 resid 4.4e-13 dense Some(8.720939076843923e-15)
+           cube2 d0.35 s1001      V-final: n=  882 θ̂1=  11.541 Δt= 58.279 µs (ĉ 0.589) U_split/θ=1.24 sup-ratio 1.15 top1 0.57 rot 0.93 supE 0.33 d_sup 0.553 resid 5.6e-13 dense Some(4.413296855745408e-14)
+           cube2 d0.35 s1002           V0: n=  918 θ̂1= 166.454 Δt= 15.346 µs (ĉ 0.155) U_split/θ=1.00 sup-ratio 19.69 top1 1.00 rot 0.68 supE 0.98 d_sup 0.032 resid 1.1e-10 dense Some(4.3795267382097995e-15)
+           cube2 d0.35 s1002      V-final: n=  882 θ̂1=  12.003 Δt= 57.149 µs (ĉ 0.577) U_split/θ=1.21 sup-ratio 1.32 top1 0.53 rot 0.89 supE 0.25 d_sup 0.529 resid 6.7e-12 dense Some(5.197609491354842e-14)
+           cube2 d0.35 s1003           V0: n=  918 θ̂1=3775.963 Δt=  3.222 µs (ĉ 0.033) U_split/θ=1.00 sup-ratio 469.64 top1 1.00 rot 0.70 supE 1.00 d_sup 0.001 resid 1.8e-10 dense Some(7.920423589552807e-16)
+           cube2 d0.35 s1003      V-final: n=  846 θ̂1=  12.230 Δt= 56.614 µs (ĉ 0.572) U_split/θ=1.15 sup-ratio 1.45 top1 0.88 rot 0.83 supE 0.51 d_sup 0.505 resid 4.3e-11 dense Some(9.743213494464625e-15)
+            cube2 d0.5 s1001           V0: n=  354 θ̂1= 138.228 Δt= 24.057 µs (ĉ 0.170) U_split/θ=1.00 sup-ratio 16.79 top1 1.00 rot 0.69 supE 0.96 d_sup 0.033 resid 2.5e-11 dense Some(4.139582149972142e-15)
+            cube2 d0.5 s1001      V-final: n=  330 θ̂1=  11.854 Δt= 82.152 µs (ĉ 0.581) U_split/θ=1.17 sup-ratio 1.32 top1 0.86 rot 0.81 supE 0.52 d_sup 0.531 resid 3.1e-12 dense Some(1.4481733432739696e-14)
+            cube2 d0.5 s1002           V0: n=  390 θ̂1= 195.049 Δt= 20.252 µs (ĉ 0.143) U_split/θ=1.00 sup-ratio 23.82 top1 1.00 rot 0.68 supE 0.99 d_sup 0.020 resid 3.4e-14 dense Some(1.9557673880545023e-16)
+            cube2 d0.5 s1002      V-final: n=  348 θ̂1=  11.804 Δt= 82.325 µs (ĉ 0.582) U_split/θ=1.20 sup-ratio 1.33 top1 0.69 rot 0.85 supE 0.39 d_sup 0.521 resid 5.9e-12 dense Some(1.8178217853445926e-14)
+            cube2 d0.5 s1003           V0: n=  390 θ̂1= 466.614 Δt= 13.094 µs (ĉ 0.093) U_split/θ=1.00 sup-ratio 53.78 top1 1.00 rot 0.73 supE 0.99 d_sup 0.013 resid 8.9e-13 dense Some(8.011760691970892e-15)
+            cube2 d0.5 s1003      V-final: n=  324 θ̂1=  10.674 Δt= 86.572 µs (ĉ 0.612) U_split/θ=1.28 sup-ratio 1.29 top1 0.84 rot 0.83 supE 0.52 d_sup 0.514 resid 1.0e-14 dense Some(3.8082775369831156e-14)
+                 E10 d0.2 s1        PH V0: n=  654 θ̂1= 539.973 Δt=  4.869 µs (ĉ 0.086) U_split/θ=1.00 sup-ratio 63.24 top1 1.00 rot 0.69 supE 0.99 d_sup 0.010 resid 2.0e-10 dense Some(3.617080266711002e-15)
+                 E10 d0.2 s1   PH V1 a0.6: n=  642 θ̂1=  11.089 Δt= 33.975 µs (ĉ 0.601) U_split/θ=1.32 sup-ratio 1.05 top1 0.35 rot 0.89 supE 0.00 d_sup NaN resid 9.1e-11 dense Some(7.33431983979065e-14)
+                 E10 d0.2 s1  PH V1 a0.75: n=  624 θ̂1=  11.844 Δt= 32.875 µs (ĉ 0.581) U_split/θ=1.23 sup-ratio 1.03 top1 0.54 rot 0.78 supE 0.08 d_sup 0.915 resid 8.6e-12 dense Some(1.198179659332209e-14)
+                 E10 d0.2 s2        PH V0: n=  672 θ̂1= 180.232 Δt=  8.427 µs (ĉ 0.149) U_split/θ=1.00 sup-ratio 20.22 top1 1.00 rot 0.67 supE 0.98 d_sup 0.028 resid 2.9e-12 dense Some(1.8964306465563013e-15)
+                 E10 d0.2 s2   PH V1 a0.6: n=  624 θ̂1=  11.453 Δt= 33.431 µs (ĉ 0.591) U_split/θ=1.27 sup-ratio 1.09 top1 0.27 rot 0.88 supE 0.12 d_sup 0.747 resid 1.1e-11 dense Some(2.944495639770989e-14)
+                 E10 d0.2 s2  PH V1 a0.75: n=  588 θ̂1=  11.203 Δt= 33.801 µs (ĉ 0.598) U_split/θ=1.29 sup-ratio 0.89 top1 0.36 rot 0.88 supE 0.00 d_sup NaN resid 6.4e-12 dense Some(1.470958491790604e-14)
+                E10 d0.15 s3        PH V0: n= 1476 θ̂1=1692.184 Δt=  2.063 µs (ĉ 0.049) U_split/θ=1.00 sup-ratio 190.51 top1 1.00 rot 0.70 supE 1.00 d_sup 0.004 resid 1.2e-10 dense Some(1.5581753492366566e-15)
+                E10 d0.15 s3   PH V1 a0.6: n= 1362 θ̂1=  11.271 Δt= 25.275 µs (ĉ 0.596) U_split/θ=1.29 sup-ratio 0.99 top1 0.33 rot 0.92 supE 0.00 d_sup NaN resid 7.1e-14 dense Some(2.025692266906438e-14)
+                E10 d0.15 s3  PH V1 a0.75: n= 1344 θ̂1=  11.271 Δt= 25.275 µs (ĉ 0.596) U_split/θ=1.29 sup-ratio 0.95 top1 0.33 rot 0.92 supE 0.00 d_sup NaN resid 4.0e-11 dense Some(1.9495383278584408e-14)
+                 E2 block s1        PH V0: n=  435 θ̂1=1629.346 Δt=  0.701 µs (ĉ 0.050) U_split/θ=1.00 sup-ratio 231.55 top1 1.00 rot 0.77 supE 1.00 d_sup 0.003 resid 7.1e-10 dense Some(5.993584027271651e-16)
+                 E2 block s1   PH V1 a0.6: n=  408 θ̂1=   9.430 Δt=  9.211 µs (ĉ 0.651) U_split/θ=1.19 sup-ratio 0.94 top1 0.21 rot 0.95 supE 0.00 d_sup NaN resid 3.3e-11 dense Some(4.498241333409309e-14)
+                 E2 block s1  PH V1 a0.75: n=  402 θ̂1=   9.430 Δt=  9.210 µs (ĉ 0.651) U_split/θ=1.19 sup-ratio 0.85 top1 0.21 rot 0.95 supE 0.00 d_sup NaN resid 1.2e-12 dense Some(4.3525350531829357e-14)
+                 E2 block s2        PH V0: n=  435 θ̂1= 380.270 Δt=  1.450 µs (ĉ 0.103) U_split/θ=1.00 sup-ratio 51.07 top1 1.00 rot 0.68 supE 0.99 d_sup 0.014 resid 2.4e-12 dense Some(4.622534251032514e-15)
+                 E2 block s2   PH V1 a0.6: n=  417 θ̂1=   9.896 Δt=  8.991 µs (ĉ 0.636) U_split/θ=1.27 sup-ratio 0.93 top1 0.90 rot 0.68 supE 0.00 d_sup NaN resid 1.3e-11 dense Some(2.883361732966533e-14)
+                 E2 block s2  PH V1 a0.75: n=  414 θ̂1=   9.896 Δt=  8.991 µs (ĉ 0.636) U_split/θ=1.27 sup-ratio 0.62 top1 0.90 rot 0.68 supE 0.00 d_sup NaN resid 6.9e-13 dense Some(1.4339713431391107e-14)
+                 E2 block s3        PH V0: n=  438 θ̂1= 298.342 Δt=  1.638 µs (ĉ 0.116) U_split/θ=1.00 sup-ratio 40.83 top1 1.00 rot 0.71 supE 0.98 d_sup 0.016 resid 2.8e-10 dense Some(9.819893538330609e-16)
+                 E2 block s3   PH V1 a0.6: n=  411 θ̂1=  10.327 Δt=  8.802 µs (ĉ 0.622) U_split/θ=1.15 sup-ratio 1.14 top1 0.30 rot 0.94 supE 0.00 d_sup NaN resid 1.0e-11 dense Some(8.717708752598745e-15)
+                 E2 block s3  PH V1 a0.75: n=  405 θ̂1=  10.327 Δt=  8.802 µs (ĉ 0.622) U_split/θ=1.15 sup-ratio 0.86 top1 0.30 rot 0.94 supE 0.00 d_sup NaN resid 1.5e-11 dense Some(8.126680484768127e-15)
+            E3 wall 1x2 d0.1        PH V0: n=  447 θ̂1= 148.578 Δt=  4.641 µs (ĉ 0.164) U_split/θ=1.00 sup-ratio 19.91 top1 1.00 rot 0.73 supE 0.97 d_sup 0.032 resid 1.4e-10 dense Some(1.6431768920046423e-16)
+            E3 wall 1x2 d0.1   PH V1 a0.6: n=  432 θ̂1=  10.252 Δt= 17.667 µs (ĉ 0.625) U_split/θ=1.22 sup-ratio 0.93 top1 0.38 rot 0.90 supE 0.00 d_sup NaN resid 3.2e-14 dense Some(2.9915591459709335e-14)
+            E3 wall 1x2 d0.1  PH V1 a0.75: n=  432 θ̂1=  10.252 Δt= 17.667 µs (ĉ 0.625) U_split/θ=1.22 sup-ratio 0.84 top1 0.38 rot 0.90 supE 0.00 d_sup NaN resid 2.4e-14 dense Some(3.497594000295524e-14)
+            E3 wall 1x8 d0.1        PH V0: n= 1713 θ̂1= 187.413 Δt=  4.132 µs (ĉ 0.146) U_split/θ=1.00 sup-ratio 24.99 top1 1.00 rot 0.74 supE 0.98 d_sup 0.025 resid 4.7e-11 dense Some(2.0842991083259864e-15)
+            E3 wall 1x8 d0.1   PH V1 a0.6: n= 1728 θ̂1=  10.256 Δt= 17.664 µs (ĉ 0.625) U_split/θ=1.20 sup-ratio 1.03 top1 0.26 rot 0.95 supE 0.00 d_sup NaN resid 1.7e-12 dense Some(7.900399245378512e-14)
+            E3 wall 1x8 d0.1  PH V1 a0.75: n= 1719 θ̂1=  10.256 Δt= 17.664 µs (ĉ 0.625) U_split/θ=1.20 sup-ratio 0.76 top1 0.26 rot 0.95 supE 0.00 d_sup NaN resid 1.6e-12 dense Some(6.888672035047629e-14)
+            E3 wall 4x8 d0.4        PH V0: n=  447 θ̂1= 148.578 Δt= 18.563 µs (ĉ 0.164) U_split/θ=1.00 sup-ratio 19.91 top1 1.00 rot 0.73 supE 0.97 d_sup 0.032 resid 1.4e-10 dense Some(1.6431768920046423e-16)
+            E3 wall 4x8 d0.4   PH V1 a0.6: n=  432 θ̂1=  10.252 Δt= 70.668 µs (ĉ 0.625) U_split/θ=1.22 sup-ratio 0.93 top1 0.38 rot 0.90 supE 0.00 d_sup NaN resid 3.2e-14 dense Some(2.9915591459709335e-14)
+            E3 wall 4x8 d0.4  PH V1 a0.75: n=  432 θ̂1=  10.252 Δt= 70.668 µs (ĉ 0.625) U_split/θ=1.22 sup-ratio 0.84 top1 0.38 rot 0.90 supE 0.00 d_sup NaN resid 2.4e-14 dense Some(3.497594000295524e-14)
+               E7 cantilever        PH V0: n=  252 θ̂1=  97.409 Δt= 17.195 µs (ĉ 0.203) U_split/θ=1.00 sup-ratio 13.62 top1 1.00 rot 0.72 supE 0.97 d_sup 0.047 resid 6.8e-10 dense Some(7.049103402400501e-16)
+               E7 cantilever   PH V1 a0.6: n=  243 θ̂1=  10.013 Δt= 53.632 µs (ĉ 0.632) U_split/θ=1.15 sup-ratio 0.88 top1 0.35 rot 0.91 supE 0.00 d_sup NaN resid 1.2e-10 dense Some(5.143336125666663e-15)
+               E7 cantilever  PH V1 a0.75: n=  243 θ̂1=  10.013 Δt= 53.632 µs (ĉ 0.632) U_split/θ=1.15 sup-ratio 0.78 top1 0.35 rot 0.91 supE 0.00 d_sup NaN resid 1.1e-10 dense Some(3.257446212922226e-15)
+                   E7 column        PH V0: n=  156 θ̂1= 523.188 Δt=  6.183 µs (ĉ 0.087) U_split/θ=1.00 sup-ratio 69.59 top1 1.00 rot 0.70 supE 0.99 d_sup 0.009 resid 5.9e-10 dense Some(1.4582508253745695e-15)
+                   E7 column   PH V1 a0.6: n=  150 θ̂1=   9.621 Δt= 45.593 µs (ĉ 0.645) U_split/θ=1.17 sup-ratio 0.67 top1 0.60 rot 0.88 supE 0.00 d_sup NaN resid 8.0e-12 dense Some(7.805940853072019e-15)
+                   E7 column  PH V1 a0.75: n=  153 θ̂1=   9.621 Δt= 45.593 µs (ĉ 0.645) U_split/θ=1.17 sup-ratio 0.88 top1 0.60 rot 0.88 supE 0.00 d_sup NaN resid 8.2e-12 dense Some(8.549363791459812e-15)
+                 E7 block C2        PH V0: n=   81 θ̂1=  24.030 Δt= 34.620 µs (ĉ 0.408) U_split/θ=1.01 sup-ratio 3.65 top1 1.00 rot 0.75 supE 0.89 d_sup 0.172 resid 3.0e-13 dense Some(1.4287492235005304e-15)
+                 E7 block C2   PH V1 a0.6: n=   81 θ̂1=   8.546 Δt= 58.053 µs (ĉ 0.684) U_split/θ=1.23 sup-ratio 0.97 top1 0.40 rot 0.90 supE 0.00 d_sup NaN resid 1.4e-13 dense Some(2.812228314792954e-15)
+                 E7 block C2  PH V1 a0.75: n=   81 θ̂1=   8.538 Δt= 58.078 µs (ĉ 0.684) U_split/θ=1.23 sup-ratio 1.01 top1 0.40 rot 0.90 supE 0.00 d_sup NaN resid 1.0e-13 dense Some(2.010473044824914e-15)
+                    E9 block        PH V0: n=  444 θ̂1= 607.082 Δt=  1.148 µs (ĉ 0.081) U_split/θ=1.00 sup-ratio 83.73 top1 1.00 rot 0.77 supE 0.99 d_sup 0.008 resid 1.4e-10 dense Some(1.9303410155243672e-15)
+                    E9 block   PH V1 a0.6: n=  429 θ̂1=   9.951 Δt=  8.966 µs (ĉ 0.634) U_split/θ=1.16 sup-ratio 0.97 top1 0.31 rot 0.94 supE 0.00 d_sup NaN resid 6.2e-13 dense Some(3.189469705805092e-14)
+                    E9 block  PH V1 a0.75: n=  426 θ̂1=   9.951 Δt=  8.966 µs (ĉ 0.634) U_split/θ=1.16 sup-ratio 0.87 top1 0.31 rot 0.94 supE 0.00 d_sup NaN resid 1.5e-11 dense Some(2.6834486470943202e-14)
+refine 3D d0.5 s2001 control: cells 64 f0 199.75 C 3.62878e-2
+refine 3D d0.5 s2001 a0.5: cells 57 f0 189.20 C 3.70915e-2
+refine 3D d0.5 s2001 a0.6: cells 56 f0 187.42 C 3.72295e-2
+refine 3D d0.5 s2002 control: cells 61 f0 198.22 C 3.69258e-2
+refine 3D d0.5 s2002 a0.5: cells 53 f0 190.00 C 3.75397e-2
+refine 3D d0.5 s2002 a0.6: cells 50 f0 185.81 C 3.79178e-2
+refine 3D d0.5 s2003 control: cells 63 f0 199.04 C 3.72378e-2
+refine 3D d0.5 s2003 a0.5: cells 54 f0 189.05 C 3.79419e-2
+refine 3D d0.5 s2003 a0.6: cells 53 f0 187.26 C 3.81426e-2
+refine 3D d0.35 s2001 control: cells 162 f0 197.28 C 3.76176e-2
+refine 3D d0.35 s2001 a0.5: cells 143 f0 191.96 C 3.80274e-2
+refine 3D d0.35 s2001 a0.6: cells 142 f0 190.56 C 3.81471e-2
+refine 3D d0.35 s2002 control: cells 164 f0 197.83 C 3.77840e-2
+refine 3D d0.35 s2002 a0.5: cells 145 f0 192.79 C 3.81767e-2
+refine 3D d0.35 s2002 a0.6: cells 142 f0 191.31 C 3.82965e-2
+refine 3D d0.35 s2003 control: cells 157 f0 197.55 C 3.76681e-2
+refine 3D d0.35 s2003 a0.5: cells 147 f0 192.51 C 3.80734e-2
+refine 3D d0.35 s2003 a0.6: cells 143 f0 190.35 C 3.82457e-2
+refine 3D d0.25 s2001 control: cells 393 f0 196.28 C 3.79628e-2
+refine 3D d0.25 s2001 a0.5: cells 369 f0 193.68 C 3.81671e-2
+refine 3D d0.25 s2001 a0.6: cells 363 f0 193.40 C 3.81890e-2
+refine 3D d0.25 s2002 control: cells 405 f0 196.54 C 3.81978e-2
+refine 3D d0.25 s2002 a0.5: cells 366 f0 193.62 C 3.83731e-2
+refine 3D d0.25 s2002 a0.6: cells 362 f0 193.01 C 3.84216e-2
+refine 3D d0.25 s2003 control: cells 411 f0 196.27 C 3.80895e-2
+refine 3D d0.25 s2003 a0.5: cells 379 f0 193.51 C 3.83114e-2
+refine 3D d0.25 s2003 a0.6: cells 375 f0 193.09 C 3.82964e-2
+refine 3D d0.2 s2001 control: cells 727 f0 195.70 C 3.82743e-2
+refine 3D d0.2 s2001 a0.5: cells 704 f0 194.06 C 3.84292e-2
+refine 3D d0.2 s2001 a0.6: cells 693 f0 193.59 C 3.84405e-2
+refine 3D d0.2 s2002 control: cells 717 f0 195.85 C 3.82859e-2
+refine 3D d0.2 s2002 a0.5: cells 683 f0 194.17 C 3.84118e-2
+refine 3D d0.2 s2002 a0.6: cells 672 f0 193.64 C 3.84527e-2
+refine 3D d0.2 s2003 control: cells 745 f0 195.94 C 3.83107e-2
+refine 3D d0.2 s2003 a0.5: cells 714 f0 194.07 C 3.84597e-2
+refine 3D d0.2 s2003 a0.6: cells 704 f0 193.57 C 3.84985e-2
+refine 3D d0.15 s2001 control: cells 1683 f0 195.44 C 3.84898e-2
+refine 3D d0.15 s2001 a0.5: cells 1626 f0 194.38 C 3.85689e-2
+refine 3D d0.15 s2001 a0.6: cells 1589 f0 194.14 C 3.85829e-2
+refine 3D d0.15 s2002 control: cells 1668 f0 195.46 C 3.84858e-2
+refine 3D d0.15 s2002 a0.5: cells 1598 f0 194.27 C 3.85794e-2
+refine 3D d0.15 s2002 a0.6: cells 1590 f0 194.07 C 3.85950e-2
+refine 3D d0.15 s2003 control: cells 1662 f0 195.46 C 3.85050e-2
+refine 3D d0.15 s2003 a0.5: cells 1573 f0 194.32 C 3.85883e-2
+refine 3D d0.15 s2003 a0.6: cells 1560 f0 194.05 C 3.86092e-2
+refine 3D d0.1 s2001 control: cells 5330 f0 195.08 C 3.87061e-2
+refine 3D d0.1 s2001 a0.5: cells 5199 f0 194.54 C 3.87477e-2
+refine 3D d0.1 s2001 a0.6: cells 5180 f0 194.39 C 3.87592e-2
+refine 3D d0.1 s2002 control: cells 5234 f0 195.07 C 3.87193e-2
+refine 3D d0.1 s2002 a0.5: cells 5174 f0 194.51 C 3.87681e-2
+refine 3D d0.1 s2002 a0.6: cells 5077 f0 194.36 C 3.87735e-2
+refine 3D d0.1 s2003 control: cells 5308 f0 195.09 C 3.87064e-2
+refine 3D d0.1 s2003 a0.5: cells 5180 f0 194.51 C 3.87500e-2
+refine 3D d0.1 s2003 a0.6: cells 5145 f0 194.38 C 3.87595e-2
+refine 2D d0.3 s2001 control: cells 86 f0 10.627 C 1.15460e1
+refine 2D d0.3 s2001 a0.5: cells 85 f0 10.599 C 1.16424e1
+refine 2D d0.3 s2001 a0.6: cells 85 f0 10.598 C 1.16475e1
+refine 2D d0.3 s2002 control: cells 88 f0 10.609 C 1.15966e1
+refine 2D d0.3 s2002 a0.5: cells 86 f0 10.587 C 1.16852e1
+refine 2D d0.3 s2002 a0.6: cells 86 f0 10.587 C 1.16852e1
+refine 2D d0.3 s2003 control: cells 87 f0 10.621 C 1.15676e1
+refine 2D d0.3 s2003 a0.5: cells 85 f0 10.583 C 1.17109e1
+refine 2D d0.3 s2003 a0.6: cells 85 f0 10.583 C 1.17109e1
+refine 2D d0.2 s2001 control: cells 184 f0 10.590 C 1.16354e1
+refine 2D d0.2 s2001 a0.5: cells 180 f0 10.572 C 1.17059e1
+refine 2D d0.2 s2001 a0.6: cells 180 f0 10.570 C 1.17141e1
+refine 2D d0.2 s2002 control: cells 184 f0 10.590 C 1.16342e1
+refine 2D d0.2 s2002 a0.5: cells 180 f0 10.579 C 1.16807e1
+refine 2D d0.2 s2002 a0.6: cells 180 f0 10.577 C 1.16891e1
+refine 2D d0.2 s2003 control: cells 188 f0 10.588 C 1.16415e1
+refine 2D d0.2 s2003 a0.5: cells 185 f0 10.574 C 1.16980e1
+refine 2D d0.2 s2003 a0.6: cells 184 f0 10.573 C 1.17008e1
+refine 2D d0.15 s2001 control: cells 312 f0 10.575 C 1.16695e1
+refine 2D d0.15 s2001 a0.5: cells 308 f0 10.569 C 1.16932e1
+refine 2D d0.15 s2001 a0.6: cells 306 f0 10.562 C 1.17219e1
+refine 2D d0.15 s2002 control: cells 316 f0 10.574 C 1.16729e1
+refine 2D d0.15 s2002 a0.5: cells 312 f0 10.569 C 1.16935e1
+refine 2D d0.15 s2002 a0.6: cells 312 f0 10.566 C 1.17043e1
+refine 2D d0.15 s2003 control: cells 316 f0 10.571 C 1.16810e1
+refine 2D d0.15 s2003 a0.5: cells 313 f0 10.565 C 1.17023e1
+refine 2D d0.15 s2003 a0.6: cells 312 f0 10.564 C 1.17094e1
+refine 2D d0.1 s2001 control: cells 684 f0 10.564 C 1.16974e1
+refine 2D d0.1 s2001 a0.5: cells 679 f0 10.562 C 1.17064e1
+refine 2D d0.1 s2001 a0.6: cells 679 f0 10.561 C 1.17116e1
+refine 2D d0.1 s2002 control: cells 689 f0 10.564 C 1.16978e1
+refine 2D d0.1 s2002 a0.5: cells 682 f0 10.559 C 1.17153e1
+refine 2D d0.1 s2002 a0.6: cells 682 f0 10.559 C 1.17166e1
+refine 2D d0.1 s2003 control: cells 680 f0 10.564 C 1.16978e1
+refine 2D d0.1 s2003 a0.5: cells 676 f0 10.561 C 1.17097e1
+refine 2D d0.1 s2003 a0.6: cells 675 f0 10.560 C 1.17111e1
+refine 2D d0.075 s2001 control: cells 1163 f0 10.560 C 1.17066e1
+refine 2D d0.075 s2001 a0.5: cells 1158 f0 10.558 C 1.17143e1
+refine 2D d0.075 s2001 a0.6: cells 1157 f0 10.558 C 1.17149e1
+refine 2D d0.075 s2002 control: cells 1173 f0 10.560 C 1.17070e1
+refine 2D d0.075 s2002 a0.5: cells 1168 f0 10.559 C 1.17116e1
+refine 2D d0.075 s2002 a0.6: cells 1166 f0 10.559 C 1.17133e1
+refine 2D d0.075 s2003 control: cells 1187 f0 10.560 C 1.17075e1
+refine 2D d0.075 s2003 a0.5: cells 1182 f0 10.558 C 1.17132e1
+refine 2D d0.075 s2003 a0.6: cells 1182 f0 10.558 C 1.17147e1
+refine 2D d0.05 s2001 control: cells 2612 f0 10.557 C 1.17141e1
+refine 2D d0.05 s2001 a0.5: cells 2603 f0 10.556 C 1.17168e1
+refine 2D d0.05 s2001 a0.6: cells 2602 f0 10.556 C 1.17171e1
+refine 2D d0.05 s2002 control: cells 2640 f0 10.557 C 1.17136e1
+refine 2D d0.05 s2002 a0.5: cells 2629 f0 10.556 C 1.17168e1
+refine 2D d0.05 s2002 a0.6: cells 2627 f0 10.556 C 1.17178e1
+refine 2D d0.05 s2003 control: cells 2607 f0 10.557 C 1.17140e1
+refine 2D d0.05 s2003 a0.5: cells 2598 f0 10.556 C 1.17169e1
+refine 2D d0.05 s2003 a0.6: cells 2606 f0 10.556 C 1.17177e1
+done in 163 s
+./target/release/geo_spectrum  157.97s user 26.24s system 113% cpu 2:42.95 total

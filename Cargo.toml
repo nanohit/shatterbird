@@ -1,0 +1,16 @@
+[workspace]
+resolver = "2"
+members = ["crates/geometry", "crates/model", "crates/solvers", "crates/experiments"]
+
+[workspace.package]
+edition = "2021"
+version = "0.1.0"
+license = "MIT"
+
+[workspace.dependencies]
+faer = { version = "0.24", default-features = false, features = ["std", "rayon", "sparse-linalg"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+debug = 1

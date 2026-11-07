@@ -1,0 +1,47 @@
+{
+  "forced": {
+    "h": 0.0010416666666666667,
+    "invalid": {
+      "outer_step": 0,
+      "reason": "Newton not converged",
+      "residual": 136961.39550560847,
+      "substeps": 0,
+      "t": 0.0
+    },
+    "kc": 100000000.0,
+    "refine_substep": null,
+    "v0": 10.0,
+    "valid": false
+  },
+  "meta": {
+    "config": {},
+    "experiment": "phase0b/two-level/fix-checks",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "e9 checks",
+    "seed": 9,
+    "solver_schedule": "forced Newton failure (max_iter=1) vs normal run, 4 ms at 1/960",
+    "source_hash": "4d7d706b25d7f5bd",
+    "unix_time": 1793994897
+  },
+  "normal": {
+    "D_material_J": 0.0,
+    "D_over_KE0": 0.0,
+    "KE0_J": 616.537558266997,
+    "broken_facets": 0,
+    "contact_first_s": 0.0010416666666666667,
+    "contact_last_s": 0.0020833333333333333,
+    "h": 0.0010416666666666667,
+    "impulse_Ns": 129.31541893049928,
+    "kc": 100000000.0,
+    "outer_steps": 4,
+    "peak_contact_force_N": 85762.09691927642,
+    "projectile_v_end": 0.4463546204858204,
+    "refine_substep": null,
+    "restitution": -0.04463546204858204,
+    "substeps": 4,
+    "t_c_estimate_s": 0.0011031755797250807,
+    "v0": 10.0,
+    "valid": true
+  },
+  "pass": true
+}

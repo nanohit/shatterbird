@@ -1,0 +1,409 @@
+{
+  "meta": {
+    "config": {
+      "game": "E7 scenario A (8x1.2 m, cells 0.3 m), BDF2 1/480, 0.1 s after prop removal, S0 and S1 perspring 0.1 x64",
+      "lab": "0.2x0.1 m block, cells 5 mm, top patch load (0.5,-2) MPa, S0 + S1 perspring 0.1 x200"
+    },
+    "experiment": "Q5",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "ranges",
+    "seed": 1,
+    "solver_schedule": "observed magnitudes; S1 channels (s, 1-s, k_eff, lambda) recorded inside the solver",
+    "source_hash": "69f2d936126db544",
+    "unix_time": 1793976258
+  },
+  "ranges": {
+    "1-s": {
+      "count": 7560352,
+      "dyn_bits": 3.4594316186372986,
+      "max_abs": 1.0,
+      "min_abs_nonzero": 0.09090909090909083,
+      "zeros": 0
+    },
+    "game_dyn_S0.arm_m": {
+      "count": 19200,
+      "dyn_bits": 1.2312860801398005,
+      "max_abs": 0.2942392906479416,
+      "min_abs_nonzero": 0.12532757069249173,
+      "zeros": 0
+    },
+    "game_dyn_S0.damage": {
+      "count": 19200,
+      "dyn_bits": 0.5741971242185256,
+      "max_abs": 1.0,
+      "min_abs_nonzero": 0.671659933599249,
+      "zeros": 18879
+    },
+    "game_dyn_S0.jump_normal_m": {
+      "count": 19200,
+      "dyn_bits": 32.014176261520916,
+      "max_abs": 0.02885599896013301,
+      "min_abs_nonzero": 6.65286594425967e-12,
+      "zeros": 0
+    },
+    "game_dyn_S0.jump_tangential_m": {
+      "count": 19200,
+      "dyn_bits": 36.87136566475572,
+      "max_abs": 0.03353414370464039,
+      "min_abs_nonzero": 2.6674738764318096e-13,
+      "zeros": 0
+    },
+    "game_dyn_S0.law_delta0_m": {
+      "count": 19200,
+      "dyn_bits": 0.9731999919468982,
+      "max_abs": 0.00005896662783450904,
+      "min_abs_nonzero": 0.000030036124985360388,
+      "zeros": 0
+    },
+    "game_dyn_S0.law_kn_N_per_m": {
+      "count": 19200,
+      "dyn_bits": 11.031676499878575,
+      "max_abs": 6156037666.652673,
+      "min_abs_nonzero": 2940598.5553656444,
+      "zeros": 0
+    },
+    "game_dyn_S0.law_wc_m": {
+      "count": 19200,
+      "dyn_bits": 0.0,
+      "max_abs": 0.00006666666666666667,
+      "min_abs_nonzero": 0.00006666666666666667,
+      "zeros": 0
+    },
+    "game_dyn_S0.point_force_N": {
+      "count": 19200,
+      "dyn_bits": 24.438590328405894,
+      "max_abs": 289772.67539992684,
+      "min_abs_nonzero": 0.012744085895087921,
+      "zeros": 210
+    },
+    "game_dyn_S0.position_abs_m": {
+      "count": 4032,
+      "dyn_bits": 6.110201077523014,
+      "max_abs": 7.893017367481544,
+      "min_abs_nonzero": 0.11425869369977548,
+      "zeros": 0
+    },
+    "game_dyn_S0.rotation_rad": {
+      "count": 4032,
+      "dyn_bits": 15.466593265528221,
+      "max_abs": 0.03142350159471198,
+      "min_abs_nonzero": 6.939785931911278e-7,
+      "zeros": 0
+    },
+    "game_dyn_S0.step_delta_rotation_rad": {
+      "count": 4032,
+      "dyn_bits": 15.283044651347156,
+      "max_abs": 0.0009279869717862682,
+      "min_abs_nonzero": 2.3274856603869808e-8,
+      "zeros": 0
+    },
+    "game_dyn_S0.step_delta_translation_m": {
+      "count": 4032,
+      "dyn_bits": 17.339694577685556,
+      "max_abs": 0.002304006235891975,
+      "min_abs_nonzero": 1.3890422849775216e-8,
+      "zeros": 0
+    },
+    "game_dyn_S0.strain_dn_over_h": {
+      "count": 19200,
+      "dyn_bits": 32.38254191237814,
+      "max_abs": 0.08200532645490212,
+      "min_abs_nonzero": 1.464622192226891e-11,
+      "zeros": 0
+    },
+    "game_dyn_S0.velocity_m_per_s": {
+      "count": 4032,
+      "dyn_bits": 16.55920489255253,
+      "max_abs": 1.116139874335583,
+      "min_abs_nonzero": 0.000011558493860923775,
+      "zeros": 0
+    },
+    "game_dyn_S1.arm_m": {
+      "count": 19200,
+      "dyn_bits": 1.2312860801398005,
+      "max_abs": 0.2942392906479416,
+      "min_abs_nonzero": 0.12532757069249173,
+      "zeros": 0
+    },
+    "game_dyn_S1.damage": {
+      "count": 19200,
+      "dyn_bits": 0.0,
+      "max_abs": 1.0,
+      "min_abs_nonzero": 1.0,
+      "zeros": 18685
+    },
+    "game_dyn_S1.jump_normal_m": {
+      "count": 19200,
+      "dyn_bits": 32.15075022119838,
+      "max_abs": 0.012052498078936127,
+      "min_abs_nonzero": 2.5277660187883797e-12,
+      "zeros": 0
+    },
+    "game_dyn_S1.jump_tangential_m": {
+      "count": 19200,
+      "dyn_bits": 29.57526119963554,
+      "max_abs": 0.007821789529366375,
+      "min_abs_nonzero": 9.778345427526967e-12,
+      "zeros": 0
+    },
+    "game_dyn_S1.law_delta0_m": {
+      "count": 19200,
+      "dyn_bits": 0.9731999919468982,
+      "max_abs": 0.00005896662783450904,
+      "min_abs_nonzero": 0.000030036124985360388,
+      "zeros": 0
+    },
+    "game_dyn_S1.law_kn_N_per_m": {
+      "count": 19200,
+      "dyn_bits": 11.031676499878575,
+      "max_abs": 6156037666.652673,
+      "min_abs_nonzero": 2940598.5553656444,
+      "zeros": 0
+    },
+    "game_dyn_S1.law_wc_m": {
+      "count": 19200,
+      "dyn_bits": 0.0,
+      "max_abs": 0.00006666666666666667,
+      "min_abs_nonzero": 0.00006666666666666667,
+      "zeros": 0
+    },
+    "game_dyn_S1.point_force_N": {
+      "count": 19200,
+      "dyn_bits": 21.45629220167627,
+      "max_abs": 136509.20520351455,
+      "min_abs_nonzero": 0.047443245393742714,
+      "zeros": 484
+    },
+    "game_dyn_S1.position_abs_m": {
+      "count": 4032,
+      "dyn_bits": 6.110808486888443,
+      "max_abs": 7.8964084760248054,
+      "min_abs_nonzero": 0.11425966691770754,
+      "zeros": 0
+    },
+    "game_dyn_S1.rotation_rad": {
+      "count": 4032,
+      "dyn_bits": 24.194500803176968,
+      "max_abs": 0.007404315164427581,
+      "min_abs_nonzero": 3.8566872699110736e-10,
+      "zeros": 0
+    },
+    "game_dyn_S1.step_delta_rotation_rad": {
+      "count": 4032,
+      "dyn_bits": 20.794398550405408,
+      "max_abs": 0.000341165899420944,
+      "min_abs_nonzero": 1.8759787305601823e-10,
+      "zeros": 0
+    },
+    "game_dyn_S1.step_delta_translation_m": {
+      "count": 4032,
+      "dyn_bits": 25.787348598666835,
+      "max_abs": 0.002631985380612636,
+      "min_abs_nonzero": 4.544834110571641e-11,
+      "zeros": 0
+    },
+    "game_dyn_S1.strain_dn_over_h": {
+      "count": 19200,
+      "dyn_bits": 31.971990588692996,
+      "max_abs": 0.031726726357938315,
+      "min_abs_nonzero": 7.531770436842837e-12,
+      "zeros": 0
+    },
+    "game_dyn_S1.velocity_m_per_s": {
+      "count": 4032,
+      "dyn_bits": 26.344695360706332,
+      "max_abs": 1.2697649416919543,
+      "min_abs_nonzero": 1.489977814167853e-8,
+      "zeros": 0
+    },
+    "k_eff": {
+      "count": 7560352,
+      "dyn_bits": 20.856154423805,
+      "max_abs": 15595962894.78764,
+      "min_abs_nonzero": 8216.448122086846,
+      "zeros": 127766
+    },
+    "lab_static_S0.arm_m": {
+      "count": 3212,
+      "dyn_bits": 1.7023925266518982,
+      "max_abs": 0.005408195699145051,
+      "min_abs_nonzero": 0.0016618092940649018,
+      "zeros": 0
+    },
+    "lab_static_S0.damage": {
+      "count": 3212,
+      "dyn_bits": 0.0,
+      "max_abs": 0.0,
+      "min_abs_nonzero": null,
+      "zeros": 3212
+    },
+    "lab_static_S0.jump_normal_m": {
+      "count": 3212,
+      "dyn_bits": 15.8931566011695,
+      "max_abs": 6.440919573214398e-7,
+      "min_abs_nonzero": 1.0583541412133666e-11,
+      "zeros": 0
+    },
+    "lab_static_S0.jump_tangential_m": {
+      "count": 3212,
+      "dyn_bits": 18.58768831676878,
+      "max_abs": 2.7617177811177765e-7,
+      "min_abs_nonzero": 7.010154064764295e-13,
+      "zeros": 0
+    },
+    "lab_static_S0.law_delta0_m": {
+      "count": 3212,
+      "dyn_bits": 0.998991423558514,
+      "max_abs": 9.993296920316134e-7,
+      "min_abs_nonzero": 5.000142797996984e-7,
+      "zeros": 0
+    },
+    "lab_static_S0.law_kn_N_per_m": {
+      "count": 3212,
+      "dyn_bits": 12.153470423871738,
+      "max_abs": 1232752281.3655732,
+      "min_abs_nonzero": 270593.0674937116,
+      "zeros": 0
+    },
+    "lab_static_S0.law_wc_m": {
+      "count": 3212,
+      "dyn_bits": 0.0,
+      "max_abs": 0.00006666666666666667,
+      "min_abs_nonzero": 0.00006666666666666667,
+      "zeros": 0
+    },
+    "lab_static_S0.point_force_N": {
+      "count": 3212,
+      "dyn_bits": 15.981750767164256,
+      "max_abs": 369.16929348472803,
+      "min_abs_nonzero": 0.005704784011399946,
+      "zeros": 0
+    },
+    "lab_static_S0.position_abs_m": {
+      "count": 569,
+      "dyn_bits": 5.820249569841998,
+      "max_abs": 0.198828249553115,
+      "min_abs_nonzero": 0.0035189118384160163,
+      "zeros": 0
+    },
+    "lab_static_S0.rotation_rad": {
+      "count": 569,
+      "dyn_bits": 11.516860928894706,
+      "max_abs": 0.00011732541436785685,
+      "min_abs_nonzero": 4.003791942511033e-8,
+      "zeros": 0
+    },
+    "lab_static_S0.step_delta_rotation_rad": {
+      "count": 569,
+      "dyn_bits": 11.516860928894706,
+      "max_abs": 0.00011732541436785685,
+      "min_abs_nonzero": 4.003791942511033e-8,
+      "zeros": 0
+    },
+    "lab_static_S0.step_delta_translation_m": {
+      "count": 569,
+      "dyn_bits": 14.223991146735322,
+      "max_abs": 5.93177704125808e-6,
+      "min_abs_nonzero": 3.099822494813136e-10,
+      "zeros": 0
+    },
+    "lab_static_S0.strain_dn_over_h": {
+      "count": 3212,
+      "dyn_bits": 15.209355561077702,
+      "max_abs": 0.00007415000573351815,
+      "min_abs_nonzero": 1.957216869496074e-9,
+      "zeros": 0
+    },
+    "lab_static_S1.arm_m": {
+      "count": 3212,
+      "dyn_bits": 1.7023925266518982,
+      "max_abs": 0.005408195699145051,
+      "min_abs_nonzero": 0.0016618092940649018,
+      "zeros": 0
+    },
+    "lab_static_S1.damage": {
+      "count": 3212,
+      "dyn_bits": 0.0,
+      "max_abs": 0.0,
+      "min_abs_nonzero": null,
+      "zeros": 3212
+    },
+    "lab_static_S1.jump_normal_m": {
+      "count": 3212,
+      "dyn_bits": 15.951237606094384,
+      "max_abs": 6.441118982016752e-7,
+      "min_abs_nonzero": 1.0166239440925972e-11,
+      "zeros": 0
+    },
+    "lab_static_S1.jump_tangential_m": {
+      "count": 3212,
+      "dyn_bits": 21.38697216691837,
+      "max_abs": 2.761404661702238e-7,
+      "min_abs_nonzero": 1.006954657501691e-13,
+      "zeros": 0
+    },
+    "lab_static_S1.law_delta0_m": {
+      "count": 3212,
+      "dyn_bits": 0.998991423558514,
+      "max_abs": 9.993296920316134e-7,
+      "min_abs_nonzero": 5.000142797996984e-7,
+      "zeros": 0
+    },
+    "lab_static_S1.law_kn_N_per_m": {
+      "count": 3212,
+      "dyn_bits": 12.153470423871738,
+      "max_abs": 1232752281.3655732,
+      "min_abs_nonzero": 270593.0674937116,
+      "zeros": 0
+    },
+    "lab_static_S1.law_wc_m": {
+      "count": 3212,
+      "dyn_bits": 0.0,
+      "max_abs": 0.00006666666666666667,
+      "min_abs_nonzero": 0.00006666666666666667,
+      "zeros": 0
+    },
+    "lab_static_S1.point_force_N": {
+      "count": 3212,
+      "dyn_bits": 15.983688663802452,
+      "max_abs": 369.1773521715997,
+      "min_abs_nonzero": 0.005697250582289772,
+      "zeros": 0
+    },
+    "lab_static_S1.position_abs_m": {
+      "count": 569,
+      "dyn_bits": 5.820249519546199,
+      "max_abs": 0.1988282498421091,
+      "min_abs_nonzero": 0.0035189119662083876,
+      "zeros": 0
+    },
+    "lab_static_S1.rotation_rad": {
+      "count": 569,
+      "dyn_bits": 11.594574006478492,
+      "max_abs": 0.00011731703644415309,
+      "min_abs_nonzero": 3.793556186511176e-8,
+      "zeros": 0
+    },
+    "lab_static_S1.strain_dn_over_h": {
+      "count": 3212,
+      "dyn_bits": 15.73334751612156,
+      "max_abs": 0.00007415162437214352,
+      "min_abs_nonzero": 1.3611661319709339e-9,
+      "zeros": 0
+    },
+    "lambda": {
+      "count": 3817952,
+      "dyn_bits": 63.418996604243496,
+      "max_abs": 201602.94721159953,
+      "min_abs_nonzero": 1.6348450773119955e-14,
+      "zeros": 90105
+    },
+    "s": {
+      "count": 7560352,
+      "dyn_bits": 14.567387509250246,
+      "max_abs": 0.9090909090909092,
+      "min_abs_nonzero": 0.00003744438621773588,
+      "zeros": 127766
+    }
+  }
+}

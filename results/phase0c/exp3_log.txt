@@ -1,0 +1,16 @@
+
+thread '<unnamed>' (19180056) panicked at crates/experiments/src/bin/reduced_dyn.rs:142:5:
+impact static state
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread '<unnamed>' (19180058) panicked at crates/experiments/src/bin/reduced_dyn.rs:142:5:
+impact static state
+
+thread '<unnamed>' (19180059) panicked at crates/experiments/src/bin/reduced_dyn.rs:142:5:
+impact static state
+
+thread '<unnamed>' (19180057) panicked at crates/experiments/src/bin/reduced_dyn.rs:142:5:
+impact static state
+
+thread 'main' (19180040) panicked at crates/experiments/src/bin/reduced_dyn.rs:2026:9:
+a scoped thread panicked

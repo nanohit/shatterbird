@@ -1,0 +1,13 @@
+R2 d8 s1 | E h_E/2          pass true force 6.79e-5 (full 6.79e-5) peak 1.86e-5 imp NaN onset Some(2.1415844298280917e-7) chi 3.88e-5 D 0.3122 (+5.50e-8) E 3.75e-12 fails [] | wall 194.1s
+R2 d8 s1 | E h_E/1          pass true force 1.41e-4 (full 1.41e-4) peak 6.02e-5 imp NaN onset Some(6.424753289484275e-7) chi 6.12e-5 D 0.3122 (+3.77e-7) E 1.07e-11 fails [] | wall 101.8s
+R2 d8 s1 | BDF2 1/240       pass false force 1.79e-3 (full 1.79e-3) peak 1.12e-3 imp NaN onset Some(0.002266438802083333) chi 5.62e-3 D 0.3121 (+1.80e-4) E 2.19e-4 fails ["onset"] | wall 2.2s
+R2 d8 s1 | Newmark 1/240    pass false force 1.88e-1 (full 1.88e-1) peak 1.12e-2 imp NaN onset Some(0.002266438802083333) chi 9.60e-1 D 0.3358 (+7.58e-2) E 6.94e-1 fails ["invalid","force","onset","chi","D","energy"] | wall 2.9s
+R2 d8 s1 | BDF2 1/480       pass true force 1.90e-3 (full 1.90e-3) peak 8.40e-4 imp NaN onset Some(0.00018310546875) chi 4.17e-3 D 0.3121 (+1.50e-4) E 6.82e-5 fails [] | wall 3.7s
+R2 d8 s1 | Newmark 1/480    pass false force 2.42e-3 (full 2.42e-3) peak 4.98e-3 imp NaN onset Some(0.00018310546875) chi 7.94e-4 D 0.0366 (+8.83e-1) E 4.75e-5 fails ["invalid","D"] | wall 2.5s
+R2 d8 s1 | BDF2 1/960       pass true force 1.91e-3 (full 1.91e-3) peak 8.41e-4 imp NaN onset Some(0.00018310546875) chi 6.11e-4 D 0.3121 (+9.40e-5) E 1.40e-5 fails [] | wall 6.6s
+R2 d8 s1 | Newmark 1/960    pass false force 2.01e-3 (full 2.01e-3) peak 5.00e-4 imp NaN onset Some(0.00018310546875) chi 7.78e-4 D 0.1074 (+6.56e-1) E 1.39e-5 fails ["invalid","D"] | wall 8.0s
+R2 d8 s1 | BDF2 1/1920      pass true force 1.97e-3 (full 1.97e-3) peak 8.41e-4 imp NaN onset Some(0.00018310546875) chi 5.93e-4 D 0.3121 (+1.44e-4) E 3.56e-6 fails [] | wall 10.8s
+R2 d8 s1 | Newmark 1/1920   pass false force 2.34e-3 (full 2.34e-3) peak 1.10e-2 imp NaN onset Some(0.00018310546875) chi 1.02e-3 D 0.0325 (+8.96e-1) E 2.50e-6 fails ["invalid","D"] | wall 6.3s
+R2 d8 s1 | BDF2 1/3840      pass true force 2.00e-3 (full 2.00e-3) peak 8.37e-4 imp NaN onset Some(0.00018310546875) chi 6.70e-4 D 0.3121 (+1.15e-4) E 9.94e-7 fails [] | wall 16.8s
+R2 d8 s1 | Newmark 1/3840   pass true force 3.52e-3 (full 3.52e-3) peak 1.65e-4 imp NaN onset Some(0.00018310546875) chi 1.19e-3 D 0.3122 (+3.53e-5) E 1.08e-6 fails [] | wall 41.9s
+R2 d8 s1 reference: {"D_end":0.31216866504224766,"E_num_end":-2.0106138975961585e-13,"broken_d05":30,"first_broken":0.1496425695586623,"impulse":0.0,"invalid":null,"onset":0.01856689453125,"peak":2409.151494759801,"steps":2343840,"t_peak":0.09440468236019738,"valid":true,"wall_s":372.179273333,"work":{"force_passes":2343841,"substeps_per_frame":77824.0}} convergence pair: true

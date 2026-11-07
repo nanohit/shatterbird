@@ -1,0 +1,150 @@
+{
+  "bands": {
+    "cases": [
+      "band H/2 eta 1e-2",
+      "1e-4",
+      "0 (mu>0)",
+      "3 bands H/4,H/2,3H/4 eta 0 (mu>0)"
+    ],
+    "strong_threshold": 0.1,
+    "wall": "1x4 d0.1, seeds 1, 2"
+  },
+  "caps": {
+    "one_level": 1024,
+    "two_level": 32
+  },
+  "chosen_variant_rule": "fewest censored, then smallest sum of A-equivalents (a_apps + coarse_solves*4nnz(Lc)/(2nnz(A))) to target over E3 dev walls, cold RHS, dynamic operators",
+  "dynamics": {
+    "closed_loop_k": [
+      1,
+      2,
+      4
+    ],
+    "predictors": {
+      "BDF2": [
+        "extrap: 3u_n-3u_{n-1}+u_{n-2} (lower order at start)",
+        "qhat"
+      ],
+      "Newmark": [
+        "u+hv+h^2/2 a"
+      ]
+    },
+    "push": "v_x = 1 m/s on cells with centroid y > H - 0.25",
+    "trajectories": [
+      "BDF2 1/480 120 steps",
+      "BDF2 1/60 30 steps",
+      "Newmark 1/480 120 steps",
+      "BDF2 1/480 with band eta 1e-2 from step 24 (steps 22..35)"
+    ],
+    "wall": "1x4 d0.1 s1"
+  },
+  "geometry": {
+    "3D": {
+      "column": [
+        1.0,
+        1.0,
+        4.0
+      ],
+      "column_dmin": 0.2,
+      "cube": [
+        2.0,
+        2.0,
+        2.0
+      ],
+      "dmin": [
+        0.35,
+        0.2
+      ],
+      "load": "top traction (10,0,0) kPa",
+      "seeds": [
+        1,
+        2
+      ]
+    },
+    "E2": {
+      "b": 0.1,
+      "dmin": 0.05,
+      "loads": [
+        "uniform 1 MPa",
+        "patch (0.5,-2) MPa on [0,0.4] exact"
+      ],
+      "seeds": [
+        1,
+        2
+      ],
+      "size": [
+        1.0,
+        0.5
+      ]
+    },
+    "E3_heights": {
+      "b": 0.2,
+      "dmin": 0.1,
+      "heights": [
+        1.0,
+        2.0,
+        4.0,
+        8.0
+      ],
+      "load": "top traction (2.5,-10) kPa",
+      "seeds": [
+        1,
+        2
+      ],
+      "width": 1.0
+    },
+    "E3_refine": {
+      "dmin": [
+        0.2,
+        0.1,
+        0.05
+      ],
+      "seeds": [
+        1,
+        2
+      ],
+      "size": [
+        1.0,
+        4.0
+      ]
+    },
+    "construction": "constrained RSA from scratch, generator-support distance >= 0.5 dmin on supported edges",
+    "held_out": {
+      "dmin": 0.1,
+      "heights": [
+        4.0,
+        8.0
+      ],
+      "seeds": [
+        3001,
+        3002
+      ]
+    },
+    "representative": "1x4 d0.1 s1: + BDF2 and Newmark operators for h = 1/60, 1/480"
+  },
+  "methods": {
+    "SA_omega": "4/(3 lambda_hat)",
+    "lambda_hat": "1.05 x 15-step Lanczos of D^-1/2 A D^-1/2, capped at 2",
+    "one_level": [
+      "GS1 (coloured block GS, forward)",
+      "PCG-J"
+    ],
+    "two_level": "P in {PR, SA}, s in {8, 16}, smoother in {GS fwd/bwd, Chebyshev deg 2 on [lam/8, lam]}, stationary or PCG"
+  },
+  "metric_revision": "[rev, before the main runs, found on the E2 smoke test] force families: N and V share the joint force norm, M uses max(||M||, ||(N,V)|| l/sqrt12); 3D: translations share, rotations max(own, trans*l/sqrt12)",
+  "operators": "mu = 0; mu = 1/h^2 (h = 1/60, 1/480); representative also 2.25/h^2, 4/h^2",
+  "rhs": [
+    "cold: load, u0 = 0",
+    "post-event: mid-height band eta = 1e-2, u0 = intact solution (same mu); P kept and strength-aware rebuild"
+  ],
+  "targets": {
+    "E": 0.01,
+    "F": 0.01,
+    "R_force": 0.01,
+    "R_moment": 0.01,
+    "chi_hi": 0.01,
+    "chi_max_ref": 0.95,
+    "chi_threshold": 0.8
+  },
+  "written": "before any solver run of this binary (main writes it first)"
+}

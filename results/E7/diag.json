@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "config": {},
+    "experiment": "E7",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "diag",
+    "seed": 7,
+    "solver_schedule": "S1 dyn-rho, elastic prop removal, 0.2 s",
+    "source_hash": "722eb933d8e69d42",
+    "unix_time": 1793975904
+  },
+  "runs": [
+    {
+      "balance_J": 134119074461.80879,
+      "diverged_at_s": 0.06875,
+      "peak_force_over_failure": 48163.30969140118,
+      "scheme": "IE",
+      "solver": "S1 dyn-rho, 1 sweeps",
+      "sweeps": 1
+    },
+    {
+      "balance_J": 44223547420.537476,
+      "diverged_at_s": 0.07291666666666667,
+      "peak_force_over_failure": 71854.32818426078,
+      "scheme": "IE",
+      "solver": "S1 dyn-rho, 4 sweeps",
+      "sweeps": 4
+    },
+    {
+      "balance_J": 1180036108828.7727,
+      "diverged_at_s": 0.09583333333333333,
+      "peak_force_over_failure": 151677.2200556592,
+      "scheme": "IE",
+      "solver": "S1 dyn-rho, 16 sweeps",
+      "sweeps": 16
+    },
+    {
+      "balance_J": 1611029365563.4492,
+      "diverged_at_s": 0.13541666666666666,
+      "peak_force_over_failure": 342281.82936800434,
+      "scheme": "IE",
+      "solver": "S1 dyn-rho, 64 sweeps",
+      "sweeps": 64
+    },
+    {
+      "balance_J": 115.76208879097554,
+      "diverged_at_s": null,
+      "peak_force_over_failure": 2.484238219658302,
+      "scheme": "IE",
+      "solver": "S1 dyn-rho, 256 sweeps",
+      "sweeps": 256
+    },
+    {
+      "balance_J": 2096134442773.9678,
+      "diverged_at_s": 0.05416666666666667,
+      "peak_force_over_failure": 215885.61842319954,
+      "scheme": "BDF2",
+      "solver": "S1 dyn-rho, 1 sweeps",
+      "sweeps": 1
+    },
+    {
+      "balance_J": 567964120410.1207,
+      "diverged_at_s": 0.05,
+      "peak_force_over_failure": 120624.56702765364,
+      "scheme": "BDF2",
+      "solver": "S1 dyn-rho, 4 sweeps",
+      "sweeps": 4
+    },
+    {
+      "balance_J": 2.1476731440047328e+17,
+      "diverged_at_s": 0.06875,
+      "peak_force_over_failure": 123973719.23073341,
+      "scheme": "BDF2",
+      "solver": "S1 dyn-rho, 16 sweeps",
+      "sweeps": 16
+    },
+    {
+      "balance_J": 2.6697833250037754e+17,
+      "diverged_at_s": 0.10416666666666667,
+      "peak_force_over_failure": 83494510.43624607,
+      "scheme": "BDF2",
+      "solver": "S1 dyn-rho, 64 sweeps",
+      "sweeps": 64
+    },
+    {
+      "balance_J": 1326.4970084671324,
+      "diverged_at_s": null,
+      "peak_force_over_failure": 3.4501767403853445,
+      "scheme": "BDF2",
+      "solver": "S1 dyn-rho, 256 sweeps",
+      "sweeps": 256
+    },
+    {
+      "balance_J": 1.997997642654157e+22,
+      "diverged_at_s": 0.04375,
+      "peak_force_over_failure": 8517203759.219202,
+      "scheme": "Newmark",
+      "solver": "S1 dyn-rho, 1 sweeps",
+      "sweeps": 1
+    },
+    {
+      "balance_J": 2.8420486735041887e+23,
+      "diverged_at_s": 0.041666666666666664,
+      "peak_force_over_failure": 72351391497.5782,
+      "scheme": "Newmark",
+      "solver": "S1 dyn-rho, 4 sweeps",
+      "sweeps": 4
+    },
+    {
+      "balance_J": 1.3938729923940302e+24,
+      "diverged_at_s": 0.05,
+      "peak_force_over_failure": 126120192858.13571,
+      "scheme": "Newmark",
+      "solver": "S1 dyn-rho, 16 sweeps",
+      "sweeps": 16
+    },
+    {
+      "balance_J": 3.304075492356159e+24,
+      "diverged_at_s": 0.08333333333333333,
+      "peak_force_over_failure": 353878804497.46594,
+      "scheme": "Newmark",
+      "solver": "S1 dyn-rho, 64 sweeps",
+      "sweeps": 64
+    },
+    {
+      "balance_J": 2526.339716095182,
+      "diverged_at_s": null,
+      "peak_force_over_failure": 5.782004673252188,
+      "scheme": "Newmark",
+      "solver": "S1 dyn-rho, 256 sweeps",
+      "sweeps": 256
+    },
+    {
+      "balance_J": 318810.4463344572,
+      "diverged_at_s": null,
+      "peak_force_over_failure": 85.00712988362777,
+      "scheme": "IE",
+      "solver": "Penalty, 4 sweeps",
+      "sweeps": 4
+    },
+    {
+      "balance_J": 267476804.07855186,
+      "diverged_at_s": 0.14166666666666666,
+      "peak_force_over_failure": 1538.3500704409496,
+      "scheme": "IE",
+      "solver": "PerSpring(0.1), 4 sweeps",
+      "sweeps": 4
+    },
+    {
+      "balance_J": 258757.65228020484,
+      "diverged_at_s": null,
+      "peak_force_over_failure": 82.2507492687989,
+      "scheme": "BDF2",
+      "solver": "Penalty, 4 sweeps",
+      "sweeps": 4
+    },
+    {
+      "balance_J": 179829.5650650327,
+      "diverged_at_s": null,
+      "peak_force_over_failure": 62.43307110668887,
+      "scheme": "IE",
+      "solver": "Penalty, 16 sweeps",
+      "sweeps": 16
+    },
+    {
+      "balance_J": -21.55002057078051,
+      "diverged_at_s": null,
+      "peak_force_over_failure": 8.610787671846175,
+      "scheme": "IE",
+      "solver": "PerSpring(0.1), 16 sweeps",
+      "sweeps": 16
+    },
+    {
+      "balance_J": 70201.20213076552,
+      "diverged_at_s": null,
+      "peak_force_over_failure": 39.96008180376372,
+      "scheme": "BDF2",
+      "solver": "Penalty, 16 sweeps",
+      "sweeps": 16
+    },
+    {
+      "balance_J": 14948.672731793187,
+      "diverged_at_s": null,
+      "peak_force_over_failure": 21.84477562000762,
+      "scheme": "IE",
+      "solver": "Penalty, 64 sweeps",
+      "sweeps": 64
+    },
+    {
+      "balance_J": 17.353174097665057,
+      "diverged_at_s": null,
+      "peak_force_over_failure": 2.8366464785956573,
+      "scheme": "IE",
+      "solver": "PerSpring(0.1), 64 sweeps",
+      "sweeps": 64
+    },
+    {
+      "balance_J": 27.397293605550967,
+      "diverged_at_s": null,
+      "peak_force_over_failure": 10.579289992960742,
+      "scheme": "BDF2",
+      "solver": "Penalty, 64 sweeps",
+      "sweeps": 64
+    },
+    {
+      "balance_J": 89.98307091061375,
+      "diverged_at_s": null,
+      "peak_force_over_failure": 6.012080266858983,
+      "scheme": "IE",
+      "solver": "Penalty, 256 sweeps",
+      "sweeps": 256
+    },
+    {
+      "balance_J": -37.08883651139204,
+      "diverged_at_s": null,
+      "peak_force_over_failure": 1.7775723687516924,
+      "scheme": "IE",
+      "solver": "PerSpring(0.1), 256 sweeps",
+      "sweeps": 256
+    },
+    {
+      "balance_J": 215.92974240807143,
+      "diverged_at_s": null,
+      "peak_force_over_failure": 3.4512719114659705,
+      "scheme": "BDF2",
+      "solver": "Penalty, 256 sweeps",
+      "sweeps": 256
+    }
+  ]
+}

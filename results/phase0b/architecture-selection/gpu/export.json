@@ -1,0 +1,57 @@
+{
+  "dt_contract_s": 0.000021496046148071047,
+  "meshes": [
+    {
+      "file": "mesh_1k.bin",
+      "info": {
+        "aggregates": 111,
+        "bytes": 863832,
+        "cells": 991,
+        "csr_entries": 12580,
+        "facets": 6336,
+        "support_facets": 92
+      },
+      "label": "1k",
+      "side_m": 2.25
+    },
+    {
+      "file": "mesh_10k.bin",
+      "info": {
+        "aggregates": 913,
+        "bytes": 8306052,
+        "cells": 8975,
+        "csr_entries": 124433,
+        "facets": 62414,
+        "support_facets": 395
+      },
+      "label": "10k",
+      "side_m": 4.85
+    },
+    {
+      "file": "mesh_30k.bin",
+      "info": {
+        "aggregates": 2527,
+        "bytes": 24399096,
+        "cells": 25920,
+        "csr_entries": 368306,
+        "facets": 184543,
+        "support_facets": 780
+      },
+      "label": "30k",
+      "side_m": 7.0
+    }
+  ],
+  "meta": {
+    "config": {
+      "dmin": 0.2,
+      "mu": 518400.0
+    },
+    "experiment": "phase0b/architecture-selection/gpu",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "export",
+    "seed": 1,
+    "solver_schedule": "rbsn3 contract meshes for the WebGPU probe",
+    "source_hash": "ddd4a1ba4df915e3",
+    "unix_time": 1794007288
+  }
+}

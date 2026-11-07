@@ -1,0 +1,184 @@
+{
+ "adapter": {
+  "vendor": "apple",
+  "architecture": "metal-3"
+ },
+ "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Claude/4.4212.0 Chrome/152.0.7977.167 Safari/537.36",
+ "steps": 800,
+ "meshes": [
+  {
+   "label": "1k",
+   "cells": 991,
+   "facets": 6336,
+   "formats": {
+    "U": 28,
+    "TH": 30,
+    "V": 26,
+    "W": 28,
+    "F": 6,
+    "Q": 30,
+    "R": 28,
+    "G": 16
+   },
+   "scales": {
+    "SK": 5,
+    "SR": 0,
+    "SM": 28,
+    "SI": 17,
+    "SH": 43,
+    "wc": 17896,
+    "ch": 756324886,
+    "knMax": 32571592704,
+    "krMax": 648686400,
+    "gMax": 1,
+    "cmMax": 3.3165953149817105,
+    "ciMax": 5844.901516380238
+   },
+   "timings": [
+    {
+     "substeps": 250,
+     "gpu_ms": {
+      "median": 45.416448,
+      "p95": 45.8752,
+      "min": 45.023232,
+      "max": 45.8752,
+      "n": 10
+     }
+    },
+    {
+     "substeps": 800,
+     "gpu_ms": {
+      "median": 143.52384,
+      "p95": 144.441344,
+      "min": 142.999552,
+      "max": 144.441344,
+      "n": 10
+     }
+    }
+   ],
+   "run": {
+    "steps": 800,
+    "overflow_flag": 1,
+    "fnv1a32": "58709f0b",
+    "pair_force_exact_opposite": "6244/6244",
+    "pair_kappa_equal": "6244/6244"
+   }
+  },
+  {
+   "label": "10k",
+   "cells": 8975,
+   "facets": 62414,
+   "formats": {
+    "U": 28,
+    "TH": 30,
+    "V": 26,
+    "W": 28,
+    "F": 6,
+    "Q": 30,
+    "R": 28,
+    "G": 16
+   },
+   "scales": {
+    "SK": 6,
+    "SR": 0,
+    "SM": 28,
+    "SI": 17,
+    "SH": 43,
+    "wc": 17896,
+    "ch": 756324886,
+    "knMax": 41609859072,
+    "krMax": 1028254016,
+    "gMax": 1,
+    "cmMax": 3.8052461811761416,
+    "ciMax": 7969.761258608636
+   },
+   "timings": [
+    {
+     "substeps": 250,
+     "gpu_ms": {
+      "median": 73.269248,
+      "p95": 73.465856,
+      "min": 73.007104,
+      "max": 73.465856,
+      "n": 10
+     }
+    },
+    {
+     "substeps": 800,
+     "gpu_ms": {
+      "median": 232.849408,
+      "p95": 233.30816,
+      "min": 229.244928,
+      "max": 233.30816,
+      "n": 10
+     }
+    }
+   ],
+   "run": {
+    "steps": 800,
+    "overflow_flag": 0,
+    "fnv1a32": "bd862619",
+    "pair_force_exact_opposite": "62019/62019",
+    "pair_kappa_equal": "62019/62019"
+   }
+  },
+  {
+   "label": "30k",
+   "cells": 25920,
+   "facets": 184543,
+   "formats": {
+    "U": 28,
+    "TH": 30,
+    "V": 26,
+    "W": 28,
+    "F": 6,
+    "Q": 30,
+    "R": 28,
+    "G": 16
+   },
+   "scales": {
+    "SK": 6,
+    "SR": 0,
+    "SM": 28,
+    "SI": 17,
+    "SH": 43,
+    "wc": 17896,
+    "ch": 756324886,
+    "knMax": 41959804928,
+    "krMax": 991372928,
+    "gMax": 1,
+    "cmMax": 3.202881435138223,
+    "ciMax": 4552.7611128236285
+   },
+   "timings": [
+    {
+     "substeps": 250,
+     "gpu_ms": {
+      "median": 184.287232,
+      "p95": 184.877056,
+      "min": 180.224,
+      "max": 184.877056,
+      "n": 10
+     }
+    },
+    {
+     "substeps": 800,
+     "gpu_ms": {
+      "median": 587.464704,
+      "p95": 604.110848,
+      "min": 576.520192,
+      "max": 604.110848,
+      "n": 10
+     }
+    }
+   ],
+   "run": {
+    "steps": 800,
+    "overflow_flag": 0,
+    "fnv1a32": "d1c26a54",
+    "pair_force_exact_opposite": "183763/183763",
+    "pair_kappa_equal": "183763/183763"
+   }
+  }
+ ]
+}

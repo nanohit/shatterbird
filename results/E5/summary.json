@@ -1,0 +1,278 @@
+{
+  "meta": {
+    "config": {
+      "GcA": 0.2,
+      "delta0": 2e-6,
+      "facet": {
+        "b": 0.1,
+        "ell": 0.02,
+        "l": 0.02
+      },
+      "lch": 0.3333333333333333,
+      "wc": 0.00006666666666666667
+    },
+    "experiment": "E5",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "all",
+    "seed": null,
+    "solver_schedule": "prescribed paths: evaluate + commit per step; chains: bordered Newton (indirect control), accept if converged and Δd ≤ 0.05, else halve",
+    "source_hash": "b8040757531c8dfd",
+    "unix_time": 1793975349
+  },
+  "results": {
+    "chains": [
+      {
+        "D_over_GcA_weak": 1.0,
+        "L_over_2lch": 0.135,
+        "cells": 3,
+        "completed": true,
+        "control": "end displacement",
+        "cutbacks": 8,
+        "damaged_facets": 1,
+        "ell": 0.03,
+        "failed_at_control": null,
+        "max_abs_balance_residual_over_GcA": 0.00003768691397953993,
+        "steps": 209,
+        "weak_facet": 0
+      },
+      {
+        "D_over_GcA_weak": 1.0,
+        "L_over_2lch": 0.135,
+        "cells": 3,
+        "completed": true,
+        "control": "weak-facet opening",
+        "cutbacks": 23,
+        "damaged_facets": 1,
+        "ell": 0.03,
+        "failed_at_control": null,
+        "max_abs_balance_residual_over_GcA": 3.613936358596673e-6,
+        "steps": 231,
+        "weak_facet": 0
+      },
+      {
+        "D_over_GcA_weak": 0.9999999999999998,
+        "L_over_2lch": 0.405,
+        "cells": 9,
+        "completed": true,
+        "control": "end displacement",
+        "cutbacks": 9,
+        "damaged_facets": 1,
+        "ell": 0.03,
+        "failed_at_control": null,
+        "max_abs_balance_residual_over_GcA": 0.000031385906852735936,
+        "steps": 211,
+        "weak_facet": 3
+      },
+      {
+        "D_over_GcA_weak": 0.9999999999999998,
+        "L_over_2lch": 0.405,
+        "cells": 9,
+        "completed": true,
+        "control": "weak-facet opening",
+        "cutbacks": 23,
+        "damaged_facets": 1,
+        "ell": 0.03,
+        "failed_at_control": null,
+        "max_abs_balance_residual_over_GcA": 3.6139363999524808e-6,
+        "steps": 231,
+        "weak_facet": 3
+      },
+      {
+        "D_over_GcA_weak": 0.0,
+        "L_over_2lch": 1.395,
+        "cells": 31,
+        "completed": false,
+        "control": "end displacement",
+        "cutbacks": 18,
+        "damaged_facets": 0,
+        "ell": 0.03,
+        "failed_at_control": 0.00009206999794399367,
+        "max_abs_balance_residual_over_GcA": 1.4802973661668753e-15,
+        "steps": 104,
+        "weak_facet": 14
+      },
+      {
+        "D_over_GcA_weak": 1.0,
+        "L_over_2lch": 1.395,
+        "cells": 31,
+        "completed": true,
+        "control": "weak-facet opening",
+        "cutbacks": 23,
+        "damaged_facets": 1,
+        "ell": 0.03,
+        "failed_at_control": null,
+        "max_abs_balance_residual_over_GcA": 3.613936653638442e-6,
+        "steps": 231,
+        "weak_facet": 14
+      }
+    ],
+    "cyclic": {
+      "D": 0.20000000000000004,
+      "D_over_GcA": 1.0000000000000002,
+      "U_end": 0.0,
+      "W_ext": 0.19994501443298926,
+      "dissipation_on_unloading_steps": 0.0,
+      "max_abs_balance_residual_over_GcA": 0.00028268041237525243
+    },
+    "game_scale_facet": [
+      {
+        "D": 5.0,
+        "D_over_GcA": 1.0,
+        "U_end": 0.0,
+        "W_ext": 5.000001599999995,
+        "crack_band_eta": null,
+        "dissipation_on_unloading_steps": 0.0,
+        "ell": 0.5,
+        "ell_over_lch": 1.5,
+        "max_abs_balance_residual_over_GcA": 3.199999989433877e-7,
+        "sigma_eff_over_sigma_t": 1.0,
+        "softening_slope_beta": 0.25
+      },
+      {
+        "D": 5.000000000000003,
+        "D_over_GcA": 1.0000000000000004,
+        "U_end": 0.0,
+        "W_ext": 5.000001261453234,
+        "crack_band_eta": 0.95,
+        "dissipation_on_unloading_steps": 0.0,
+        "ell": 0.7,
+        "ell_over_lch": 2.1,
+        "max_abs_balance_residual_over_GcA": 5.682221738911863e-7,
+        "sigma_eff_over_sigma_t": 0.9271050693011065,
+        "softening_slope_beta": 0.09750000000000003
+      }
+    ],
+    "mixed_mode": [
+      {
+        "D": 0.20000000000000004,
+        "D_over_GcA": 1.0000000000000002,
+        "U_end": 0.0,
+        "W_ext": 0.20000006597938133,
+        "dissipation_on_unloading_steps": 0.0,
+        "max_abs_balance_residual_over_GcA": 3.2989690645912617e-7,
+        "phi_deg": 0.0
+      },
+      {
+        "D": 0.20000000000000004,
+        "D_over_GcA": 1.0000000000000002,
+        "U_end": 0.0,
+        "W_ext": 0.2000000659793814,
+        "dissipation_on_unloading_steps": 0.0,
+        "max_abs_balance_residual_over_GcA": 3.2989690673668193e-7,
+        "phi_deg": 30.0
+      },
+      {
+        "D": 0.20000000000000004,
+        "D_over_GcA": 1.0000000000000002,
+        "U_end": 0.0,
+        "W_ext": 0.2000000659793815,
+        "dissipation_on_unloading_steps": 0.0,
+        "max_abs_balance_residual_over_GcA": 3.2989690729179344e-7,
+        "phi_deg": 60.0
+      },
+      {
+        "D": 0.20000000000000004,
+        "D_over_GcA": 1.0000000000000002,
+        "U_end": 0.0,
+        "W_ext": 0.20000006597938158,
+        "dissipation_on_unloading_steps": 0.0,
+        "max_abs_balance_residual_over_GcA": 3.298969077081271e-7,
+        "phi_deg": 90.0
+      },
+      {
+        "D": 0.20000000000000004,
+        "D_over_GcA": 1.0000000000000002,
+        "U_end": 0.0,
+        "W_ext": 0.19999977090588805,
+        "dissipation_on_unloading_steps": 0.0,
+        "max_abs_balance_residual_over_GcA": 1.730655062870401e-6,
+        "phi_deg": "non-proportional: shear 0.5 wc, then normal"
+      }
+    ],
+    "monotonic_refinement": [
+      {
+        "D": 0.20000000000000004,
+        "D_over_GcA": 1.0000000000000002,
+        "U_end": 0.0,
+        "W_ext": 0.1484536082474255,
+        "dissipation_on_unloading_steps": 0.0,
+        "max_abs_balance_residual_over_GcA": 0.2783505154639053,
+        "steps": 4
+      },
+      {
+        "D": 0.20000000000000004,
+        "D_over_GcA": 1.0000000000000002,
+        "U_end": 0.0,
+        "W_ext": 0.17628865979381597,
+        "dissipation_on_unloading_steps": 0.0,
+        "max_abs_balance_residual_over_GcA": 0.12371134020617985,
+        "steps": 8
+      },
+      {
+        "D": 0.20000000000000004,
+        "D_over_GcA": 1.0000000000000002,
+        "U_end": 0.0,
+        "W_ext": 0.19097938144329943,
+        "dissipation_on_unloading_steps": 0.0,
+        "max_abs_balance_residual_over_GcA": 0.04639175257731734,
+        "steps": 16
+      },
+      {
+        "D": 0.20000000000000004,
+        "D_over_GcA": 1.0000000000000002,
+        "U_end": 0.0,
+        "W_ext": 0.1985180412371109,
+        "dissipation_on_unloading_steps": 0.0,
+        "max_abs_balance_residual_over_GcA": 0.007731958762899477,
+        "steps": 32
+      },
+      {
+        "D": 0.20000000000000004,
+        "D_over_GcA": 1.0000000000000002,
+        "U_end": 0.0,
+        "W_ext": 0.19943621134020473,
+        "dissipation_on_unloading_steps": 0.0,
+        "max_abs_balance_residual_over_GcA": 0.0028994845360907906,
+        "steps": 64
+      },
+      {
+        "D": 0.20000000000000004,
+        "D_over_GcA": 1.0000000000000002,
+        "U_end": 0.0,
+        "W_ext": 0.1999073775773195,
+        "dissipation_on_unloading_steps": 0.0,
+        "max_abs_balance_residual_over_GcA": 0.0004832474226819372,
+        "steps": 128
+      },
+      {
+        "D": 0.20000000000000004,
+        "D_over_GcA": 1.0000000000000002,
+        "U_end": 0.0,
+        "W_ext": 0.19999779770054768,
+        "dissipation_on_unloading_steps": 0.0,
+        "max_abs_balance_residual_over_GcA": 0.000011326111472170775,
+        "steps": 1024
+      }
+    ],
+    "partial_damage": [
+      {
+        "D_over_GcA": 0.24999999999999475,
+        "W_minus_D_after_unload_over_GcA": -5.637886605139308e-7,
+        "expected": 0.25,
+        "kappa_fraction_of_softening": 0.25
+      },
+      {
+        "D_over_GcA": 0.5000000000000123,
+        "W_minus_D_after_unload_over_GcA": -0.00001198453608471095,
+        "expected": 0.5,
+        "kappa_fraction_of_softening": 0.5
+      },
+      {
+        "D_over_GcA": 0.7500000000000031,
+        "W_minus_D_after_unload_over_GcA": -0.00001643041237064935,
+        "expected": 0.75,
+        "kappa_fraction_of_softening": 0.75
+      }
+    ]
+  }
+}

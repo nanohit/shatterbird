@@ -1,0 +1,317 @@
+{
+  "meta": {
+    "config": {
+      "E": 30000000000.0,
+      "box": "1x1x1 m, clamped bottom face, top traction (2.5, 1.0, -10) kPa",
+      "density": 2400.0,
+      "gamma": 1.0
+    },
+    "experiment": "E10",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "all",
+    "seed": null,
+    "solver_schedule": "linearised 3D RBSN; S0 sparse Cholesky; S1 6x6 block GS (colour order) + simultaneous dual; error = L2 of all spring forces",
+    "source_hash": "0eca9af6540115f0",
+    "unix_time": 1793976105
+  },
+  "results": {
+    "blocks": [
+      {
+        "cells": 109,
+        "components": 3534,
+        "convergence": [
+          {
+            "err16": 0.2792184796160964,
+            "err8": 0.40936281856798595,
+            "iters_to_1pct": 76,
+            "method": "S1 perspring c=0.1"
+          },
+          {
+            "err16": 0.4204591820533924,
+            "err8": 0.5935883374485948,
+            "iters_to_1pct": 121,
+            "method": "S1 shared c=0.1"
+          },
+          {
+            "err16": 0.5960351541119104,
+            "err8": 0.7552839914982923,
+            "iters_to_1pct": 359,
+            "method": "S3 penalty"
+          },
+          {
+            "err16": 0.7117079618182638,
+            "err8": 0.8058420191561455,
+            "iters_to_1pct": 28617,
+            "method": "S1 dynamic c=1 (h=1/480)"
+          },
+          {
+            "err16": 0.271517253868478,
+            "err8": 0.39748280380012396,
+            "iters_to_1pct": 74,
+            "method": "S1 perspring c=0.1 (h=1/480)"
+          },
+          {
+            "err16": 0.5863899238479181,
+            "err8": 0.7491755244444889,
+            "iters_to_1pct": 345,
+            "method": "S3 penalty (h=1/480)"
+          }
+        ],
+        "dmin": 0.2,
+        "facets": 589,
+        "nnz_L": 62229,
+        "normalised_blocks": [
+          {
+            "bound_max": 44.64805119530359,
+            "cond_max": 6.309844153060125,
+            "eig_max": 12.309855308007462,
+            "eig_min": 1.950896885787183,
+            "max_eig_over_bound": 0.3414812234691143,
+            "mean_eig_over_bound": 0.28936637350819894,
+            "policy": "dynamic rho=m_eff/h^2"
+          },
+          {
+            "bound_max": 2132037.200540289,
+            "cond_max": 315.5897103360512,
+            "eig_max": 732377.3558834116,
+            "eig_min": 2320.662974415579,
+            "max_eig_over_bound": 0.34351058963596726,
+            "mean_eig_over_bound": 0.2378738466302751,
+            "policy": "penalty k_eff=k"
+          }
+        ],
+        "seed": 1,
+        "valence_all_hist": {
+          "10": 16,
+          "11": 10,
+          "12": 6,
+          "13": 6,
+          "14": 7,
+          "15": 5,
+          "16": 5,
+          "17": 3,
+          "18": 2,
+          "19": 1,
+          "4": 5,
+          "5": 4,
+          "6": 6,
+          "7": 4,
+          "8": 14,
+          "9": 15
+        },
+        "valence_all_max": 19,
+        "valence_interior": {
+          "max": 19,
+          "mean": 15.05,
+          "min": 11,
+          "n": 20
+        },
+        "volume_check": 1.0000000000000002
+      },
+      {
+        "cells": 112,
+        "components": 3576,
+        "convergence": [
+          {
+            "err16": 0.3067231240738238,
+            "err8": 0.42806051668506057,
+            "iters_to_1pct": 77,
+            "method": "S1 perspring c=0.1"
+          },
+          {
+            "err16": 0.4668202996818803,
+            "err8": 0.6231807547581952,
+            "iters_to_1pct": 183,
+            "method": "S1 shared c=0.1"
+          },
+          {
+            "err16": 0.6068681257630929,
+            "err8": 0.7681641869559118,
+            "iters_to_1pct": 369,
+            "method": "S3 penalty"
+          },
+          {
+            "err16": 0.7345242052994584,
+            "err8": 0.8216390563285524,
+            "iters_to_1pct": 23892,
+            "method": "S1 dynamic c=1 (h=1/480)"
+          },
+          {
+            "err16": 0.2981994617249179,
+            "err8": 0.4155961988187055,
+            "iters_to_1pct": 75,
+            "method": "S1 perspring c=0.1 (h=1/480)"
+          },
+          {
+            "err16": 0.5972571297862677,
+            "err8": 0.7623437768663138,
+            "iters_to_1pct": 354,
+            "method": "S3 penalty (h=1/480)"
+          }
+        ],
+        "dmin": 0.2,
+        "facets": 596,
+        "nnz_L": 66324,
+        "normalised_blocks": [
+          {
+            "bound_max": 43.17768776589244,
+            "cond_max": 5.698898835788162,
+            "eig_max": 11.833710551594448,
+            "eig_min": 2.076490720853064,
+            "max_eig_over_bound": 0.337942423314751,
+            "mean_eig_over_bound": 0.28985430195193923,
+            "policy": "dynamic rho=m_eff/h^2"
+          },
+          {
+            "bound_max": 757024.7837200897,
+            "cond_max": 106.57639183185681,
+            "eig_max": 244437.29547430685,
+            "eig_min": 2293.5407295449645,
+            "max_eig_over_bound": 0.32289206473943877,
+            "mean_eig_over_bound": 0.23669346425246118,
+            "policy": "penalty k_eff=k"
+          }
+        ],
+        "seed": 2,
+        "valence_all_hist": {
+          "10": 15,
+          "11": 11,
+          "12": 8,
+          "13": 6,
+          "14": 9,
+          "15": 6,
+          "16": 3,
+          "17": 4,
+          "18": 1,
+          "4": 4,
+          "5": 6,
+          "6": 8,
+          "7": 8,
+          "8": 10,
+          "9": 13
+        },
+        "valence_all_max": 18,
+        "valence_interior": {
+          "max": 18,
+          "mean": 14.695652173913043,
+          "min": 10,
+          "n": 23
+        },
+        "volume_check": 1.0000000000000002
+      },
+      {
+        "cells": 246,
+        "components": 8532,
+        "convergence": [
+          {
+            "err16": 0.3803642783228913,
+            "err8": 0.5866387559458873,
+            "iters_to_1pct": 80,
+            "method": "S1 perspring c=0.1"
+          },
+          {
+            "err16": 0.5006810657093149,
+            "err8": 0.7331640294129272,
+            "iters_to_1pct": 182,
+            "method": "S1 shared c=0.1"
+          },
+          {
+            "err16": 0.7477597990948891,
+            "err8": 0.853698779984127,
+            "iters_to_1pct": 694,
+            "method": "S3 penalty"
+          },
+          {
+            "err16": 0.7797972169763098,
+            "err8": 0.8657518367187752,
+            "iters_to_1pct": 37041,
+            "method": "S1 dynamic c=1 (h=1/480)"
+          },
+          {
+            "err16": 0.36926145037984986,
+            "err8": 0.5775504162252765,
+            "iters_to_1pct": 78,
+            "method": "S1 perspring c=0.1 (h=1/480)"
+          },
+          {
+            "err16": 0.7410634008259644,
+            "err8": 0.8495871929403506,
+            "iters_to_1pct": 666,
+            "method": "S3 penalty (h=1/480)"
+          }
+        ],
+        "dmin": 0.15,
+        "facets": 1422,
+        "nnz_L": 241434,
+        "normalised_blocks": [
+          {
+            "bound_max": 48.60203344445747,
+            "cond_max": 6.851079848792792,
+            "eig_max": 13.154190638255686,
+            "eig_min": 1.9200171255591987,
+            "max_eig_over_bound": 0.3589478303261342,
+            "mean_eig_over_bound": 0.2866208935732064,
+            "policy": "dynamic rho=m_eff/h^2"
+          },
+          {
+            "bound_max": 13943306.2865051,
+            "cond_max": 1007.8940868268489,
+            "eig_max": 4080301.3899111254,
+            "eig_min": 4048.3434154843894,
+            "max_eig_over_bound": 0.3328779237140774,
+            "mean_eig_over_bound": 0.2319789088718239,
+            "policy": "penalty k_eff=k"
+          }
+        ],
+        "seed": 3,
+        "valence_all_hist": {
+          "10": 22,
+          "11": 31,
+          "12": 19,
+          "13": 29,
+          "14": 20,
+          "15": 13,
+          "16": 15,
+          "17": 10,
+          "18": 6,
+          "19": 1,
+          "3": 3,
+          "4": 1,
+          "5": 10,
+          "6": 10,
+          "7": 12,
+          "8": 23,
+          "9": 21
+        },
+        "valence_all_max": 19,
+        "valence_interior": {
+          "max": 19,
+          "mean": 14.866666666666667,
+          "min": 11,
+          "n": 75
+        },
+        "volume_check": 1.0000000000000002
+      }
+    ],
+    "two_cells": {
+      "eigs_rel": [
+        -1.1661102330578407e-16,
+        -8.851979778629666e-17,
+        -5.176035904539367e-17,
+        0.0,
+        2.2622102459464654e-18,
+        1.0121621231223094e-16,
+        0.07843137254901957,
+        0.07843137254901959,
+        0.15686274509803927,
+        0.941176470588235,
+        0.9999999999999991,
+        1.0
+      ],
+      "expected": 6,
+      "expected_twist": 0.16666666666666666,
+      "twist_stiffness_over_kn": 0.16666666666666663,
+      "zero_modes_free_pair": 6
+    }
+  }
+}

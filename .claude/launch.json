@@ -1,0 +1,14 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "gpu-probe",
+      "runtimeExecutable": "/bin/sh",
+      "runtimeArgs": [
+        "-c",
+        "cd /private/tmp/claude-501/-Users-pavel-Desktop-shatterbird/2fdf7b57-43bf-48db-920a-1f9d7bd7d46f/scratchpad/gpu-probe && exec python3 serve.py 8771"
+      ],
+      "port": 8771
+    }
+  ]
+}

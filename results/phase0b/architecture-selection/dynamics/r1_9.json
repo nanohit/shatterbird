@@ -1,0 +1,914 @@
+{
+  "meta": {
+    "config": {
+      "seeds": [
+        9
+      ]
+    },
+    "experiment": "phase0b/architecture-selection/dynamics",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "r1",
+    "seed": null,
+    "solver_schedule": "R1' (prop released over 10 ms) with SB-IL1: E leapfrog vs BDF2 / Newmark (direct Newton)",
+    "source_hash": "706498cfbc3551d2",
+    "unix_time": 1794013249
+  },
+  "problems": [
+    {
+      "convergence": {
+        "converged": false,
+        "force_full_window_converged": false,
+        "pair": {
+          "D": 51.163031599303096,
+          "D_ref": 41.75888582638571,
+          "D_rel": 0.22520107006723103,
+          "E_num_end": -0.0027678058492923707,
+          "chi_err": 0.000012695789337158203,
+          "crossings": {
+            "false_0.8": 0,
+            "false_0.9": 0,
+            "false_1.0": 0,
+            "missed_0.8": 0,
+            "missed_0.9": 0,
+            "missed_1.0": 0
+          },
+          "energy_err": 0.00009152440753460457,
+          "fails": [
+            "D"
+          ],
+          "first_broken": 0.030162760416666663,
+          "force_err": 0.000036728828934686915,
+          "force_err_full_window": 9.57040946445729,
+          "force_window_end_s": 0.030162760416666663,
+          "impulse": 0.0,
+          "impulse_rel": null,
+          "jaccard_d05": 0.8888888888888888,
+          "onset": 0.029134114583333332,
+          "onset_err_s": 0.0,
+          "onset_tol_s": 0.0002,
+          "pass": false,
+          "peak": 210850.69256390515,
+          "peak_rel": 0.04353385635908888,
+          "t_peak": 0.09229817708333332
+        },
+        "partner": "E h_E/4"
+      },
+      "e_scale": 44.35785696708142,
+      "f_scale": 31875.618646331815,
+      "info": {
+        "E_released_J": 44.35785696708142,
+        "cells": 89,
+        "dmin": 0.3,
+        "facets": 222,
+        "prop_reaction_N": -31875.618646331815,
+        "prop_release_s": 0.01,
+        "static_tip_drop_m": 0.0033418799991290493
+      },
+      "largest_passing_h": {
+        "BDF2": null,
+        "E": 0.000026041666666666665,
+        "GA(0.5)": null,
+        "Newmark": null
+      },
+      "problem": "R1' SB-IL1 s9",
+      "reference": {
+        "D_end": 41.75888582638571,
+        "E_num_end": -0.00018430988221007638,
+        "broken_d05": 16,
+        "first_broken": 0.030162760416666663,
+        "impulse": 0.0,
+        "invalid": null,
+        "onset": 0.029134114583333332,
+        "peak": 220447.62793304416,
+        "steps": 61440,
+        "t_peak": 0.125009765625,
+        "valid": true,
+        "wall_s": 2.479906625,
+        "work": {
+          "force_passes": 61441,
+          "substeps_per_frame": 5120.0
+        }
+      },
+      "runs": [
+        {
+          "criteria": {
+            "D": 51.163031599303096,
+            "D_ref": 41.75888582638571,
+            "D_rel": 0.22520107006723103,
+            "E_num_end": -0.0027678058492923707,
+            "chi_err": 0.000012695789337158203,
+            "crossings": {
+              "false_0.8": 0,
+              "false_0.9": 0,
+              "false_1.0": 0,
+              "missed_0.8": 0,
+              "missed_0.9": 0,
+              "missed_1.0": 0
+            },
+            "energy_err": 0.00009152440753460457,
+            "fails": [
+              "D"
+            ],
+            "first_broken": 0.030162760416666663,
+            "force_err": 0.000036728828934686915,
+            "force_err_full_window": 9.57040946445729,
+            "force_window_end_s": 0.030162760416666663,
+            "impulse": 0.0,
+            "impulse_rel": null,
+            "jaccard_d05": 0.8888888888888888,
+            "onset": 0.029134114583333332,
+            "onset_err_s": 0.0,
+            "onset_tol_s": 0.0002,
+            "pass": false,
+            "peak": 210850.69256390515,
+            "peak_rel": 0.04353385635908888,
+            "t_peak": 0.09229817708333332
+          },
+          "family": "E",
+          "h": 6.510416666666666e-6,
+          "method": "E h_E/4",
+          "run": {
+            "D_end": 51.163031599303096,
+            "E_num_end": -0.0027678058492923707,
+            "broken_d05": 18,
+            "first_broken": 0.030162760416666663,
+            "impulse": 0.0,
+            "invalid": null,
+            "onset": 0.029134114583333332,
+            "peak": 210850.69256390515,
+            "steps": 30720,
+            "t_peak": 0.09229817708333332,
+            "valid": true,
+            "wall_s": 1.489569875,
+            "work": {
+              "force_passes": 30721,
+              "substeps_per_frame": 2560.0
+            }
+          }
+        },
+        {
+          "criteria": {
+            "D": 40.870713390056395,
+            "D_ref": 41.75888582638571,
+            "D_rel": 0.021269064505742005,
+            "E_num_end": -0.0052362190535464315,
+            "chi_err": 0.00010383129119873047,
+            "crossings": {
+              "false_0.8": 0,
+              "false_0.9": 0,
+              "false_1.0": 0,
+              "missed_0.8": 0,
+              "missed_0.9": 0,
+              "missed_1.0": 0
+            },
+            "energy_err": 0.0001784134787011738,
+            "fails": [],
+            "first_broken": 0.03016927083333333,
+            "force_err": 0.000187806715512118,
+            "force_err_full_window": 10.601282103814412,
+            "force_window_end_s": 0.030162760416666663,
+            "impulse": 0.0,
+            "impulse_rel": null,
+            "jaccard_d05": 1.0,
+            "onset": 0.029140624999999996,
+            "onset_err_s": 6.510416666664215e-6,
+            "onset_tol_s": 0.0002,
+            "pass": true,
+            "peak": 224195.4829497313,
+            "peak_rel": 0.01700111292567617,
+            "t_peak": 0.10335937499999999
+          },
+          "family": "E",
+          "h": 0.000013020833333333332,
+          "method": "E h_E/2",
+          "run": {
+            "D_end": 40.870713390056395,
+            "E_num_end": -0.0052362190535464315,
+            "broken_d05": 16,
+            "first_broken": 0.03016927083333333,
+            "impulse": 0.0,
+            "invalid": null,
+            "onset": 0.029140624999999996,
+            "peak": 224195.4829497313,
+            "steps": 15360,
+            "t_peak": 0.10335937499999999,
+            "valid": true,
+            "wall_s": 0.871212458,
+            "work": {
+              "force_passes": 15361,
+              "substeps_per_frame": 1280.0
+            }
+          }
+        },
+        {
+          "criteria": {
+            "D": 39.9623722143573,
+            "D_ref": 41.75888582638571,
+            "D_rel": 0.04302110979439167,
+            "E_num_end": 0.014046374124451866,
+            "chi_err": 0.0005586743354797363,
+            "crossings": {
+              "false_0.8": 0,
+              "false_0.9": 0,
+              "false_1.0": 0,
+              "missed_0.8": 0,
+              "missed_0.9": 0,
+              "missed_1.0": 0
+            },
+            "energy_err": 0.000805625008330818,
+            "fails": [],
+            "first_broken": 0.030182291666666666,
+            "force_err": 0.0010639921144322982,
+            "force_err_full_window": 10.257412826058978,
+            "force_window_end_s": 0.030162760416666663,
+            "impulse": 0.0,
+            "impulse_rel": null,
+            "jaccard_d05": 0.875,
+            "onset": 0.029140624999999996,
+            "onset_err_s": 6.510416666664215e-6,
+            "onset_tol_s": 0.0002,
+            "pass": true,
+            "peak": 266908.4315345386,
+            "peak_rel": 0.21075665017183062,
+            "t_peak": 0.07059895833333332
+          },
+          "family": "E",
+          "h": 0.000026041666666666665,
+          "method": "E h_E/1",
+          "run": {
+            "D_end": 39.9623722143573,
+            "E_num_end": 0.014046374124451866,
+            "broken_d05": 14,
+            "first_broken": 0.030182291666666666,
+            "impulse": 0.0,
+            "invalid": null,
+            "onset": 0.029140624999999996,
+            "peak": 266908.4315345386,
+            "steps": 7680,
+            "t_peak": 0.07059895833333332,
+            "valid": true,
+            "wall_s": 0.609549917,
+            "work": {
+              "force_passes": 7681,
+              "substeps_per_frame": 640.0
+            }
+          }
+        },
+        {
+          "criteria": {
+            "D": 17.781856764999176,
+            "D_ref": 41.75888582638571,
+            "D_rel": 0.5741778926064268,
+            "E_num_end": 25.25759371192025,
+            "chi_err": 0.9991737008094788,
+            "crossings": {
+              "false_0.8": 4,
+              "false_0.9": 4,
+              "false_1.0": 4,
+              "missed_0.8": 0,
+              "missed_0.9": 0,
+              "missed_1.0": 0
+            },
+            "energy_err": 0.5694051840841694,
+            "fails": [
+              "invalid",
+              "force",
+              "onset",
+              "chi",
+              "D",
+              "energy"
+            ],
+            "first_broken": 0.004166666666666667,
+            "force_err": 0.12542610498403445,
+            "force_err_full_window": 0.12542610498403445,
+            "force_window_end_s": 0.030162760416666663,
+            "impulse": 0.0,
+            "impulse_rel": null,
+            "jaccard_d05": 0.0,
+            "onset": 0.004166666666666667,
+            "onset_err_s": 0.024967447916666666,
+            "onset_tol_s": 0.0002,
+            "pass": false,
+            "peak": 36277.30034674941,
+            "peak_rel": 0.8354380099849937,
+            "t_peak": 0.004166666666666667
+          },
+          "family": "BDF2",
+          "h": 0.004166666666666667,
+          "method": "BDF2 1/240",
+          "run": {
+            "D_end": 17.781856764999176,
+            "E_num_end": 25.25759371192025,
+            "broken_d05": 4,
+            "first_broken": 0.004166666666666667,
+            "impulse": 0.0,
+            "invalid": {
+              "iters": 59,
+              "reason": "Newton not converged",
+              "res": 7884.453667713096,
+              "t": 0.0125
+            },
+            "onset": 0.004166666666666667,
+            "peak": 36277.30034674941,
+            "steps": 2,
+            "t_peak": 0.004166666666666667,
+            "valid": false,
+            "wall_s": 0.084108,
+            "work": {
+              "event_steps": 0,
+              "ga_force_passes": 3,
+              "newton_iters": 73,
+              "roundoff_limited": 0,
+              "steps": 2,
+              "steps_per_frame": 4.0
+            }
+          }
+        },
+        {
+          "criteria": {
+            "D": 427.9175391394187,
+            "D_ref": 41.75888582638571,
+            "D_rel": 9.247340911309356,
+            "E_num_end": -12626.62014229182,
+            "chi_err": 0.9999540448188782,
+            "crossings": {
+              "false_0.8": 4,
+              "false_0.9": 4,
+              "false_1.0": 4,
+              "missed_0.8": 1,
+              "missed_0.9": 2,
+              "missed_1.0": 1
+            },
+            "energy_err": 284.65352038224506,
+            "fails": [
+              "force",
+              "onset",
+              "chi",
+              "D",
+              "energy"
+            ],
+            "first_broken": 0.004166666666666667,
+            "force_err": 0.3890051734731751,
+            "force_err_full_window": 6.059295352585961,
+            "force_window_end_s": 0.030162760416666663,
+            "impulse": 0.0,
+            "impulse_rel": null,
+            "jaccard_d05": 0.125,
+            "onset": 0.004166666666666667,
+            "onset_err_s": 0.024967447916666666,
+            "onset_tol_s": 0.0002,
+            "pass": false,
+            "peak": 199397.53150905902,
+            "peak_rel": 0.09548796973392076,
+            "t_peak": 0.14583333333333334
+          },
+          "family": "Newmark",
+          "h": 0.004166666666666667,
+          "method": "Newmark 1/240",
+          "run": {
+            "D_end": 427.9175391394187,
+            "E_num_end": -12626.62014229182,
+            "broken_d05": 128,
+            "first_broken": 0.004166666666666667,
+            "impulse": 0.0,
+            "invalid": null,
+            "onset": 0.004166666666666667,
+            "peak": 199397.53150905902,
+            "steps": 48,
+            "t_peak": 0.14583333333333334,
+            "valid": true,
+            "wall_s": 0.994676083,
+            "work": {
+              "event_steps": 0,
+              "ga_force_passes": 48,
+              "newton_iters": 645,
+              "roundoff_limited": 0,
+              "steps": 48,
+              "steps_per_frame": 4.0
+            }
+          }
+        },
+        {
+          "criteria": {
+            "D": 54.037733378579674,
+            "D_ref": 41.75888582638571,
+            "D_rel": 0.2940415508987424,
+            "E_num_end": 23.78384303124671,
+            "chi_err": 0.9999540448188782,
+            "crossings": {
+              "false_0.8": 3,
+              "false_0.9": 3,
+              "false_1.0": 3,
+              "missed_0.8": 0,
+              "missed_0.9": 0,
+              "missed_1.0": 0
+            },
+            "energy_err": 0.5361810659360084,
+            "fails": [
+              "force",
+              "onset",
+              "chi",
+              "D",
+              "energy"
+            ],
+            "first_broken": 0.00625,
+            "force_err": 0.1997531532265341,
+            "force_err_full_window": 5.97555364641681,
+            "force_window_end_s": 0.030162760416666663,
+            "impulse": 0.0,
+            "impulse_rel": null,
+            "jaccard_d05": 0.0,
+            "onset": 0.00625,
+            "onset_err_s": 0.02288411458333333,
+            "onset_tol_s": 0.0002,
+            "pass": false,
+            "peak": 68383.34216026039,
+            "peak_rel": 0.6897977864337455,
+            "t_peak": 0.029166666666666667
+          },
+          "family": "BDF2",
+          "h": 0.0020833333333333333,
+          "method": "BDF2 1/480",
+          "run": {
+            "D_end": 54.037733378579674,
+            "E_num_end": 23.78384303124671,
+            "broken_d05": 16,
+            "first_broken": 0.00625,
+            "impulse": 0.0,
+            "invalid": null,
+            "onset": 0.00625,
+            "peak": 68383.34216026039,
+            "steps": 96,
+            "t_peak": 0.029166666666666667,
+            "valid": true,
+            "wall_s": 0.377912125,
+            "work": {
+              "event_steps": 0,
+              "ga_force_passes": 96,
+              "newton_iters": 248,
+              "roundoff_limited": 0,
+              "steps": 96,
+              "steps_per_frame": 8.0
+            }
+          }
+        },
+        {
+          "criteria": {
+            "D": 1443.6087316423389,
+            "D_ref": 41.75888582638571,
+            "D_rel": 33.57009695239959,
+            "E_num_end": -3232097.572049944,
+            "chi_err": 0.012901067733764648,
+            "crossings": {
+              "false_0.8": 0,
+              "false_0.9": 0,
+              "false_1.0": 0,
+              "missed_0.8": 0,
+              "missed_0.9": 0,
+              "missed_1.0": 0
+            },
+            "energy_err": 72864.15063848844,
+            "fails": [
+              "invalid",
+              "force",
+              "chi",
+              "D",
+              "energy"
+            ],
+            "first_broken": 0.03333333333333333,
+            "force_err": 0.08322740868495336,
+            "force_err_full_window": 148.45278323049314,
+            "force_window_end_s": 0.030162760416666663,
+            "impulse": 0.0,
+            "impulse_rel": null,
+            "jaccard_d05": 0.037209302325581395,
+            "onset": 0.029166666666666667,
+            "onset_err_s": 0.00003255208333333495,
+            "onset_tol_s": 0.0002,
+            "pass": false,
+            "peak": 4724964.568816293,
+            "peak_rel": 20.43350152196417,
+            "t_peak": 0.16458333333333333
+          },
+          "family": "Newmark",
+          "h": 0.0020833333333333333,
+          "method": "Newmark 1/480",
+          "run": {
+            "D_end": 1443.6087316423389,
+            "E_num_end": -3232097.572049944,
+            "broken_d05": 430,
+            "first_broken": 0.03333333333333333,
+            "impulse": 0.0,
+            "invalid": {
+              "iters": 59,
+              "reason": "Newton not converged",
+              "res": 0.056147984229028225,
+              "t": 0.16666666666666666
+            },
+            "onset": 0.029166666666666667,
+            "peak": 4724964.568816293,
+            "steps": 79,
+            "t_peak": 0.16458333333333333,
+            "valid": false,
+            "wall_s": 1.292580791,
+            "work": {
+              "event_steps": 0,
+              "ga_force_passes": 80,
+              "newton_iters": 1105,
+              "roundoff_limited": 1,
+              "steps": 79,
+              "steps_per_frame": 8.0
+            }
+          }
+        },
+        {
+          "criteria": {
+            "D": 35.41152429688112,
+            "D_ref": 41.75888582638571,
+            "D_rel": 0.15200026063659855,
+            "E_num_end": 19.192891227726637,
+            "chi_err": 0.019183874130249023,
+            "crossings": {
+              "false_0.8": 0,
+              "false_0.9": 0,
+              "false_1.0": 0,
+              "missed_0.8": 0,
+              "missed_0.9": 0,
+              "missed_1.0": 0
+            },
+            "energy_err": 0.4326830135633006,
+            "fails": [
+              "force",
+              "chi",
+              "D",
+              "energy"
+            ],
+            "first_broken": 0.030208333333333334,
+            "force_err": 0.08223067226824983,
+            "force_err_full_window": 6.99204287041722,
+            "force_window_end_s": 0.030162760416666663,
+            "impulse": 0.0,
+            "impulse_rel": null,
+            "jaccard_d05": 0.875,
+            "onset": 0.029166666666666667,
+            "onset_err_s": 0.00003255208333333495,
+            "onset_tol_s": 0.0002,
+            "pass": false,
+            "peak": 76094.38642923675,
+            "peak_rel": 0.6548187560795681,
+            "t_peak": 0.065625
+          },
+          "family": "BDF2",
+          "h": 0.0010416666666666667,
+          "method": "BDF2 1/960",
+          "run": {
+            "D_end": 35.41152429688112,
+            "E_num_end": 19.192891227726637,
+            "broken_d05": 14,
+            "first_broken": 0.030208333333333334,
+            "impulse": 0.0,
+            "invalid": null,
+            "onset": 0.029166666666666667,
+            "peak": 76094.38642923675,
+            "steps": 192,
+            "t_peak": 0.065625,
+            "valid": true,
+            "wall_s": 0.685050542,
+            "work": {
+              "event_steps": 0,
+              "ga_force_passes": 192,
+              "newton_iters": 465,
+              "roundoff_limited": 0,
+              "steps": 192,
+              "steps_per_frame": 16.0
+            }
+          }
+        },
+        {
+          "criteria": {
+            "D": 1394.515692504826,
+            "D_ref": 41.75888582638571,
+            "D_rel": 32.39446598988734,
+            "E_num_end": -5713273.636729994,
+            "chi_err": 0.012615621089935303,
+            "crossings": {
+              "false_0.8": 0,
+              "false_0.9": 0,
+              "false_1.0": 0,
+              "missed_0.8": 0,
+              "missed_0.9": 0,
+              "missed_1.0": 0
+            },
+            "energy_err": 128799.58653029369,
+            "fails": [
+              "invalid",
+              "chi",
+              "D",
+              "energy"
+            ],
+            "first_broken": 0.030208333333333334,
+            "force_err": 0.027446137274453934,
+            "force_err_full_window": 206.33470404781033,
+            "force_window_end_s": 0.030162760416666663,
+            "impulse": 0.0,
+            "impulse_rel": null,
+            "jaccard_d05": 0.03827751196172249,
+            "onset": 0.029166666666666667,
+            "onset_err_s": 0.00003255208333333495,
+            "onset_tol_s": 0.0002,
+            "pass": false,
+            "peak": 6513336.0685696835,
+            "peak_rel": 28.545956695655434,
+            "t_peak": 0.09895833333333333
+          },
+          "family": "Newmark",
+          "h": 0.0010416666666666667,
+          "method": "Newmark 1/960",
+          "run": {
+            "D_end": 1394.515692504826,
+            "E_num_end": -5713273.636729994,
+            "broken_d05": 418,
+            "first_broken": 0.030208333333333334,
+            "impulse": 0.0,
+            "invalid": {
+              "iters": 59,
+              "reason": "Newton not converged",
+              "res": 0.1578446626663208,
+              "t": 0.10833333333333334
+            },
+            "onset": 0.029166666666666667,
+            "peak": 6513336.0685696835,
+            "steps": 103,
+            "t_peak": 0.09895833333333333,
+            "valid": false,
+            "wall_s": 1.4667889170000001,
+            "work": {
+              "event_steps": 0,
+              "ga_force_passes": 104,
+              "newton_iters": 1317,
+              "roundoff_limited": 0,
+              "steps": 103,
+              "steps_per_frame": 16.0
+            }
+          }
+        },
+        {
+          "criteria": {
+            "D": 35.41152429688112,
+            "D_ref": 41.75888582638571,
+            "D_rel": 0.15200026063659855,
+            "E_num_end": 9.391018152164662,
+            "chi_err": 0.010712385177612305,
+            "crossings": {
+              "false_0.8": 0,
+              "false_0.9": 1,
+              "false_1.0": 0,
+              "missed_0.8": 0,
+              "missed_0.9": 0,
+              "missed_1.0": 0
+            },
+            "energy_err": 0.21171036642130542,
+            "fails": [
+              "chi",
+              "D",
+              "energy"
+            ],
+            "first_broken": 0.030208333333333334,
+            "force_err": 0.029031192059963906,
+            "force_err_full_window": 7.321638857899357,
+            "force_window_end_s": 0.030162760416666663,
+            "impulse": 0.0,
+            "impulse_rel": null,
+            "jaccard_d05": 0.875,
+            "onset": 0.029166666666666667,
+            "onset_err_s": 0.00003255208333333495,
+            "onset_tol_s": 0.0002,
+            "pass": false,
+            "peak": 77360.0157855256,
+            "peak_rel": 0.6490775767883431,
+            "t_peak": 0.08489583333333334
+          },
+          "family": "BDF2",
+          "h": 0.0005208333333333333,
+          "method": "BDF2 1/1920",
+          "run": {
+            "D_end": 35.41152429688112,
+            "E_num_end": 9.391018152164662,
+            "broken_d05": 14,
+            "first_broken": 0.030208333333333334,
+            "impulse": 0.0,
+            "invalid": null,
+            "onset": 0.029166666666666667,
+            "peak": 77360.0157855256,
+            "steps": 384,
+            "t_peak": 0.08489583333333334,
+            "valid": true,
+            "wall_s": 0.781210583,
+            "work": {
+              "event_steps": 0,
+              "ga_force_passes": 384,
+              "newton_iters": 802,
+              "roundoff_limited": 0,
+              "steps": 384,
+              "steps_per_frame": 32.0
+            }
+          }
+        },
+        {
+          "criteria": {
+            "D": 101.93375014772269,
+            "D_ref": 41.75888582638571,
+            "D_rel": 1.4410074198702634,
+            "E_num_end": -63.28477296143347,
+            "chi_err": 0.0069882869720458984,
+            "crossings": {
+              "false_0.8": 0,
+              "false_0.9": 1,
+              "false_1.0": 0,
+              "missed_0.8": 0,
+              "missed_0.9": 0,
+              "missed_1.0": 0
+            },
+            "energy_err": 1.4483610966257214,
+            "fails": [
+              "D",
+              "energy"
+            ],
+            "first_broken": 0.030208333333333334,
+            "force_err": 0.020459706399551518,
+            "force_err_full_window": 8.659130733124693,
+            "force_window_end_s": 0.030162760416666663,
+            "impulse": 0.0,
+            "impulse_rel": null,
+            "jaccard_d05": 0.5,
+            "onset": 0.029166666666666667,
+            "onset_err_s": 0.00003255208333333495,
+            "onset_tol_s": 0.0002,
+            "pass": false,
+            "peak": 209004.33602112433,
+            "peak_rel": 0.05190934472379747,
+            "t_peak": 0.16354166666666667
+          },
+          "family": "Newmark",
+          "h": 0.0005208333333333333,
+          "method": "Newmark 1/1920",
+          "run": {
+            "D_end": 101.93375014772269,
+            "E_num_end": -63.28477296143347,
+            "broken_d05": 32,
+            "first_broken": 0.030208333333333334,
+            "impulse": 0.0,
+            "invalid": null,
+            "onset": 0.029166666666666667,
+            "peak": 209004.33602112433,
+            "steps": 384,
+            "t_peak": 0.16354166666666667,
+            "valid": true,
+            "wall_s": 2.9062075,
+            "work": {
+              "event_steps": 0,
+              "ga_force_passes": 384,
+              "newton_iters": 2610,
+              "roundoff_limited": 0,
+              "steps": 384,
+              "steps_per_frame": 32.0
+            }
+          }
+        },
+        {
+          "criteria": {
+            "D": 35.41152429688112,
+            "D_ref": 41.75888582638571,
+            "D_rel": 0.15200026063659855,
+            "E_num_end": 5.8017520832621585,
+            "chi_err": 0.17358970642089844,
+            "crossings": {
+              "false_0.8": 1,
+              "false_0.9": 1,
+              "false_1.0": 0,
+              "missed_0.8": 2,
+              "missed_0.9": 1,
+              "missed_1.0": 0
+            },
+            "energy_err": 0.13079423759285125,
+            "fails": [
+              "force",
+              "chi",
+              "D",
+              "energy"
+            ],
+            "first_broken": 0.029947916666666668,
+            "force_err": 0.30078778854547217,
+            "force_err_full_window": 7.313247094293092,
+            "force_window_end_s": 0.030162760416666663,
+            "impulse": 0.0,
+            "impulse_rel": null,
+            "jaccard_d05": 0.875,
+            "onset": 0.029166666666666667,
+            "onset_err_s": 0.00003255208333333495,
+            "onset_tol_s": 0.0002,
+            "pass": false,
+            "peak": 95915.76244711167,
+            "peak_rel": 0.5649045383412161,
+            "t_peak": 0.1296875
+          },
+          "family": "BDF2",
+          "h": 0.00026041666666666666,
+          "method": "BDF2 1/3840",
+          "run": {
+            "D_end": 35.41152429688112,
+            "E_num_end": 5.8017520832621585,
+            "broken_d05": 14,
+            "first_broken": 0.029947916666666668,
+            "impulse": 0.0,
+            "invalid": null,
+            "onset": 0.029166666666666667,
+            "peak": 95915.76244711167,
+            "steps": 768,
+            "t_peak": 0.1296875,
+            "valid": true,
+            "wall_s": 1.246573792,
+            "work": {
+              "event_steps": 0,
+              "ga_force_passes": 768,
+              "newton_iters": 1516,
+              "roundoff_limited": 1,
+              "steps": 768,
+              "steps_per_frame": 64.0
+            }
+          }
+        },
+        {
+          "criteria": {
+            "D": 51.163031599303096,
+            "D_ref": 41.75888582638571,
+            "D_rel": 0.22520107006723103,
+            "E_num_end": -4.857040527039981,
+            "chi_err": 0.051259756088256836,
+            "crossings": {
+              "false_0.8": 0,
+              "false_0.9": 0,
+              "false_1.0": 0,
+              "missed_0.8": 0,
+              "missed_0.9": 1,
+              "missed_1.0": 0
+            },
+            "energy_err": 0.10949814042703877,
+            "fails": [
+              "force",
+              "chi",
+              "D",
+              "energy"
+            ],
+            "first_broken": 0.030208333333333334,
+            "force_err": 0.14761276121806036,
+            "force_err_full_window": 10.982362999314295,
+            "force_window_end_s": 0.030162760416666663,
+            "impulse": 0.0,
+            "impulse_rel": null,
+            "jaccard_d05": 0.8888888888888888,
+            "onset": 0.029166666666666667,
+            "onset_err_s": 0.00003255208333333495,
+            "onset_tol_s": 0.0002,
+            "pass": false,
+            "peak": 211882.1534078322,
+            "peak_rel": 0.038854918084278614,
+            "t_peak": 0.19375
+          },
+          "family": "Newmark",
+          "h": 0.00026041666666666666,
+          "method": "Newmark 1/3840",
+          "run": {
+            "D_end": 51.163031599303096,
+            "E_num_end": -4.857040527039981,
+            "broken_d05": 18,
+            "first_broken": 0.030208333333333334,
+            "impulse": 0.0,
+            "invalid": null,
+            "onset": 0.029166666666666667,
+            "peak": 211882.1534078322,
+            "steps": 768,
+            "t_peak": 0.19375,
+            "valid": true,
+            "wall_s": 1.721683292,
+            "work": {
+              "event_steps": 0,
+              "ga_force_passes": 768,
+              "newton_iters": 1998,
+              "roundoff_limited": 0,
+              "steps": 768,
+              "steps_per_frame": 64.0
+            }
+          }
+        }
+      ],
+      "sweep": {
+        "e_div": 5,
+        "h_E_s": 0.000026041666666666665,
+        "ref_wall_s": 2.479906625
+      },
+      "t_load": 0.01
+    }
+  ],
+  "seconds": 3.296387083
+}

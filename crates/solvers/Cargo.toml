@@ -1,0 +1,9 @@
+[package]
+name = "solvers"
+edition.workspace = true
+version.workspace = true
+
+[dependencies]
+geometry = { path = "../geometry" }
+model = { path = "../model" }
+faer.workspace = true

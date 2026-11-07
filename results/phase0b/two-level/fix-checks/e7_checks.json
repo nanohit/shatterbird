@@ -1,0 +1,213 @@
+{
+  "forced_failure": [
+    {
+      "pass": true,
+      "result": {
+        "D_final_J": 0.0,
+        "Dnum_IE_J": 0.0,
+        "committed_kappa_sum": 0.0003703203191715339,
+        "energy_balance_final_J": null,
+        "fully_damaged_facets": null,
+        "h": 0.0020833333333333333,
+        "integrator_steps": 0,
+        "invalid": {
+          "iters": 0,
+          "reason": "S0 Newton not converged",
+          "residual": 210456.33755015145,
+          "step": 0,
+          "t": 0.0
+        },
+        "max_force_over_failure": 0.0,
+        "max_step_damage_increment": 0.0,
+        "newton_failures": 1,
+        "policy_note": "S1 dyn-rho = RhoPolicy::Dynamic(1.0)",
+        "s2A_max_force_over_failure": 0.0,
+        "s2_lu": 0,
+        "s2_mechanism_failures": 0,
+        "s2_numeric_factorizations": 0,
+        "s2_reused": 0,
+        "s2_symbolic": 0,
+        "scheme": "BDF2",
+        "solver": "S0",
+        "steps": 10,
+        "steps_completed": 0,
+        "substeps_total": 0,
+        "sweeps_total": 0,
+        "tip_final_m": null,
+        "unexplained_residual_IE_J": null,
+        "valid": false
+      },
+      "solver": "S0"
+    },
+    {
+      "pass": true,
+      "result": {
+        "D_final_J": 0.0,
+        "Dnum_IE_J": 0.0,
+        "committed_kappa_sum": 0.0003703203191715339,
+        "energy_balance_final_J": null,
+        "fully_damaged_facets": null,
+        "h": 0.0020833333333333333,
+        "integrator_steps": 0,
+        "invalid": {
+          "iters": 0,
+          "reason": "S0Event Newton not converged at the h/256 floor",
+          "residual": 0.002432504837202032,
+          "step": 0,
+          "t": 0.0
+        },
+        "max_force_over_failure": 0.0,
+        "max_step_damage_increment": 0.0,
+        "newton_failures": 1,
+        "policy_note": "S1 dyn-rho = RhoPolicy::Dynamic(1.0)",
+        "s2A_max_force_over_failure": 0.0,
+        "s2_lu": 0,
+        "s2_mechanism_failures": 0,
+        "s2_numeric_factorizations": 0,
+        "s2_reused": 0,
+        "s2_symbolic": 0,
+        "scheme": "IE",
+        "solver": "S0 + event sub-stepping",
+        "steps": 10,
+        "steps_completed": 0,
+        "substeps_total": 0,
+        "sweeps_total": 0,
+        "tip_final_m": null,
+        "unexplained_residual_IE_J": null,
+        "valid": false
+      },
+      "solver": "S0 + event sub-stepping"
+    }
+  ],
+  "meta": {
+    "config": {},
+    "experiment": "phase0b/two-level/fix-checks",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "e7 checks",
+    "seed": 7,
+    "solver_schedule": "forced Newton failure (max_iter=1), restart driver, partial support/load clipping",
+    "source_hash": "f66bd37aed6f1f8f",
+    "unix_time": 1793994897
+  },
+  "partial_pass": true,
+  "partial_support_and_load": [
+    {
+      "exact": {
+        "load_force_err": 2.1654635756498291e-16,
+        "load_moment_err": 2.3410417034052205e-16,
+        "support_length": 0.5999999999999996,
+        "support_length_err": 5.551115123125783e-16
+      },
+      "midpoint": {
+        "load_force_err": 0.016723434782028822,
+        "load_moment_err": 0.013109580578085622,
+        "support_length": 0.37133400773614245,
+        "support_length_err": 0.38110998710642924
+      },
+      "seed": 7
+    },
+    {
+      "exact": {
+        "load_force_err": 2.1654635756498291e-16,
+        "load_moment_err": 2.3410417034052205e-16,
+        "support_length": 0.5999999999999996,
+        "support_length_err": 5.551115123125783e-16
+      },
+      "midpoint": {
+        "load_force_err": 0.10249632446409968,
+        "load_moment_err": 0.10548738199659675,
+        "support_length": 0.45245875948782643,
+        "support_length_err": 0.24590206752028926
+      },
+      "seed": 8
+    },
+    {
+      "exact": {
+        "load_force_err": 0.0,
+        "load_moment_err": 0.0,
+        "support_length": 0.5999999999999996,
+        "support_length_err": 5.551115123125783e-16
+      },
+      "midpoint": {
+        "load_force_err": 0.03491235601104531,
+        "load_moment_err": 0.0300463856811078,
+        "support_length": 0.7844747474812017,
+        "support_length_err": 0.3074579124686696
+      },
+      "seed": 9
+    }
+  ],
+  "restart_driver": {
+    "pass": true,
+    "result": {
+      "D_final_J": 0.0,
+      "Dnum_IE_J": 0.0,
+      "attempts": [
+        {
+          "h": 0.0020833333333333333,
+          "invalid": {
+            "iters": 0,
+            "reason": "S0 Newton not converged",
+            "residual": 210456.33755015145,
+            "step": 0,
+            "t": 0.0
+          },
+          "valid": false
+        },
+        {
+          "h": 0.0010416666666666667,
+          "invalid": {
+            "iters": 59,
+            "reason": "S0 Newton not converged",
+            "residual": 212450.42156205373,
+            "step": 10,
+            "t": 0.010416666666666666
+          },
+          "valid": false
+        },
+        {
+          "h": 0.0005208333333333333,
+          "invalid": {
+            "iters": 59,
+            "reason": "S0 Newton not converged",
+            "residual": 938239.3213862902,
+            "step": 0,
+            "t": 0.0
+          },
+          "valid": false
+        },
+        {
+          "h": 0.00026041666666666666,
+          "invalid": null,
+          "valid": true
+        }
+      ],
+      "committed_kappa_sum": 0.0014102427607278222,
+      "energy_balance_final_J": -0.4022570868966864,
+      "fully_damaged_facets": 0,
+      "h": 0.00026041666666666666,
+      "h_requested": 0.0020833333333333333,
+      "integrator_steps": 77,
+      "invalid": null,
+      "max_force_over_failure": 0.8272848651618798,
+      "max_step_damage_increment": 0.0,
+      "newton_failures": 0,
+      "policy_note": "S1 dyn-rho = RhoPolicy::Dynamic(1.0)",
+      "s2A_max_force_over_failure": 0.0,
+      "s2_lu": 0,
+      "s2_mechanism_failures": 0,
+      "s2_numeric_factorizations": 0,
+      "s2_reused": 0,
+      "s2_symbolic": 0,
+      "scheme": "BDF2",
+      "solver": "S0",
+      "steps": 77,
+      "steps_completed": 77,
+      "substeps_total": 0,
+      "sweeps_total": 0,
+      "tip_final_m": -0.002545655138048275,
+      "unexplained_residual_IE_J": null,
+      "valid": true
+    }
+  }
+}

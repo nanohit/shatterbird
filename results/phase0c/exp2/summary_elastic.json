@@ -1,0 +1,738 @@
+{
+  "meta": {
+    "config": {
+      "dmin": 0.04,
+      "nvib": 4,
+      "prereg": "docs/phase0c/reduced-fracture.md §4",
+      "regions": "floating frame: x = c + R(φ)(P + Uη), θ = φ + Wη; basis = static boundary modes (M0) + 2 body-force modes + nvib fixed-interface modes, rigid modes removed, M-orthonormal",
+      "scene": "propped cantilever 4 x 0.4 m, b = 0.3 m, concrete SB-IL1 (or elastic), clamp and prop facets elastic, gravity 9.81, prop force released by a cosine ramp over t_r",
+      "t_end": 0.3,
+      "t_r": 0.005
+    },
+    "experiment": "phase0c/exp2",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "elastic",
+    "seed": null,
+    "solver_schedule": "reference: full RBSN, leapfrog at h = 0.3 d_min/c, history committed every substep; candidates: BDF2 (BE restart on step change) with Newton + sparse Cholesky/LU, accept if converged and Δd ≤ 0.1 else halve",
+    "source_hash": "efeeda8d8c907905",
+    "unix_time": 1794020216
+  },
+  "scenes": [
+    {
+      "cells": 716,
+      "comparison": [
+        {
+          "amp_ratio_last_over_first": [
+            1.0034858921750032,
+            0.8228918141523882
+          ],
+          "criteria": {
+            "first_peak": true,
+            "mean": true,
+            "no_energy_creation": true,
+            "period": true
+          },
+          "e_max_rise": [
+            1.0637126210411019e-7,
+            0.0
+          ],
+          "energy_loss_over_KEmax": [
+            -3.586993620645963e-9,
+            0.4663479228296545
+          ],
+          "first_peak_drop_rel": -0.05226685133830951,
+          "first_peak_t": [
+            0.03775271389026225,
+            0.0375
+          ],
+          "h": 0.004166666666666667,
+          "label": "full_bdf2_h240",
+          "mean_drop_rel": 0.02857121164158571,
+          "period_rel": 0.04090802146542859,
+          "period_s": [
+            0.07042839275023409,
+            0.0733094789526363
+          ],
+          "root_moment_mean_after_release": [
+            -22017.767999019543,
+            -22572.42104897193
+          ],
+          "root_moment_peak": [
+            43318.81063049315,
+            40052.62564428271
+          ],
+          "root_moment_static_propped": [
+            -4108.219192930315,
+            -4108.219192930315
+          ],
+          "static_tip": [
+            -4.981737129532419e-8,
+            -4.981737129532419e-8
+          ],
+          "wall_ratio_vs_ref": 9.381835986704644,
+          "work_ratio_vs_ref": 28.9476841262944
+        },
+        {
+          "amp_ratio_last_over_first": [
+            1.0034858921750032,
+            0.9694635414209413
+          ],
+          "criteria": {
+            "first_peak": true,
+            "mean": true,
+            "no_energy_creation": true,
+            "period": true
+          },
+          "e_max_rise": [
+            1.0637126210411019e-7,
+            0.0
+          ],
+          "energy_loss_over_KEmax": [
+            -3.586993620645963e-9,
+            0.09951961535058049
+          ],
+          "first_peak_drop_rel": -0.011434583047679615,
+          "first_peak_t": [
+            0.03775271389026225,
+            0.0375
+          ],
+          "h": 0.0020833333333333333,
+          "label": "full_bdf2_h480",
+          "mean_drop_rel": 0.005644516982271135,
+          "period_rel": 0.011000574813729541,
+          "period_s": [
+            0.07042839275023409,
+            0.07120314555369377
+          ],
+          "root_moment_mean_after_release": [
+            -22017.767999019543,
+            -22128.52797439123
+          ],
+          "root_moment_peak": [
+            43318.81063049315,
+            41451.83944206467
+          ],
+          "root_moment_static_propped": [
+            -4108.219192930315,
+            -4108.219192930315
+          ],
+          "static_tip": [
+            -4.981737129532419e-8,
+            -4.981737129532419e-8
+          ],
+          "wall_ratio_vs_ref": 5.216794074258805,
+          "work_ratio_vs_ref": 15.75599666336788
+        },
+        {
+          "amp_ratio_last_over_first": [
+            1.0034858921750032,
+            0.99713552523831
+          ],
+          "criteria": {
+            "first_peak": true,
+            "mean": true,
+            "no_energy_creation": true,
+            "period": true
+          },
+          "e_max_rise": [
+            1.0637126210411019e-7,
+            0.0
+          ],
+          "energy_loss_over_KEmax": [
+            -3.586993620645963e-9,
+            0.018938191471106897
+          ],
+          "first_peak_drop_rel": -0.00005619691897653639,
+          "first_peak_t": [
+            0.03775271389026225,
+            0.03750000000000001
+          ],
+          "h": 0.0010416666666666667,
+          "label": "full_bdf2_h960",
+          "mean_drop_rel": -4.194340314036382e-6,
+          "period_rel": 0.0030142741827889822,
+          "period_s": [
+            0.07042839275023409,
+            0.07064068323623644
+          ],
+          "root_moment_mean_after_release": [
+            -22017.767999019543,
+            -22018.576632621338
+          ],
+          "root_moment_peak": [
+            43318.81063049315,
+            42416.8284066419
+          ],
+          "root_moment_static_propped": [
+            -4108.219192930315,
+            -4108.219192930315
+          ],
+          "static_tip": [
+            -4.981737129532419e-8,
+            -4.981737129532419e-8
+          ],
+          "wall_ratio_vs_ref": 2.970966571760104,
+          "work_ratio_vs_ref": 8.671120253875229
+        },
+        {
+          "amp_ratio_last_over_first": [
+            1.0034858921750032,
+            0.8227841736774782
+          ],
+          "criteria": {
+            "first_peak": true,
+            "mean": true,
+            "no_energy_creation": true,
+            "period": true
+          },
+          "e_max_rise": [
+            1.0637126210411019e-7,
+            0.0
+          ],
+          "energy_loss_over_KEmax": [
+            -3.586993620645963e-9,
+            0.4663967393404477
+          ],
+          "first_peak_drop_rel": -0.052327722930839295,
+          "first_peak_t": [
+            0.03775271389026225,
+            0.0375
+          ],
+          "h": 0.004166666666666667,
+          "label": "red_root0.4_h240",
+          "mean_drop_rel": 0.028492367658310966,
+          "period_rel": 0.04086444761709155,
+          "period_s": [
+            0.07042839275023409,
+            0.07330641011653198
+          ],
+          "root_moment_mean_after_release": [
+            -22017.767999019543,
+            -22571.999573065495
+          ],
+          "root_moment_peak": [
+            43318.81063049315,
+            40053.42147470333
+          ],
+          "root_moment_static_propped": [
+            -4108.219192930315,
+            -4108.219262383056
+          ],
+          "static_tip": [
+            -4.981737129532419e-8,
+            -6.55890550416325e-8
+          ],
+          "wall_ratio_vs_ref": 28.98330140692793,
+          "work_ratio_vs_ref": 71.98529667681343
+        },
+        {
+          "amp_ratio_last_over_first": [
+            1.0034858921750032,
+            0.4941163702472179
+          ],
+          "criteria": {
+            "first_peak": false,
+            "mean": true,
+            "no_energy_creation": true,
+            "period": false
+          },
+          "e_max_rise": [
+            1.0637126210411019e-7,
+            0.0
+          ],
+          "energy_loss_over_KEmax": [
+            -3.586993620645963e-9,
+            1.1146617907831853
+          ],
+          "first_peak_drop_rel": -0.1602280190896275,
+          "first_peak_t": [
+            0.03775271389026225,
+            0.041666666666666664
+          ],
+          "h": 0.008333333333333333,
+          "label": "red_root0.4_h120",
+          "mean_drop_rel": 0.04915173187854395,
+          "period_rel": 0.13564124116063755,
+          "period_s": [
+            0.07042839275023409,
+            0.07998138735582469
+          ],
+          "root_moment_mean_after_release": [
+            -22017.767999019543,
+            -22974.94397837966
+          ],
+          "root_moment_peak": [
+            43318.81063049315,
+            35754.352601355284
+          ],
+          "root_moment_static_propped": [
+            -4108.219192930315,
+            -4108.219262383056
+          ],
+          "static_tip": [
+            -4.981737129532419e-8,
+            -6.55890550416325e-8
+          ],
+          "wall_ratio_vs_ref": 47.53629200163163,
+          "work_ratio_vs_ref": 103.88421786879596
+        },
+        {
+          "amp_ratio_last_over_first": [
+            1.0034858921750032,
+            0.9693922491714014
+          ],
+          "criteria": {
+            "first_peak": true,
+            "mean": true,
+            "no_energy_creation": true,
+            "period": true
+          },
+          "e_max_rise": [
+            1.0637126210411019e-7,
+            0.0
+          ],
+          "energy_loss_over_KEmax": [
+            -3.586993620645963e-9,
+            0.09953950197825683
+          ],
+          "first_peak_drop_rel": -0.011489546389794424,
+          "first_peak_t": [
+            0.03775271389026225,
+            0.0375
+          ],
+          "h": 0.0020833333333333333,
+          "label": "red_root0.4_h480",
+          "mean_drop_rel": 0.005571975107447823,
+          "period_rel": 0.010956535258663407,
+          "period_s": [
+            0.07042839275023409,
+            0.07120004391861302
+          ],
+          "root_moment_mean_after_release": [
+            -22017.767999019543,
+            -22128.276298166733
+          ],
+          "root_moment_peak": [
+            43318.81063049315,
+            41452.705509737156
+          ],
+          "root_moment_static_propped": [
+            -4108.219192930315,
+            -4108.219262383056
+          ],
+          "static_tip": [
+            -4.981737129532419e-8,
+            -6.55890550416325e-8
+          ],
+          "wall_ratio_vs_ref": 18.79529024996735,
+          "work_ratio_vs_ref": 45.934212084498576
+        }
+      ],
+      "h_explicit": 3.3941125496954284e-6,
+      "run_labels_in_csv": [
+        "full_explicit",
+        "full_bdf2_h240",
+        "full_bdf2_h480",
+        "full_bdf2_h960",
+        "red_root0.4_h240",
+        "red_root0.4_h120",
+        "red_root0.4_h480"
+      ],
+      "runs": [
+        {
+          "cells": 716,
+          "chi_r_max": 0.0,
+          "crack": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "d_end": 0.0,
+          "e0": -0.16579206623991963,
+          "e_end": -0.16579205168632316,
+          "e_max_rise": 1.0637126210411019e-7,
+          "expansions": [],
+          "failed_at": null,
+          "fragment": {
+            "cells": 716,
+            "cm": [
+              1.9999999201263874,
+              0.1993597093352933
+            ],
+            "mass": 1151.9999999999982,
+            "omega": -0.04369823188595118,
+            "separated": false,
+            "v": [
+              -0.0008614338081333905,
+              -0.06490974738694297
+            ]
+          },
+          "h": 3.3941125496954284e-6,
+          "label": "full_explicit",
+          "max_detailed": 0,
+          "min_h": 3.3941125496954284e-6,
+          "n_unknowns_end": 0,
+          "onset_t": null,
+          "rejected": 0,
+          "scene": "cantilever_elastic_s1",
+          "sep_t": null,
+          "steps": 88388,
+          "wall_s": 16.781356875,
+          "work": {
+            "coupling_flops": 0.0,
+            "fact_flops": 0.0,
+            "monitor_flops": 0.0,
+            "newton_iters": 0,
+            "pts_force": 348606216,
+            "pts_tangent": 0,
+            "rebuild_flops": 0.0,
+            "region_flops": 0.0,
+            "solve_flops": 0.0,
+            "step_flops": 0.0
+          },
+          "work_total": 20916372960.0
+        },
+        {
+          "cells": 716,
+          "chi_r_max": 0.0,
+          "crack": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "d_end": 0.0,
+          "e0": -0.16579206623991963,
+          "e_end": -1.67011560214097,
+          "e_max_rise": 0.0,
+          "expansions": [],
+          "failed_at": null,
+          "fragment": {
+            "cells": 716,
+            "cm": [
+              1.9999999696184438,
+              0.1996807257223739
+            ],
+            "mass": 1151.9999999999982,
+            "omega": -0.016727582491937534,
+            "separated": false,
+            "v": [
+              -4.217231609908362e-6,
+              -0.024732890748098296
+            ]
+          },
+          "h": 0.004166666666666667,
+          "label": "full_bdf2_h240",
+          "max_detailed": 716,
+          "min_h": 0.004166666666666667,
+          "n_unknowns_end": 2148,
+          "onset_t": null,
+          "rejected": 0,
+          "scene": "cantilever_elastic_s1",
+          "sep_t": null,
+          "steps": 72,
+          "wall_s": 1.788707125,
+          "work": {
+            "coupling_flops": 0.0,
+            "fact_flops": 406634031.0,
+            "monitor_flops": 0.0,
+            "newton_iters": 263,
+            "pts_force": 850752,
+            "pts_tangent": 1037272,
+            "rebuild_flops": 0.0,
+            "region_flops": 0.0,
+            "solve_flops": 56907940.0,
+            "step_flops": 516240.0
+          },
+          "work_total": 722557731.0
+        },
+        {
+          "cells": 716,
+          "chi_r_max": 0.0,
+          "crack": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "d_end": 0.0,
+          "e0": -0.16579206623991963,
+          "e_end": -0.5422180234756231,
+          "e_max_rise": 0.0,
+          "expansions": [],
+          "failed_at": null,
+          "fragment": {
+            "cells": 716,
+            "cm": [
+              1.9999999296653581,
+              0.199515317887064
+            ],
+            "mass": 1151.9999999999982,
+            "omega": -0.03796956158142839,
+            "separated": false,
+            "v": [
+              -0.000016383121862095294,
+              -0.056140622689780574
+            ]
+          },
+          "h": 0.0020833333333333333,
+          "label": "full_bdf2_h480",
+          "max_detailed": 716,
+          "min_h": 0.0020833333333333333,
+          "n_unknowns_end": 2148,
+          "onset_t": null,
+          "rejected": 0,
+          "scene": "cantilever_elastic_s1",
+          "sep_t": null,
+          "steps": 144,
+          "wall_s": 3.216794958,
+          "work": {
+            "coupling_flops": 0.0,
+            "fact_flops": 742145760.0,
+            "monitor_flops": 0.0,
+            "newton_iters": 480,
+            "pts_force": 1697560,
+            "pts_tangent": 1893120,
+            "rebuild_flops": 0.0,
+            "region_flops": 0.0,
+            "solve_flops": 103862400.0,
+            "step_flops": 1032480.0
+          },
+          "work_total": 1327518240.0
+        },
+        {
+          "cells": 716,
+          "chi_r_max": 0.0,
+          "crack": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "d_end": 0.0,
+          "e0": -0.16579206623991963,
+          "e_end": -0.24140056676978708,
+          "e_max_rise": 0.0,
+          "expansions": [],
+          "failed_at": null,
+          "fragment": {
+            "cells": 716,
+            "cm": [
+              1.9999998926500453,
+              0.1994046325319963
+            ],
+            "mass": 1151.9999999999982,
+            "omega": -0.04268636920198166,
+            "separated": false,
+            "v": [
+              -0.000023349798702053415,
+              -0.06313101409231689
+            ]
+          },
+          "h": 0.0010416666666666667,
+          "label": "full_bdf2_h960",
+          "max_detailed": 716,
+          "min_h": 0.0010416666666666667,
+          "n_unknowns_end": 2148,
+          "onset_t": null,
+          "rejected": 0,
+          "scene": "cantilever_elastic_s1",
+          "sep_t": null,
+          "steps": 288,
+          "wall_s": 5.64845025,
+          "work": {
+            "coupling_flops": 0.0,
+            "fact_flops": 1337408505.0,
+            "monitor_flops": 0.0,
+            "newton_iters": 865,
+            "pts_force": 3387232,
+            "pts_tangent": 3411560,
+            "rebuild_flops": 0.0,
+            "region_flops": 0.0,
+            "solve_flops": 187168700.0,
+            "step_flops": 2064960.0
+          },
+          "work_total": 2412188085.0
+        },
+        {
+          "cells": 716,
+          "chi_r_max": 0.0,
+          "crack": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "d_end": 0.0,
+          "e0": -0.16585496247202697,
+          "e_end": -1.6703094026899064,
+          "e_max_rise": 0.0,
+          "expansions": [],
+          "failed_at": null,
+          "fragment": {
+            "cells": 716,
+            "cm": [
+              1.9999999720346942,
+              0.19968042877842584
+            ],
+            "mass": 1151.9999999999982,
+            "omega": -0.0167542361516623,
+            "separated": false,
+            "v": [
+              -3.7957748728769265e-6,
+              -0.024773474456773435
+            ]
+          },
+          "h": 0.004166666666666667,
+          "label": "red_root0.4_h240",
+          "max_detailed": 71,
+          "min_h": 0.004166666666666667,
+          "n_unknowns_end": 258,
+          "onset_t": null,
+          "rejected": 0,
+          "scene": "cantilever_elastic_s1",
+          "sep_t": null,
+          "steps": 72,
+          "wall_s": 0.579000875,
+          "work": {
+            "coupling_flops": 45818460.0,
+            "fact_flops": 59662242.0,
+            "monitor_flops": 0.0,
+            "newton_iters": 258,
+            "pts_force": 58298,
+            "pts_tangent": 115620,
+            "rebuild_flops": 112992183.0,
+            "region_flops": 2545536.0,
+            "solve_flops": 7082616.0,
+            "step_flops": 35841600.0
+          },
+          "work_total": 290564517.0
+        },
+        {
+          "cells": 716,
+          "chi_r_max": 0.0,
+          "crack": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "d_end": 0.0,
+          "e0": -0.16585496247202697,
+          "e_end": -2.53762877509928,
+          "e_max_rise": 0.0,
+          "expansions": [],
+          "failed_at": null,
+          "fragment": {
+            "cells": 716,
+            "cm": [
+              1.9999998480055439,
+              0.19925497771592124
+            ],
+            "mass": 1151.9999999999982,
+            "omega": 0.01122913405351245,
+            "separated": false,
+            "v": [
+              7.063237229762715e-6,
+              0.016603898117432046
+            ]
+          },
+          "h": 0.008333333333333333,
+          "label": "red_root0.4_h120",
+          "max_detailed": 71,
+          "min_h": 0.008333333333333333,
+          "n_unknowns_end": 258,
+          "onset_t": null,
+          "rejected": 0,
+          "scene": "cantilever_elastic_s1",
+          "sep_t": null,
+          "steps": 36,
+          "wall_s": 0.353022,
+          "work": {
+            "coupling_flops": 23122260.0,
+            "fact_flops": 28906125.0,
+            "monitor_flops": 0.0,
+            "newton_iters": 125,
+            "pts_force": 31814,
+            "pts_tangent": 58220,
+            "rebuild_flops": 112992183.0,
+            "region_flops": 1309056.0,
+            "solve_flops": 3431500.0,
+            "step_flops": 18029160.0
+          },
+          "work_total": 201343124.0
+        },
+        {
+          "cells": 716,
+          "chi_r_max": 0.0,
+          "crack": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "d_end": 0.0,
+          "e0": -0.16585496247202697,
+          "e_end": -0.5423442231333175,
+          "e_max_rise": 0.0,
+          "expansions": [],
+          "failed_at": null,
+          "fragment": {
+            "cells": 716,
+            "cm": [
+              1.9999999365003742,
+              0.1995146278399285
+            ],
+            "mass": 1151.9999999999982,
+            "omega": -0.03798649176408903,
+            "separated": false,
+            "v": [
+              -0.000014475502967785374,
+              -0.056168393186672404
+            ]
+          },
+          "h": 0.0020833333333333333,
+          "label": "red_root0.4_h480",
+          "max_detailed": 71,
+          "min_h": 0.0020833333333333333,
+          "n_unknowns_end": 258,
+          "onset_t": null,
+          "rejected": 0,
+          "scene": "cantilever_elastic_s1",
+          "sep_t": null,
+          "steps": 144,
+          "wall_s": 0.892849041,
+          "work": {
+            "coupling_flops": 88092360.0,
+            "fact_flops": 113080761.0,
+            "monitor_flops": 0.0,
+            "newton_iters": 489,
+            "pts_force": 115776,
+            "pts_tangent": 222220,
+            "rebuild_flops": 112992183.0,
+            "region_flops": 4908624.0,
+            "solve_flops": 13424028.0,
+            "step_flops": 71466480.0
+          },
+          "work_total": 455354996.0
+        }
+      ],
+      "scene": "cantilever_elastic_s1"
+    }
+  ]
+}

@@ -1,0 +1,518 @@
+{
+  "meta": {
+    "config": {
+      "bar": {
+        "F0": 100000.0,
+        "cells": 20,
+        "ell": 0.5
+      },
+      "sdof": {
+        "cell": 0.5,
+        "omega_rad_s": 10000.0
+      }
+    },
+    "experiment": "E8",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "all",
+    "seed": null,
+    "solver_schedule": "variational integrators (docs §4.4); S0 Newton per step",
+    "source_hash": "b8040757531c8dfd",
+    "unix_time": 1793976432
+  },
+  "results": {
+    "amplification_max_rel_dev": {
+      "BDF2": 3.732010375624835e-11,
+      "IE": 2.7147570663657035e-10,
+      "Newmark": 1.4930542432357835e-11
+    },
+    "band": [
+      {
+        "at_100Hz": {
+          "amp_after_1s": 3.888744161603214e-108,
+          "amp_per_period": 0.08431368942669139,
+          "f": 100.0,
+          "period_ratio": 2.170938230742645
+        },
+        "at_10Hz": {
+          "amp_after_1s": 0.0003508799767811365,
+          "amp_per_period": 0.4513525064849338,
+          "f": 10.0,
+          "period_ratio": 1.0224430995955474
+        },
+        "at_50Hz": {
+          "amp_after_1s": 9.48286824288571e-53,
+          "amp_per_period": 0.09110428295746177,
+          "f": 50.0,
+          "period_ratio": 1.4252537530672478
+        },
+        "f_max_keeping_50pct_per_period": 8.413951416451951,
+        "f_max_keeping_90pct_per_period": 1.258925411794167,
+        "h": 0.004166666666666667,
+        "scheme": "IE"
+      },
+      {
+        "at_100Hz": {
+          "amp_after_1s": 8.992479011193032e-105,
+          "amp_per_period": 0.09110428295746177,
+          "f": 100.0,
+          "period_ratio": 1.4252537530672478
+        },
+        "at_10Hz": {
+          "amp_after_1s": 0.01694977621291103,
+          "amp_per_period": 0.6651451012216322,
+          "f": 10.0,
+          "period_ratio": 1.0056857105995107
+        },
+        "at_50Hz": {
+          "amp_after_1s": 6.892156263181017e-38,
+          "amp_per_period": 0.18062052584242527,
+          "f": 50.0,
+          "period_ratio": 1.1293586811306597
+        },
+        "f_max_keeping_50pct_per_period": 16.788040181225607,
+        "f_max_keeping_90pct_per_period": 2.51188643150958,
+        "h": 0.0020833333333333333,
+        "scheme": "IE"
+      },
+      {
+        "at_100Hz": {
+          "amp_after_1s": 4.750181795610533e-75,
+          "amp_per_period": 0.18062052584242527,
+          "f": 100.0,
+          "period_ratio": 1.1293586811306597
+        },
+        "at_10Hz": {
+          "amp_after_1s": 0.12850645587619283,
+          "amp_per_period": 0.8145026368480925,
+          "f": 10.0,
+          "period_ratio": 1.001426266699669
+        },
+        "at_50Hz": {
+          "amp_after_1s": 6.191649869126643e-22,
+          "amp_per_period": 0.3765616842632483,
+          "f": 50.0,
+          "period_ratio": 1.034731411667152
+        },
+        "f_max_keeping_50pct_per_period": 33.49654391578276,
+        "f_max_keeping_90pct_per_period": 5.011872336272722,
+        "h": 0.0010416666666666667,
+        "scheme": "IE"
+      },
+      {
+        "at_100Hz": {
+          "amp_after_1s": 3.8336528101855976e-43,
+          "amp_per_period": 0.3765616842632483,
+          "f": 100.0,
+          "period_ratio": 1.034731411667152
+        },
+        "at_10Hz": {
+          "amp_after_1s": 0.3578885383583042,
+          "amp_per_period": 0.9023494937205194,
+          "f": 10.0,
+          "period_ratio": 1.0003568716518734
+        },
+        "at_50Hz": {
+          "amp_after_1s": 9.650090559466026e-12,
+          "amp_per_period": 0.6021305020671648,
+          "f": 50.0,
+          "period_ratio": 1.0088615017342792
+        },
+        "f_max_keeping_50pct_per_period": 66.83439175686149,
+        "f_max_keeping_90pct_per_period": 10.0,
+        "h": 0.0005208333333333333,
+        "scheme": "IE"
+      },
+      {
+        "at_100Hz": {
+          "amp_after_1s": 3.770911894448068e-42,
+          "amp_per_period": 0.3852693532365654,
+          "f": 100.0,
+          "period_ratio": 1.8413083851504064
+        },
+        "at_10Hz": {
+          "amp_after_1s": 0.7859669296796733,
+          "amp_per_period": 0.9762036503753223,
+          "f": 10.0,
+          "period_ratio": 1.0214603722118138
+        },
+        "at_50Hz": {
+          "amp_after_1s": 7.048292725259143e-14,
+          "amp_per_period": 0.5457097065444283,
+          "f": 50.0,
+          "period_ratio": 1.3203410708526553
+        },
+        "f_max_keeping_50pct_per_period": 56.23413251903491,
+        "f_max_keeping_90pct_per_period": 17.378008287493753,
+        "h": 0.004166666666666667,
+        "scheme": "BDF2"
+      },
+      {
+        "at_100Hz": {
+          "amp_after_1s": 4.9678430340940966e-27,
+          "amp_per_period": 0.5457097065444283,
+          "f": 100.0,
+          "period_ratio": 1.3203410708526553
+        },
+        "at_10Hz": {
+          "amp_after_1s": 0.9667770361056516,
+          "amp_per_period": 0.9966269632219581,
+          "f": 10.0,
+          "period_ratio": 1.0056157119290263
+        },
+        "at_50Hz": {
+          "amp_after_1s": 0.000024133521715340096,
+          "amp_per_period": 0.8084486013573043,
+          "f": 50.0,
+          "period_ratio": 1.109177666737014
+        },
+        "f_max_keeping_50pct_per_period": 112.2018454301963,
+        "f_max_keeping_90pct_per_period": 35.89219346450054,
+        "h": 0.0020833333333333333,
+        "scheme": "BDF2"
+      },
+      {
+        "at_100Hz": {
+          "amp_after_1s": 5.824268703847921e-10,
+          "amp_per_period": 0.8084486013573043,
+          "f": 100.0,
+          "period_ratio": 1.109177666737014
+        },
+        "at_10Hz": {
+          "amp_after_1s": 0.9956521341840806,
+          "amp_per_period": 0.9995643603913613,
+          "f": 10.0,
+          "period_ratio": 1.0014217342367444
+        },
+        "at_50Hz": {
+          "amp_after_1s": 0.11362824158677104,
+          "amp_per_period": 0.9574359396153257,
+          "f": 50.0,
+          "period_ratio": 1.0325356889573976
+        },
+        "f_max_keeping_50pct_per_period": 223.872113856834,
+        "f_max_keeping_90pct_per_period": 71.6143410212902,
+        "h": 0.0010416666666666667,
+        "scheme": "BDF2"
+      },
+      {
+        "at_100Hz": {
+          "amp_after_1s": 0.012911377286101604,
+          "amp_per_period": 0.9574359396153257,
+          "f": 100.0,
+          "period_ratio": 1.0325356889573976
+        },
+        "at_10Hz": {
+          "amp_after_1s": 0.9994511223437216,
+          "amp_per_period": 0.9999450986726569,
+          "f": 10.0,
+          "period_ratio": 1.0003565858015186
+        },
+        "at_50Hz": {
+          "amp_after_1s": 0.7243094941917985,
+          "amp_per_period": 0.9935700312974439,
+          "f": 50.0,
+          "period_ratio": 1.0086949540413757
+        },
+        "f_max_keeping_50pct_per_period": 316.22776601683796,
+        "f_max_keeping_90pct_per_period": 142.8893958511102,
+        "h": 0.0005208333333333333,
+        "scheme": "BDF2"
+      },
+      {
+        "at_100Hz": {
+          "amp_after_1s": 0.9999999999999734,
+          "amp_per_period": 0.9999999999999998,
+          "f": 100.0,
+          "period_ratio": 1.4252537530672478
+        },
+        "at_10Hz": {
+          "amp_after_1s": 0.9999999999999734,
+          "amp_per_period": 0.9999999999999973,
+          "f": 10.0,
+          "period_ratio": 1.0056857105995105
+        },
+        "at_50Hz": {
+          "amp_after_1s": 1.0,
+          "amp_per_period": 1.0,
+          "f": 50.0,
+          "period_ratio": 1.1293586811306597
+        },
+        "f_max_keeping_50pct_per_period": 316.22776601683796,
+        "f_max_keeping_90pct_per_period": 316.22776601683796,
+        "h": 0.004166666666666667,
+        "scheme": "Newmark"
+      },
+      {
+        "at_100Hz": {
+          "amp_after_1s": 1.0,
+          "amp_per_period": 1.0,
+          "f": 100.0,
+          "period_ratio": 1.1293586811306597
+        },
+        "at_10Hz": {
+          "amp_after_1s": 0.9999999999999467,
+          "amp_per_period": 0.9999999999999947,
+          "f": 10.0,
+          "period_ratio": 1.001426266699669
+        },
+        "at_50Hz": {
+          "amp_after_1s": 1.0,
+          "amp_per_period": 1.0,
+          "f": 50.0,
+          "period_ratio": 1.034731411667152
+        },
+        "f_max_keeping_50pct_per_period": 316.22776601683796,
+        "f_max_keeping_90pct_per_period": 316.22776601683796,
+        "h": 0.0020833333333333333,
+        "scheme": "Newmark"
+      },
+      {
+        "at_100Hz": {
+          "amp_after_1s": 1.0,
+          "amp_per_period": 1.0,
+          "f": 100.0,
+          "period_ratio": 1.034731411667152
+        },
+        "at_10Hz": {
+          "amp_after_1s": 0.9999999999998934,
+          "amp_per_period": 0.9999999999999893,
+          "f": 10.0,
+          "period_ratio": 1.0003568716518734
+        },
+        "at_50Hz": {
+          "amp_after_1s": 1.0,
+          "amp_per_period": 1.0,
+          "f": 50.0,
+          "period_ratio": 1.0088615017342792
+        },
+        "f_max_keeping_50pct_per_period": 316.22776601683796,
+        "f_max_keeping_90pct_per_period": 316.22776601683796,
+        "h": 0.0010416666666666667,
+        "scheme": "Newmark"
+      },
+      {
+        "at_100Hz": {
+          "amp_after_1s": 1.0,
+          "amp_per_period": 1.0,
+          "f": 100.0,
+          "period_ratio": 1.0088615017342792
+        },
+        "at_10Hz": {
+          "amp_after_1s": 0.9999999999997868,
+          "amp_per_period": 0.9999999999999787,
+          "f": 10.0,
+          "period_ratio": 1.000089237014091
+        },
+        "at_50Hz": {
+          "amp_after_1s": 0.9999999999997868,
+          "amp_per_period": 0.9999999999999958,
+          "f": 50.0,
+          "period_ratio": 1.002227116327935
+        },
+        "f_max_keeping_50pct_per_period": 316.22776601683796,
+        "f_max_keeping_90pct_per_period": 316.22776601683796,
+        "h": 0.0005208333333333333,
+        "scheme": "Newmark"
+      }
+    ],
+    "bar": {
+      "L": 10.0,
+      "c": 3535.5339059327375,
+      "cells": 20,
+      "f1_hz": 88.38834764831844,
+      "runs": [
+        {
+          "arrival_time_s": 0.002774,
+          "c_h_over_ell": 0.014142135623730949,
+          "h": 2e-6,
+          "peak_reaction_over_F0": 2.551467670058871,
+          "reaction_at_end_over_F0": 1.9149224128878206,
+          "run": 0,
+          "scheme": "Newmark",
+          "steps": 15000
+        },
+        {
+          "arrival_time_s": 0.004166666666666667,
+          "c_h_over_ell": 29.462782549439478,
+          "h": 0.004166666666666667,
+          "peak_reaction_over_F0": 1.1303769371695527,
+          "reaction_at_end_over_F0": 1.0005545774238733,
+          "run": 1,
+          "scheme": "IE",
+          "steps": 7
+        },
+        {
+          "arrival_time_s": 0.004166666666666667,
+          "c_h_over_ell": 14.731391274719739,
+          "h": 0.0020833333333333333,
+          "peak_reaction_over_F0": 1.2939154731161917,
+          "reaction_at_end_over_F0": 0.9971679916787045,
+          "run": 2,
+          "scheme": "IE",
+          "steps": 14
+        },
+        {
+          "arrival_time_s": 0.003125,
+          "c_h_over_ell": 7.365695637359869,
+          "h": 0.0010416666666666667,
+          "peak_reaction_over_F0": 1.5426250826733323,
+          "reaction_at_end_over_F0": 1.017000625780362,
+          "run": 3,
+          "scheme": "IE",
+          "steps": 29
+        },
+        {
+          "arrival_time_s": 0.0026041666666666665,
+          "c_h_over_ell": 3.6828478186799347,
+          "h": 0.0005208333333333333,
+          "peak_reaction_over_F0": 1.824563466246154,
+          "reaction_at_end_over_F0": 1.1009562479180612,
+          "run": 4,
+          "scheme": "IE",
+          "steps": 58
+        },
+        {
+          "arrival_time_s": 0.0026041666666666665,
+          "c_h_over_ell": 1.8414239093399674,
+          "h": 0.00026041666666666666,
+          "peak_reaction_over_F0": 1.969653907624158,
+          "reaction_at_end_over_F0": 1.2683411211300566,
+          "run": 5,
+          "scheme": "IE",
+          "steps": 115
+        },
+        {
+          "arrival_time_s": 0.0024739583333333332,
+          "c_h_over_ell": 0.9207119546699837,
+          "h": 0.00013020833333333333,
+          "peak_reaction_over_F0": 1.9989285174604188,
+          "reaction_at_end_over_F0": 1.4401070850156295,
+          "run": 6,
+          "scheme": "IE",
+          "steps": 230
+        },
+        {
+          "arrival_time_s": 0.004166666666666667,
+          "c_h_over_ell": 29.462782549439478,
+          "h": 0.004166666666666667,
+          "peak_reaction_over_F0": 1.3100900235152313,
+          "reaction_at_end_over_F0": 1.0700878387226442,
+          "run": 7,
+          "scheme": "BDF2",
+          "steps": 7
+        },
+        {
+          "arrival_time_s": 0.004166666666666667,
+          "c_h_over_ell": 14.731391274719739,
+          "h": 0.0020833333333333333,
+          "peak_reaction_over_F0": 1.6256650094081948,
+          "reaction_at_end_over_F0": 0.7800367037957834,
+          "run": 8,
+          "scheme": "BDF2",
+          "steps": 14
+        },
+        {
+          "arrival_time_s": 0.003125,
+          "c_h_over_ell": 7.365695637359869,
+          "h": 0.0010416666666666667,
+          "peak_reaction_over_F0": 2.038586232222528,
+          "reaction_at_end_over_F0": 1.6692434142762114,
+          "run": 9,
+          "scheme": "BDF2",
+          "steps": 29
+        },
+        {
+          "arrival_time_s": 0.0026041666666666665,
+          "c_h_over_ell": 3.6828478186799347,
+          "h": 0.0005208333333333333,
+          "peak_reaction_over_F0": 2.2272651565069523,
+          "reaction_at_end_over_F0": 1.8917655310257688,
+          "run": 10,
+          "scheme": "BDF2",
+          "steps": 58
+        },
+        {
+          "arrival_time_s": 0.002864583333333333,
+          "c_h_over_ell": 1.8414239093399674,
+          "h": 0.00026041666666666666,
+          "peak_reaction_over_F0": 2.3900375925034467,
+          "reaction_at_end_over_F0": 1.6699912031736819,
+          "run": 11,
+          "scheme": "BDF2",
+          "steps": 115
+        },
+        {
+          "arrival_time_s": 0.002734375,
+          "c_h_over_ell": 0.9207119546699837,
+          "h": 0.00013020833333333333,
+          "peak_reaction_over_F0": 2.4332524751757845,
+          "reaction_at_end_over_F0": 1.9929679103858344,
+          "run": 12,
+          "scheme": "BDF2",
+          "steps": 230
+        },
+        {
+          "arrival_time_s": 0.008333333333333333,
+          "c_h_over_ell": 29.462782549439478,
+          "h": 0.004166666666666667,
+          "peak_reaction_over_F0": 1.8531531197407691,
+          "reaction_at_end_over_F0": 0.7921397551235998,
+          "run": 13,
+          "scheme": "Newmark",
+          "steps": 7
+        },
+        {
+          "arrival_time_s": 0.004166666666666667,
+          "c_h_over_ell": 14.731391274719739,
+          "h": 0.0020833333333333333,
+          "peak_reaction_over_F0": 2.089414184519578,
+          "reaction_at_end_over_F0": 0.8161684667939983,
+          "run": 14,
+          "scheme": "Newmark",
+          "steps": 14
+        },
+        {
+          "arrival_time_s": 0.003125,
+          "c_h_over_ell": 7.365695637359869,
+          "h": 0.0010416666666666667,
+          "peak_reaction_over_F0": 2.6107587809465205,
+          "reaction_at_end_over_F0": 1.8778383286011113,
+          "run": 15,
+          "scheme": "Newmark",
+          "steps": 29
+        },
+        {
+          "arrival_time_s": 0.003125,
+          "c_h_over_ell": 3.6828478186799347,
+          "h": 0.0005208333333333333,
+          "peak_reaction_over_F0": 2.7790616741019125,
+          "reaction_at_end_over_F0": 1.6510900435529052,
+          "run": 16,
+          "scheme": "Newmark",
+          "steps": 58
+        },
+        {
+          "arrival_time_s": 0.002864583333333333,
+          "c_h_over_ell": 1.8414239093399674,
+          "h": 0.00026041666666666666,
+          "peak_reaction_over_F0": 2.545448811897,
+          "reaction_at_end_over_F0": 2.398122923058521,
+          "run": 17,
+          "scheme": "Newmark",
+          "steps": 115
+        },
+        {
+          "arrival_time_s": 0.002864583333333333,
+          "c_h_over_ell": 0.9207119546699837,
+          "h": 0.00013020833333333333,
+          "peak_reaction_over_F0": 2.673272882325328,
+          "reaction_at_end_over_F0": 2.0519047600364715,
+          "run": 18,
+          "scheme": "Newmark",
+          "steps": 230
+        }
+      ],
+      "transit_L_over_c_s": 0.00282842712474619
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "phase": "phase0b/architecture-selection",
+  "date": "2026-11-07",
+  "document": "docs/phase0b/architecture-decision.md",
+  "device": {"gpu": "Apple M3 Pro (14-core), WebGPU metal-3, Chromium 152 in the Claude desktop app, macOS 14.6", "mobile": "not measured", "second_vendor": "not available"},
+  "accepted": {
+    "family": "E (explicit)",
+    "integrator": "leapfrog / velocity Verlet, physical masses, v at half steps, h = 0.38 d_min / c (kappa-certified); h/2 while a contact is active if chi <= 0.01 is required",
+    "nonlinear_closure": "none: SB-IL1 forces with the history of the current configuration, committed every substep",
+    "operator": "matrix-free facet pass; no hierarchy, no coarse solve, no reductions, no updates",
+    "gpu_form": "canonical pairs, owner-written history ping-pong (bitwise pair antisymmetry and kappa equality verified); E-A faster than E-B on an idle GPU",
+    "numeric_contract": "integer format A (fixed.js) as the starting point; corrections named: force range from certified stiffness, positions relative to a fragment/tile origin",
+    "scene_limit_measured": "about 1k active cells at d_min 0.2 m per 16.67 ms frame; 8 ms not reached at 1k",
+    "status": "confirmed part only; not the full architecture of the original goal"
+  },
+  "rejected": {
+    "I_BDF2_hierarchical_PCG": "fails dynamic regimes at all game steps (R1', R3); passes slow loading (R2) at 1/480 but costs ~960 matvec-eq + 530 reductions + 160 coarse solves per frame vs E's 776 force passes at d_min 0.2 m",
+    "GA_rho0.5": "A1 energy gate: creates energy in softening steps (0.095 KE0 at T/10)",
+    "Newmark": "energy creation and Newton failures with damage (R1', R2)",
+    "secant_bridge": "linear convergence under softening: 15-27 outer iterations, invalid at 77 ms on R2",
+    "hybrid": "I wins only fine-mesh quasi-static loading, outside the game profile"
+  },
+  "minimal_passing_h": {
+    "R1prime_elastic": {"E": "h_E", "Newmark": "1/3840 (outside the declared grid)", "GA": "1/3840", "BDF2": null},
+    "R1prime_damage": {"E": "h_E (D reference unconverged on seeds 8, 9)", "BDF2": null, "Newmark": null},
+    "R2": {"E": "h_E", "BDF2": "1/480", "Newmark": "1/3840"},
+    "R3": {"E": "h_E/2 (h_E on seed 10)", "BDF2": null, "Newmark": null}
+  },
+  "frame_cost_ms_E_with_history_776_substeps": {"1k": 17.0, "10k": 72.4, "30k": 307},
+  "budget_8ms_p95": "not met by any measured path at >= 1k active cells",
+  "results": {
+    "reuse": "results/phase0b/architecture-selection/reuse/",
+    "gpu": "results/phase0b/architecture-selection/gpu/ (probe_run3_idle.json reference, probe_run2_contended.json, probe_h_e_chain.json, sustain_30k.json)",
+    "dynamics": "results/phase0b/architecture-selection/dynamics/",
+    "numeric": "results/phase0b/architecture-selection/numeric/"
+  },
+  "commands": [
+    "cargo build --release",
+    "./target/release/two_level reuse",
+    "./target/release/gpu_export <scratch>/gpu-probe   # meshes for the probe",
+    "python3 gpu-probe/serve.py 8771 (from the directory holding probe.html and the meshes); open probe.html: runProbe(), runH(), runSustain('30k', 800, 10)",
+    "./target/release/arch_dyn a1",
+    "SB_TR=0.01 ./target/release/arch_dyn a2 7 | 8 | 9 ; ./target/release/arch_dyn a2 7 (instantaneous R1); SB_TR=0.01 ./target/release/arch_dyn a2long 7",
+    "./target/release/arch_dyn r1 7 8 ; ./target/release/arch_dyn r1 9",
+    "./target/release/arch_dyn r2 ; r2 refine ; r2 heldout",
+    "./target/release/arch_dyn r3 9 10 ; r3 11 ; SB_SUB=2 r3 9 ; SB_SUB=1 r3 9",
+    "./target/release/arch_dyn bridge r1e 480 ; bridge r2 480 ; bridge r2 480 1e-3 consistent ; bridge r2 480 1e-2 consistent",
+    "open fixed.html: runFixed(['1k','10k','30k'], 800, 10, 3, 'A800') and the format-B call; ./target/release/fixed_ref <dir> <label> 800 A800|B800"
+  ]
+}

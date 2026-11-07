@@ -1,0 +1,2708 @@
+{
+  "instances": [
+    {
+      "comparison": [
+        {
+          "D_rel": -0.0001637756352877703,
+          "W_rel": 0.00022267545086467218,
+          "all_pass": true,
+          "chi_R": 0.38030666458450113,
+          "chi_R_all": 0.5080889116267401,
+          "coupling_dmax": 0.0,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 97.57534528393279,
+          "crack_height_ref_mm": 97.57534528393279,
+          "crack_mean_dx_mm": 0.0012071437356697462,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": true,
+            "3_curve": true,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.003925160042328209,
+          "dissipating_facets": [
+            87,
+            87
+          ],
+          "jaccard_dissipating": 1.0,
+          "k_cmod_rel": 0.00879819797272796,
+          "k_disp_rel": 0.008785994583107654,
+          "label": "M1-P3",
+          "ledger": 0.00023585902272317923,
+          "onset_dist_mm": 0.0,
+          "onset_rel": 0.008798197972727947,
+          "peak_rel": 0.0004705449931853353,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": -0.0019382998977311105,
+          "posthoc_nonlin_rel": 0.008122525669812086,
+          "spurious_D_frac": -0.0,
+          "unknowns_ratio": 4.872146118721461,
+          "w_mm": 50.0,
+          "wall_ratio": 4.111367452908011,
+          "wall_ratio_incl_precompute": 4.108628816422849,
+          "work_ratio_facets": 3.5251952120693,
+          "work_ratio_factor": 9.250679072673298,
+          "work_ratio_total": 7.4450282317999354,
+          "work_ratio_total_incl_precompute": 7.424897627542039
+        },
+        {
+          "D_rel": 0.0002879453710444076,
+          "W_rel": 0.00045363398213580405,
+          "all_pass": true,
+          "chi_R": 0.762138234828525,
+          "chi_R_all": 0.762138234828525,
+          "coupling_dmax": 0.0,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 97.57534528393279,
+          "crack_height_ref_mm": 97.57534528393279,
+          "crack_mean_dx_mm": 0.00011695867040357116,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": true,
+            "3_curve": true,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.0005359819769558072,
+          "dissipating_facets": [
+            87,
+            87
+          ],
+          "jaccard_dissipating": 1.0,
+          "k_cmod_rel": 3.8068749598771084e-6,
+          "k_disp_rel": 3.744161210436715e-6,
+          "label": "M0",
+          "ledger": 0.00023187386679166932,
+          "onset_dist_mm": 0.0,
+          "onset_rel": 3.8068749599381265e-6,
+          "peak_rel": 0.0004623675875469864,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": 0.0005201478283394657,
+          "posthoc_nonlin_rel": 0.00009694063903355291,
+          "spurious_D_frac": -0.0,
+          "unknowns_ratio": 8.228791773778921,
+          "w_mm": 25.0,
+          "wall_ratio": 6.1362254720644565,
+          "wall_ratio_incl_precompute": 6.123999197237616,
+          "work_ratio_facets": 6.874696038049453,
+          "work_ratio_factor": 12.69871497666772,
+          "work_ratio_total": 11.255630093790556,
+          "work_ratio_total_incl_precompute": 11.086701394886456
+        }
+      ],
+      "configs_in_curves_csv": [
+        "full w=NaN",
+        "M1-P3 w=50",
+        "M0 w=25"
+      ],
+      "dmin": 0.004,
+      "instance": "lab_d4_s1",
+      "len": 0.5,
+      "runs": [
+        {
+          "break_at": [
+            0.25,
+            0.05311698687500101
+          ],
+          "break_load_n": 2657.0066248666303,
+          "cells": 2134,
+          "chi_r_all": 0.0,
+          "chi_r_at": [
+            0.0,
+            0.0
+          ],
+          "chi_r_damageable": 0.0,
+          "cmod_at_peak": 0.00008125737348545696,
+          "coupling_dmax": 0.0,
+          "cutbacks": 55,
+          "d_end": 0.5743890955354969,
+          "direct_cells": 2134,
+          "eval_facets": 6150,
+          "facets": 6150,
+          "fact_flops_per_iter": 16591277.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d4_s1",
+          "k_cmod": 84975604.17570108,
+          "k_disp": 57432608.341645055,
+          "label": "full",
+          "ledger_max_rel": 0.00023235295081122355,
+          "n": 6402,
+          "n_direct": 6402,
+          "nnz_l": 269443,
+          "nonlin_load_n": 1041.187015424976,
+          "onset_at": [
+            0.28238217641481755,
+            0.0
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 42.48780208785054,
+          "peak_load_n": 2699.0016676604087,
+          "pre_flops": 0.0,
+          "pre_wall_s": 0.025955834,
+          "region_cells": [],
+          "region_iface_cells": [],
+          "region_m": [],
+          "region_pad_cells": [],
+          "run_wall_s": 309.138952041,
+          "secant_steps": 0,
+          "steps": 349,
+          "u_end": 0.013206093692861378,
+          "w_ext": 0.5875943196595506,
+          "w_mm": null,
+          "work": {
+            "commit_pts": 9802828,
+            "coupling_flops": 0.0,
+            "fact_flops": 120419488466.0,
+            "khat_flops": 0.0,
+            "monitor_flops": 0.0,
+            "newton_iters": 7258,
+            "pts_force": 110700,
+            "pts_tangent": 94808400,
+            "solve_flops": 7822469176.0
+          },
+          "work_total": 147798449322.0
+        },
+        {
+          "break_at": [
+            0.25,
+            0.05311698687500101
+          ],
+          "break_load_n": 2651.8565491973804,
+          "cells": 2134,
+          "chi_r_all": 0.5080889116267401,
+          "chi_r_at": [
+            0.3041965056990114,
+            0.09673155643172213
+          ],
+          "chi_r_damageable": 0.38030666458450113,
+          "cmod_at_peak": 0.00008007497027388118,
+          "coupling_dmax": 0.0,
+          "cutbacks": 57,
+          "d_end": 0.5742950245964732,
+          "direct_cells": 420,
+          "eval_facets": 1253,
+          "facets": 6150,
+          "fact_flops_per_iter": 1752001.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d4_s1",
+          "k_cmod": 85723236.36409107,
+          "k_disp": 57937210.92742849,
+          "label": "M1-P3",
+          "ledger_max_rel": 0.00023585902272317923,
+          "n": 1314,
+          "n_direct": 1261,
+          "nnz_l": 43303,
+          "nonlin_load_n": 1049.6440836848403,
+          "onset_at": [
+            0.28238217641481755,
+            0.0
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 42.86161818204553,
+          "peak_load_n": 2700.271669381725,
+          "pre_flops": 53823244.0,
+          "pre_wall_s": 0.050119291,
+          "region_cells": [
+            862,
+            852
+          ],
+          "region_iface_cells": [
+            19,
+            23
+          ],
+          "region_m": [
+            25,
+            28
+          ],
+          "region_pad_cells": [
+            4,
+            5
+          ],
+          "run_wall_s": 75.191272875,
+          "secant_steps": 0,
+          "steps": 352,
+          "u_end": 0.013431242284111133,
+          "w_ext": 0.5877251624896063,
+          "w_mm": 50.0,
+          "work": {
+            "commit_pts": 2012080,
+            "coupling_flops": 1136850624.0,
+            "fact_flops": 13017367430.0,
+            "khat_flops": 33362302.0,
+            "monitor_flops": 302729152.0,
+            "newton_iters": 7430,
+            "pts_force": 25060,
+            "pts_tangent": 19762316,
+            "solve_flops": 1286965160.0
+          },
+          "work_total": 19851966268.0
+        },
+        {
+          "break_at": [
+            0.25,
+            0.05311698687500101
+          ],
+          "break_load_n": 2658.3886610924383,
+          "cells": 2134,
+          "chi_r_all": 0.762138234828525,
+          "chi_r_at": [
+            0.27883155918310343,
+            0.09780061661092448
+          ],
+          "chi_r_damageable": 0.762138234828525,
+          "cmod_at_peak": 0.00008125737348545696,
+          "coupling_dmax": 0.0,
+          "cutbacks": 56,
+          "d_end": 0.5745544882167347,
+          "direct_cells": 208,
+          "eval_facets": 639,
+          "facets": 6150,
+          "fact_flops_per_iter": 1306712.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d4_s1",
+          "k_cmod": 84975927.66720082,
+          "k_disp": 57432823.37858942,
+          "label": "M0",
+          "ledger_max_rel": 0.00023187386679166932,
+          "n": 778,
+          "n_direct": 625,
+          "nnz_l": 27682,
+          "nonlin_load_n": 1041.2879487596047,
+          "onset_at": [
+            0.28238217641481755,
+            0.0
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 42.48796383360041,
+          "peak_load_n": 2700.24959855027,
+          "pre_flops": 200078836.0,
+          "pre_wall_s": 0.100579958,
+          "region_cells": [
+            968,
+            958
+          ],
+          "region_iface_cells": [
+            20,
+            22
+          ],
+          "region_m": [
+            72,
+            81
+          ],
+          "region_pad_cells": [
+            4,
+            5
+          ],
+          "run_wall_s": 50.379333916,
+          "secant_steps": 0,
+          "steps": 350,
+          "u_end": 0.013308182769026344,
+          "w_ext": 0.5878608724106581,
+          "w_mm": 25.0,
+          "work": {
+            "commit_pts": 1012300,
+            "coupling_flops": 0.0,
+            "fact_flops": 9482808984.0,
+            "khat_flops": 271873260.0,
+            "monitor_flops": 540729000.0,
+            "newton_iters": 7257,
+            "pts_force": 11502,
+            "pts_tangent": 9853380,
+            "solve_flops": 803553096.0
+          },
+          "work_total": 13131068460.0
+        }
+      ],
+      "seed": 1,
+      "span": 0.4
+    },
+    {
+      "comparison": [
+        {
+          "D_rel": 0.00008358895757963593,
+          "W_rel": 0.000567934908127371,
+          "all_pass": true,
+          "chi_R": 0.39927466174869386,
+          "chi_R_all": 0.5797670962614699,
+          "coupling_dmax": 0.0,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 94.63516960179949,
+          "crack_height_ref_mm": 94.63516960179949,
+          "crack_mean_dx_mm": 0.001488033377716226,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": true,
+            "3_curve": true,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.0033546482389314692,
+          "dissipating_facets": [
+            50,
+            50
+          ],
+          "jaccard_dissipating": 1.0,
+          "k_cmod_rel": 0.006544875897729841,
+          "k_disp_rel": 0.008465602984079503,
+          "label": "M1-P3",
+          "ledger": 0.0002615287300559566,
+          "onset_dist_mm": 0.0,
+          "onset_rel": 0.006544875897729723,
+          "peak_rel": 0.0008669567268348008,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": -0.0021001726260860758,
+          "posthoc_nonlin_rel": 0.005858725216570402,
+          "spurious_D_frac": -0.0,
+          "unknowns_ratio": 4.785087719298246,
+          "w_mm": 50.0,
+          "wall_ratio": 3.691066256760648,
+          "wall_ratio_incl_precompute": 3.6890665932926727,
+          "work_ratio_facets": 3.064952151945091,
+          "work_ratio_factor": 6.7981220399754845,
+          "work_ratio_total": 5.316607022323204,
+          "work_ratio_total_incl_precompute": 5.298018097987414
+        },
+        {
+          "D_rel": 0.00016107203813044876,
+          "W_rel": 0.0004449892209447565,
+          "all_pass": true,
+          "chi_R": 0.6632490073464744,
+          "chi_R_all": 0.6632490073464744,
+          "coupling_dmax": 0.0,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 94.63516960179949,
+          "crack_height_ref_mm": 94.63516960179949,
+          "crack_mean_dx_mm": 0.0001271266748653719,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": true,
+            "3_curve": true,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.0005052665306522542,
+          "dissipating_facets": [
+            50,
+            50
+          ],
+          "jaccard_dissipating": 1.0,
+          "k_cmod_rel": 3.823189259838457e-6,
+          "k_disp_rel": 3.7771603104848e-6,
+          "label": "M0",
+          "ledger": 0.00026258678327091225,
+          "onset_dist_mm": 0.0,
+          "onset_rel": 3.8231892598037066e-6,
+          "peak_rel": 0.0004737479301029271,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": 0.0005230772864993733,
+          "posthoc_nonlin_rel": 0.00013499721600154164,
+          "spurious_D_frac": -0.0,
+          "unknowns_ratio": 7.830143540669856,
+          "w_mm": 25.0,
+          "wall_ratio": 8.002267003436888,
+          "wall_ratio_incl_precompute": 7.985543533572878,
+          "work_ratio_facets": 6.6784455090063,
+          "work_ratio_factor": 10.482859732292912,
+          "work_ratio_total": 9.246868733033665,
+          "work_ratio_total_incl_precompute": 9.0758373877993
+        },
+        {
+          "D_rel": -0.00366763055491905,
+          "W_rel": -0.0025005932089409216,
+          "all_pass": false,
+          "chi_R": 0.5627727202790554,
+          "chi_R_all": 0.5962282853814481,
+          "coupling_dmax": 0.17967994369081408,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 94.63516960179949,
+          "crack_height_ref_mm": 94.63516960179949,
+          "crack_mean_dx_mm": 0.030418382483977026,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": false,
+            "3_curve": false,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.15158147859162163,
+          "dissipating_facets": [
+            50,
+            46
+          ],
+          "jaccard_dissipating": 0.7454545454545455,
+          "k_cmod_rel": 0.3577202751246129,
+          "k_disp_rel": 0.19450100040741755,
+          "label": "M1-rigid",
+          "ledger": 0.00017028703208017636,
+          "onset_dist_mm": 0.0,
+          "onset_rel": 0.35772027512461285,
+          "peak_rel": 0.03272848073744903,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": 0.004868241934070919,
+          "posthoc_nonlin_rel": 0.12092910441916312,
+          "spurious_D_frac": 0.0001605721484144205,
+          "unknowns_ratio": 9.88821752265861,
+          "w_mm": 25.0,
+          "wall_ratio": 11.18498113678027,
+          "wall_ratio_incl_precompute": 11.162018973196535,
+          "work_ratio_facets": 7.264775264221192,
+          "work_ratio_factor": 45.85810448750105,
+          "work_ratio_total": 20.596543557991307,
+          "work_ratio_total_incl_precompute": 20.401174497122717
+        },
+        {
+          "D_rel": -0.0040392701202325845,
+          "W_rel": -0.0033225604010984292,
+          "all_pass": false,
+          "chi_R": 0.4814197586967146,
+          "chi_R_all": 0.59513133399093,
+          "coupling_dmax": 0.14418039294870927,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 94.63516960179949,
+          "crack_height_ref_mm": 94.63516960179949,
+          "crack_mean_dx_mm": 0.02075647875616729,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": false,
+            "3_curve": false,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.14597308721548624,
+          "dissipating_facets": [
+            50,
+            45
+          ],
+          "jaccard_dissipating": 0.7592592592592593,
+          "k_cmod_rel": 0.33676988910686056,
+          "k_disp_rel": 0.18047235462378036,
+          "label": "M1-P1",
+          "ledger": 0.0001737428245205839,
+          "onset_dist_mm": 0.0,
+          "onset_rel": 0.33676988910686056,
+          "peak_rel": 0.03128693676273049,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": 0.0017599383852329729,
+          "posthoc_nonlin_rel": 0.13007132348701342,
+          "spurious_D_frac": 0.0001935345753297914,
+          "unknowns_ratio": 9.654867256637168,
+          "w_mm": 25.0,
+          "wall_ratio": 8.987895087766143,
+          "wall_ratio_incl_precompute": 8.973610766359625,
+          "work_ratio_facets": 6.076064782813958,
+          "work_ratio_factor": 32.92328157078467,
+          "work_ratio_total": 16.345621077081493,
+          "work_ratio_total_incl_precompute": 16.192220242222895
+        },
+        {
+          "D_rel": -0.0019061692446118955,
+          "W_rel": -0.001463697369953541,
+          "all_pass": true,
+          "chi_R": 0.8508745501922359,
+          "chi_R_all": 0.8508745501922359,
+          "coupling_dmax": 0.0,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 94.63516960179949,
+          "crack_height_ref_mm": 94.63516960179949,
+          "crack_mean_dx_mm": 0.03276218619087155,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": true,
+            "3_curve": true,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.02723297739741432,
+          "dissipating_facets": [
+            50,
+            50
+          ],
+          "jaccard_dissipating": 0.8867924528301887,
+          "k_cmod_rel": 0.05731689028769072,
+          "k_disp_rel": 0.044335568468876985,
+          "label": "M1-P3",
+          "ledger": 0.0002452914306574029,
+          "onset_dist_mm": 0.0,
+          "onset_rel": 0.05731689028769071,
+          "peak_rel": -0.0008543156745236043,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": 0.004948744622135479,
+          "posthoc_nonlin_rel": 0.03207139284691207,
+          "spurious_D_frac": -0.0,
+          "unknowns_ratio": 9.324786324786325,
+          "w_mm": 25.0,
+          "wall_ratio": 7.1207123086828865,
+          "wall_ratio_incl_precompute": 7.105735716908235,
+          "work_ratio_facets": 4.633061595968988,
+          "work_ratio_factor": 22.163842378067194,
+          "work_ratio_total": 11.939895356208714,
+          "work_ratio_total_incl_precompute": 11.832107752013263
+        },
+        {
+          "D_rel": -0.00033007283805407676,
+          "W_rel": 0.001002491042816249,
+          "all_pass": true,
+          "chi_R": 0.44326071718331184,
+          "chi_R_all": 0.5813698439631084,
+          "coupling_dmax": 0.0,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 94.63516960179949,
+          "crack_height_ref_mm": 94.63516960179949,
+          "crack_mean_dx_mm": 0.006276336534089032,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": true,
+            "3_curve": true,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.025003167499066174,
+          "dissipating_facets": [
+            50,
+            49
+          ],
+          "jaccard_dissipating": 0.98,
+          "k_cmod_rel": 0.0507203054083789,
+          "k_disp_rel": 0.035102124776285035,
+          "label": "M1-rigid",
+          "ledger": 0.00024632508640986243,
+          "onset_dist_mm": 0.0,
+          "onset_rel": 0.050720305408378845,
+          "peak_rel": 0.004625730882955589,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": 0.013594656229676426,
+          "posthoc_nonlin_rel": 0.026144511154788375,
+          "spurious_D_frac": -0.0,
+          "unknowns_ratio": 4.929216867469879,
+          "w_mm": 50.0,
+          "wall_ratio": 4.344983257043128,
+          "wall_ratio_incl_precompute": 4.341737871329076,
+          "work_ratio_facets": 3.8711401747507908,
+          "work_ratio_factor": 10.46731120538944,
+          "work_ratio_total": 7.446117481909183,
+          "work_ratio_total_incl_precompute": 7.424031387512696
+        },
+        {
+          "D_rel": -0.00010242667681866009,
+          "W_rel": 0.0006005202513978665,
+          "all_pass": true,
+          "chi_R": 0.38118810382558904,
+          "chi_R_all": 0.5807161065937858,
+          "coupling_dmax": 0.0,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 94.63516960179949,
+          "crack_height_ref_mm": 94.63516960179949,
+          "crack_mean_dx_mm": 0.007532682262054906,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": true,
+            "3_curve": true,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.016947301367914096,
+          "dissipating_facets": [
+            50,
+            49
+          ],
+          "jaccard_dissipating": 0.98,
+          "k_cmod_rel": 0.032644808640498346,
+          "k_disp_rel": 0.022813599661842068,
+          "label": "M1-P1",
+          "ledger": 0.000252174982514448,
+          "onset_dist_mm": 0.0,
+          "onset_rel": 0.0326448086404983,
+          "peak_rel": 0.0031279174236122508,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": 0.003658056596011146,
+          "posthoc_nonlin_rel": 0.02970354220879357,
+          "spurious_D_frac": -0.0,
+          "unknowns_ratio": 4.870535714285714,
+          "w_mm": 50.0,
+          "wall_ratio": 3.7245519122351416,
+          "wall_ratio_incl_precompute": 3.7217195737908964,
+          "work_ratio_facets": 3.5791137209675847,
+          "work_ratio_factor": 8.63180791288238,
+          "work_ratio_total": 6.482217004887988,
+          "work_ratio_total_incl_precompute": 6.4612903829025194
+        },
+        {
+          "D_rel": 0.000010844894735636289,
+          "W_rel": 0.001425258913210075,
+          "all_pass": true,
+          "chi_R": 0.0,
+          "chi_R_all": 0.5792670047950745,
+          "coupling_dmax": 0.0,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 94.63516960179949,
+          "crack_height_ref_mm": 94.63516960179949,
+          "crack_mean_dx_mm": 0.00019421811732877464,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": true,
+            "3_curve": true,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.0012469470743289735,
+          "dissipating_facets": [
+            50,
+            50
+          ],
+          "jaccard_dissipating": 1.0,
+          "k_cmod_rel": 0.0006404216113710132,
+          "k_disp_rel": 0.003694267664916467,
+          "label": "M1-rigid",
+          "ledger": 0.00026377490042039226,
+          "onset_dist_mm": 0.0,
+          "onset_rel": 0.0006404216113708716,
+          "peak_rel": 0.00025142380418062435,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": 0.00012175271807931698,
+          "posthoc_nonlin_rel": 0.0006445086483884407,
+          "spurious_D_frac": -0.0,
+          "unknowns_ratio": 2.5003819709702064,
+          "w_mm": 100.0,
+          "wall_ratio": 1.7939247377533143,
+          "wall_ratio_incl_precompute": 1.7933692550631322,
+          "work_ratio_facets": 2.317278590814224,
+          "work_ratio_factor": 3.28944255325942,
+          "work_ratio_total": 2.989920668340224,
+          "work_ratio_total_incl_precompute": 2.9873993064603774
+        },
+        {
+          "D_rel": 0.000013834023449785621,
+          "W_rel": 0.0007143296448035132,
+          "all_pass": true,
+          "chi_R": 0.0,
+          "chi_R_all": 0.5794881561395044,
+          "coupling_dmax": 0.0,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 94.63516960179949,
+          "crack_height_ref_mm": 94.63516960179949,
+          "crack_mean_dx_mm": 0.0001173191411167878,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": true,
+            "3_curve": true,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.0006238401498294599,
+          "dissipating_facets": [
+            50,
+            50
+          ],
+          "jaccard_dissipating": 1.0,
+          "k_cmod_rel": 0.0000966961723552852,
+          "k_disp_rel": 0.0019467389051477308,
+          "label": "M1-P1",
+          "ledger": 0.00026364704162360457,
+          "onset_dist_mm": 0.0,
+          "onset_rel": 0.00009669617235527596,
+          "peak_rel": 0.00019384489713566202,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": 0.0002247305473356439,
+          "posthoc_nonlin_rel": 0.00014064428980415844,
+          "spurious_D_frac": -0.0,
+          "unknowns_ratio": 2.4851936218678814,
+          "w_mm": 100.0,
+          "wall_ratio": 2.0443439616759664,
+          "wall_ratio_incl_precompute": 2.0435630799552156,
+          "work_ratio_facets": 2.1944875567099285,
+          "work_ratio_factor": 2.954559903078446,
+          "work_ratio_total": 2.7342062277205734,
+          "work_ratio_total_incl_precompute": 2.731550841235829
+        },
+        {
+          "D_rel": 3.4413456795220025e-6,
+          "W_rel": 0.0005196517494145861,
+          "all_pass": true,
+          "chi_R": 0.0,
+          "chi_R_all": 0.5794965477698292,
+          "coupling_dmax": 0.0,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 94.63516960179949,
+          "crack_height_ref_mm": 94.63516960179949,
+          "crack_mean_dx_mm": 0.00003636355346160053,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": true,
+            "3_curve": true,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.00046341892074300284,
+          "dissipating_facets": [
+            50,
+            50
+          ],
+          "jaccard_dissipating": 1.0,
+          "k_cmod_rel": 0.00002166639273153647,
+          "k_disp_rel": 0.001286085033065287,
+          "label": "M1-P3",
+          "ledger": 0.00026350786498022293,
+          "onset_dist_mm": 0.0,
+          "onset_rel": 0.000021666392731440785,
+          "peak_rel": 0.00018380274546131944,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": 0.00022822034592755335,
+          "posthoc_nonlin_rel": 0.00007032010402604746,
+          "spurious_D_frac": -0.0,
+          "unknowns_ratio": 2.4627539503386005,
+          "w_mm": 100.0,
+          "wall_ratio": 2.693798251278835,
+          "wall_ratio_incl_precompute": 2.6925892834471266,
+          "work_ratio_facets": 1.9970486890751167,
+          "work_ratio_factor": 2.6911156405088166,
+          "work_ratio_total": 2.4962953474767593,
+          "work_ratio_total_incl_precompute": 2.493350804981263
+        },
+        {
+          "D_rel": 0.00007895571696891952,
+          "W_rel": 0.0004293107885195024,
+          "all_pass": true,
+          "chi_R": 0.3137198973210753,
+          "chi_R_all": 0.5795367509538818,
+          "coupling_dmax": 0.0,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 94.63516960179949,
+          "crack_height_ref_mm": 94.63516960179949,
+          "crack_mean_dx_mm": 0.00009140529800902297,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": true,
+            "3_curve": true,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.00039578456669574224,
+          "dissipating_facets": [
+            50,
+            50
+          ],
+          "jaccard_dissipating": 1.0,
+          "k_cmod_rel": 3.0377352258768395e-6,
+          "k_disp_rel": 3.2539467105920804e-6,
+          "label": "M0",
+          "ledger": 0.0002627611973553707,
+          "onset_dist_mm": 0.0,
+          "onset_rel": 3.0377352258144255e-6,
+          "peak_rel": 0.00036738016717706364,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": 0.0004172528661241271,
+          "posthoc_nonlin_rel": 0.00010928906777774791,
+          "spurious_D_frac": -0.0,
+          "unknowns_ratio": 4.323645970937913,
+          "w_mm": 50.0,
+          "wall_ratio": 3.0505070325431705,
+          "wall_ratio_incl_precompute": 3.0476019019549843,
+          "work_ratio_facets": 3.9600554822282716,
+          "work_ratio_factor": 4.3235605901509455,
+          "work_ratio_total": 4.23992502317363,
+          "work_ratio_total_incl_precompute": 4.206109762841684
+        }
+      ],
+      "configs_in_curves_csv": [
+        "full w=NaN",
+        "M1-P3 w=50",
+        "M0 w=25",
+        "M1-rigid w=25",
+        "M1-P1 w=25",
+        "M1-P3 w=25",
+        "M1-rigid w=50",
+        "M1-P1 w=50",
+        "M1-rigid w=100",
+        "M1-P1 w=100",
+        "M1-P3 w=100",
+        "M0 w=50"
+      ],
+      "dmin": 0.0056,
+      "instance": "lab_d5.6_s1",
+      "len": 0.5,
+      "runs": [
+        {
+          "break_at": [
+            0.25087693406025513,
+            0.05042998365969125
+          ],
+          "break_load_n": 2622.1507298450992,
+          "cells": 1091,
+          "chi_r_all": 0.0,
+          "chi_r_at": [
+            0.0,
+            0.0
+          ],
+          "chi_r_damageable": 0.0,
+          "cmod_at_peak": 0.0000860315857150465,
+          "coupling_dmax": 0.0,
+          "cutbacks": 45,
+          "d_end": 0.5541015379761974,
+          "direct_cells": 1091,
+          "eval_facets": 3098,
+          "facets": 3098,
+          "fact_flops_per_iter": 4731122.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s1",
+          "k_cmod": 85348346.2828105,
+          "k_disp": 57675584.223135054,
+          "label": "full",
+          "ledger_max_rel": 0.0002638468733253096,
+          "n": 3273,
+          "n_direct": 3273,
+          "nnz_l": 109682,
+          "nonlin_load_n": 1500.5289665148598,
+          "onset_at": [
+            0.2714697740629779,
+            0.0
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 42.67417314140525,
+          "peak_load_n": 2871.9809732488925,
+          "pre_flops": 0.0,
+          "pre_wall_s": 0.024053792,
+          "region_cells": [],
+          "region_iface_cells": [],
+          "region_m": [],
+          "region_pad_cells": [],
+          "run_wall_s": 151.188023834,
+          "secant_steps": 0,
+          "steps": 329,
+          "u_end": 0.012228236512774144,
+          "w_ext": 0.5663223196747662,
+          "w_mm": null,
+          "work": {
+            "commit_pts": 4626228,
+            "coupling_flops": 0.0,
+            "fact_flops": 22439711646.0,
+            "khat_flops": 0.0,
+            "monitor_flops": 0.0,
+            "newton_iters": 4743,
+            "pts_force": 0,
+            "pts_tangent": 31983752,
+            "solve_flops": 2080886904.0
+          },
+          "work_total": 31194922630.0
+        },
+        {
+          "break_at": [
+            0.25087693406025513,
+            0.05042998365969125
+          ],
+          "break_load_n": 2616.643760660807,
+          "cells": 1091,
+          "chi_r_all": 0.5797670962614699,
+          "chi_r_at": [
+            0.3002610778998068,
+            0.09366371264103826
+          ],
+          "chi_r_damageable": 0.39927466174869386,
+          "cmod_at_peak": 0.00008680726990056408,
+          "coupling_dmax": 0.0,
+          "cutbacks": 44,
+          "d_end": 0.5541478547461501,
+          "direct_cells": 212,
+          "eval_facets": 638,
+          "facets": 3098,
+          "fact_flops_per_iter": 660967.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s1",
+          "k_cmod": 85906940.61730796,
+          "k_disp": 58163842.821042955,
+          "label": "M1-P3",
+          "ledger_max_rel": 0.0002615287300559566,
+          "n": 684,
+          "n_direct": 637,
+          "nnz_l": 19471,
+          "nonlin_load_n": 1509.3201534091747,
+          "onset_at": [
+            0.2714697740629779,
+            0.0
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 42.953470308653976,
+          "peak_load_n": 2874.470856472992,
+          "pre_flops": 20586863.0,
+          "pre_wall_s": 0.022202709,
+          "region_cells": [
+            436,
+            443
+          ],
+          "region_iface_cells": [
+            17,
+            16
+          ],
+          "region_m": [
+            22,
+            25
+          ],
+          "region_pad_cells": [
+            3,
+            4
+          ],
+          "run_wall_s": 40.960528291,
+          "secant_steps": 0,
+          "steps": 330,
+          "u_end": 0.012495728006915785,
+          "w_ext": 0.5666439538893612,
+          "w_mm": 50.0,
+          "work": {
+            "commit_pts": 946088,
+            "coupling_flops": 583391952.0,
+            "fact_flops": 3300869198.0,
+            "khat_flops": 18005724.0,
+            "monitor_flops": 138322140.0,
+            "newton_iters": 4994,
+            "pts_force": 0,
+            "pts_tangent": 6905712,
+            "solve_flops": 388952696.0
+          },
+          "work_total": 5867449390.0
+        },
+        {
+          "break_at": [
+            0.25087693406025513,
+            0.05042998365969125
+          ],
+          "break_load_n": 2623.522317333659,
+          "cells": 1091,
+          "chi_r_all": 0.6632490073464744,
+          "chi_r_at": [
+            0.2782305692613999,
+            0.09470953725260464
+          ],
+          "chi_r_damageable": 0.6632490073464744,
+          "cmod_at_peak": 0.0000860315857150465,
+          "coupling_dmax": 0.0,
+          "cutbacks": 45,
+          "d_end": 0.5541907882402505,
+          "direct_cells": 101,
+          "eval_facets": 316,
+          "facets": 3098,
+          "fact_flops_per_iter": 453135.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s1",
+          "k_cmod": 85348672.58569135,
+          "k_disp": 57675802.073062666,
+          "label": "M0",
+          "ledger_max_rel": 0.00026258678327091225,
+          "n": 418,
+          "n_direct": 304,
+          "nnz_l": 12361,
+          "nonlin_load_n": 1500.731533747869,
+          "onset_at": [
+            0.2714697740629779,
+            0.0
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 42.67433629284567,
+          "peak_load_n": 2873.341568290264,
+          "pre_flops": 63573808.0,
+          "pre_wall_s": 0.039566375,
+          "region_cells": [
+            493,
+            497
+          ],
+          "region_iface_cells": [
+            16,
+            15
+          ],
+          "region_m": [
+            57,
+            57
+          ],
+          "region_pad_cells": [
+            3,
+            4
+          ],
+          "run_wall_s": 18.893149125,
+          "secant_steps": 0,
+          "steps": 329,
+          "u_end": 0.012392035116038258,
+          "w_ext": 0.5665743270026019,
+          "w_mm": 25.0,
+          "work": {
+            "commit_pts": 464356,
+            "coupling_flops": 0.0,
+            "fact_flops": 2140609740.0,
+            "khat_flops": 100257642.0,
+            "monitor_flops": 221188674.0,
+            "newton_iters": 4724,
+            "pts_force": 0,
+            "pts_tangent": 3250376,
+            "solve_flops": 233573456.0
+          },
+          "work_total": 3373566072.0
+        },
+        {
+          "break_at": [
+            0.25087693406025513,
+            0.05042998365969125
+          ],
+          "break_load_n": 2634.915993985586,
+          "cells": 1091,
+          "chi_r_all": 0.5962282853814481,
+          "chi_r_at": [
+            0.284360491118727,
+            0.002165713670372583
+          ],
+          "chi_r_damageable": 0.5627727202790554,
+          "cmod_at_peak": 0.00007266691691977299,
+          "coupling_dmax": 0.17967994369081408,
+          "cutbacks": 44,
+          "d_end": 0.5520692982449883,
+          "direct_cells": 101,
+          "eval_facets": 316,
+          "facets": 3098,
+          "fact_flops_per_iter": 102995.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s1",
+          "k_cmod": 115879180.1965282,
+          "k_disp": 68893543.05361709,
+          "label": "M1-rigid",
+          "ledger_max_rel": 0.00017028703208017636,
+          "n": 331,
+          "n_direct": 304,
+          "nnz_l": 5605,
+          "nonlin_load_n": 1681.9865905905142,
+          "onset_at": [
+            0.2714697740629779,
+            0.0
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 57.9395900982641,
+          "peak_load_n": 2965.976547210189,
+          "pre_flops": 14504080.0,
+          "pre_wall_s": 0.027806875,
+          "region_cells": [
+            493,
+            497
+          ],
+          "region_iface_cells": [
+            16,
+            15
+          ],
+          "region_m": [
+            12,
+            15
+          ],
+          "region_pad_cells": [
+            3,
+            4
+          ],
+          "run_wall_s": 13.517056666,
+          "secant_steps": 0,
+          "steps": 332,
+          "u_end": 0.012843589916287312,
+          "w_ext": 0.5649061779281158,
+          "w_mm": 25.0,
+          "work": {
+            "commit_pts": 465640,
+            "coupling_flops": 94162752.0,
+            "fact_flops": 489329245.0,
+            "khat_flops": 5723559.0,
+            "monitor_flops": 137461944.0,
+            "newton_iters": 4751,
+            "pts_force": 1264,
+            "pts_tangent": 3266808,
+            "solve_flops": 106517420.0
+          },
+          "work_total": 1514570760.0
+        },
+        {
+          "break_at": [
+            0.25087693406025513,
+            0.05042998365969125
+          ],
+          "break_load_n": 2626.7655535664203,
+          "cells": 1091,
+          "chi_r_all": 0.59513133399093,
+          "chi_r_at": [
+            0.28996958148507346,
+            0.002041758068797912
+          ],
+          "chi_r_damageable": 0.4814197586967146,
+          "cmod_at_peak": 0.00007341573405642226,
+          "coupling_dmax": 0.14418039294870927,
+          "cutbacks": 45,
+          "d_end": 0.5518633721902753,
+          "direct_cells": 101,
+          "eval_facets": 316,
+          "facets": 3098,
+          "fact_flops_per_iter": 141113.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s1",
+          "k_cmod": 114091099.39592652,
+          "k_disp": 68084432.7121864,
+          "label": "M1-P1",
+          "ledger_max_rel": 0.0001737428245205839,
+          "n": 339,
+          "n_direct": 304,
+          "nnz_l": 6647,
+          "nonlin_load_n": 1695.704755120048,
+          "onset_at": [
+            0.2714697740629779,
+            0.0
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 57.04554969796326,
+          "peak_load_n": 2961.836460342696,
+          "pre_flops": 18080224.0,
+          "pre_wall_s": 0.026776375,
+          "region_cells": [
+            493,
+            497
+          ],
+          "region_iface_cells": [
+            16,
+            15
+          ],
+          "region_m": [
+            16,
+            19
+          ],
+          "region_pad_cells": [
+            3,
+            4
+          ],
+          "run_wall_s": 16.821293791,
+          "secant_steps": 0,
+          "steps": 334,
+          "u_end": 0.012582811153357909,
+          "w_ext": 0.5644406795611566,
+          "w_mm": 25.0,
+          "work": {
+            "commit_pts": 468740,
+            "coupling_flops": 250550580.0,
+            "fact_flops": 681575790.0,
+            "khat_flops": 9723303.0,
+            "monitor_flops": 146223196.0,
+            "newton_iters": 4830,
+            "pts_force": 1896,
+            "pts_tangent": 3318632,
+            "solve_flops": 128420040.0
+          },
+          "work_total": 1908457469.0
+        },
+        {
+          "break_at": [
+            0.25087693406025513,
+            0.05042998365969125
+          ],
+          "break_load_n": 2635.127084167849,
+          "cells": 1091,
+          "chi_r_all": 0.8508745501922359,
+          "chi_r_at": [
+            0.2185895235323272,
+            0.0955609208597143
+          ],
+          "chi_r_damageable": 0.8508745501922359,
+          "cmod_at_peak": 0.00008641373890599957,
+          "coupling_dmax": 0.0,
+          "cutbacks": 45,
+          "d_end": 0.5530453266661151,
+          "direct_cells": 101,
+          "eval_facets": 316,
+          "facets": 3098,
+          "fact_flops_per_iter": 203466.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s1",
+          "k_cmod": 90240248.08293818,
+          "k_disp": 60232664.03644234,
+          "label": "M1-P3",
+          "ledger_max_rel": 0.0002452914306574029,
+          "n": 351,
+          "n_direct": 304,
+          "nnz_l": 8020,
+          "nonlin_load_n": 1548.6530204781288,
+          "onset_at": [
+            0.2714697740629779,
+            0.0
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 45.12012404146909,
+          "peak_load_n": 2869.5273948865124,
+          "pre_flops": 23800720.0,
+          "pre_wall_s": 0.0447505,
+          "region_cells": [
+            493,
+            497
+          ],
+          "region_iface_cells": [
+            16,
+            15
+          ],
+          "region_m": [
+            22,
+            25
+          ],
+          "region_pad_cells": [
+            3,
+            4
+          ],
+          "run_wall_s": 21.232148875,
+          "secant_steps": 0,
+          "steps": 330,
+          "u_end": 0.012448130404844715,
+          "w_ext": 0.5654933951849123,
+          "w_mm": 25.0,
+          "work": {
+            "commit_pts": 465600,
+            "coupling_flops": 556413936.0,
+            "fact_flops": 1012446816.0,
+            "khat_flops": 17952492.0,
+            "monitor_flops": 156229260.0,
+            "newton_iters": 4976,
+            "pts_force": 0,
+            "pts_tangent": 3410272,
+            "solve_flops": 159630080.0
+          },
+          "work_total": 2612662984.0
+        },
+        {
+          "break_at": [
+            0.25087693406025513,
+            0.05042998365969125
+          ],
+          "break_load_n": 2657.7979675997385,
+          "cells": 1091,
+          "chi_r_all": 0.5813698439631084,
+          "chi_r_at": [
+            0.30699452652330184,
+            0.0015780141741388847
+          ],
+          "chi_r_damageable": 0.44326071718331184,
+          "cmod_at_peak": 0.00008547713700991885,
+          "coupling_dmax": 0.0,
+          "cutbacks": 45,
+          "d_end": 0.5539186441089875,
+          "direct_cells": 212,
+          "eval_facets": 638,
+          "facets": 3098,
+          "fact_flops_per_iter": 412664.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s1",
+          "k_cmod": 89677240.47237472,
+          "k_disp": 59700119.77708068,
+          "label": "M1-rigid",
+          "ledger_max_rel": 0.00024632508640986243,
+          "n": 664,
+          "n_direct": 637,
+          "nnz_l": 15472,
+          "nonlin_load_n": 1539.7595628179906,
+          "onset_at": [
+            0.2714697740629779,
+            0.0
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 44.83862023618736,
+          "peak_load_n": 2885.2659843321107,
+          "pre_flops": 12463303.0,
+          "pre_wall_s": 0.0260095,
+          "region_cells": [
+            436,
+            443
+          ],
+          "region_iface_cells": [
+            17,
+            16
+          ],
+          "region_m": [
+            12,
+            15
+          ],
+          "region_pad_cells": [
+            3,
+            4
+          ],
+          "run_wall_s": 34.795996875,
+          "secant_steps": 0,
+          "steps": 331,
+          "u_end": 0.012972106234081293,
+          "w_ext": 0.5668900527275871,
+          "w_mm": 50.0,
+          "work": {
+            "commit_pts": 951132,
+            "coupling_flops": 106344576.0,
+            "fact_flops": 2143789480.0,
+            "khat_flops": 6216912.0,
+            "monitor_flops": 121290978.0,
+            "newton_iters": 5195,
+            "pts_force": 0,
+            "pts_tangent": 7166016,
+            "solve_flops": 321508160.0
+          },
+          "work_total": 4189421226.0
+        },
+        {
+          "break_at": [
+            0.25087693406025513,
+            0.05042998365969125
+          ],
+          "break_load_n": 2631.7427056181446,
+          "cells": 1091,
+          "chi_r_all": 0.5807161065937858,
+          "chi_r_at": [
+            0.3138049285478759,
+            0.0010418102483034828
+          ],
+          "chi_r_damageable": 0.38118810382558904,
+          "cmod_at_peak": 0.00008589963700991885,
+          "coupling_dmax": 0.0,
+          "cutbacks": 46,
+          "d_end": 0.5540447831970424,
+          "direct_cells": 212,
+          "eval_facets": 638,
+          "facets": 3098,
+          "fact_flops_per_iter": 514681.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s1",
+          "k_cmod": 88134526.71499583,
+          "k_disp": 58991371.91186451,
+          "label": "M1-P1",
+          "ledger_max_rel": 0.000252174982514448,
+          "n": 672,
+          "n_direct": 637,
+          "nnz_l": 17221,
+          "nonlin_load_n": 1545.0999920072513,
+          "onset_at": [
+            0.2714697740629779,
+            0.0
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 44.067263357497914,
+          "peak_load_n": 2880.9642925754006,
+          "pre_flops": 15586199.0,
+          "pre_wall_s": 0.030891917,
+          "region_cells": [
+            436,
+            443
+          ],
+          "region_iface_cells": [
+            17,
+            16
+          ],
+          "region_m": [
+            16,
+            19
+          ],
+          "region_pad_cells": [
+            3,
+            4
+          ],
+          "run_wall_s": 40.592271875,
+          "secant_steps": 0,
+          "steps": 331,
+          "u_end": 0.012621208675473117,
+          "w_ext": 0.5666624076965495,
+          "w_mm": 50.0,
+          "work": {
+            "commit_pts": 953644,
+            "coupling_flops": 272211072.0,
+            "fact_flops": 2599653731.0,
+            "khat_flops": 10132374.0,
+            "monitor_flops": 128271106.0,
+            "newton_iters": 5051,
+            "pts_force": 0,
+            "pts_tangent": 6984824,
+            "solve_flops": 347933084.0
+          },
+          "work_total": 4812384807.0
+        },
+        {
+          "break_at": [
+            0.25087693406025513,
+            0.05042998365969125
+          ],
+          "break_load_n": 2622.4699838236716,
+          "cells": 1091,
+          "chi_r_all": 0.5792670047950745,
+          "chi_r_at": [
+            0.0,
+            0.0
+          ],
+          "chi_r_damageable": 0.0,
+          "cmod_at_peak": 0.0000860315857150465,
+          "coupling_dmax": 0.0,
+          "cutbacks": 45,
+          "d_end": 0.5541075471490496,
+          "direct_cells": 427,
+          "eval_facets": 1250,
+          "facets": 3098,
+          "fact_flops_per_iter": 1439185.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s1",
+          "k_cmod": 85403005.20826478,
+          "k_disp": 57888653.26898575,
+          "label": "M1-rigid",
+          "ledger_max_rel": 0.00026377490042039226,
+          "n": 1309,
+          "n_direct": 1282,
+          "nnz_l": 38575,
+          "nonlin_load_n": 1501.496070410936,
+          "onset_at": [
+            0.2714697740629779,
+            0.0
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 42.701502604132386,
+          "peak_load_n": 2872.703057630721,
+          "pre_flops": 8805746.0,
+          "pre_wall_s": 0.026104416,
+          "region_cells": [
+            330,
+            334
+          ],
+          "region_iface_cells": [
+            15,
+            16
+          ],
+          "region_m": [
+            12,
+            15
+          ],
+          "region_pad_cells": [
+            3,
+            4
+          ],
+          "run_wall_s": 84.277796416,
+          "secant_steps": 0,
+          "steps": 329,
+          "u_end": 0.013029837904388053,
+          "w_ext": 0.5671294756086325,
+          "w_mm": 100.0,
+          "work": {
+            "commit_pts": 1861620,
+            "coupling_flops": 92676276.0,
+            "fact_flops": 6821736900.0,
+            "khat_flops": 5711013.0,
+            "monitor_flops": 90657924.0,
+            "newton_iters": 4740,
+            "pts_force": 0,
+            "pts_tangent": 12897500,
+            "solve_flops": 731382000.0
+          },
+          "work_total": 10433361313.0
+        },
+        {
+          "break_at": [
+            0.25087693406025513,
+            0.05042998365969125
+          ],
+          "break_load_n": 2622.740007213814,
+          "cells": 1091,
+          "chi_r_all": 0.5794881561395044,
+          "chi_r_at": [
+            0.0,
+            0.0
+          ],
+          "chi_r_damageable": 0.0,
+          "cmod_at_peak": 0.0000860315857150465,
+          "coupling_dmax": 0.0,
+          "cutbacks": 45,
+          "d_end": 0.5541092034298674,
+          "direct_cells": 427,
+          "eval_facets": 1250,
+          "facets": 3098,
+          "fact_flops_per_iter": 1601295.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s1",
+          "k_cmod": 85356599.1412129,
+          "k_disp": 57787863.526819356,
+          "label": "M1-P1",
+          "ledger_max_rel": 0.00026364704162360457,
+          "n": 1317,
+          "n_direct": 1282,
+          "nnz_l": 40733,
+          "nonlin_load_n": 1500.7400073456859,
+          "onset_at": [
+            0.2714697740629779,
+            0.0
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 42.67829957060645,
+          "peak_load_n": 2872.5376921052275,
+          "pre_flops": 11091010.0,
+          "pre_wall_s": 0.02825925,
+          "region_cells": [
+            330,
+            334
+          ],
+          "region_iface_cells": [
+            15,
+            16
+          ],
+          "region_m": [
+            16,
+            19
+          ],
+          "region_pad_cells": [
+            3,
+            4
+          ],
+          "run_wall_s": 73.954298625,
+          "secant_steps": 0,
+          "steps": 329,
+          "u_end": 0.012625197286953993,
+          "w_ext": 0.5667268604962238,
+          "w_mm": 100.0,
+          "work": {
+            "commit_pts": 1861620,
+            "coupling_flops": 243254088.0,
+            "fact_flops": 7594942185.0,
+            "khat_flops": 9554862.0,
+            "monitor_flops": 95898236.0,
+            "newton_iters": 4743,
+            "pts_force": 0,
+            "pts_tangent": 12905000,
+            "solve_flops": 772786476.0
+          },
+          "work_total": 11409133047.0
+        },
+        {
+          "break_at": [
+            0.25087693406025513,
+            0.05042998365969125
+          ],
+          "break_load_n": 2622.7491579917387,
+          "cells": 1091,
+          "chi_r_all": 0.5794965477698292,
+          "chi_r_at": [
+            0.0,
+            0.0
+          ],
+          "chi_r_damageable": 0.0,
+          "cmod_at_peak": 0.0000860315857150465,
+          "coupling_dmax": 0.0,
+          "cutbacks": 45,
+          "d_end": 0.5541034448311312,
+          "direct_cells": 427,
+          "eval_facets": 1250,
+          "facets": 3098,
+          "fact_flops_per_iter": 1756941.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s1",
+          "k_cmod": 85350195.47360004,
+          "k_disp": 57749759.928777725,
+          "label": "M1-P3",
+          "ledger_max_rel": 0.00026350786498022293,
+          "n": 1329,
+          "n_direct": 1282,
+          "nnz_l": 42981,
+          "nonlin_load_n": 1500.6344838678792,
+          "onset_at": [
+            0.2714697740629779,
+            0.0
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 42.67509773680002,
+          "peak_load_n": 2872.5088512366883,
+          "pre_flops": 14757826.0,
+          "pre_wall_s": 0.025199792,
+          "region_cells": [
+            330,
+            334
+          ],
+          "region_iface_cells": [
+            15,
+            16
+          ],
+          "region_m": [
+            22,
+            25
+          ],
+          "region_pad_cells": [
+            3,
+            4
+          ],
+          "run_wall_s": 56.124479167,
+          "secant_steps": 0,
+          "steps": 329,
+          "u_end": 0.01252074310794371,
+          "w_ext": 0.5666166100589177,
+          "w_mm": 100.0,
+          "work": {
+            "commit_pts": 1861620,
+            "coupling_flops": 526953960.0,
+            "fact_flops": 8338441986.0,
+            "khat_flops": 17183955.0,
+            "monitor_flops": 103758704.0,
+            "newton_iters": 4746,
+            "pts_force": 0,
+            "pts_tangent": 12912500,
+            "solve_flops": 815951304.0
+          },
+          "work_total": 12496487109.0
+        },
+        {
+          "break_at": [
+            0.25087693406025513,
+            0.05042998365969125
+          ],
+          "break_load_n": 2623.2448297525366,
+          "cells": 1091,
+          "chi_r_all": 0.5795367509538818,
+          "chi_r_at": [
+            0.3064305948588734,
+            0.09803505996855644
+          ],
+          "chi_r_damageable": 0.3137198973210753,
+          "cmod_at_peak": 0.0000860315857150465,
+          "coupling_dmax": 0.0,
+          "cutbacks": 45,
+          "d_end": 0.5541452874604019,
+          "direct_cells": 212,
+          "eval_facets": 638,
+          "facets": 3098,
+          "fact_flops_per_iter": 1095420.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s1",
+          "k_cmod": 85348605.54848847,
+          "k_disp": 57675771.89641262,
+          "label": "M0",
+          "ledger_max_rel": 0.0002627611973553707,
+          "n": 757,
+          "n_direct": 637,
+          "nnz_l": 25428,
+          "nonlin_load_n": 1500.6929579267837,
+          "onset_at": [
+            0.2714697740629779,
+            0.0
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 42.67430277424423,
+          "peak_load_n": 2873.036082098974,
+          "pre_flops": 59150425.0,
+          "pre_wall_s": 0.047244666,
+          "region_cells": [
+            436,
+            443
+          ],
+          "region_iface_cells": [
+            17,
+            16
+          ],
+          "region_m": [
+            60,
+            60
+          ],
+          "region_pad_cells": [
+            3,
+            4
+          ],
+          "run_wall_s": 49.56160475,
+          "secant_steps": 0,
+          "steps": 329,
+          "u_end": 0.012428477143246353,
+          "w_ext": 0.566565447956382,
+          "w_mm": 50.0,
+          "work": {
+            "commit_pts": 946068,
+            "coupling_flops": 0.0,
+            "fact_flops": 5190099960.0,
+            "khat_flops": 111391200.0,
+            "monitor_flops": 201190080.0,
+            "newton_iters": 4738,
+            "pts_force": 0,
+            "pts_tangent": 6580332,
+            "solve_flops": 481911456.0
+          },
+          "work_total": 7357423176.0
+        }
+      ],
+      "seed": 1,
+      "span": 0.4
+    },
+    {
+      "comparison": [
+        {
+          "D_rel": -0.00013951862987927524,
+          "W_rel": 0.0002737747917405687,
+          "all_pass": true,
+          "chi_R": 0.3682346183620879,
+          "chi_R_all": 0.3682346183620879,
+          "coupling_dmax": 0.0,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 94.91101764245958,
+          "crack_height_ref_mm": 94.91101764245958,
+          "crack_mean_dx_mm": 0.0004432013212958357,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": true,
+            "3_curve": true,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.0024503279782288247,
+          "dissipating_facets": [
+            62,
+            62
+          ],
+          "jaccard_dissipating": 1.0,
+          "k_cmod_rel": 0.004998216691684262,
+          "k_disp_rel": 0.004063609965461333,
+          "label": "M1-P3",
+          "ledger": 0.00030812943036138924,
+          "onset_dist_mm": 0.11938243694551515,
+          "onset_rel": 0.004998216691684302,
+          "peak_rel": 0.00046330206990960547,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": 0.0005115799275938543,
+          "posthoc_nonlin_rel": 0.0041562217697828936,
+          "spurious_D_frac": -0.0,
+          "unknowns_ratio": 4.84,
+          "w_mm": 50.0,
+          "wall_ratio": 4.258297534454251,
+          "wall_ratio_incl_precompute": 4.256102479190014,
+          "work_ratio_facets": 3.2491744893622383,
+          "work_ratio_factor": 8.383904903243232,
+          "work_ratio_total": 6.195520532930446,
+          "work_ratio_total_incl_precompute": 6.176833306936059
+        },
+        {
+          "D_rel": 0.00013589939876596337,
+          "W_rel": 0.00043961929014137396,
+          "all_pass": true,
+          "chi_R": 0.7204918901440097,
+          "chi_R_all": 0.7204918901440097,
+          "coupling_dmax": 0.0,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 94.91101764245958,
+          "crack_height_ref_mm": 94.91101764245958,
+          "crack_mean_dx_mm": 0.00020236968601650357,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": true,
+            "3_curve": true,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.0005476743780528683,
+          "dissipating_facets": [
+            62,
+            62
+          ],
+          "jaccard_dissipating": 1.0,
+          "k_cmod_rel": 3.91246450505846e-6,
+          "k_disp_rel": 3.7889267375141483e-6,
+          "label": "M0",
+          "ledger": 0.00029836092742175133,
+          "onset_dist_mm": 0.00012161467449467061,
+          "onset_rel": 3.912464504928213e-6,
+          "peak_rel": 0.0004947970418854502,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": 0.0005760740200616615,
+          "posthoc_nonlin_rel": 0.00012604705640605353,
+          "spurious_D_frac": -0.0,
+          "unknowns_ratio": 7.6510538641686185,
+          "w_mm": 25.0,
+          "wall_ratio": 7.318358214832676,
+          "wall_ratio_incl_precompute": 7.309664846041339,
+          "work_ratio_facets": 6.8189893591354895,
+          "work_ratio_factor": 12.01430545224771,
+          "work_ratio_total": 10.207133850163304,
+          "work_ratio_total_incl_precompute": 10.055140927287995
+        }
+      ],
+      "configs_in_curves_csv": [
+        "full w=NaN",
+        "M1-P3 w=50",
+        "M0 w=25"
+      ],
+      "dmin": 0.0056,
+      "instance": "lab_d5.6_s2",
+      "len": 0.5,
+      "runs": [
+        {
+          "break_at": [
+            0.24844716847284823,
+            0.05765060664045731
+          ],
+          "break_load_n": 2593.885804904866,
+          "cells": 1089,
+          "chi_r_all": 0.0,
+          "chi_r_at": [
+            0.0,
+            0.0
+          ],
+          "chi_r_damageable": 0.0,
+          "cmod_at_peak": 0.00008729779558128182,
+          "coupling_dmax": 0.0,
+          "cutbacks": 46,
+          "d_end": 0.5701495815930157,
+          "direct_cells": 1089,
+          "eval_facets": 3087,
+          "facets": 3087,
+          "fact_flops_per_iter": 4849685.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s2",
+          "k_cmod": 78619240.18727203,
+          "k_disp": 52798299.324352995,
+          "label": "full",
+          "ledger_max_rel": 0.00029928623597305225,
+          "n": 3267,
+          "n_direct": 3267,
+          "nnz_l": 109957,
+          "nonlin_load_n": 1277.8994672263714,
+          "onset_at": [
+            0.30145045763731426,
+            0.00006940963693716639
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 39.30962009363601,
+          "peak_load_n": 2751.9039392230356,
+          "pre_flops": 0.0,
+          "pre_wall_s": 0.018560875,
+          "region_cells": [],
+          "region_iface_cells": [],
+          "region_m": [],
+          "region_pad_cells": [],
+          "run_wall_s": 180.313015458,
+          "secant_steps": 0,
+          "steps": 327,
+          "u_end": 0.012762783942118251,
+          "w_ext": 0.5829074660612756,
+          "w_mm": null,
+          "work": {
+            "commit_pts": 4599100,
+            "coupling_flops": 0.0,
+            "fact_flops": 26809058680.0,
+            "khat_flops": 0.0,
+            "monitor_flops": 0.0,
+            "newton_iters": 5528,
+            "pts_force": 0,
+            "pts_tangent": 36716778,
+            "solve_flops": 2431369184.0
+          },
+          "work_total": 36859729464.0
+        },
+        {
+          "break_at": [
+            0.24844716847284823,
+            0.05765060664045731
+          ],
+          "break_load_n": 2595.212784817126,
+          "cells": 1089,
+          "chi_r_all": 0.3682346183620879,
+          "chi_r_at": [
+            0.19718736937462344,
+            0.09638281349727423
+          ],
+          "chi_r_damageable": 0.3682346183620879,
+          "cmod_at_peak": 0.00008700302551526759,
+          "coupling_dmax": 0.0,
+          "cutbacks": 46,
+          "d_end": 0.5700700351045656,
+          "direct_cells": 211,
+          "eval_facets": 629,
+          "facets": 3087,
+          "fact_flops_per_iter": 570607.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s2",
+          "k_cmod": 79012196.18586358,
+          "k_disp": 53012851.019646846,
+          "label": "M1-P3",
+          "ledger_max_rel": 0.00030812943036138924,
+          "n": 675,
+          "n_direct": 634,
+          "nnz_l": 18145,
+          "nonlin_load_n": 1283.2107008116516,
+          "onset_at": [
+            0.3015698164561333,
+            0.00006703505883217134
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 39.50609809293179,
+          "peak_load_n": 2753.17890201427,
+          "pre_flops": 17999204.0,
+          "pre_wall_s": 0.021838583,
+          "region_cells": [
+            443,
+            435
+          ],
+          "region_iface_cells": [
+            15,
+            15
+          ],
+          "region_m": [
+            19,
+            22
+          ],
+          "region_pad_cells": [
+            2,
+            3
+          ],
+          "run_wall_s": 42.34392125,
+          "secant_steps": 0,
+          "steps": 327,
+          "u_end": 0.013003004377858673,
+          "w_ext": 0.5830670514314006,
+          "w_mm": 50.0,
+          "work": {
+            "commit_pts": 931764,
+            "coupling_flops": 626705196.0,
+            "fact_flops": 3197681628.0,
+            "khat_flops": 15268305.0,
+            "monitor_flops": 131729988.0,
+            "newton_iters": 5604,
+            "pts_force": 0,
+            "pts_tangent": 7576934,
+            "solve_flops": 406738320.0
+          },
+          "work_total": 5949416077.0
+        },
+        {
+          "break_at": [
+            0.24844716847284823,
+            0.05765060664045731
+          ],
+          "break_load_n": 2595.3800751280783,
+          "cells": 1089,
+          "chi_r_all": 0.7204918901440097,
+          "chi_r_at": [
+            0.2785013155268067,
+            0.09619936434046969
+          ],
+          "chi_r_damageable": 0.7204918901440097,
+          "cmod_at_peak": 0.00008729779558128182,
+          "coupling_dmax": 0.0,
+          "cutbacks": 46,
+          "d_end": 0.5702270645783608,
+          "direct_cells": 108,
+          "eval_facets": 332,
+          "facets": 3087,
+          "fact_flops_per_iter": 404171.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s2",
+          "k_cmod": 78619547.78225867,
+          "k_disp": 52798499.373241,
+          "label": "M0",
+          "ledger_max_rel": 0.00029836092742175133,
+          "n": 427,
+          "n_direct": 325,
+          "nnz_l": 11881,
+          "nonlin_load_n": 1278.0605426925981,
+          "onset_at": [
+            0.3014505790658725,
+            0.0000694029112929322
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 39.30977389112933,
+          "peak_load_n": 2753.265573151716,
+          "pre_flops": 54586285.0,
+          "pre_wall_s": 0.029302458,
+          "region_cells": [
+            494,
+            487
+          ],
+          "region_iface_cells": [
+            14,
+            15
+          ],
+          "region_m": [
+            48,
+            54
+          ],
+          "region_pad_cells": [
+            2,
+            3
+          ],
+          "run_wall_s": 24.638451708,
+          "secant_steps": 0,
+          "steps": 327,
+          "u_end": 0.01294201976558551,
+          "w_ext": 0.5831637234277236,
+          "w_mm": 25.0,
+          "work": {
+            "commit_pts": 488640,
+            "coupling_flops": 0.0,
+            "fact_flops": 2231428091.0,
+            "khat_flops": 93020400.0,
+            "monitor_flops": 206194428.0,
+            "newton_iters": 5521,
+            "pts_force": 0,
+            "pts_tangent": 3944160,
+            "solve_flops": 262380004.0
+          },
+          "work_total": 3611173323.0
+        }
+      ],
+      "seed": 2,
+      "span": 0.4
+    },
+    {
+      "comparison": [
+        {
+          "D_rel": 0.000052319065925326164,
+          "W_rel": 0.00046805678347293405,
+          "all_pass": true,
+          "chi_R": 0.3108835827197147,
+          "chi_R_all": 0.49774325643904743,
+          "coupling_dmax": 0.0,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 94.70578060770659,
+          "crack_height_ref_mm": 94.70578060770659,
+          "crack_mean_dx_mm": 0.0008140239397955683,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": true,
+            "3_curve": true,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.0027402294269442064,
+          "dissipating_facets": [
+            54,
+            54
+          ],
+          "jaccard_dissipating": 1.0,
+          "k_cmod_rel": 0.005744856491764621,
+          "k_disp_rel": 0.005577613387759243,
+          "label": "M1-P3",
+          "ledger": 0.00036939523815799583,
+          "onset_dist_mm": 0.00029790515933430617,
+          "onset_rel": 0.005744856491764735,
+          "peak_rel": 0.0006929183938627847,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": 0.00045942666995907875,
+          "posthoc_nonlin_rel": 0.005051353859662566,
+          "spurious_D_frac": -0.0,
+          "unknowns_ratio": 4.867256637168142,
+          "w_mm": 50.0,
+          "wall_ratio": 4.531260099576923,
+          "wall_ratio_incl_precompute": 4.529360851620929,
+          "work_ratio_facets": 3.306296801927163,
+          "work_ratio_factor": 9.2793282301396,
+          "work_ratio_total": 6.7290187855532,
+          "work_ratio_total_incl_precompute": 6.711397880211266
+        },
+        {
+          "D_rel": 0.00031925881681679004,
+          "W_rel": 0.0005300576150519731,
+          "all_pass": true,
+          "chi_R": 0.8364921563581355,
+          "chi_R_all": 0.8364921563581355,
+          "coupling_dmax": 0.0,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 94.70578060770659,
+          "crack_height_ref_mm": 94.70578060770659,
+          "crack_mean_dx_mm": 0.0006275423069190388,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": true,
+            "3_curve": true,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.0006179996376583075,
+          "dissipating_facets": [
+            54,
+            54
+          ],
+          "jaccard_dissipating": 1.0,
+          "k_cmod_rel": 3.812803472642737e-6,
+          "k_disp_rel": 3.7723835200458207e-6,
+          "label": "M0",
+          "ledger": 0.0003453027424317683,
+          "onset_dist_mm": 3.11572900492809e-6,
+          "onset_rel": 3.8128034727760046e-6,
+          "peak_rel": 0.0005348271004954879,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": 0.0006374956887597956,
+          "posthoc_nonlin_rel": 0.0001319211261898353,
+          "spurious_D_frac": -0.0,
+          "unknowns_ratio": 7.621247113163972,
+          "w_mm": 25.0,
+          "wall_ratio": 7.497814813400821,
+          "wall_ratio_incl_precompute": 7.482666487265976,
+          "work_ratio_facets": 6.875019042046477,
+          "work_ratio_factor": 12.288992337221721,
+          "work_ratio_total": 10.480074597317953,
+          "work_ratio_total_incl_precompute": 10.338304356442945
+        }
+      ],
+      "configs_in_curves_csv": [
+        "full w=NaN",
+        "M1-P3 w=50",
+        "M0 w=25"
+      ],
+      "dmin": 0.0056,
+      "instance": "lab_d5.6_s3",
+      "len": 0.5,
+      "runs": [
+        {
+          "break_at": [
+            0.25127167349023405,
+            0.052515495950568064
+          ],
+          "break_load_n": 2552.996585833051,
+          "cells": 1100,
+          "chi_r_all": 0.0,
+          "chi_r_at": [
+            0.0,
+            0.0
+          ],
+          "chi_r_damageable": 0.0,
+          "cmod_at_peak": 0.00009277827120803242,
+          "coupling_dmax": 0.0,
+          "cutbacks": 50,
+          "d_end": 0.5471277194332069,
+          "direct_cells": 1100,
+          "eval_facets": 3119,
+          "facets": 3119,
+          "fact_flops_per_iter": 5305668.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s3",
+          "k_cmod": 77377256.50941221,
+          "k_disp": 52212857.30705407,
+          "label": "full",
+          "ledger_max_rel": 0.00034615331132196444,
+          "n": 3300,
+          "n_direct": 3300,
+          "nnz_l": 114938,
+          "nonlin_load_n": 1322.843793891309,
+          "onset_at": [
+            0.2534099066766566,
+            0.00006971573234196012
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 38.6886282547061,
+          "peak_load_n": 2675.6555249065186,
+          "pre_flops": 0.0,
+          "pre_wall_s": 0.00848025,
+          "region_cells": [],
+          "region_iface_cells": [],
+          "region_m": [],
+          "region_pad_cells": [],
+          "run_wall_s": 202.017982,
+          "secant_steps": 3,
+          "steps": 335,
+          "u_end": 0.012871084279543902,
+          "w_ext": 0.5599985133031979,
+          "w_mm": null,
+          "work": {
+            "commit_pts": 4759826,
+            "coupling_flops": 0.0,
+            "fact_flops": 32953503948.0,
+            "khat_flops": 0.0,
+            "monitor_flops": 0.0,
+            "newton_iters": 6211,
+            "pts_force": 49904,
+            "pts_tangent": 41426558,
+            "solve_flops": 2855519672.0
+          },
+          "work_total": 44382919020.0
+        },
+        {
+          "break_at": [
+            0.25127167349023405,
+            0.052515495950568064
+          ],
+          "break_load_n": 2554.1695005528973,
+          "cells": 1100,
+          "chi_r_all": 0.49774325643904743,
+          "chi_r_at": [
+            0.3025860471020616,
+            0.09176042367826517
+          ],
+          "chi_r_damageable": 0.3108835827197147,
+          "cmod_at_peak": 0.00009065967486581162,
+          "coupling_dmax": 0.0,
+          "cutbacks": 49,
+          "d_end": 0.5471563446444295,
+          "direct_cells": 213,
+          "eval_facets": 633,
+          "facets": 3119,
+          "fact_flops_per_iter": 574827.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s3",
+          "k_cmod": 77821777.74378525,
+          "k_disp": 52504080.43898306,
+          "label": "M1-P3",
+          "ledger_max_rel": 0.00036939523815799583,
+          "n": 678,
+          "n_direct": 640,
+          "nnz_l": 18261,
+          "nonlin_load_n": 1329.5259459953124,
+          "onset_at": [
+            0.2534098911324683,
+            0.00007001323169014265
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 38.910888871892624,
+          "peak_load_n": 2677.509535835367,
+          "pre_flops": 17317267.0,
+          "pre_wall_s": 0.018694583,
+          "region_cells": [
+            433,
+            454
+          ],
+          "region_iface_cells": [
+            16,
+            15
+          ],
+          "region_m": [
+            19,
+            19
+          ],
+          "region_pad_cells": [
+            2,
+            2
+          ],
+          "run_wall_s": 44.583179416,
+          "secant_steps": 3,
+          "steps": 332,
+          "u_end": 0.013114350319353263,
+          "w_ext": 0.5602606244060843,
+          "w_mm": 50.0,
+          "work": {
+            "commit_pts": 951160,
+            "coupling_flops": 716908608.0,
+            "fact_flops": 3551281206.0,
+            "khat_flops": 14312928.0,
+            "monitor_flops": 132600800.0,
+            "newton_iters": 6178,
+            "pts_force": 11394,
+            "pts_tangent": 8358132,
+            "solve_flops": 451265832.0
+          },
+          "work_total": 6595749014.0
+        },
+        {
+          "break_at": [
+            0.25127167349023405,
+            0.052515495950568064
+          ],
+          "break_load_n": 2554.624110149938,
+          "cells": 1100,
+          "chi_r_all": 0.8364921563581355,
+          "chi_r_at": [
+            0.27768458613490465,
+            0.09709543635153833
+          ],
+          "chi_r_damageable": 0.8364921563581355,
+          "cmod_at_peak": 0.00009277827120803242,
+          "coupling_dmax": 0.0,
+          "cutbacks": 50,
+          "d_end": 0.5473023947815608,
+          "direct_cells": 109,
+          "eval_facets": 335,
+          "facets": 3119,
+          "fact_flops_per_iter": 431672.0,
+          "failed_at_cmod": null,
+          "instance": "lab_d5.6_s3",
+          "k_cmod": 77377551.53368454,
+          "k_disp": 52213054.27397651,
+          "label": "M0",
+          "ledger_max_rel": 0.0003453027424317683,
+          "n": 433,
+          "n_direct": 328,
+          "nnz_l": 12328,
+          "nonlin_load_n": 1323.0183049343723,
+          "onset_at": [
+            0.25340990683923004,
+            0.00006971262085724958
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 38.68877576684227,
+          "peak_load_n": 2677.086537992829,
+          "pre_flops": 58074737.0,
+          "pre_wall_s": 0.054546084,
+          "region_cells": [
+            484,
+            507
+          ],
+          "region_iface_cells": [
+            16,
+            15
+          ],
+          "region_m": [
+            54,
+            51
+          ],
+          "region_pad_cells": [
+            2,
+            2
+          ],
+          "run_wall_s": 26.943581167,
+          "secant_steps": 3,
+          "steps": 335,
+          "u_end": 0.012994497886554157,
+          "w_ext": 0.5602953447795921,
+          "w_mm": 25.0,
+          "work": {
+            "commit_pts": 505874,
+            "coupling_flops": 0.0,
+            "fact_flops": 2681546464.0,
+            "khat_flops": 110020014.0,
+            "monitor_flops": 216386550.0,
+            "newton_iters": 6212,
+            "pts_force": 5360,
+            "pts_tangent": 4450140,
+            "solve_flops": 306326144.0
+          },
+          "work_total": 4234981212.0
+        }
+      ],
+      "seed": 3,
+      "span": 0.4
+    },
+    {
+      "comparison": [
+        {
+          "D_rel": -0.00018650447911856526,
+          "W_rel": 0.0003112643729683474,
+          "all_pass": true,
+          "chi_R": 0.4123551419893534,
+          "chi_R_all": 0.41801963705457645,
+          "coupling_dmax": 0.0,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 95.1588528515,
+          "crack_height_ref_mm": 95.1588528515,
+          "crack_mean_dx_mm": 0.0010425903343542,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": true,
+            "3_curve": true,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.002855470663894944,
+          "dissipating_facets": [
+            54,
+            54
+          ],
+          "jaccard_dissipating": 1.0,
+          "k_cmod_rel": 0.005890011518175023,
+          "k_disp_rel": 0.005930139105834637,
+          "label": "M1-P3",
+          "ledger": 0.00021686600735255814,
+          "onset_dist_mm": 0.160690020741873,
+          "onset_rel": 0.005890011518174982,
+          "peak_rel": 0.0003144283767404387,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": 0.004144224920185051,
+          "posthoc_nonlin_rel": -0.02394959025046621,
+          "spurious_D_frac": -0.0,
+          "unknowns_ratio": 16.68918918918919,
+          "w_mm": 50.0,
+          "wall_ratio": 13.202953967375118,
+          "wall_ratio_incl_precompute": 13.174594437482616,
+          "work_ratio_facets": 9.065132160844817,
+          "work_ratio_factor": 34.19418271713944,
+          "work_ratio_total": 22.42840067313071,
+          "work_ratio_total_incl_precompute": 22.05318229937723
+        },
+        {
+          "D_rel": 0.0001531959479700769,
+          "W_rel": 0.0004923161438274443,
+          "all_pass": true,
+          "chi_R": 0.8112260379544863,
+          "chi_R_all": 0.8112260379544863,
+          "coupling_dmax": 0.0,
+          "crack_bands_missing": 0,
+          "crack_height_red_mm": 95.1588528515,
+          "crack_height_ref_mm": 95.1588528515,
+          "crack_mean_dx_mm": 0.00011961803143526081,
+          "criteria": {
+            "1_peak": true,
+            "2_onset": true,
+            "3_curve": true,
+            "4_energy": true,
+            "5_crack": true,
+            "6_valid": true
+          },
+          "curve_max_dP_over_Ppeak": 0.0005953883719031086,
+          "dissipating_facets": [
+            54,
+            54
+          ],
+          "jaccard_dissipating": 1.0,
+          "k_cmod_rel": 3.0490186081241192e-6,
+          "k_disp_rel": 2.111444458799079e-6,
+          "label": "M0",
+          "ledger": 0.00021764604092326656,
+          "onset_dist_mm": 0.00004912462876581174,
+          "onset_rel": 3.049018608097309e-6,
+          "peak_rel": 0.0003687506768376866,
+          "posthoc_break_dist_mm": 0.0,
+          "posthoc_break_rel": 0.00042317330066614237,
+          "posthoc_nonlin_rel": 0.00010579151187450904,
+          "spurious_D_frac": -0.0,
+          "unknowns_ratio": 26.401425178147267,
+          "w_mm": 25.0,
+          "wall_ratio": 28.885001700145878,
+          "wall_ratio_incl_precompute": 28.601243452812625,
+          "work_ratio_facets": 13.74847005617312,
+          "work_ratio_factor": 41.51340436035155,
+          "work_ratio_total": 30.179047081761812,
+          "work_ratio_total_incl_precompute": 28.299553702182923
+        }
+      ],
+      "configs_in_curves_csv": [
+        "full w=NaN",
+        "M1-P3 w=50",
+        "M0 w=25"
+      ],
+      "dmin": 0.0056,
+      "instance": "long_d5.6_s1",
+      "len": 1.7,
+      "runs": [
+        {
+          "break_at": [
+            0.8487287921624622,
+            0.053882995152678664
+          ],
+          "break_load_n": 565.9526521560008,
+          "cells": 3705,
+          "chi_r_all": 0.0,
+          "chi_r_at": [
+            0.0,
+            0.0
+          ],
+          "chi_r_damageable": 0.0,
+          "cmod_at_peak": 0.00009025806049004451,
+          "coupling_dmax": 0.0,
+          "cutbacks": 42,
+          "d_end": 0.5397967128460013,
+          "direct_cells": 3705,
+          "eval_facets": 10582,
+          "facets": 10582,
+          "fact_flops_per_iter": 20814592.0,
+          "failed_at_cmod": null,
+          "instance": "long_d5.6_s1",
+          "k_cmod": 16885301.060431622,
+          "k_disp": 1697641.9624884112,
+          "label": "full",
+          "ledger_max_rel": 0.00021835133830832846,
+          "n": 11115,
+          "n_direct": 11115,
+          "nnz_l": 416352,
+          "nonlin_load_n": 295.0265223954449,
+          "onset_at": [
+            0.8265377317081082,
+            0.024666882487044343
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 8.442650530215811,
+          "peak_load_n": 611.103583329619,
+          "pre_flops": 0.0,
+          "pre_wall_s": 0.048179042,
+          "region_cells": [],
+          "region_iface_cells": [],
+          "region_m": [],
+          "region_pad_cells": [],
+          "run_wall_s": 514.022436375,
+          "secant_steps": 0,
+          "steps": 321,
+          "u_end": 0.012381970583504433,
+          "w_ext": 0.5521746950076392,
+          "w_mm": null,
+          "work": {
+            "commit_pts": 15356964,
+            "coupling_flops": 0.0,
+            "fact_flops": 89523560192.0,
+            "khat_flops": 0.0,
+            "monitor_flops": 0.0,
+            "newton_iters": 4301,
+            "pts_force": 0,
+            "pts_tangent": 99597784,
+            "solve_flops": 7162919808.0
+          },
+          "work_total": 117527454640.0
+        },
+        {
+          "break_at": [
+            0.8487287921624622,
+            0.053882995152678664
+          ],
+          "break_load_n": 568.2980872407105,
+          "cells": 3705,
+          "chi_r_all": 0.41801963705457645,
+          "chi_r_at": [
+            0.7981764821581352,
+            0.09572872504830181
+          ],
+          "chi_r_damageable": 0.4123551419893534,
+          "cmod_at_peak": 0.00008887428834074446,
+          "coupling_dmax": 0.0,
+          "cutbacks": 43,
+          "d_end": 0.539696038341242,
+          "direct_cells": 207,
+          "eval_facets": 618,
+          "facets": 10582,
+          "fact_flops_per_iter": 594886.0,
+          "failed_at_cmod": null,
+          "instance": "long_d5.6_s1",
+          "k_cmod": 16984755.678165417,
+          "k_disp": 1707709.2154778696,
+          "label": "M1-P3",
+          "ledger_max_rel": 0.00021686600735255814,
+          "n": 666,
+          "n_direct": 622,
+          "nnz_l": 18348,
+          "nonlin_load_n": 287.960758071054,
+          "onset_at": [
+            0.8265913135336935,
+            0.024818375954669073
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 8.492377839082708,
+          "peak_load_n": 611.2957316373456,
+          "pre_flops": 89156673.0,
+          "pre_wall_s": 0.083805542,
+          "region_cells": [
+            1754,
+            1744
+          ],
+          "region_iface_cells": [
+            17,
+            15
+          ],
+          "region_m": [
+            22,
+            22
+          ],
+          "region_pad_cells": [
+            3,
+            3
+          ],
+          "run_wall_s": 38.932381166,
+          "secant_steps": 0,
+          "steps": 323,
+          "u_end": 0.012653465813015963,
+          "w_ext": 0.5523465673178497,
+          "w_mm": 50.0,
+          "work": {
+            "commit_pts": 895356,
+            "coupling_flops": 507147264.0,
+            "fact_flops": 2618093286.0,
+            "khat_flops": 13967272.0,
+            "monitor_flops": 535331156.0,
+            "newton_iters": 4401,
+            "pts_force": 1236,
+            "pts_tangent": 5943924,
+            "solve_flops": 322998192.0
+          },
+          "work_total": 5240117490.0
+        },
+        {
+          "break_at": [
+            0.8487287921624622,
+            0.053882995152678664
+          ],
+          "break_load_n": 566.1921482078344,
+          "cells": 3705,
+          "chi_r_all": 0.8112260379544863,
+          "chi_r_at": [
+            0.8184118668484102,
+            0.09771215099045887
+          ],
+          "chi_r_damageable": 0.8112260379544863,
+          "cmod_at_peak": 0.00009025806049004451,
+          "coupling_dmax": 0.0,
+          "cutbacks": 42,
+          "d_end": 0.5398794075151369,
+          "direct_cells": 101,
+          "eval_facets": 315,
+          "facets": 10582,
+          "fact_flops_per_iter": 501045.0,
+          "failed_at_cmod": null,
+          "instance": "long_d5.6_s1",
+          "k_cmod": 16885352.54402876,
+          "k_disp": 1697645.546965126,
+          "label": "M0",
+          "ledger_max_rel": 0.00021764604092326656,
+          "n": 421,
+          "n_direct": 304,
+          "nnz_l": 12893,
+          "nonlin_load_n": 295.0577336972922,
+          "onset_at": [
+            0.8265377469097636,
+            0.02466692920041315
+          ],
+          "onset_cmod": 5e-7,
+          "onset_load_n": 8.44267627201438,
+          "peak_load_n": 611.3289281895898,
+          "pre_flops": 258639601.0,
+          "pre_wall_s": 0.17655225,
+          "region_cells": [
+            1808,
+            1796
+          ],
+          "region_iface_cells": [
+            17,
+            16
+          ],
+          "region_m": [
+            60,
+            57
+          ],
+          "region_pad_cells": [
+            3,
+            3
+          ],
+          "run_wall_s": 17.795478834,
+          "secant_steps": 0,
+          "steps": 320,
+          "u_end": 0.012571866889793837,
+          "w_ext": 0.5524465395242044,
+          "w_mm": 25.0,
+          "work": {
+            "commit_pts": 448040,
+            "coupling_flops": 0.0,
+            "fact_flops": 2156497680.0,
+            "khat_flops": 96735276.0,
+            "monitor_flops": 799050240.0,
+            "newton_iters": 4304,
+            "pts_force": 0,
+            "pts_tangent": 2966040,
+            "solve_flops": 221965888.0
+          },
+          "work_total": 3894339484.0
+        }
+      ],
+      "seed": 1,
+      "span": 1.6
+    }
+  ],
+  "meta": {
+    "config": {
+      "flop_model": {
+        "facet_point_force_only": 60.0,
+        "facet_point_with_tangent": 200.0,
+        "factorisation": "symbolic Cholesky flop estimate of the Newton-matrix pattern per Newton iteration",
+        "solve": "4 nnz(L)"
+      },
+      "prereg": "docs/phase0c/reduced-fracture.md §2",
+      "reduced": "far regions u = T ξ, T_I = -K_II^-1 K_IB T_B; M0: T_B = I; M1(P): rigid section + polynomial warping to degree P on interface cells, pads exact; region-internal facets linear elastic (monitored)",
+      "specimen": "E6 notched beam generalised (depth 0.1, notch 0.05, thickness 0.1, pads ±0.01, damage |x-xc|<0.08)"
+    },
+    "experiment": "phase0c/exp1",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "exp1",
+    "seed": null,
+    "solver_schedule": "S0 bordered Newton under CMOD control to 1 mm (consistent tangent, secant fallback), accept if converged and max Δd ≤ 0.1 over material facets, else halve; history committed on acceptance only; same code and linear solver (faer sparse LU, sequential) for full and reduced",
+    "source_hash": "4a260665e243ec6e",
+    "unix_time": 1794019790
+  }
+}

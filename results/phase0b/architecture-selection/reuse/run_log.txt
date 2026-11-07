@@ -1,0 +1,122 @@
+2D wall 1x4 d0.1 s1 | S0 none | Sa | U: iters 302 retries 0 rebuilds 2 t_apply 28.5 ms t_update 4.7 ms | F 2.30e-5 E 9.65e-6 χ 1.05e-5
+2D wall 1x4 d0.1 s1 | S0 none | Sa | F: iters 302 retries 0 rebuilds 0 t_apply 27.6 ms t_update 1.5 ms | F 2.30e-5 E 9.65e-6 χ 1.05e-5
+2D wall 1x4 d0.1 s1 | S0 none | Sa | R8: iters 302 retries 0 rebuilds 7 t_apply 27.8 ms t_update 12.3 ms | F 2.30e-5 E 9.65e-6 χ 1.05e-5
+2D wall 1x4 d0.1 s1 | S0 none | Sa | Rd: iters 302 retries 0 rebuilds 0 t_apply 28.2 ms t_update 1.7 ms | F 2.30e-5 E 9.65e-6 χ 1.05e-5
+2D wall 1x4 d0.1 s1 | S0 none | Sa | Pa: iters 302 retries 0 rebuilds 0 t_apply 27.8 ms t_update 1.8 ms | F 2.30e-5 E 9.65e-6 χ 1.05e-5
+2D wall 1x4 d0.1 s1 | S0 none | Pr | U: iters 604 retries 0 rebuilds 2 t_apply 54.5 ms t_update 1.0 ms | F 3.21e-5 E 1.33e-5 χ 2.11e-6
+2D wall 1x4 d0.1 s1 | S0 none | Pr | F: iters 604 retries 0 rebuilds 0 t_apply 55.9 ms t_update 0.3 ms | F 3.21e-5 E 1.33e-5 χ 2.11e-6
+2D wall 1x4 d0.1 s1 | S0 none | Pr | R8: iters 604 retries 0 rebuilds 7 t_apply 55.3 ms t_update 2.7 ms | F 3.21e-5 E 1.33e-5 χ 2.11e-6
+2D wall 1x4 d0.1 s1 | S0 none | Pr | Rd: iters 1084 retries 60 rebuilds 60 t_apply 122.9 ms t_update 18.1 ms | F 3.21e-5 E 1.33e-5 χ 2.11e-6
+2D wall 1x4 d0.1 s1 | S0 none | Pr | Pa: iters 604 retries 0 rebuilds 0 t_apply 56.1 ms t_update 0.4 ms | F 3.21e-5 E 1.33e-5 χ 2.11e-6
+2D wall 1x4 d0.1 s1 | S1 soften 1% | Sa | U: iters 334 retries 0 rebuilds 41 t_apply 30.4 ms t_update 61.7 ms | F 2.31e-5 E 9.69e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S1 soften 1% | Sa | F: iters 507 retries 0 rebuilds 0 t_apply 45.9 ms t_update 1.5 ms | F 2.40e-5 E 1.00e-5 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S1 soften 1% | Sa | R8: iters 343 retries 0 rebuilds 7 t_apply 31.4 ms t_update 12.1 ms | F 2.40e-5 E 1.00e-5 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S1 soften 1% | Sa | Rd: iters 379 retries 1 rebuilds 1 t_apply 36.2 ms t_update 3.1 ms | F 2.40e-5 E 1.00e-5 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S1 soften 1% | Sa | Pa: iters 343 retries 0 rebuilds 0 t_apply 31.3 ms t_update 7.0 ms | F 2.33e-5 E 9.79e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S1 soften 1% | Pr | U: iters 626 retries 0 rebuilds 41 t_apply 56.9 ms t_update 12.8 ms | F 3.21e-5 E 1.33e-5 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S1 soften 1% | Pr | F: iters 726 retries 0 rebuilds 0 t_apply 64.4 ms t_update 0.3 ms | F 3.22e-5 E 1.32e-5 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S1 soften 1% | Pr | R8: iters 627 retries 0 rebuilds 7 t_apply 58.4 ms t_update 2.8 ms | F 3.22e-5 E 1.32e-5 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S1 soften 1% | Pr | Rd: iters 1098 retries 59 rebuilds 59 t_apply 126.3 ms t_update 18.3 ms | F 3.21e-5 E 1.33e-5 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S1 soften 1% | Pr | Pa: iters 626 retries 0 rebuilds 0 t_apply 59.9 ms t_update 4.7 ms | F 3.21e-5 E 1.33e-5 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S2 soften 10% | Sa | U: iters 330 retries 0 rebuilds 41 t_apply 30.2 ms t_update 61.8 ms | F 1.64e-5 E 7.53e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S2 soften 10% | Sa | F: iters 596 retries 0 rebuilds 0 t_apply 53.4 ms t_update 1.5 ms | F 1.76e-5 E 8.18e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S2 soften 10% | Sa | R8: iters 344 retries 0 rebuilds 7 t_apply 31.4 ms t_update 11.9 ms | F 1.76e-5 E 8.18e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S2 soften 10% | Sa | Rd: iters 428 retries 1 rebuilds 1 t_apply 40.4 ms t_update 3.0 ms | F 1.76e-5 E 8.18e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S2 soften 10% | Sa | Pa: iters 352 retries 0 rebuilds 0 t_apply 32.3 ms t_update 11.4 ms | F 1.66e-5 E 7.62e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S2 soften 10% | Pr | U: iters 677 retries 0 rebuilds 41 t_apply 61.7 ms t_update 12.1 ms | F 2.33e-5 E 1.06e-5 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S2 soften 10% | Pr | F: iters 854 retries 0 rebuilds 0 t_apply 77.3 ms t_update 0.5 ms | F 2.34e-5 E 1.07e-5 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S2 soften 10% | Pr | R8: iters 684 retries 0 rebuilds 7 t_apply 62.2 ms t_update 2.7 ms | F 2.34e-5 E 1.07e-5 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S2 soften 10% | Pr | Rd: iters 1157 retries 60 rebuilds 60 t_apply 143.8 ms t_update 20.7 ms | F 2.33e-5 E 1.06e-5 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S2 soften 10% | Pr | Pa: iters 677 retries 0 rebuilds 0 t_apply 62.0 ms t_update 6.5 ms | F 2.33e-5 E 1.06e-5 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S3 growing crack | Sa | U: iters 293 retries 0 rebuilds 36 t_apply 27.2 ms t_update 55.3 ms | F 1.38e-6 E 1.94e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S3 growing crack | Sa | F: iters 1150 retries 0 rebuilds 0 t_apply 102.2 ms t_update 1.5 ms | F 5.21e-6 E 7.13e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S3 growing crack | Sa | R8: iters 397 retries 0 rebuilds 7 t_apply 36.8 ms t_update 12.4 ms | F 1.77e-6 E 2.41e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S3 growing crack | Sa | Rd: iters 399 retries 8 rebuilds 8 t_apply 50.7 ms t_update 14.1 ms | F 1.19e-6 E 1.61e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S3 growing crack | Sa | Pa: iters 609 retries 0 rebuilds 0 t_apply 55.3 ms t_update 5.6 ms | F 1.89e-6 E 2.69e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S3 growing crack | Pr | U: iters 573 retries 0 rebuilds 36 t_apply 52.6 ms t_update 11.2 ms | F 3.22e-6 E 4.50e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S3 growing crack | Pr | F: iters 1416 retries 0 rebuilds 0 t_apply 128.2 ms t_update 0.6 ms | F 4.32e-6 E 5.66e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S3 growing crack | Pr | R8: iters 661 retries 0 rebuilds 7 t_apply 60.0 ms t_update 2.6 ms | F 3.42e-6 E 4.78e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S3 growing crack | Pr | Rd: iters 957 retries 48 rebuilds 48 t_apply 107.8 ms t_update 15.2 ms | F 3.22e-6 E 4.50e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S3 growing crack | Pr | Pa: iters 1001 retries 0 rebuilds 0 t_apply 90.4 ms t_update 2.6 ms | F 2.87e-6 E 4.08e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S4 cut at step 20 | Sa | U: iters 254 retries 0 rebuilds 3 t_apply 23.4 ms t_update 6.1 ms | F 1.61e-7 E 2.21e-7 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S4 cut at step 20 | Sa | F: iters 1495 retries 0 rebuilds 0 t_apply 133.0 ms t_update 1.6 ms | F 3.48e-7 E 4.82e-7 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S4 cut at step 20 | Sa | R8: iters 370 retries 0 rebuilds 7 t_apply 33.9 ms t_update 12.2 ms | F 3.48e-7 E 4.82e-7 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S4 cut at step 20 | Sa | Rd: iters 262 retries 1 rebuilds 1 t_apply 25.8 ms t_update 3.1 ms | F 1.61e-7 E 2.21e-7 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S4 cut at step 20 | Sa | Pa: iters 738 retries 0 rebuilds 0 t_apply 66.8 ms t_update 1.9 ms | F 1.80e-7 E 2.57e-7 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S4 cut at step 20 | Pr | U: iters 500 retries 0 rebuilds 3 t_apply 45.6 ms t_update 1.3 ms | F 3.55e-7 E 5.13e-7 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S4 cut at step 20 | Pr | F: iters 1800 retries 0 rebuilds 0 t_apply 162.7 ms t_update 0.3 ms | F 2.39e-7 E 3.53e-7 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S4 cut at step 20 | Pr | R8: iters 618 retries 0 rebuilds 7 t_apply 56.2 ms t_update 2.5 ms | F 2.39e-7 E 3.53e-7 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S4 cut at step 20 | Pr | Rd: iters 732 retries 29 rebuilds 29 t_apply 77.6 ms t_update 8.8 ms | F 3.55e-7 E 5.13e-7 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S4 cut at step 20 | Pr | Pa: iters 1201 retries 0 rebuilds 0 t_apply 109.1 ms t_update 0.5 ms | F 3.09e-7 E 4.33e-7 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S5 three cuts | Sa | U: iters 219 retries 0 rebuilds 5 t_apply 20.5 ms t_update 9.2 ms | F 2.27e-7 E 2.69e-7 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S5 three cuts | Sa | F: iters 2647 retries 0 rebuilds 0 t_apply 234.3 ms t_update 1.5 ms | F 8.35e-7 E 3.37e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S5 three cuts | Sa | R8: iters 248 retries 0 rebuilds 7 t_apply 22.9 ms t_update 12.2 ms | F 2.27e-7 E 6.92e-7 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S5 three cuts | Sa | Rd: iters 227 retries 1 rebuilds 1 t_apply 22.7 ms t_update 3.0 ms | F 2.87e-7 E 7.37e-7 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S5 three cuts | Sa | Pa: iters 1132 retries 0 rebuilds 0 t_apply 100.5 ms t_update 2.2 ms | F 2.27e-7 E 7.93e-7 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S5 three cuts | Pr | U: iters 434 retries 0 rebuilds 5 t_apply 39.8 ms t_update 1.9 ms | F 3.18e-7 E 3.70e-7 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S5 three cuts | Pr | F: iters 2633 retries 0 rebuilds 0 t_apply 233.9 ms t_update 0.4 ms | F 2.89e-6 E 6.11e-6 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S5 three cuts | Pr | R8: iters 463 retries 0 rebuilds 7 t_apply 43.1 ms t_update 3.3 ms | F 3.18e-7 E 7.03e-7 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S5 three cuts | Pr | Rd: iters 595 retries 17 rebuilds 17 t_apply 61.4 ms t_update 5.4 ms | F 3.18e-7 E 7.30e-7 χ 0.00e0
+2D wall 1x4 d0.1 s1 | S5 three cuts | Pr | Pa: iters 1839 retries 0 rebuilds 0 t_apply 166.7 ms t_update 0.7 ms | F 3.18e-7 E 9.64e-7 χ 0.00e0
+3D cube 2m d0.2 s1 | S0 none | Sa | U: iters 240 retries 0 rebuilds 2 t_apply 383.5 ms t_update 134.0 ms | F 3.55e-5 E 6.23e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S0 none | Sa | F: iters 240 retries 0 rebuilds 0 t_apply 377.2 ms t_update 49.2 ms | F 4.35e-5 E 7.19e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S0 none | Sa | R8: iters 240 retries 0 rebuilds 7 t_apply 390.5 ms t_update 377.6 ms | F 4.35e-5 E 7.19e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S0 none | Sa | Rd: iters 240 retries 0 rebuilds 0 t_apply 445.6 ms t_update 44.4 ms | F 4.35e-5 E 7.19e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S0 none | Sa | Pa: iters 240 retries 0 rebuilds 0 t_apply 386.8 ms t_update 66.4 ms | F 3.55e-5 E 6.23e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S0 none | Pr | U: iters 480 retries 0 rebuilds 2 t_apply 596.9 ms t_update 14.4 ms | F 5.44e-5 E 8.51e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S0 none | Pr | F: iters 480 retries 0 rebuilds 0 t_apply 581.6 ms t_update 5.4 ms | F 5.44e-5 E 8.53e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S0 none | Pr | R8: iters 480 retries 0 rebuilds 7 t_apply 582.5 ms t_update 43.7 ms | F 5.44e-5 E 8.53e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S0 none | Pr | Rd: iters 480 retries 0 rebuilds 0 t_apply 591.3 ms t_update 4.8 ms | F 5.44e-5 E 8.53e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S0 none | Pr | Pa: iters 480 retries 0 rebuilds 0 t_apply 626.2 ms t_update 8.0 ms | F 5.44e-5 E 8.51e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S1 soften 1% | Sa | U: iters 240 retries 0 rebuilds 41 t_apply 441.4 ms t_update 2374.9 ms | F 3.55e-5 E 6.23e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S1 soften 1% | Sa | F: iters 371 retries 0 rebuilds 0 t_apply 572.1 ms t_update 48.0 ms | F 4.35e-5 E 7.19e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S1 soften 1% | Sa | R8: iters 244 retries 0 rebuilds 7 t_apply 389.2 ms t_update 365.5 ms | F 4.35e-5 E 7.19e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S1 soften 1% | Sa | Rd: iters 371 retries 0 rebuilds 0 t_apply 583.4 ms t_update 45.7 ms | F 4.35e-5 E 7.19e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S1 soften 1% | Sa | Pa: iters 240 retries 0 rebuilds 0 t_apply 380.6 ms t_update 364.9 ms | F 3.55e-5 E 6.23e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S1 soften 1% | Pr | U: iters 499 retries 0 rebuilds 41 t_apply 575.4 ms t_update 198.0 ms | F 5.44e-5 E 8.51e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S1 soften 1% | Pr | F: iters 511 retries 0 rebuilds 0 t_apply 651.1 ms t_update 4.7 ms | F 5.44e-5 E 8.53e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S1 soften 1% | Pr | R8: iters 499 retries 0 rebuilds 7 t_apply 601.5 ms t_update 38.3 ms | F 5.44e-5 E 8.53e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S1 soften 1% | Pr | Rd: iters 659 retries 20 rebuilds 20 t_apply 926.0 ms t_update 102.6 ms | F 5.44e-5 E 8.53e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S1 soften 1% | Pr | Pa: iters 499 retries 0 rebuilds 0 t_apply 595.3 ms t_update 106.2 ms | F 5.44e-5 E 8.51e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S2 soften 10% | Sa | U: iters 286 retries 0 rebuilds 41 t_apply 461.2 ms t_update 2199.8 ms | F 3.55e-5 E 6.23e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S2 soften 10% | Sa | F: iters 495 retries 0 rebuilds 0 t_apply 769.5 ms t_update 46.5 ms | F 4.35e-5 E 7.19e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S2 soften 10% | Sa | R8: iters 295 retries 0 rebuilds 7 t_apply 488.4 ms t_update 383.4 ms | F 4.35e-5 E 7.19e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S2 soften 10% | Sa | Rd: iters 354 retries 1 rebuilds 1 t_apply 603.5 ms t_update 95.6 ms | F 4.35e-5 E 7.19e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S2 soften 10% | Sa | Pa: iters 304 retries 0 rebuilds 0 t_apply 468.3 ms t_update 1662.0 ms | F 3.55e-5 E 6.23e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S2 soften 10% | Pr | U: iters 546 retries 0 rebuilds 41 t_apply 656.1 ms t_update 206.5 ms | F 5.44e-5 E 8.51e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S2 soften 10% | Pr | F: iters 638 retries 0 rebuilds 0 t_apply 815.8 ms t_update 4.8 ms | F 5.44e-5 E 8.53e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S2 soften 10% | Pr | R8: iters 552 retries 0 rebuilds 7 t_apply 675.5 ms t_update 38.8 ms | F 5.44e-5 E 8.53e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S2 soften 10% | Pr | Rd: iters 930 retries 48 rebuilds 48 t_apply 1464.3 ms t_update 244.4 ms | F 5.44e-5 E 8.53e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S2 soften 10% | Pr | Pa: iters 546 retries 0 rebuilds 0 t_apply 643.4 ms t_update 404.0 ms | F 5.44e-5 E 8.51e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S3 growing crack | Sa | U: iters 258 retries 0 rebuilds 42 t_apply 423.9 ms t_update 2152.6 ms | F 3.55e-5 E 6.23e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S3 growing crack | Sa | F: iters 1738 retries 0 rebuilds 0 t_apply 2715.7 ms t_update 49.6 ms | F 4.35e-5 E 7.19e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S3 growing crack | Sa | R8: iters 516 retries 0 rebuilds 7 t_apply 793.1 ms t_update 383.4 ms | F 4.35e-5 E 7.19e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S3 growing crack | Sa | Rd: iters 434 retries 15 rebuilds 15 t_apply 1428.0 ms t_update 776.3 ms | F 4.35e-5 E 7.19e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S3 growing crack | Sa | Pa: iters 768 retries 0 rebuilds 0 t_apply 1170.5 ms t_update 327.5 ms | F 3.55e-5 E 6.23e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S3 growing crack | Pr | U: iters 489 retries 0 rebuilds 42 t_apply 589.2 ms t_update 217.5 ms | F 5.44e-5 E 8.51e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S3 growing crack | Pr | F: iters 1950 retries 0 rebuilds 0 t_apply 2342.5 ms t_update 4.8 ms | F 5.44e-5 E 8.53e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S3 growing crack | Pr | R8: iters 706 retries 0 rebuilds 7 t_apply 863.4 ms t_update 39.7 ms | F 5.44e-5 E 8.53e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S3 growing crack | Pr | Rd: iters 762 retries 34 rebuilds 34 t_apply 1293.9 ms t_update 177.1 ms | F 5.44e-5 E 8.53e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S3 growing crack | Pr | Pa: iters 1310 retries 0 rebuilds 0 t_apply 2125.9 ms t_update 112.2 ms | F 5.44e-5 E 8.51e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S4 cut at step 20 | Sa | U: iters 202 retries 0 rebuilds 3 t_apply 375.8 ms t_update 187.1 ms | F 3.55e-5 E 6.23e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S4 cut at step 20 | Sa | F: iters 2038 retries 0 rebuilds 0 t_apply 3283.7 ms t_update 55.1 ms | F 4.35e-5 E 7.19e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S4 cut at step 20 | Sa | R8: iters 382 retries 0 rebuilds 7 t_apply 693.2 ms t_update 463.5 ms | F 4.35e-5 E 7.19e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S4 cut at step 20 | Sa | Rd: iters 210 retries 1 rebuilds 1 t_apply 437.5 ms t_update 106.7 ms | F 4.35e-5 E 7.19e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S4 cut at step 20 | Sa | Pa: iters 1040 retries 0 rebuilds 0 t_apply 1589.7 ms t_update 102.4 ms | F 3.55e-5 E 6.23e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S4 cut at step 20 | Pr | U: iters 366 retries 0 rebuilds 3 t_apply 551.2 ms t_update 24.7 ms | F 5.44e-5 E 8.51e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S4 cut at step 20 | Pr | F: iters 2477 retries 0 rebuilds 0 t_apply 3124.8 ms t_update 5.2 ms | F 5.44e-5 E 8.53e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S4 cut at step 20 | Pr | R8: iters 569 retries 0 rebuilds 7 t_apply 699.5 ms t_update 39.5 ms | F 5.44e-5 E 8.53e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S4 cut at step 20 | Pr | Rd: iters 374 retries 1 rebuilds 1 t_apply 499.1 ms t_update 9.6 ms | F 5.44e-5 E 8.53e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S4 cut at step 20 | Pr | Pa: iters 1760 retries 0 rebuilds 0 t_apply 2102.7 ms t_update 18.1 ms | F 5.44e-5 E 8.51e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S5 three cuts | Sa | U: iters 196 retries 0 rebuilds 5 t_apply 321.3 ms t_update 334.0 ms | F 1.46e-5 E 2.67e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S5 three cuts | Sa | F: iters 2743 retries 0 rebuilds 0 t_apply 4180.8 ms t_update 61.9 ms | F 1.80e-5 E 3.08e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S5 three cuts | Sa | R8: iters 235 retries 0 rebuilds 7 t_apply 384.2 ms t_update 382.8 ms | F 1.80e-5 E 3.08e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S5 three cuts | Sa | Rd: iters 229 retries 1 rebuilds 1 t_apply 417.0 ms t_update 93.6 ms | F 1.80e-5 E 3.08e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S5 three cuts | Sa | Pa: iters 1773 retries 0 rebuilds 0 t_apply 2695.4 ms t_update 173.0 ms | F 1.46e-5 E 2.67e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S5 three cuts | Pr | U: iters 373 retries 0 rebuilds 5 t_apply 480.7 ms t_update 29.1 ms | F 2.25e-5 E 3.65e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S5 three cuts | Pr | F: iters 2843 retries 0 rebuilds 0 t_apply 3692.0 ms t_update 4.8 ms | F 2.25e-5 E 3.66e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S5 three cuts | Pr | R8: iters 415 retries 0 rebuilds 7 t_apply 524.6 ms t_update 38.8 ms | F 2.25e-5 E 3.66e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S5 three cuts | Pr | Rd: iters 391 retries 1 rebuilds 1 t_apply 489.6 ms t_update 9.2 ms | F 2.25e-5 E 3.66e-5 χ 0.00e0
+3D cube 2m d0.2 s1 | S5 three cuts | Pr | Pa: iters 2677 retries 0 rebuilds 0 t_apply 3033.3 ms t_update 32.0 ms | F 2.25e-5 E 3.65e-5 χ 0.00e0
+reuse done in 454 s
+./target/release/two_level reuse  367.49s user 70.28s system 96% cpu 7:33.88 total

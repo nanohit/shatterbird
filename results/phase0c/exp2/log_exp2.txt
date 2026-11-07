@@ -1,0 +1,230 @@
+  auto_chi0.8_h480 t=0.02500 expand +11 → 11 detailed, regions 1, position misfit 1.60e-8 m, ΔU/U 2.70e-4
+  auto_chi0.8_h240 t=0.02500 expand +16 → 16 detailed, regions 1, position misfit 1.77e-8 m, ΔU/U 3.66e-4
+  auto_chi0.8_h480 t=0.02917 expand +15 → 26 detailed, regions 1, position misfit 1.62e-8 m, ΔU/U 2.80e-4
+  auto_chi0.8_h240 t=0.03333 expand +17 → 33 detailed, regions 1, position misfit 2.49e-8 m, ΔU/U 2.72e-4
+  auto_chi0.8_h480 t=0.03542 expand +16 → 42 detailed, regions 1, position misfit 2.10e-8 m, ΔU/U 1.74e-4
+  auto_chi0.8_h240 t=0.00833 expand +16 → 16 detailed, regions 1, position misfit 5.91e-8 m, ΔU/U 2.75e-4
+  auto_chi0.8_h240 t=0.01354 expand +17 → 33 detailed, regions 1, position misfit 2.60e-8 m, ΔU/U 2.30e-4
+  auto_chi0.8_h240 t=0.01458 expand +15 → 48 detailed, regions 1, position misfit 1.45e-8 m, ΔU/U 1.09e-4
+  auto_chi0.8_h240 t=0.01667 expand +16 → 64 detailed, regions 1, position misfit 1.03e-8 m, ΔU/U 7.17e-5
+  auto_chi0.8_h480 t=0.01250 expand +16 → 16 detailed, regions 1, position misfit 5.54e-8 m, ΔU/U 3.16e-4
+  auto_chi0.8_h240 t=0.01849 expand +13 → 77 detailed, regions 1, position misfit 2.31e-10 m, ΔU/U 2.25e-5
+  auto_chi0.8_h480 t=0.01458 expand +17 → 33 detailed, regions 1, position misfit 4.46e-8 m, ΔU/U 2.08e-4
+  auto_chi0.8_h480 t=0.01615 expand +15 → 48 detailed, regions 1, position misfit 2.47e-8 m, ΔU/U 1.05e-4
+  auto_chi0.8_h480 t=0.01823 expand +16 → 64 detailed, regions 1, position misfit 9.46e-9 m, ΔU/U 7.19e-5
+  auto_chi0.8_h480 t=0.02005 expand +17 → 81 detailed, regions 1, position misfit 9.30e-9 m, ΔU/U 2.72e-5
+  auto_chi0.8_h240 t=0.02077 expand +18 → 95 detailed, regions 1, position misfit 1.93e-9 m, ΔU/U 5.03e-5
+  auto_chi0.8_h480 t=0.02227 expand +14 → 95 detailed, regions 1, position misfit 2.41e-8 m, ΔU/U 3.74e-6
+  auto_chi0.8_h480 t=0.02233 expand +18 → 113 detailed, regions 1, position misfit 1.79e-9 m, ΔU/U 6.80e-5
+seed 1 red_root0.4_h240: lambda_crit = Some(0.9671875000000001) bracket [0.9594, 0.9750]
+seed 1 red_root0.4_h480: lambda_crit = Some(0.9359375000000001) bracket [0.9281, 0.9438]
+  auto_chi0.8_h240 t=0.02326 expand +13 → 108 detailed, regions 2, position misfit 2.78e-9 m, ΔU/U -8.09e-4
+  auto_chi0.8_h480 t=0.02476 expand +13 → 126 detailed, regions 2, position misfit 2.76e-9 m, ΔU/U -8.44e-4
+  auto_chi0.8_h240 t=0.01250 expand +16 → 16 detailed, regions 1, position misfit 2.62e-8 m, ΔU/U 2.66e-4
+  auto_chi0.8_h240 t=0.01667 expand +17 → 33 detailed, regions 1, position misfit 1.00e-8 m, ΔU/U 2.19e-4
+  auto_chi0.8_h240 t=0.01927 expand +15 → 48 detailed, regions 1, position misfit 7.07e-10 m, ΔU/U 1.21e-4
+  auto_chi0.8_h240 t=0.02188 expand +16 → 64 detailed, regions 1, position misfit 8.64e-9 m, ΔU/U 8.20e-5
+  auto_chi0.8_h240 t=0.02448 expand +13 → 77 detailed, regions 1, position misfit 1.31e-8 m, ΔU/U 2.73e-5
+  auto_chi0.8_h240 t=0.02943 expand +18 → 95 detailed, regions 1, position misfit 1.90e-9 m, ΔU/U 6.06e-5
+  auto_chi0.8_h240 t=0.03221 expand +13 → 108 detailed, regions 2, position misfit 2.02e-9 m, ΔU/U -6.96e-4
+  auto_chi0.8_h480 t=0.01667 expand +28 → 28 detailed, regions 1, position misfit 3.87e-8 m, ΔU/U 4.89e-4
+  auto_chi0.8_h480 t=0.01875 expand +18 → 46 detailed, regions 1, position misfit 9.47e-9 m, ΔU/U 1.50e-4
+  auto_chi0.8_h480 t=0.02188 expand +11 → 57 detailed, regions 1, position misfit 9.58e-9 m, ΔU/U 7.30e-5
+  auto_chi0.8_h480 t=0.02344 expand +14 → 71 detailed, regions 1, position misfit 1.41e-8 m, ΔU/U 5.16e-5
+  auto_chi0.8_h480 t=0.02578 expand +13 → 84 detailed, regions 1, position misfit 1.17e-8 m, ΔU/U 1.69e-5
+  auto_chi0.8_h240 t=0.01667 expand +16 → 16 detailed, regions 1, position misfit 9.65e-9 m, ΔU/U 3.05e-4
+  auto_chi0.8_h240 t=0.02083 expand +17 → 33 detailed, regions 1, position misfit 4.75e-9 m, ΔU/U 2.37e-4
+  auto_chi0.8_h240 t=0.02396 expand +15 → 48 detailed, regions 1, position misfit 1.05e-8 m, ΔU/U 1.30e-4
+  auto_chi0.8_h240 t=0.02708 expand +16 → 64 detailed, regions 1, position misfit 1.55e-8 m, ΔU/U 8.51e-5
+seed 1 full_bdf2_h240: lambda_crit = Some(0.9828125000000001) bracket [0.9750, 0.9906]
+  auto_chi0.8_h240 t=0.01667 expand +44 → 44 detailed, regions 1, position misfit 1.73e-8 m, ΔU/U 6.06e-4
+  auto_chi0.8_h240 t=0.02187 expand +15 → 59 detailed, regions 1, position misfit 7.39e-9 m, ΔU/U 1.15e-4
+  auto_chi0.8_h480 t=0.03016 expand +21 → 105 detailed, regions 1, position misfit 2.39e-9 m, ΔU/U -4.14e-5
+  auto_chi0.8_h240 t=0.02500 expand +14 → 73 detailed, regions 1, position misfit 1.26e-8 m, ΔU/U 5.34e-5
+  auto_chi0.8_h240 t=0.02813 expand +13 → 86 detailed, regions 1, position misfit 1.16e-8 m, ΔU/U 1.83e-5
+  auto_chi0.8_h240 t=0.01250 expand +11 → 11 detailed, regions 1, position misfit 2.08e-8 m, ΔU/U 1.94e-4
+  auto_chi0.8_h240 t=0.01667 expand +15 → 26 detailed, regions 1, position misfit 8.03e-9 m, ΔU/U 2.36e-4
+  auto_chi0.8_h240 t=0.01875 expand +16 → 42 detailed, regions 1, position misfit 1.81e-9 m, ΔU/U 1.46e-4
+  auto_chi0.8_h240 t=0.02135 expand +13 → 55 detailed, regions 1, position misfit 6.38e-9 m, ΔU/U 8.91e-5
+  auto_chi0.8_h240 t=0.02344 expand +14 → 69 detailed, regions 1, position misfit 1.07e-8 m, ΔU/U 4.92e-5
+  auto_chi0.8_h240 t=0.02656 expand +13 → 82 detailed, regions 1, position misfit 1.14e-8 m, ΔU/U 1.66e-5
+  auto_chi0.8_h240 t=0.03242 expand +19 → 101 detailed, regions 1, position misfit 1.93e-9 m, ΔU/U 7.93e-5
+  auto_chi0.8_h480 t=0.03494 expand +10 → 115 detailed, regions 2, position misfit 3.16e-11 m, ΔU/U -2.93e-4
+  auto_chi0.8_h480 t=0.01875 expand +11 → 11 detailed, regions 1, position misfit 7.60e-9 m, ΔU/U 2.46e-4
+  auto_chi0.8_h480 t=0.02083 expand +15 → 26 detailed, regions 1, position misfit 4.69e-9 m, ΔU/U 2.49e-4
+  auto_chi0.8_h480 t=0.02292 expand +22 → 48 detailed, regions 1, position misfit 1.65e-8 m, ΔU/U 1.94e-4
+  auto_chi0.8_h480 t=0.02812 expand +16 → 64 detailed, regions 1, position misfit 1.36e-8 m, ΔU/U 8.58e-5
+  auto_chi0.8_h240 t=0.03577 expand +13 → 114 detailed, regions 2, position misfit 1.02e-9 m, ΔU/U -6.34e-4
+  auto_chi0.8_h480 t=0.03281 expand +13 → 77 detailed, regions 1, position misfit 1.29e-8 m, ΔU/U 2.78e-5
+  auto_chi0.8_h480 t=0.01667 expand +11 → 11 detailed, regions 1, position misfit 2.11e-8 m, ΔU/U 2.34e-4
+  auto_chi0.8_h480 t=0.01875 expand +15 → 26 detailed, regions 1, position misfit 7.61e-9 m, ΔU/U 2.35e-4
+  auto_chi0.8_h480 t=0.02083 expand +22 → 48 detailed, regions 1, position misfit 6.25e-9 m, ΔU/U 1.86e-4
+  auto_chi0.8_h240 t=0.01667 expand +51 → 51 detailed, regions 1, position misfit 1.83e-8 m, ΔU/U 6.64e-4
+  auto_chi0.8_h240 t=0.02188 expand +11 → 62 detailed, regions 1, position misfit 5.31e-9 m, ΔU/U 7.24e-5
+  auto_chi0.8_h480 t=0.02500 expand +16 → 64 detailed, regions 1, position misfit 1.58e-8 m, ΔU/U 8.61e-5
+  auto_chi0.8_h240 t=0.02396 expand +14 → 76 detailed, regions 1, position misfit 1.10e-8 m, ΔU/U 5.23e-5
+  auto_chi0.8_h480 t=0.02813 expand +13 → 77 detailed, regions 1, position misfit 1.05e-8 m, ΔU/U 2.67e-5
+  auto_chi0.8_h240 t=0.02708 expand +13 → 89 detailed, regions 1, position misfit 1.22e-8 m, ΔU/U 1.86e-5
+  auto_chi0.8_h480 t=0.03571 expand +19 → 96 detailed, regions 1, position misfit 1.97e-9 m, ΔU/U 9.27e-5
+  auto_chi0.8_h240 t=0.03428 expand +18 → 107 detailed, regions 1, position misfit 1.98e-9 m, ΔU/U -1.35e-4
+  auto_chi0.8_h480 t=0.03910 expand +13 → 109 detailed, regions 2, position misfit 9.28e-10 m, ΔU/U -6.80e-4
+  auto_chi0.8_h240 t=0.04159 expand +10 → 117 detailed, regions 2, position misfit 1.23e-9 m, ΔU/U -2.57e-4
+  auto_chi0.8_h480 t=0.01875 expand +16 → 16 detailed, regions 1, position misfit 9.96e-9 m, ΔU/U 3.46e-4
+  auto_chi0.8_h480 t=0.02083 expand +17 → 33 detailed, regions 1, position misfit 5.80e-9 m, ΔU/U 2.35e-4
+  auto_chi0.8_h480 t=0.02292 expand +15 → 48 detailed, regions 1, position misfit 1.20e-8 m, ΔU/U 1.27e-4
+  auto_chi0.8_h480 t=0.02656 expand +16 → 64 detailed, regions 1, position misfit 1.47e-8 m, ΔU/U 8.66e-5
+  auto_chi0.8_h480 t=0.03021 expand +13 → 77 detailed, regions 1, position misfit 1.01e-8 m, ΔU/U 2.69e-5
+  auto_chi0.8_h240 t=0.01667 expand +51 → 51 detailed, regions 1, position misfit 1.81e-8 m, ΔU/U 6.54e-4
+  auto_chi0.8_h240 t=0.02240 expand +11 → 62 detailed, regions 1, position misfit 6.90e-9 m, ΔU/U 7.42e-5
+  auto_chi0.8_h240 t=0.02448 expand +14 → 76 detailed, regions 1, position misfit 1.22e-8 m, ΔU/U 5.33e-5
+  auto_chi0.8_h240 t=0.02760 expand +13 → 89 detailed, regions 1, position misfit 1.21e-8 m, ΔU/U 1.86e-5
+seed 1 full_explicit: lambda_crit = Some(0.9203125000000001) bracket [0.9125, 0.9281]
+  auto_chi0.8_h240 t=0.03568 expand +18 → 107 detailed, regions 1, position misfit 1.94e-9 m, ΔU/U -1.39e-4
+  auto_chi0.8_h480 t=0.01875 expand +28 → 28 detailed, regions 1, position misfit 1.35e-8 m, ΔU/U 5.12e-4
+  auto_chi0.8_h480 t=0.02083 expand +18 → 46 detailed, regions 1, position misfit 5.14e-9 m, ΔU/U 1.61e-4
+  auto_chi0.8_h480 t=0.02396 expand +11 → 57 detailed, regions 1, position misfit 1.27e-8 m, ΔU/U 7.39e-5
+  auto_chi0.8_h480 t=0.02604 expand +14 → 71 detailed, regions 1, position misfit 1.29e-8 m, ΔU/U 5.10e-5
+  auto_chi0.8_h480 t=0.02969 expand +13 → 84 detailed, regions 1, position misfit 7.84e-9 m, ΔU/U 1.61e-5
+  auto_chi0.8_h480 t=0.04072 expand +21 → 105 detailed, regions 1, position misfit 2.03e-9 m, ΔU/U -1.78e-5
+  auto_chi0.8_h240 t=0.04328 expand +10 → 117 detailed, regions 2, position misfit 1.27e-9 m, ΔU/U -2.31e-4
+seed 1 auto_chi0.8_h240: lambda_crit = Some(0.9828125000000001) bracket [0.9750, 0.9906]
+  auto_chi0.8_h480 t=0.04950 expand +10 → 115 detailed, regions 2, position misfit 1.03e-9 m, ΔU/U -1.61e-4
+  auto_chi0.8_h480 t=0.01875 expand +22 → 22 detailed, regions 1, position misfit 1.15e-8 m, ΔU/U 4.40e-4
+  auto_chi0.8_h480 t=0.02083 expand +20 → 42 detailed, regions 1, position misfit 5.86e-9 m, ΔU/U 2.08e-4
+  auto_chi0.8_h480 t=0.02448 expand +13 → 55 detailed, regions 1, position misfit 1.56e-8 m, ΔU/U 9.52e-5
+  auto_chi0.8_h480 t=0.02656 expand +14 → 69 detailed, regions 1, position misfit 1.21e-8 m, ΔU/U 5.04e-5
+  auto_chi0.8_h480 t=0.03021 expand +13 → 82 detailed, regions 1, position misfit 7.83e-9 m, ΔU/U 1.58e-5
+seed 1 auto_chi0.8_h480: lambda_crit = Some(0.9359375000000001) bracket [0.9281, 0.9438]
+  auto_chi0.8_h480 t=0.01458 expand +11 → 11 detailed, regions 1, position misfit 3.27e-8 m, ΔU/U 2.26e-4
+  auto_chi0.8_h240 t=0.01250 expand +23 → 23 detailed, regions 1, position misfit 3.23e-8 m, ΔU/U 3.50e-4
+  auto_chi0.8_h480 t=0.01667 expand +15 → 26 detailed, regions 1, position misfit 2.16e-8 m, ΔU/U 2.22e-4
+  auto_chi0.8_h240 t=0.01667 expand +22 → 45 detailed, regions 1, position misfit 1.15e-8 m, ΔU/U 2.12e-4
+  auto_chi0.8_h480 t=0.01875 expand +16 → 42 detailed, regions 1, position misfit 8.55e-9 m, ΔU/U 1.40e-4
+  auto_chi0.8_h240 t=0.01979 expand +11 → 56 detailed, regions 1, position misfit 1.20e-9 m, ΔU/U 6.78e-5
+  auto_chi0.8_h480 t=0.02083 expand +13 → 55 detailed, regions 1, position misfit 6.17e-9 m, ΔU/U 8.73e-5
+  auto_chi0.8_h240 t=0.02188 expand +14 → 70 detailed, regions 1, position misfit 7.85e-9 m, ΔU/U 4.87e-5
+  auto_chi0.8_h480 t=0.02292 expand +14 → 69 detailed, regions 1, position misfit 1.39e-8 m, ΔU/U 5.09e-5
+  auto_chi0.8_h240 t=0.02396 expand +13 → 83 detailed, regions 1, position misfit 1.09e-8 m, ΔU/U 1.63e-5
+  auto_chi0.8_h480 t=0.02500 expand +13 → 82 detailed, regions 1, position misfit 1.21e-8 m, ΔU/U 1.66e-5
+  cantilever_SBIL1_s1_g1.1504 red_root0.4_h240: D=13.788 onset=Some(0.01875) sep=Some(0.053271484375000025) frag v=(-0.165,-2.343) ω=-1.214 E0-Eend=6.430e0 rise=0.00e0 steps=326 rej=17 det=71 work=1.248e9 wall=2.8s
+  cantilever_SBIL1_s1_g1.1504 red_root0.4_h480: D=13.802 onset=Some(0.019791666666666666) sep=Some(0.05340169270833336) frag v=(-0.164,-2.344) ω=-1.215 E0-Eend=5.803e0 rise=0.00e0 steps=399 rej=18 det=71 work=1.489e9 wall=3.3s
+  auto_chi0.8_h480 t=0.02874 expand +19 → 101 detailed, regions 1, position misfit 2.01e-9 m, ΔU/U 7.05e-5
+  auto_chi0.8_h240 t=0.02861 expand +22 → 105 detailed, regions 1, position misfit 2.52e-9 m, ΔU/U -1.42e-5
+  cantilever_SBIL1_s1_g1.1504 full_bdf2_h240: D=13.867 onset=Some(0.01875) sep=Some(0.05322265625000005) frag v=(-0.165,-2.342) ω=-1.213 E0-Eend=6.432e0 rise=0.00e0 steps=320 rej=16 det=716 work=4.610e9 wall=11.1s
+  cantilever_SBIL1_s1_g1.1504 full_explicit: D=14.543 onset=Some(0.020354492960523485) sep=Some(0.039751846182032854) frag v=(0.522,-2.523) ω=-0.958 E0-Eend=1.647e-4 rise=1.22e-6 steps=88388 rej=0 det=0 work=2.092e10 wall=19.3s
+  auto_chi0.8_h480 t=0.03167 expand +13 → 114 detailed, regions 2, position misfit 1.63e-9 m, ΔU/U -5.88e-4
+  auto_chi0.8_h240 t=0.03304 expand +10 → 115 detailed, regions 2, position misfit 1.39e-11 m, ΔU/U -3.56e-4
+  cantilever_SBIL1_s1_g1.1504 auto_chi0.8_h240: D=13.856 onset=Some(0.01875) sep=Some(0.0533528645833334) frag v=(-0.165,-2.343) ω=-1.214 E0-Eend=6.372e0 rise=0.00e0 steps=325 rej=14 det=115 work=1.939e10 wall=37.0s
+  cantilever_SBIL1_s1_g1.1504 auto_chi0.8_h480: D=13.868 onset=Some(0.019791666666666666) sep=Some(0.0534179687500001) frag v=(-0.164,-2.344) ω=-1.215 E0-Eend=5.751e0 rise=0.00e0 steps=391 rej=17 det=114 work=2.030e10 wall=39.4s
+cantilever_SBIL1_s1_g1.1504 {"D":[14.543016924622787,13.867174993141155],"D_rel":-0.046471920852774594,"KE_end":[4259.875310210528,4023.0098780208327],"all_pass":false,"cells":716,"chi_r_max":0.0,"crack_box":[[0.18553423557759977,0.19803063068662433,0.04744395488322574,0.705901370525491,0.018122256992512464,0.3932158836337937],[0.1865779187402843,0.20675856803800227,0.04744395488322574,0.705901370525491,0.018122256992512464,0.3932158836337937]],"crack_xy_mean":[[0.18553423557759977,0.19803063068662433],[0.1865779187402843,0.20675856803800227]],"criteria":{"crack_location":true,"event_times_within_frame":true,"fracture_and_separation":true,"fracture_energy":true,"fragment_KE":true,"fragment_omega":false,"fragment_velocity":false,"no_energy_creation":true},"detailed_cells_max":716,"e_max_rise":[1.2237548758231576e-6,0.0],"expansions":0,"fragment":[{"cells":683,"cm":[2.169225642435319,-0.14550559120462478],"mass":1099.187647587892,"omega":-0.9581885119821731,"separated":true,"v":[0.5222818176699557,-2.522696952835574]},{"cells":683,"cm":[2.0966171151121182,-0.12621120694809196],"mass":1099.187647587892,"omega":-1.2132401164092819,"separated":true,"v":[-0.1649432320771169,-2.342249302090039]}],"fragment_dv_over_v":0.27580241510166137,"h":0.004166666666666667,"label":"full_bdf2_h240","min_h":0.000016276041666666666,"numerical_dissipation_end":[0.00016472654859295277,6.432403246012323],"numerical_dissipation_over_KEend":0.0015099980111141858,"omega_rel":0.26618102934618976,"onset_t":[0.020354492960523485,0.01875],"rejected":16,"sep_t":[0.039751846182032854,0.05322265625000005],"steps":320,"wall_ratio_vs_ref":1.73545950982081,"work_ratio_vs_ref":4.537622013606535}
+cantilever_SBIL1_s1_g1.1504 {"D":[14.543016924622787,13.787878136763554],"D_rel":-0.05192449350593183,"KE_end":[4259.875310210528,4026.771478294767],"all_pass":false,"cells":716,"chi_r_max":1.153327755800989,"crack_box":[[0.18553423557759977,0.19803063068662433,0.04744395488322574,0.705901370525491,0.018122256992512464,0.3932158836337937],[0.18524693073203108,0.20636650841214702,0.04744395488322574,0.4057798252906947,0.018122256992512464,0.3932158836337937]],"crack_xy_mean":[[0.18553423557759977,0.19803063068662433],[0.18524693073203108,0.20636650841214702]],"criteria":{"crack_location":true,"event_times_within_frame":true,"fracture_and_separation":true,"fracture_energy":true,"fragment_KE":true,"fragment_omega":false,"fragment_velocity":false,"no_energy_creation":true},"detailed_cells_max":71,"e_max_rise":[1.2237548758231576e-6,0.0],"expansions":0,"fragment":[{"cells":683,"cm":[2.169225642435319,-0.14550559120462478],"mass":1099.187647587892,"omega":-0.9581885119821731,"separated":true,"v":[0.5222818176699557,-2.522696952835574]},{"cells":683,"cm":[2.0965967293989145,-0.12650810089191472],"mass":1099.187647587892,"omega":-1.2138140875707495,"separated":true,"v":[-0.1652583845293475,-2.343321723671137]}],"fragment_dv_over_v":0.27581535672253576,"h":0.004166666666666667,"label":"red_root0.4_h240","min_h":0.000016276041666666666,"numerical_dissipation_end":[0.00016472654859295277,6.430441604911312],"numerical_dissipation_over_KEend":0.0015095375185039189,"omega_rel":0.26678004629775004,"onset_t":[0.020354492960523485,0.01875],"rejected":17,"sep_t":[0.039751846182032854,0.053271484375000025],"steps":326,"wall_ratio_vs_ref":6.904719523117556,"work_ratio_vs_ref":16.758095695399092}
+cantilever_SBIL1_s1_g1.1504 {"D":[14.543016924622787,13.80197061086054],"D_rel":-0.05095547351716145,"KE_end":[4259.875310210528,4030.7344733485697],"all_pass":false,"cells":716,"chi_r_max":1.152294776197407,"crack_box":[[0.18553423557759977,0.19803063068662433,0.04744395488322574,0.705901370525491,0.018122256992512464,0.3932158836337937],[0.1852327511421391,0.20623108225378997,0.04744395488322574,0.4057798252906947,0.018122256992512464,0.3932158836337937]],"crack_xy_mean":[[0.18553423557759977,0.19803063068662433],[0.1852327511421391,0.20623108225378997]],"criteria":{"crack_location":true,"event_times_within_frame":true,"fracture_and_separation":true,"fracture_energy":true,"fragment_KE":true,"fragment_omega":false,"fragment_velocity":false,"no_energy_creation":true},"detailed_cells_max":71,"e_max_rise":[1.2237548758231576e-6,0.0],"expansions":0,"fragment":[{"cells":683,"cm":[2.169225642435319,-0.14550559120462478],"mass":1099.187647587892,"omega":-0.9581885119821731,"separated":true,"v":[0.5222818176699557,-2.522696952835574]},{"cells":683,"cm":[2.0965741011270658,-0.12673352388913495],"mass":1099.187647587892,"omega":-1.215028342853345,"separated":true,"v":[-0.1636904882865303,-2.3442077714683127]}],"fragment_dv_over_v":0.2751396927917295,"h":0.0020833333333333333,"label":"red_root0.4_h480","min_h":0.000016276041666666666,"numerical_dissipation_end":[0.00016472654859295277,5.8033914461276535],"numerical_dissipation_over_KEend":0.0013623383370441522,"omega_rel":0.2680472867910468,"onset_t":[0.020354492960523485,0.019791666666666666],"rejected":18,"sep_t":[0.039751846182032854,0.05340169270833336],"steps":399,"wall_ratio_vs_ref":5.945084929538443,"work_ratio_vs_ref":14.046358247985701}
+cantilever_SBIL1_s1_g1.1504 {"D":[14.543016924622787,13.855824852167435],"D_rel":-0.04725237383804913,"KE_end":[4259.875310210528,4025.7382256141113],"all_pass":false,"cells":716,"chi_r_max":0.7980706141697146,"crack_box":[[0.18553423557759977,0.19803063068662433,0.04744395488322574,0.705901370525491,0.018122256992512464,0.3932158836337937],[0.1865217585161664,0.20672948667100893,0.04744395488322574,0.705901370525491,0.018122256992512464,0.3932158836337937]],"crack_xy_mean":[[0.18553423557759977,0.19803063068662433],[0.1865217585161664,0.20672948667100893]],"criteria":{"crack_location":true,"event_times_within_frame":true,"fracture_and_separation":true,"fracture_energy":true,"fragment_KE":true,"fragment_omega":false,"fragment_velocity":false,"no_energy_creation":true},"detailed_cells_max":115,"e_max_rise":[1.2237548758231576e-6,0.0],"expansions":7,"fragment":[{"cells":683,"cm":[2.169225642435319,-0.14550559120462478],"mass":1099.187647587892,"omega":-0.9581885119821731,"separated":true,"v":[0.5222818176699557,-2.522696952835574]},{"cells":683,"cm":[2.096602757009032,-0.12642604382446787],"mass":1099.187647587892,"omega":-1.2136881636240064,"separated":true,"v":[-0.1649364005166273,-2.343022397440782]}],"fragment_dv_over_v":0.2757237893315712,"h":0.004166666666666667,"label":"auto_chi0.8_h240","min_h":0.000016276041666666666,"numerical_dissipation_end":[0.00016472654859295277,6.371619680881861],"numerical_dissipation_over_KEend":0.001495729150947136,"omega_rel":0.26664862753706947,"onset_t":[0.020354492960523485,0.01875],"rejected":14,"sep_t":[0.039751846182032854,0.0533528645833334],"steps":325,"wall_ratio_vs_ref":0.5222470459993835,"work_ratio_vs_ref":1.078666789949612}
+cantilever_SBIL1_s1_g1.1504 {"D":[14.543016924622787,13.868260503139135],"D_rel":-0.046397279531540776,"KE_end":[4259.875310210528,4029.5204489609646],"all_pass":false,"cells":716,"chi_r_max":0.7991689829617911,"crack_box":[[0.18553423557759977,0.19803063068662433,0.04744395488322574,0.705901370525491,0.018122256992512464,0.3932158836337937],[0.18648513496163804,0.20658542512054837,0.04744395488322574,0.705901370525491,0.018122256992512464,0.3932158836337937]],"crack_xy_mean":[[0.18553423557759977,0.19803063068662433],[0.18648513496163804,0.20658542512054837]],"criteria":{"crack_location":true,"event_times_within_frame":true,"fracture_and_separation":true,"fracture_energy":true,"fragment_KE":true,"fragment_omega":false,"fragment_velocity":false,"no_energy_creation":true},"detailed_cells_max":114,"e_max_rise":[1.2237548758231576e-6,0.0],"expansions":8,"fragment":[{"cells":683,"cm":[2.169225642435319,-0.14550559120462478],"mass":1099.187647587892,"omega":-0.9581885119821731,"separated":true,"v":[0.5222818176699557,-2.522696952835574]},{"cells":683,"cm":[2.096581175939719,-0.12663734178651254],"mass":1099.187647587892,"omega":-1.2146796179260697,"separated":true,"v":[-0.16357246669840775,-2.3439666218651043]}],"fragment_dv_over_v":0.27511894718399765,"h":0.0020833333333333333,"label":"auto_chi0.8_h480","min_h":0.000016276041666666666,"numerical_dissipation_end":[0.00016472654859295277,5.751457886517376],"numerical_dissipation_over_KEend":0.0013501470037706649,"omega_rel":0.26768334491226764,"onset_t":[0.020354492960523485,0.019791666666666666],"rejected":17,"sep_t":[0.039751846182032854,0.0534179687500001],"steps":391,"wall_ratio_vs_ref":0.4899264331382303,"work_ratio_vs_ref":1.0305967942063134}
+  auto_chi0.8_h240 t=0.02500 expand +13 → 13 detailed, regions 1, position misfit 1.38e-8 m, ΔU/U 3.06e-4
+  auto_chi0.8_h480 t=0.02500 expand +13 → 13 detailed, regions 1, position misfit 1.51e-8 m, ΔU/U 2.97e-4
+  auto_chi0.8_h240 t=0.03333 expand +16 → 29 detailed, regions 1, position misfit 2.25e-8 m, ΔU/U 2.86e-4
+  auto_chi0.8_h480 t=0.03125 expand +16 → 29 detailed, regions 1, position misfit 1.84e-8 m, ΔU/U 2.79e-4
+  auto_chi0.8_h240 t=0.00833 expand +13 → 13 detailed, regions 1, position misfit 4.53e-8 m, ΔU/U 2.23e-4
+  auto_chi0.8_h240 t=0.01354 expand +16 → 29 detailed, regions 1, position misfit 2.40e-8 m, ΔU/U 2.46e-4
+  auto_chi0.8_h240 t=0.01458 expand +13 → 42 detailed, regions 1, position misfit 1.28e-8 m, ΔU/U 1.25e-4
+  auto_chi0.8_h480 t=0.01250 expand +13 → 13 detailed, regions 1, position misfit 4.26e-8 m, ΔU/U 2.63e-4
+  auto_chi0.8_h240 t=0.01641 expand +17 → 59 detailed, regions 1, position misfit 1.21e-8 m, ΔU/U 8.06e-5
+  auto_chi0.8_h480 t=0.01458 expand +16 → 29 detailed, regions 1, position misfit 4.22e-8 m, ΔU/U 2.23e-4
+  auto_chi0.8_h480 t=0.01615 expand +13 → 42 detailed, regions 1, position misfit 2.26e-8 m, ΔU/U 1.20e-4
+  auto_chi0.8_h240 t=0.01797 expand +16 → 75 detailed, regions 1, position misfit 4.37e-9 m, ΔU/U 3.26e-5
+  auto_chi0.8_h480 t=0.01797 expand +17 → 59 detailed, regions 1, position misfit 1.33e-8 m, ΔU/U 8.02e-5
+  auto_chi0.8_h480 t=0.01953 expand +16 → 75 detailed, regions 1, position misfit 6.09e-9 m, ΔU/U 3.52e-5
+  auto_chi0.8_h240 t=0.02025 expand +19 → 94 detailed, regions 1, position misfit 1.64e-9 m, ΔU/U 1.07e-4
+  auto_chi0.8_h480 t=0.02181 expand +19 → 94 detailed, regions 1, position misfit 1.79e-9 m, ΔU/U 1.12e-4
+seed 2 red_root0.4_h240: lambda_crit = Some(0.9671875000000001) bracket [0.9594, 0.9750]
+  auto_chi0.8_h240 t=0.02275 expand +17 → 111 detailed, regions 3, position misfit 3.47e-9 m, ΔU/U -7.66e-4
+  auto_chi0.8_h480 t=0.02422 expand +17 → 111 detailed, regions 3, position misfit 3.67e-9 m, ΔU/U -7.89e-4
+seed 2 red_root0.4_h480: lambda_crit = Some(0.9359375000000001) bracket [0.9281, 0.9438]
+  auto_chi0.8_h480 t=0.03110 expand +16 → 127 detailed, regions 3, position misfit 1.99e-7 m, ΔU/U 4.51e-4
+  auto_chi0.8_h480 t=0.03110 expand +14 → 141 detailed, regions 3, position misfit 1.67e-7 m, ΔU/U 5.46e-6
+  auto_chi0.8_h240 t=0.01250 expand +13 → 13 detailed, regions 1, position misfit 2.01e-8 m, ΔU/U 2.23e-4
+  auto_chi0.8_h240 t=0.01667 expand +24 → 37 detailed, regions 1, position misfit 1.76e-8 m, ΔU/U 3.11e-4
+  auto_chi0.8_h240 t=0.02135 expand +19 → 56 detailed, regions 1, position misfit 8.07e-9 m, ΔU/U 1.20e-4
+  auto_chi0.8_h240 t=0.02396 expand +16 → 72 detailed, regions 1, position misfit 1.89e-8 m, ΔU/U 3.98e-5
+  auto_chi0.8_h240 t=0.02852 expand +19 → 91 detailed, regions 1, position misfit 1.66e-9 m, ΔU/U 1.09e-4
+seed 2 full_bdf2_h240: lambda_crit = Some(0.9671875000000001) bracket [0.9594, 0.9750]
+  auto_chi0.8_h240 t=0.03148 expand +17 → 108 detailed, regions 3, position misfit 2.57e-9 m, ΔU/U -6.65e-4
+  auto_chi0.8_h240 t=0.01667 expand +13 → 13 detailed, regions 1, position misfit 7.47e-9 m, ΔU/U 2.56e-4
+  auto_chi0.8_h240 t=0.02083 expand +16 → 29 detailed, regions 1, position misfit 3.86e-9 m, ΔU/U 2.51e-4
+  auto_chi0.8_h240 t=0.02292 expand +13 → 42 detailed, regions 1, position misfit 6.83e-9 m, ΔU/U 1.38e-4
+  auto_chi0.8_h240 t=0.02760 expand +19 → 61 detailed, regions 1, position misfit 1.57e-8 m, ΔU/U 1.02e-4
+  auto_chi0.8_h240 t=0.03229 expand +16 → 77 detailed, regions 1, position misfit 1.70e-8 m, ΔU/U 4.03e-5
+  auto_chi0.8_h480 t=0.01667 expand +27 → 27 detailed, regions 1, position misfit 3.35e-8 m, ΔU/U 4.56e-4
+  auto_chi0.8_h480 t=0.01875 expand +19 → 46 detailed, regions 1, position misfit 9.60e-9 m, ΔU/U 1.90e-4
+  auto_chi0.8_h480 t=0.02292 expand +22 → 68 detailed, regions 1, position misfit 2.19e-8 m, ΔU/U 1.14e-4
+  auto_chi0.8_h480 t=0.02474 expand +14 → 82 detailed, regions 1, position misfit 1.91e-8 m, ΔU/U 2.99e-5
+  auto_chi0.8_h240 t=0.01667 expand +43 → 43 detailed, regions 1, position misfit 2.17e-8 m, ΔU/U 6.05e-4
+  auto_chi0.8_h240 t=0.02396 expand +25 → 68 detailed, regions 1, position misfit 1.84e-8 m, ΔU/U 1.53e-4
+  auto_chi0.8_h240 t=0.02656 expand +14 → 82 detailed, regions 1, position misfit 1.78e-8 m, ΔU/U 3.02e-5
+  auto_chi0.8_h480 t=0.02993 expand +19 → 101 detailed, regions 1, position misfit 2.46e-9 m, ΔU/U -9.78e-5
+  auto_chi0.8_h240 t=0.03626 expand +18 → 100 detailed, regions 1, position misfit 2.14e-9 m, ΔU/U -1.30e-4
+  auto_chi0.8_h240 t=0.04346 expand +8 → 108 detailed, regions 2, position misfit 7.74e-10 m, ΔU/U -2.52e-4
+  auto_chi0.8_h480 t=0.03607 expand +8 → 109 detailed, regions 2, position misfit 4.71e-10 m, ΔU/U -3.96e-4
+  auto_chi0.8_h240 t=0.01667 expand +27 → 27 detailed, regions 1, position misfit 1.17e-8 m, ΔU/U 4.35e-4
+  auto_chi0.8_h240 t=0.02083 expand +19 → 46 detailed, regions 1, position misfit 3.47e-9 m, ΔU/U 2.12e-4
+  auto_chi0.8_h240 t=0.02552 expand +19 → 65 detailed, regions 1, position misfit 1.47e-8 m, ΔU/U 1.03e-4
+  auto_chi0.8_h240 t=0.02865 expand +16 → 81 detailed, regions 1, position misfit 2.03e-8 m, ΔU/U 4.21e-5
+  auto_chi0.8_h480 t=0.01875 expand +13 → 13 detailed, regions 1, position misfit 7.27e-9 m, ΔU/U 2.70e-4
+  auto_chi0.8_h480 t=0.02292 expand +34 → 47 detailed, regions 1, position misfit 2.03e-8 m, ΔU/U 4.35e-4
+  auto_chi0.8_h480 t=0.02760 expand +19 → 66 detailed, regions 1, position misfit 1.38e-8 m, ΔU/U 1.02e-4
+  auto_chi0.8_h480 t=0.03125 expand +16 → 82 detailed, regions 1, position misfit 1.60e-8 m, ΔU/U 4.10e-5
+  auto_chi0.8_h240 t=0.01667 expand +34 → 34 detailed, regions 1, position misfit 1.46e-8 m, ΔU/U 5.13e-4
+  auto_chi0.8_h240 t=0.02083 expand +13 → 47 detailed, regions 1, position misfit 2.39e-9 m, ΔU/U 1.36e-4
+  auto_chi0.8_h240 t=0.02448 expand +19 → 66 detailed, regions 1, position misfit 1.38e-8 m, ΔU/U 1.01e-4
+  auto_chi0.8_h240 t=0.02760 expand +16 → 82 detailed, regions 1, position misfit 2.14e-8 m, ΔU/U 4.27e-5
+  auto_chi0.8_h480 t=0.01667 expand +13 → 13 detailed, regions 1, position misfit 2.01e-8 m, ΔU/U 2.56e-4
+  auto_chi0.8_h480 t=0.02083 expand +34 → 47 detailed, regions 1, position misfit 7.70e-9 m, ΔU/U 4.21e-4
+  auto_chi0.8_h480 t=0.02448 expand +17 → 64 detailed, regions 1, position misfit 1.67e-8 m, ΔU/U 9.82e-5
+  auto_chi0.8_h480 t=0.02734 expand +16 → 80 detailed, regions 1, position misfit 1.70e-8 m, ΔU/U 4.10e-5
+  auto_chi0.8_h240 t=0.01667 expand +42 → 42 detailed, regions 1, position misfit 2.14e-8 m, ΔU/U 5.91e-4
+  auto_chi0.8_h240 t=0.02448 expand +25 → 67 detailed, regions 1, position misfit 1.97e-8 m, ΔU/U 1.54e-4
+  auto_chi0.8_h240 t=0.02708 expand +14 → 81 detailed, regions 1, position misfit 1.75e-8 m, ΔU/U 2.99e-5
+  auto_chi0.8_h480 t=0.03418 expand +15 → 95 detailed, regions 1, position misfit 1.74e-9 m, ΔU/U 5.15e-5
+seed 2 auto_chi0.8_h240: lambda_crit = Some(0.9671875000000001) bracket [0.9594, 0.9750]
+  auto_chi0.8_h480 t=0.03750 expand +15 → 110 detailed, regions 2, position misfit 1.38e-9 m, ΔU/U -6.10e-4
+  auto_chi0.8_h480 t=0.01875 expand +13 → 13 detailed, regions 1, position misfit 7.79e-9 m, ΔU/U 2.90e-4
+  auto_chi0.8_h480 t=0.02083 expand +24 → 37 detailed, regions 1, position misfit 9.65e-9 m, ΔU/U 3.35e-4
+  auto_chi0.8_h480 t=0.02604 expand +22 → 59 detailed, regions 1, position misfit 1.69e-8 m, ΔU/U 1.39e-4
+  auto_chi0.8_h480 t=0.02917 expand +16 → 75 detailed, regions 1, position misfit 1.45e-8 m, ΔU/U 3.93e-5
+seed 2 full_explicit: lambda_crit = Some(0.9046875000000001) bracket [0.8969, 0.9125]
+  auto_chi0.8_h480 t=0.01875 expand +27 → 27 detailed, regions 1, position misfit 1.20e-8 m, ΔU/U 4.75e-4
+  auto_chi0.8_h480 t=0.02083 expand +14 → 41 detailed, regions 1, position misfit 6.40e-9 m, ΔU/U 1.68e-4
+  auto_chi0.8_h480 t=0.02552 expand +25 → 66 detailed, regions 1, position misfit 2.34e-8 m, ΔU/U 1.55e-4
+  auto_chi0.8_h480 t=0.02813 expand +14 → 80 detailed, regions 1, position misfit 1.22e-8 m, ΔU/U 2.84e-5
+  auto_chi0.8_h480 t=0.03835 expand +19 → 99 detailed, regions 1, position misfit 2.22e-9 m, ΔU/U -9.31e-5
+  auto_chi0.8_h480 t=0.04590 expand +8 → 107 detailed, regions 2, position misfit 8.67e-10 m, ΔU/U -2.20e-4
+  auto_chi0.8_h480 t=0.01875 expand +13 → 13 detailed, regions 1, position misfit 7.93e-9 m, ΔU/U 2.95e-4
+  auto_chi0.8_h480 t=0.02083 expand +24 → 37 detailed, regions 1, position misfit 9.81e-9 m, ΔU/U 3.41e-4
+  auto_chi0.8_h480 t=0.02552 expand +19 → 56 detailed, regions 1, position misfit 1.77e-8 m, ΔU/U 1.28e-4
+  auto_chi0.8_h480 t=0.02865 expand +16 → 72 detailed, regions 1, position misfit 1.40e-8 m, ΔU/U 3.91e-5
+  auto_chi0.8_h480 t=0.03880 expand +19 → 91 detailed, regions 1, position misfit 1.55e-9 m, ΔU/U 1.08e-4
+seed 2 auto_chi0.8_h480: lambda_crit = Some(0.9359375000000001) bracket [0.9281, 0.9438]
+  auto_chi0.8_h240 t=0.01250 expand +13 → 13 detailed, regions 1, position misfit 2.07e-8 m, ΔU/U 2.29e-4
+  auto_chi0.8_h480 t=0.01667 expand +27 → 27 detailed, regions 1, position misfit 3.45e-8 m, ΔU/U 4.68e-4
+  auto_chi0.8_h240 t=0.01667 expand +29 → 42 detailed, regions 1, position misfit 1.80e-8 m, ΔU/U 3.44e-4
+  auto_chi0.8_h480 t=0.01875 expand +14 → 41 detailed, regions 1, position misfit 1.26e-8 m, ΔU/U 1.62e-4
+  auto_chi0.8_h240 t=0.02135 expand +25 → 67 detailed, regions 1, position misfit 1.06e-8 m, ΔU/U 1.47e-4
+  auto_chi0.8_h480 t=0.02240 expand +25 → 66 detailed, regions 1, position misfit 2.19e-8 m, ΔU/U 1.52e-4
+  auto_chi0.8_h240 t=0.02318 expand +14 → 81 detailed, regions 1, position misfit 1.40e-8 m, ΔU/U 2.80e-5
+  auto_chi0.8_h480 t=0.02422 expand +14 → 80 detailed, regions 1, position misfit 1.88e-8 m, ΔU/U 2.95e-5
+  cantilever_SBIL1_s2_g1.1309 red_root0.4_h240: D=13.907 onset=Some(0.01875) sep=Some(0.06554361979166677) frag v=(-0.151,-2.302) ω=-1.185 E0-Eend=7.312e0 rise=0.00e0 steps=337 rej=16 det=69 work=1.413e9 wall=3.3s
+  cantilever_SBIL1_s2_g1.1309 red_root0.4_h480: D=13.940 onset=Some(0.019791666666666666) sep=Some(0.06803385416666673) frag v=(-0.149,-2.304) ω=-1.187 E0-Eend=4.946e0 rise=0.00e0 steps=399 rej=13 det=69 work=1.595e9 wall=3.5s
+  auto_chi0.8_h240 t=0.02819 expand +15 → 96 detailed, regions 1, position misfit 1.77e-9 m, ΔU/U 4.90e-5
+  auto_chi0.8_h480 t=0.02920 expand +19 → 99 detailed, regions 1, position misfit 2.44e-9 m, ΔU/U -1.01e-4
+  cantilever_SBIL1_s2_g1.1309 full_bdf2_h240: D=13.930 onset=Some(0.01875) sep=Some(0.06578776041666679) frag v=(-0.150,-2.302) ω=-1.186 E0-Eend=7.321e0 rise=0.00e0 steps=334 rej=18 det=713 work=4.938e9 wall=11.5s
+  auto_chi0.8_h240 t=0.03104 expand +15 → 111 detailed, regions 2, position misfit 1.72e-9 m, ΔU/U -6.26e-4
+  cantilever_SBIL1_s2_g1.1309 full_explicit: D=14.638 onset=Some(0.02067014542764516) sep=Some(0.050752164955595744) frag v=(0.508,-2.517) ω=-0.886 E0-Eend=1.448e-4 rise=3.67e-5 steps=88388 rej=0 det=0 work=2.088e10 wall=19.3s
+  auto_chi0.8_h480 t=0.03530 expand +8 → 107 detailed, regions 2, position misfit 4.39e-10 m, ΔU/U -4.08e-4
+  cantilever_SBIL1_s2_g1.1309 auto_chi0.8_h240: D=13.932 onset=Some(0.01875) sep=Some(0.0654785156250001) frag v=(-0.151,-2.302) ω=-1.185 E0-Eend=8.932e0 rise=0.00e0 steps=339 rej=19 det=111 work=1.301e10 wall=26.2s
+  cantilever_SBIL1_s2_g1.1309 auto_chi0.8_h480: D=13.949 onset=Some(0.019791666666666666) sep=Some(0.06805013020833336) frag v=(-0.149,-2.304) ω=-1.187 E0-Eend=4.993e0 rise=0.00e0 steps=391 rej=15 det=107 work=1.609e10 wall=32.4s
+cantilever_SBIL1_s2_g1.1309 {"D":[14.638359292083049,13.930324032035271],"D_rel":-0.04836848487731194,"KE_end":[4159.08952132323,3889.0650262850572],"all_pass":false,"cells":713,"chi_r_max":0.0,"crack_box":[[0.17310058665298697,0.19501209572826822,0.05207143711901259,0.6328660433617364,0.01125490963698481,0.3991174810328823],[0.17361568820618592,0.2029232685759305,0.05207143711901259,0.6328660433617364,0.01125490963698481,0.3991174810328823]],"crack_xy_mean":[[0.17310058665298697,0.19501209572826822],[0.17361568820618592,0.2029232685759305]],"criteria":{"crack_location":true,"event_times_within_frame":true,"fracture_and_separation":true,"fracture_energy":true,"fragment_KE":true,"fragment_omega":false,"fragment_velocity":false,"no_energy_creation":true},"detailed_cells_max":713,"e_max_rise":[0.00003665387203086179,0.0],"expansions":0,"fragment":[{"cells":684,"cm":[2.1638437893835225,-0.14268465510382206],"mass":1102.1697385038992,"omega":-0.886007976953408,"separated":true,"v":[0.508110607500155,-2.516536118112681]},{"cells":684,"cm":[2.0921956115111775,-0.12048435039226262],"mass":1102.1697385038992,"omega":-1.1855090211603494,"separated":true,"v":[-0.15020836168273943,-2.3022020379784256]}],"fragment_dv_over_v":0.26967094993935065,"h":0.004166666666666667,"label":"full_bdf2_h240","min_h":0.000016276041666666666,"numerical_dissipation_end":[0.0001447678687798437,7.320703088907601],"numerical_dissipation_over_KEend":0.0017601696360165127,"omega_rel":0.3380342525095471,"onset_t":[0.02067014542764516,0.01875],"rejected":18,"sep_t":[0.050752164955595744,0.06578776041666679],"steps":334,"wall_ratio_vs_ref":1.6735604704321139,"work_ratio_vs_ref":4.2290965579513164}
+cantilever_SBIL1_s2_g1.1309 {"D":[14.638359292083049,13.907435104587012],"D_rel":-0.04993211144170689,"KE_end":[4159.08952132323,3888.7494350960424],"all_pass":false,"cells":713,"chi_r_max":1.163199544946588,"crack_box":[[0.17310058665298697,0.19501209572826822,0.05207143711901259,0.6328660433617364,0.01125490963698481,0.3991174810328823],[0.1727975445999269,0.20252779527777892,0.05207143711901259,0.3724335273014164,0.01125490963698481,0.3909670534572848]],"crack_xy_mean":[[0.17310058665298697,0.19501209572826822],[0.1727975445999269,0.20252779527777892]],"criteria":{"crack_location":true,"event_times_within_frame":true,"fracture_and_separation":true,"fracture_energy":true,"fragment_KE":true,"fragment_omega":false,"fragment_velocity":false,"no_energy_creation":true},"detailed_cells_max":69,"e_max_rise":[0.00003665387203086179,0.0],"expansions":0,"fragment":[{"cells":684,"cm":[2.1638437893835225,-0.14268465510382206],"mass":1102.1697385038992,"omega":-0.886007976953408,"separated":true,"v":[0.508110607500155,-2.516536118112681]},{"cells":684,"cm":[2.0921966423534215,-0.12045494623203538],"mass":1102.1697385038992,"omega":-1.1854215739958394,"separated":true,"v":[-0.1505700578103171,-2.3021122967096432]}],"fragment_dv_over_v":0.26981573508526707,"h":0.004166666666666667,"label":"red_root0.4_h240","min_h":0.000016276041666666666,"numerical_dissipation_end":[0.0001447678687798437,7.311767333284279],"numerical_dissipation_over_KEend":0.0017580211476087711,"omega_rel":0.3379355545668822,"onset_t":[0.02067014542764516,0.01875],"rejected":16,"sep_t":[0.050752164955595744,0.06554361979166677],"steps":337,"wall_ratio_vs_ref":5.924248004279918,"work_ratio_vs_ref":14.777747350604342}
+cantilever_SBIL1_s2_g1.1309 {"D":[14.638359292083049,13.940362657997523],"D_rel":-0.04768270952763312,"KE_end":[4159.08952132323,3896.8842069152342],"all_pass":false,"cells":713,"chi_r_max":1.1621746329716773,"crack_box":[[0.17310058665298697,0.19501209572826822,0.05207143711901259,0.6328660433617364,0.01125490963698481,0.3991174810328823],[0.17276801661225663,0.20222229026802907,0.05207143711901259,0.3724335273014164,0.01125490963698481,0.3909670534572848]],"crack_xy_mean":[[0.17310058665298697,0.19501209572826822],[0.17276801661225663,0.20222229026802907]],"criteria":{"crack_location":true,"event_times_within_frame":false,"fracture_and_separation":true,"fracture_energy":true,"fragment_KE":true,"fragment_omega":false,"fragment_velocity":false,"no_energy_creation":true},"detailed_cells_max":69,"e_max_rise":[0.00003665387203086179,0.0],"expansions":0,"fragment":[{"cells":684,"cm":[2.1638437893835225,-0.14268465510382206],"mass":1102.1697385038992,"omega":-0.886007976953408,"separated":true,"v":[0.508110607500155,-2.516536118112681]},{"cells":684,"cm":[2.0921637868867156,-0.1208880996992194],"mass":1102.1697385038992,"omega":-1.1871274257166997,"separated":true,"v":[-0.1494131114169832,-2.304314427614512]}],"fragment_dv_over_v":0.26912255946009755,"h":0.0020833333333333333,"label":"red_root0.4_h480","min_h":0.000016276041666666666,"numerical_dissipation_end":[0.0001447678687798437,4.945937506766014],"numerical_dissipation_over_KEend":0.0011891875568940495,"omega_rel":0.3398608777752872,"onset_t":[0.02067014542764516,0.019791666666666666],"rejected":13,"sep_t":[0.050752164955595744,0.06803385416666673],"steps":399,"wall_ratio_vs_ref":5.497556406647707,"work_ratio_vs_ref":13.097430562936976}
+cantilever_SBIL1_s2_g1.1309 {"D":[14.638359292083049,13.931601131468424],"D_rel":-0.04828124153209334,"KE_end":[4159.08952132323,3887.6467299404044],"all_pass":false,"cells":713,"chi_r_max":0.7981897338178966,"crack_box":[[0.17310058665298697,0.19501209572826822,0.05207143711901259,0.6328660433617364,0.01125490963698481,0.3991174810328823],[0.1735834394406055,0.20284926946623202,0.05207143711901259,0.6328660433617364,0.01125490963698481,0.3991174810328823]],"crack_xy_mean":[[0.17310058665298697,0.19501209572826822],[0.1735834394406055,0.20284926946623202]],"criteria":{"crack_location":true,"event_times_within_frame":true,"fracture_and_separation":true,"fracture_energy":true,"fragment_KE":true,"fragment_omega":false,"fragment_velocity":false,"no_energy_creation":true},"detailed_cells_max":111,"e_max_rise":[0.00003665387203086179,0.0],"expansions":6,"fragment":[{"cells":684,"cm":[2.1638437893835225,-0.14268465510382206],"mass":1102.1697385038992,"omega":-0.886007976953408,"separated":true,"v":[0.508110607500155,-2.516536118112681]},{"cells":684,"cm":[2.0921935270620127,-0.12049903467431398],"mass":1102.1697385038992,"omega":-1.1852522660930898,"separated":true,"v":[-0.1506875881781608,-2.3017783491925967]}],"fragment_dv_over_v":0.2698995528864099,"h":0.004166666666666667,"label":"auto_chi0.8_h240","min_h":0.000016276041666666666,"numerical_dissipation_end":[0.0001447678687798437,8.931688372317934],"numerical_dissipation_over_KEend":0.0021475104891409704,"omega_rel":0.337744463846309,"onset_t":[0.02067014542764516,0.01875],"rejected":19,"sep_t":[0.050752164955595744,0.0654785156250001],"steps":339,"wall_ratio_vs_ref":0.7358738087309028,"work_ratio_vs_ref":1.6051223629185878}
+cantilever_SBIL1_s2_g1.1309 {"D":[14.638359292083049,13.949385344607418],"D_rel":-0.047066336720417365,"KE_end":[4159.08952132323,3895.8612480263146],"all_pass":false,"cells":713,"chi_r_max":0.799707279951431,"crack_box":[[0.17310058665298697,0.19501209572826822,0.05207143711901259,0.6328660433617364,0.01125490963698481,0.3991174810328823],[0.17357449627257324,0.20274964163338371,0.05207143711901259,0.6328660433617364,0.01125490963698481,0.3991174810328823]],"crack_xy_mean":[[0.17310058665298697,0.19501209572826822],[0.17357449627257324,0.20274964163338371]],"criteria":{"crack_location":true,"event_times_within_frame":false,"fracture_and_separation":true,"fracture_energy":true,"fragment_KE":true,"fragment_omega":false,"fragment_velocity":false,"no_energy_creation":true},"detailed_cells_max":107,"e_max_rise":[0.00003665387203086179,0.0],"expansions":6,"fragment":[{"cells":684,"cm":[2.1638437893835225,-0.14268465510382206],"mass":1102.1697385038992,"omega":-0.886007976953408,"separated":true,"v":[0.508110607500155,-2.516536118112681]},{"cells":684,"cm":[2.0921685682909033,-0.120808948975277],"mass":1102.1697385038992,"omega":-1.186982422027215,"separated":true,"v":[-0.1493173073113915,-2.3040100018828458]}],"fragment_dv_over_v":0.2691234970939425,"h":0.0020833333333333333,"label":"auto_chi0.8_h480","min_h":0.000016276041666666666,"numerical_dissipation_end":[0.0001447678687798437,4.993351181029858],"numerical_dissipation_over_KEend":0.0012005875698105207,"omega_rel":0.339697218199689,"onset_t":[0.02067014542764516,0.019791666666666666],"rejected":15,"sep_t":[0.050752164955595744,0.06805013020833336],"steps":391,"wall_ratio_vs_ref":0.5964569319215859,"work_ratio_vs_ref":1.2976319747109144}

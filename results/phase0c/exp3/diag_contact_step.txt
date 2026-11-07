@@ -1,0 +1,9 @@
+== SB_HC=1e-4
+  full_explicit: v_out Some(-0.004809505263801153) frags [(93.0, -0.13, -0.27), (99.0, 0.12, -0.36)] D 6.169 E0-E 7.580e-3 rise 0.000e0 steps 23570 rej 0 det 0 work 3.488e9 wall 3.5s
+  full_bdf2_h240: v_out Some(0.21112983031839377) frags [(192.0, 0.0, 0.0)] D 0.346 E0-E 7.536e0 rise 0.000e0 steps 119 rej 9 det 454 work 8.692e8 wall 2.3s
+== SB_HC=2.5e-5
+  full_explicit: v_out Some(-0.004809505263801153) frags [(93.0, -0.13, -0.27), (99.0, 0.12, -0.36)] D 6.169 E0-E 7.580e-3 rise 0.000e0 steps 23570 rej 0 det 0 work 3.488e9 wall 3.4s
+  full_bdf2_h240: v_out Some(-0.0389662121759267) frags [(93.0, -0.06, -0.28), (99.0, 0.05, -0.29)] D 5.624 E0-E 3.731e0 rise 0.000e0 steps 891 rej 18 det 454 work 5.287e9 wall 13.3s
+== SB_HC=6e-6
+  full_explicit: v_out Some(-0.004809505263801153) frags [(93.0, -0.13, -0.27), (99.0, 0.12, -0.36)] D 6.169 E0-E 7.580e-3 rise 0.000e0 steps 23570 rej 0 det 0 work 3.488e9 wall 3.4s
+  full_bdf2_h240: v_out Some(-0.0038398525554516534) frags [(93.0, -0.13, -0.31), (99.0, 0.12, -0.32)] D 5.708 E0-E 2.026e0 rise 0.000e0 steps 1252 rej 10 det 454 work 6.912e9 wall 17.3s

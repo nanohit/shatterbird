@@ -1,0 +1,8 @@
+[package]
+name = "model"
+edition.workspace = true
+version.workspace = true
+
+[dependencies]
+geometry = { path = "../geometry" }
+serde.workspace = true

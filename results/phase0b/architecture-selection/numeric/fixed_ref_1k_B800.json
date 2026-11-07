@@ -1,0 +1,87 @@
+{
+  "accuracy_vs_f64": {
+    "broken_f64": 119,
+    "broken_fixed": 119,
+    "damage_max_abs_diff": 0.005934989664020493,
+    "damaged_f64": 981,
+    "damaged_fixed": 980,
+    "onset_disagreements": 1,
+    "u_max_abs_err_m": 9.579089016538075e-7,
+    "u_max_m": 0.0018195522159924126,
+    "u_rel": 0.0005264530983142734,
+    "v_rel": 0.007101371028791073
+  },
+  "bitwise": {
+    "cpu_overflow_flag": true,
+    "first_overflow_shift_value": [
+      17,
+      2148135296
+    ],
+    "fnv1a32_cpu": "58709f0b",
+    "fnv1a32_gpu": "58709f0b",
+    "kappa_words_differing": 0,
+    "state_words_differing": 0
+  },
+  "cells": 991,
+  "cpu_fixed_s": 0.480933042,
+  "facets": 6336,
+  "headroom": {
+    "cell force": {
+      "bits_used": 25.085575787532903,
+      "headroom_bits": 5.914424212467097,
+      "max_abs_lsb": 35604982
+    },
+    "cell torque": {
+      "bits_used": 21.41662952386252,
+      "headroom_bits": 9.583370476137478,
+      "max_abs_lsb": 2799290
+    },
+    "facet force": {
+      "bits_used": 25.09234301278136,
+      "headroom_bits": 5.90765698721864,
+      "max_abs_lsb": 35772386
+    },
+    "jump": {
+      "bits_used": 18.83716593072057,
+      "headroom_bits": 12.16283406927943,
+      "max_abs_lsb": 468330
+    },
+    "theta": {
+      "bits_used": 19.453642402292925,
+      "headroom_bits": 11.546357597707075,
+      "max_abs_lsb": 718009
+    },
+    "u": {
+      "bits_used": 18.89726642819388,
+      "headroom_bits": 12.10273357180612,
+      "max_abs_lsb": 488252
+    },
+    "v": {
+      "bits_used": 26.014860921900564,
+      "headroom_bits": 4.9851390780994365,
+      "max_abs_lsb": 67803712
+    },
+    "w": {
+      "bits_used": 30.787136207417706,
+      "headroom_bits": 0.2128637925822936,
+      "max_abs_lsb": 1852897857
+    }
+  },
+  "label": "1k",
+  "scales_global": [
+    5,
+    0,
+    28,
+    17,
+    43,
+    17896,
+    756324886,
+    991,
+    6336,
+    28,
+    26,
+    28,
+    30
+  ],
+  "steps": 800
+}
