@@ -12,6 +12,13 @@ use geometry::V2;
 use model::LawKind;
 
 impl World {
+    /// Canonical fine-explicit continuation, also used as an audit control to
+    /// distinguish errors of fracture history from errors after representation changes.
+    pub fn use_fine_explicit(&mut self) {
+        self.enter_explicit_window("explicit control");
+        self.p.cost_switch = None;
+        self.p.rereduce = false;
+    }
     pub(super) fn is_coarse(&self, pid: usize) -> bool {
         self.patches[pid].cells.len() > 1
     }
@@ -38,6 +45,7 @@ impl World {
 
     /// Split coarse patches into single-cell patches (the implicit "open").
     pub(super) fn split(&mut self, pids: &[usize], why: &str) -> usize {
+        let (_, u_before, _) = self.energies();
         let mut n = 0;
         let mut w = Work::default();
         for &pid in pids {
@@ -70,6 +78,8 @@ impl World {
             }
             self.events.push(format!("t={:.5} split {n} ({why})", self.t));
             self.rebuild();
+            let (_, u_after, _) = self.energies();
+            self.led.d_model += u_before - u_after;
             // cell histories persist through a split: BDF2 continues
             self.restart = false;
         }
@@ -176,16 +186,12 @@ impl World {
             }
         }
         if let Some(cm) = &self.cm {
-            let v_imp = self.p.chi_lte * m.mat.sigma_t / (m.mat.density * m.mat.wave_speed());
             for &(a, b) in &self.cpairs {
                 let coarse = [a, b].iter().any(|&c| c != GROUND && self.cell_patch[c] != usize::MAX && self.patches[self.cell_patch[c]].cells.len() > 1);
                 if !coarse {
                     continue;
                 }
-                let (g, n) = cm.geometry(a, b, &self.q);
-                let vb = if b == GROUND { V2::ZERO } else { V2::new(self.v[b][0], self.v[b][1]) };
-                let closing = -(vb - V2::new(self.v[a][0], self.v[a][1])).dot(n);
-                if closing >= v_imp && g - 2.0 * h * closing < 0.0 {
+                if cm.may_contact(a, b, &self.q, &self.v, 2.0 * h) {
                     for c in [a, b] {
                         if c != GROUND && self.patches[self.cell_patch[c]].cells.len() > 1 {
                             out.push(c);
@@ -224,6 +230,12 @@ impl World {
                 }
                 StepOutcome::Failed => {
                     self.w.rejected += 1;
+                    if self.p.cost_switch.is_some() {
+                        // A failed Newton solve is never accepted as a tiny update.
+                        // The game mode has a deterministic fine-explicit fallback.
+                        self.enter_explicit_window("implicit solve/error-control failure");
+                        return self.macro_step(t_end);
+                    }
                     self.h = 0.5 * hs;
                     self.easy_steps = 0;
                     if self.h < self.p.h_min {
@@ -333,7 +345,6 @@ impl World {
                 }
             }
             let m = &self.sc.m;
-            let v_imp = self.p.chi_lte * m.mat.sigma_t / (m.mat.density * m.mat.wave_speed());
             for &fi in &self.rs.eval_facets {
                 let f = &m.facets[fi];
                 for pt in 0..2 {
@@ -346,11 +357,9 @@ impl World {
                     // (or entering) compression, and material points near their damage surface
                     let contact_like = (f.tag != 0 && p.law.kind == LawKind::Damage) || (f.tag == 0 && p.law.damage(p.kappa_c) >= 0.99);
                     let relevant = if contact_like {
-                        // an impact matters through the stress it makes, ρ c Δv: only contacts
-                        // closing faster than χ_lte σ_t/(ρ c) are resolved in time
-                        let vrel: f64 = (0..3).map(|k| jn.jna[k] * vn[f.a][k] + jn.jnb[k] * vn[f.b][k]).sum::<f64>().abs();
-                        let vrel0: f64 = (0..3).map(|k| j0.jna[k] * self.v[f.a][k] + j0.jnb[k] * self.v[f.b][k]).sum::<f64>().abs();
-                        (jn.dn < 0.0 || jp.dn < 0.0 || j0.dn < 0.0) && vrel.max(vrel0) >= v_imp
+                        // Low-stress contact can dominate a fragment's angular impulse.
+                        // Resolve every active compression; strength is not a contact tolerance.
+                        jn.dn < 0.0 || jp.dn < 0.0 || j0.dn < 0.0
                     } else if p.law.kind == LawKind::Damage {
                         // near the damage surface at the end state *or* at the predicted state:
                         // a damped implicit step must not hide an overshoot the predictor sees
@@ -372,19 +381,19 @@ impl World {
             }
             if let Some(cm) = &self.cm {
                 for it in &citems {
-                    let (g1, n1) = cm.geometry(it.a, it.b, &qn);
+                    let (g1, _) = cm.geometry(it.a, it.b, &qn);
                     let (gp, _) = cm.geometry(it.a, it.b, &xp);
                     let (g0, _) = cm.geometry(it.a, it.b, &self.q);
-                    // closing speed along the normal (a → b)
-                    let vb = if it.b == GROUND { geometry::V2::ZERO } else { geometry::V2::new(vn[it.b][0], vn[it.b][1]) };
-                    let vrel = (vb - geometry::V2::new(vn[it.a][0], vn[it.a][1])).dot(n1).abs();
-                    if (g1 < 0.0 || gp < 0.0 || g0 < 0.0) && vrel >= v_imp {
+                    if g1 < 0.0 || gp < 0.0 || g0 < 0.0 {
                         err = err.max((g1 - gp).abs() / (self.p.lte_atol * self.delta0_ref + self.p.lte_rtol * (g1 - g0).abs()));
                     }
                 }
             }
             self.w.monitor_flops += (self.rs.eval_facets.len() * 6) as f64 * C_PT_FORCE;
-            if err > 1.0 && hs > self.p.h_min * 1.0001 {
+            if err > 1.0 && hs <= self.p.h_min * 1.0001 {
+                return StepOutcome::Failed;
+            }
+            if err > 1.0 {
                 let order = if use_a { 3.0 } else { 2.0 };
                 let target = hs * (0.9 * err.powf(-1.0 / order)).max(0.1);
                 let k = (self.p.h_macro / target).log2().ceil().max(0.0) as i32;
@@ -506,7 +515,7 @@ impl World {
                     let s: f64 = -(0..3).map(|k| j.jna[k] * self.v[fa.a][k] + j.jnb[k] * self.v[fa.b][k]).sum::<f64>();
                     let pen_now = (-j.dn).max(0.0);
                     let pen_pred = (-(j.dn - 2.0 * self.p.h_macro * s)).max(0.0);
-                    if pen_pred - pen_now > 0.5 * d0 || (fa.tag == 3 && e.fnorm < 0.0) {
+                    if j.dn < 0.0 || pen_pred - pen_now > 0.5 * d0 || (fa.tag == 3 && e.fnorm < 0.0) {
                         hot = true;
                     }
                 }
@@ -532,12 +541,8 @@ impl World {
             }
         }
         if let Some(cm) = &self.cm {
-            let v_imp = self.p.chi_lte * m.mat.sigma_t / (m.mat.density * m.mat.wave_speed());
             for &(a, b) in &self.cpairs {
-                let (g, n) = cm.geometry(a, b, &self.q);
-                let vb = if b == GROUND { V2::ZERO } else { V2::new(self.v[b][0], self.v[b][1]) };
-                let closing = -(vb - V2::new(self.v[a][0], self.v[a][1])).dot(n);
-                if closing >= v_imp && g - 2.0 * self.p.h_macro * closing < 0.0 {
+                if cm.may_contact(a, b, &self.q, &self.v, 2.0 * self.p.h_macro) {
                     busy[a] = true;
                     if b != GROUND {
                         busy[b] = true;
@@ -625,6 +630,29 @@ impl World {
                     let vv: [f64; 3] = std::array::from_fn(|k| (0..ny).map(|a| gs[li][a][k] * gmv[a]).sum());
                     proj.push((i, qs[li], vv));
                 }
+                // M projection preserves momentum at the projected positions, whereas
+                // angular momentum before projection refers to the original positions.
+                // Correct the rigid rotational mode without changing linear momentum.
+                let first = proj.len() - pa.cells.len();
+                let center = pa.cells.iter().fold(V2::ZERO, |s, &i| s + V2::new(self.q[i][0], self.q[i][1]) * m.bodies[i].mass) * (1.0 / pa.mass);
+                let mut old_l = 0.0;
+                let mut new_l = 0.0;
+                let mut inertia = 0.0;
+                for &(i, qq, vv) in &proj[first..] {
+                    let b = &m.bodies[i];
+                    let r0 = V2::new(self.q[i][0], self.q[i][1]) - center;
+                    let r1 = V2::new(qq[0], qq[1]) - center;
+                    old_l += b.mass * (r0.x * self.v[i][1] - r0.y * self.v[i][0]) + b.inertia * self.v[i][2];
+                    new_l += b.mass * (r1.x * vv[1] - r1.y * vv[0]) + b.inertia * vv[2];
+                    inertia += b.mass * r1.dot(r1) + b.inertia;
+                }
+                let dw = (old_l - new_l) / inertia;
+                for (_, qq, vv) in &mut proj[first..] {
+                    let r = V2::new(qq[0], qq[1]) - center;
+                    vv[0] -= dw * r.y;
+                    vv[1] += dw * r.x;
+                    vv[2] += dw;
+                }
                 self.w.rebuild_flops += (pa.cells.len() * ny * ny * 6) as f64;
             }
             // energy check over the group's cells and facets
@@ -665,14 +693,44 @@ impl World {
             }
             applied.push((par, kids, pats, proj, loss));
         }
-        for (par, kids, pats, proj, loss) in applied {
+        if applied.is_empty() {
+            return 0;
+        }
+        // Certify the simultaneous transition with the actual *new* energy model.
+        // Summing independent local checks misses shared-facet cross terms and the
+        // replacement of full internal energies by Khat. Include contacts as well.
+        let (ke0, u0, vg0) = self.energies();
+        let mut qn = self.q.clone();
+        let mut vn = self.v.clone();
+        let mut trial_patches = self.patches.clone();
+        let mut closed: Vec<bool> = self.alive.iter().zip(&self.open).map(|(&a, &o)| a && !o).collect();
+        for (_, kids, pats, proj, _) in &applied {
+            for &(i, qq, vv) in proj { qn[i] = qq; vn[i] = vv; }
+            let covered: std::collections::BTreeSet<usize> = pats.iter().flat_map(|p| p.cells.iter().copied()).collect();
+            for &k in kids { if covered.contains(&self.patches[k].cells[0]) { closed[k] = false; } }
+            for pa in pats { trial_patches.push(pa.clone()); closed.push(true); }
+        }
+        let rs = super::RSys::build(m, &trial_patches, &closed, &self.loaded, &self.cpairs, self.version + 1, &mut self.w);
+        let z = rs.fit(&trial_patches, &qn, &mut self.w);
+        let all: Vec<usize> = (0..nb).collect();
+        let mut u1 = rs.elastic_energy(m, &trial_patches, &qn, &z) + self.contact_energy(&qn);
+        for f in m.facets.iter().filter(|f| f.active && (rs.rep[f.a] == Rep::E || rs.rep[f.b] == Rep::E)) {
+            for pt in 0..2 { u1 += m.eval_point(&qn, f, pt).1.psi; }
+        }
+        let loss = ke0 + u0 + vg0 - self.kinetic_of(&all, &vn) - u1 - self.vg_of(&all, &qn);
+        let own = ke0 + u0;
+        if loss < -1e-12 * (1.0 + own.abs()) || loss > (self.p.eps_rr * own).max(1e-4 * self.sc.e_scale) {
+            return 0;
+        }
+        // No damage-history commit occurs in a representation change.
+        self.led.d_red += loss;
+        for (par, kids, pats, proj, _) in applied {
             for &(i, qq, vv) in &proj {
                 self.q[i] = qq;
                 self.v[i] = vv;
                 self.qp[i] = qq;
                 self.vp[i] = vv;
             }
-            self.led.d_red += loss;
             let mut covered = std::collections::BTreeSet::new();
             for pa in pats {
                 let nid = self.patches.len();
@@ -734,7 +792,9 @@ impl World {
                     self.e_bodies = (0..m.bodies.len()).filter(|&i| self.rs.rep[i] == Rep::E).collect();
                     self.e_facets = (0..m.facets.len()).filter(|&fi| m.facets[fi].active).collect();
                     let he = self.stable_he();
-                    let per_sub = (4 * self.e_facets.len()) as f64 * C_PT_FORCE + (12 * self.e_bodies.len()) as f64;
+                    let (evals, body_ops) = if self.cm.is_some() { (4,36) } else { (2,12) };
+                    let contact_ops=self.cm.as_ref().map(|c| if c.mu>0.0 {160.0} else {80.0}).unwrap_or(0.0);
+                    let per_sub = (evals * self.e_facets.len()) as f64 * C_PT_FORCE + (body_ops * self.e_bodies.len()) as f64 + contact_ops*self.cpairs.len() as f64;
                     self.rate_expl = per_sub / he;
                     self.rs.rep = rep;
                     self.e_bodies = eb;
@@ -748,33 +808,12 @@ impl World {
                     self.rate_hist.remove(0);
                 }
                 if self.rate_hist.len() >= 5 {
-                    let n = (self.rate_hist.len() - 1) as f64;
-                    let per_step = (self.rate_hist.last().unwrap().1 - self.rate_hist[0].1) / n;
-                    let rate = per_step / self.h.max(1e-12);
+                    let end = self.rate_hist.last().unwrap();
+                    let rate = (end.1 - self.rate_hist[0].1) / (end.0 - self.rate_hist[0].0).max(1e-12);
                     self.over = if rate > ratio * self.rate_expl { self.over + 1 } else { 0 };
                     if self.over >= 2 {
                         self.over = 0;
-                        // enter the window: every cell fine, every patch open (all explicit)
-                        let coarse: Vec<usize> = (0..self.patches.len()).filter(|&p| self.alive[p] && self.is_coarse(p)).collect();
-                        self.split(&coarse, "window");
-                        for p in 0..self.patches.len() {
-                            if self.alive[p] {
-                                self.open[p] = true;
-                            }
-                        }
-                        self.h_before_window = self.h;
-                        self.h = self.p.h_macro.min(5e-4);
-                        // a window reopened soon after the last one lasts twice as long
-                        let reentry = self.windows.last().map(|w| self.t - w[1] < 5e-3).unwrap_or(false);
-                        self.window_len = if reentry { (2.0 * self.window_len).min(0.02) } else { 2e-3 };
-                        self.window = Some(self.t + self.window_len);
-                        self.windows.push([self.t, f64::NAN]);
-                        self.rate_hist.clear();
-                        if self.verbose {
-                            eprintln!("  t={:.5} explicit window (implicit {:.3e} > explicit {:.3e} flop/s)", self.t, rate, self.rate_expl);
-                        }
-                        self.events.push(format!("t={:.5} window open", self.t));
-                        self.rebuild();
+                        self.enter_explicit_window("cost");
                     }
                 }
             }
@@ -787,7 +826,7 @@ impl World {
                 }
                 let (t_old, d_old) = self.d_hist[0];
                 let quiet = self.t - t_old >= 1e-3 - 1e-12 && m.dissipated - d_old <= (1e-2 * m.dissipated).max(1e-5 * self.sc.e_scale);
-                if self.t >= t_min && quiet {
+                if self.t >= t_min && quiet && !self.moving_contact() {
                     self.d_hist.clear();
                     for p in 0..self.patches.len() {
                         self.open[p] = false;
@@ -808,5 +847,41 @@ impl World {
                 }
             }
         }
+    }
+
+    fn moving_contact(&self) -> bool {
+        let tol = self.p.contact_quiet_speed;
+        if let Some(cm) = &self.cm {
+            for &(a,b) in &self.cpairs {
+                if cm.geometry(a,b,&self.q).0 < 0.0 && cm.surface_speed(a,&self.v) + if b==GROUND {0.0} else {cm.surface_speed(b,&self.v)} > tol { return true; }
+            }
+        }
+        for f in self.sc.m.facets.iter().filter(|f| f.active) {
+            for pt in 0..2 {
+                let p=&f.pts[pt];
+                if p.law.kind != LawKind::Damage || (f.tag==0 && p.law.damage(p.kappa_c)<0.99) { continue; }
+                let (j,_)=self.sc.m.eval_point(&self.q,f,pt);
+                if j.dn >= 0.0 { continue; }
+                let vn=(0..3).map(|k|j.jna[k]*self.v[f.a][k]+j.jnb[k]*self.v[f.b][k]).sum::<f64>();
+                let vt=(0..3).map(|k|j.jta[k]*self.v[f.a][k]+j.jtb[k]*self.v[f.b][k]).sum::<f64>();
+                if vn.hypot(vt)>tol {return true;}
+            }
+        }
+        false
+    }
+
+    fn enter_explicit_window(&mut self, why: &str) {
+        let coarse: Vec<usize> = (0..self.patches.len()).filter(|&p| self.alive[p] && self.is_coarse(p)).collect();
+        self.split(&coarse, "window");
+        for p in 0..self.patches.len() { if self.alive[p] { self.open[p] = true; } }
+        self.h_before_window = self.h;
+        self.h = self.p.h_macro.min(5e-4);
+        let reentry = self.windows.last().map(|w| self.t - w[1] < 5e-3).unwrap_or(false);
+        self.window_len = if reentry { (2.0*self.window_len).min(0.02) } else { 2e-3 };
+        self.window = Some(self.t+self.window_len);
+        self.windows.push([self.t,f64::NAN]);
+        self.rate_hist.clear();
+        self.events.push(format!("t={:.5} window open ({why})", self.t));
+        self.rebuild();
     }
 }

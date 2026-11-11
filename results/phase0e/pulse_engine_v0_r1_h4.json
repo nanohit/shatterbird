@@ -1,0 +1,110 @@
+{
+  "label": "pulse_engine_v0_r1_h4",
+  "scene": "elastic pulse control",
+  "onset_t": null,
+  "sep_t": null,
+  "d_end": 0.0,
+  "crack": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "fragment": {
+    "separated": true,
+    "mass": 575.9999999999998,
+    "cm": [
+      0.9999999999869148,
+      0.30000190780608077
+    ],
+    "v": [
+      -2.499048681940603e-7,
+      0.000878102395189053
+    ],
+    "omega": -0.002053140430062961,
+    "cells": 95
+  },
+  "frags": [
+    {
+      "separated": true,
+      "mass": 575.9999999999998,
+      "cm": [
+        0.9999999999869148,
+        0.30000190780608077
+      ],
+      "v": [
+        -2.499048681940603e-7,
+        0.000878102395189053
+      ],
+      "omega": -0.002053140430062961,
+      "cells": 95
+    }
+  ],
+  "e0": 0.0017913024626736828,
+  "e_end": 0.0017922337435966721,
+  "e_max_rise": 1.19433076509602e-6,
+  "ke_max": 0.0017913024626736828,
+  "ledger": {
+    "w_ext": 0.0,
+    "d_red": 0.0,
+    "d_fric": 0.0,
+    "d_num_r": 9.276164651898085e-9,
+    "w_iface_r": 0.00041495755725294835,
+    "w_iface_e": -0.00041496553123543254,
+    "d_coupling": -7.3125500529183465e-9,
+    "d_rad": 0.0,
+    "d_model": 0.0
+  },
+  "work": {
+    "pts_tangent": 184,
+    "pts_force": 325772,
+    "e_pts": 644640,
+    "e_body_flops": 725040.0,
+    "iface_flops": 4785264.0,
+    "coupling_flops": 68165280.0,
+    "region_flops": 122390224.0,
+    "fact_flops": 177320.0,
+    "solve_flops": 11896160.0,
+    "step_flops": 42465280.0,
+    "monitor_flops": 0.0,
+    "rebuild_flops": 164261844.0,
+    "contact_flops": 0.0,
+    "newton_iters": 1996,
+    "factorizations": 4,
+    "e_substeps": 2014,
+    "coupling_iters": 2014,
+    "macro_steps": 1024,
+    "rejected": 0,
+    "activations": 0,
+    "rereductions": 0,
+    "roundoff_accepts": 4062
+  },
+  "work_total": 473127932.0,
+  "wall_s": 0.45222025,
+  "cells": 95,
+  "patches": 4,
+  "max_e_cells": 30,
+  "mean_e_frac": 0.315789473684219,
+  "v_impactor": null,
+  "failed_at": null,
+  "h_e": 2.1213203435596424e-6,
+  "chi_r_max": 0.0,
+  "events": [],
+  "momentum_drift": 0.00019206157366070346,
+  "frames": [
+    {
+      "frame": 0,
+      "work": 471945580.0,
+      "wall_s": 0.4516312619999999,
+      "accepted": 1024,
+      "rejected": 0,
+      "rebuild_work": 163079492.0
+    }
+  ],
+  "startup_work": 1182352.0,
+  "fragment_masses": [
+    575.9999999999998
+  ]
+}

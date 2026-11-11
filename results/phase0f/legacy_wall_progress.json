@@ -1,0 +1,116 @@
+{
+  "data": {
+    "rows": [
+      {
+        "D": 7.607752174799638,
+        "cells": 3329,
+        "completed": true,
+        "energy_end_minus_initial": -0.004761132835191972,
+        "failed_at": null,
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 0.0,
+          "d_model": 0.0,
+          "d_num_r": 0.0,
+          "d_rad": 0.0,
+          "d_red": 0.0,
+          "w_ext": 0.0,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "max_fine": 3329,
+        "mean_fine": 1.0000000000000002,
+        "mode": "fine",
+        "rebound": 0.8486022840933414,
+        "startup_work": 333000505.0,
+        "wall_s": 4.767299292,
+        "work": 11082244825.0
+      },
+      {
+        "D": 8.142947651218035,
+        "cells": 3329,
+        "completed": true,
+        "energy_end_minus_initial": -0.009449347191804236,
+        "failed_at": null,
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 0.0,
+          "d_model": 0.0,
+          "d_num_r": -7.284320002228471e-6,
+          "d_rad": 0.0,
+          "d_red": 0.0,
+          "w_ext": 0.0,
+          "w_iface_e": -0.2536522575421425,
+          "w_iface_r": 0.2536522575037034
+        },
+        "max_fine": 2153,
+        "mean_fine": 0.4474400053402757,
+        "mode": "multirate",
+        "rebound": 0.8486022840933174,
+        "startup_work": 39278287.0,
+        "wall_s": 24.507886,
+        "work": 49727085736.0
+      },
+      {
+        "D": 8.225566676587718,
+        "cells": 3329,
+        "completed": true,
+        "energy_end_minus_initial": 0.05615370556364496,
+        "failed_at": null,
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 0.0,
+          "d_model": 0.0,
+          "d_num_r": -9.982701051337167e-6,
+          "d_rad": 22.62465337565324,
+          "d_red": 0.0,
+          "w_ext": 0.0,
+          "w_iface_e": -0.032216656894034676,
+          "w_iface_r": 0.03221665690816612
+        },
+        "max_fine": 1314,
+        "mean_fine": 0.3011748606521812,
+        "mode": "multirate_dashpot",
+        "rebound": 0.8485802535082532,
+        "startup_work": 39278287.0,
+        "wall_s": 13.387845833,
+        "work": 25834941368.0
+      },
+      {
+        "D": 8.224136856147778,
+        "cells": 3329,
+        "completed": true,
+        "energy_end_minus_initial": -0.021217688530640544,
+        "failed_at": null,
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 0.0,
+          "d_model": 0.0,
+          "d_num_r": -7.025094773053034e-6,
+          "d_rad": 0.0,
+          "d_red": 0.0,
+          "w_ext": 0.0,
+          "w_iface_e": -0.038505634932778796,
+          "w_iface_r": 0.03850563479733185
+        },
+        "max_fine": 1822,
+        "mean_fine": 0.4377106905644004,
+        "mode": "multirate_modes12",
+        "rebound": 0.8486022840931353,
+        "startup_work": 167349943.0,
+        "wall_s": 22.555317042,
+        "work": 43220366924.0
+      }
+    ]
+  },
+  "meta": {
+    "config": {},
+    "experiment": "phase0f",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "legacy_wall_progress",
+    "seed": null,
+    "solver_schedule": "CPU f64 research controls; no GPU timing claim",
+    "source_hash": "689ff01e42c495cf",
+    "unix_time": 1794063592
+  }
+}

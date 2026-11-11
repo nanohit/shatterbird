@@ -1,0 +1,109 @@
+{
+  "label": "pulse_engine_v0_r1",
+  "scene": "elastic pulse control",
+  "onset_t": null,
+  "sep_t": null,
+  "d_end": 0.0,
+  "crack": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "fragment": {
+    "separated": true,
+    "mass": 575.9999999999998,
+    "cm": [
+      1.0000000000000002,
+      0.30000001490563805
+    ],
+    "v": [
+      -1.123645514029084e-11,
+      0.0008783233899895117
+    ],
+    "omega": -0.002053863540147248,
+    "cells": 95
+  },
+  "frags": [
+    {
+      "separated": true,
+      "mass": 575.9999999999998,
+      "cm": [
+        1.0000000000000002,
+        0.30000001490563805
+      ],
+      "v": [
+        -1.123645514029084e-11,
+        0.0008783233899895117
+      ],
+      "omega": -0.002053863540147248,
+      "cells": 95
+    }
+  ],
+  "e0": 0.0017913024626736828,
+  "e_end": 0.0017913024626736828,
+  "e_max_rise": 0.0,
+  "ke_max": 0.0017913024626736828,
+  "ledger": {
+    "w_ext": 0.0,
+    "d_red": 0.0,
+    "d_fric": 0.0,
+    "d_num_r": -6.507462700751498e-20,
+    "w_iface_r": 1.5394348414651618e-19,
+    "w_iface_e": 0.0,
+    "d_coupling": -3.8723242584513996e-18,
+    "d_rad": 0.0,
+    "d_model": 0.0
+  },
+  "work": {
+    "pts_tangent": 4370,
+    "pts_force": 38640,
+    "e_pts": 1440,
+    "e_body_flops": 1440.0,
+    "iface_flops": 9504.0,
+    "coupling_flops": 22604580.0,
+    "region_flops": 19125422.0,
+    "fact_flops": 4211350.0,
+    "solve_flops": 643680.0,
+    "step_flops": 321360.0,
+    "monitor_flops": 0.0,
+    "rebuild_flops": 2632519.0,
+    "contact_flops": 0.0,
+    "newton_iters": 108,
+    "factorizations": 95,
+    "e_substeps": 4,
+    "coupling_iters": 4,
+    "macro_steps": 2,
+    "rejected": 7,
+    "activations": 0,
+    "rereductions": 0
+  },
+  "work_total": 52828655.0,
+  "wall_s": 0.048656708,
+  "cells": 95,
+  "patches": 4,
+  "max_e_cells": 30,
+  "mean_e_frac": 0.3157894736842105,
+  "v_impactor": null,
+  "failed_at": 0.000010606601717798212,
+  "h_e": 8.48528137423857e-6,
+  "chi_r_max": 0.0,
+  "events": [],
+  "momentum_drift": 1.4195803802162865e-7,
+  "frames": [
+    {
+      "frame": 0,
+      "work": 17211477.0,
+      "wall_s": 0.020020333,
+      "accepted": 2,
+      "rejected": 2,
+      "rebuild_work": 647257.0
+    }
+  ],
+  "startup_work": 1182352.0,
+  "fragment_masses": [
+    575.9999999999998
+  ]
+}

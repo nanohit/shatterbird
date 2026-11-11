@@ -209,6 +209,16 @@ pub fn chol_solve(l: &[f64], n: usize, b: &mut [f64]) {
 /// (loaded cells). Facets internal to the patch that are damaged, or not material,
 /// are left out of K̂ and their cells put on the trace set.
 pub fn build_patch(m: &Model, adj: &[Vec<usize>], cells_in: &[usize], deg: usize, nvib: usize, boundary_extra: &[bool], w: &mut Work) -> Patch {
+    // Fine patches have no internal deformation modes. Avoid three world-sized
+    // scratch arrays and a full reference-state reconstruction per opened cell.
+    if cells_in.len() == 1 {
+        let i = cells_in[0];
+        let b = &m.bodies[i];
+        w.rebuild_flops += 12.0;
+        return Patch { cells: vec![i], p: vec![V2::ZERO], mi: vec![b.mass], ii: vec![b.inertia], mass: b.mass,
+            it: b.inertia, xc: b.x0, me: 0, te: Vec::new(), khat: Vec::new(), khat_l: Vec::new(),
+            s1: Vec::new(), w: Vec::new(), internal: Vec::new(), radius: 0.0 };
+    }
     let nb = m.bodies.len();
     let mut inp = vec![false; nb];
     for &i in cells_in {
@@ -321,7 +331,7 @@ pub fn build_patch(m: &Model, adj: &[Vec<usize>], cells_in: &[usize], deg: usize
             cols.push(col);
         }
         // fixed-interface vibration modes (optional) by subspace iteration
-        if nvib > 0 && ni > 3 * nvib {
+        if nvib > 0 && ni > 0 {
             let pb = (nvib + 4).min(ni);
             let mut x: Vec<Vec<f64>> = (0..pb).map(|k| (0..ni).map(|a| ((a as f64 + 1.0) * (k as f64 + 1.0) * 0.7123).sin()).collect()).collect();
             for _ in 0..30 {
@@ -331,13 +341,13 @@ pub fn build_patch(m: &Model, adj: &[Vec<usize>], cells_in: &[usize], deg: usize
                     *v = y;
                 }
                 for k in 0..pb {
-                    for l in 0..k {
+                    for _ in 0..2 { for l in 0..k {
                         let d: f64 = (0..ni).map(|a| x[k][a] * mdiag[nbd + a] * x[l][a]).sum();
                         let xl = x[l].clone();
                         for a in 0..ni {
                             x[k][a] -= d * xl[a];
                         }
-                    }
+                    } }
                     let nn: f64 = (0..ni).map(|a| x[k][a] * x[k][a] * mdiag[nbd + a]).sum::<f64>().sqrt();
                     for a in 0..ni {
                         x[k][a] /= nn;

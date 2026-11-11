@@ -1,0 +1,63 @@
+{
+  "data": {
+    "rows": [
+      {
+        "D": 18.59722134618416,
+        "absorbing": false,
+        "completed": true,
+        "energy_end_minus_initial": -0.01531965864545981,
+        "failed_at": null,
+        "ledger": {
+          "d_coupling": 0.012557745957897184,
+          "d_fric": 0.0,
+          "d_model": 0.0,
+          "d_num_r": -8.613871496546133e-6,
+          "d_rad": 0.0,
+          "d_red": 0.0,
+          "w_ext": 0.0,
+          "w_iface_e": -0.1518074909839261,
+          "w_iface_r": 0.15299503007317075
+        },
+        "max_fine": 228,
+        "mean_fine": 0.058976669670571746,
+        "rebound": 1.0907691464027132,
+        "wall_s": 3.9349517499999997,
+        "work": 3977118506.0
+      },
+      {
+        "D": 9.764509162897038,
+        "absorbing": true,
+        "completed": true,
+        "energy_end_minus_initial": 0.03818735818758512,
+        "failed_at": null,
+        "ledger": {
+          "d_coupling": 0.0016689828558219544,
+          "d_fric": 0.0,
+          "d_model": 0.0,
+          "d_num_r": -9.171818639908125e-6,
+          "d_rad": 5.730872569193642,
+          "d_red": 0.0,
+          "w_ext": 0.0,
+          "w_iface_e": -0.1850380894953743,
+          "w_iface_r": 0.1849300585512045
+        },
+        "max_fine": 92,
+        "mean_fine": 0.023797603551283335,
+        "rebound": 1.274189452705089,
+        "wall_s": 1.8783268340000001,
+        "work": 2101060182.0
+      }
+    ],
+    "scope": "Original geometry. Explicit ablation disables the interface FORCE residual gate only (ftol=1e9), emulating the ignored check of the historical prototype. Other coupling tolerances unchanged. Not an accepted solver configuration."
+  },
+  "meta": {
+    "config": {},
+    "experiment": "phase0f",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "legacy_relaxed",
+    "seed": null,
+    "solver_schedule": "CPU f64 research controls; no GPU timing claim",
+    "source_hash": "1b9a05dc8c803709",
+    "unix_time": 1794064660
+  }
+}

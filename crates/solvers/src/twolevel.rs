@@ -897,7 +897,7 @@ mod tests {
         let mut x = vec![0.0; sys.n];
         let mut w = Work::default();
         let mut hist = Vec::new();
-        pcg(&sys, &mut Precond::Jacobi, &b, &mut x, 200, None, &mut w, &mut |it, xx, _| {
+        pcg(&sys, &mut Precond::Jacobi, &b, &mut x, 200, Some(1e-12), &mut w, &mut |it, xx, _| {
             let mut r = vec![0.0; sys.n];
             sys.a.matvec(xx, &mut r);
             hist.push((it, r.iter().zip(&b).map(|(a, c)| (a - c).abs()).fold(0.0, f64::max)));

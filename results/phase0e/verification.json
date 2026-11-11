@@ -1,0 +1,6 @@
+{
+  "command": "cargo test --release --workspace",
+  "passed": 26,
+  "failed": 0,
+  "diff_check": "git diff --check passed"
+}

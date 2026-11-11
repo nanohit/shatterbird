@@ -1,0 +1,296 @@
+{
+  "data": [
+    {
+      "dmin": 0.06,
+      "mode": "reference",
+      "mu": 0.0,
+      "run": {
+        "D": 1353.1046215931817,
+        "completed": true,
+        "energy_rise": 14.0760873606632,
+        "failed_at": null,
+        "fragment": {
+          "cells": 0,
+          "cm": [
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "omega": 0.0,
+          "separated": false,
+          "v": [
+            0.0,
+            0.0
+          ]
+        },
+        "fragments": [],
+        "ke_max": 8366.824912875645,
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 0.0,
+          "d_model": 0.0,
+          "d_num_r": 0.0,
+          "d_rad": 0.0,
+          "d_red": 0.0,
+          "w_ext": -1.0786499566629604,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "mean_active": 1.0000000000000038,
+        "p95_frame_work": 2540999780.0,
+        "peak_frame_wall_s": 1.110392039,
+        "peak_frame_work": 2973460252.0,
+        "rejected": 0,
+        "startup_work": 29727312.0,
+        "steps": 1200,
+        "wall_s": 20.825473333,
+        "work": 64415173532.0
+      }
+    },
+    {
+      "dmin": 0.06,
+      "mode": "reference_half",
+      "mu": 0.0,
+      "run": {
+        "D": 1353.1046215931551,
+        "completed": true,
+        "energy_rise": 3.3816710108253725,
+        "failed_at": null,
+        "fragment": {
+          "cells": 0,
+          "cm": [
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "omega": 0.0,
+          "separated": false,
+          "v": [
+            0.0,
+            0.0
+          ]
+        },
+        "fragments": [],
+        "ke_max": 8706.247931897773,
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 0.0,
+          "d_model": 0.0,
+          "d_num_r": 0.0,
+          "d_rad": 0.0,
+          "d_red": 0.0,
+          "w_ext": -1.2229720687287642,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "mean_active": 1.0000000000000038,
+        "p95_frame_work": 4312288008.0,
+        "peak_frame_wall_s": 1.9522795419999999,
+        "peak_frame_work": 5148588160.0,
+        "rejected": 0,
+        "startup_work": 29727312.0,
+        "steps": 1200,
+        "wall_s": 39.896711083,
+        "work": 121281570164.0
+      }
+    },
+    {
+      "dmin": 0.06,
+      "mode": "engine",
+      "mu": 0.0,
+      "run": {
+        "D": 1353.1046215931633,
+        "completed": true,
+        "energy_rise": 7.152297155404682,
+        "failed_at": null,
+        "fragment": {
+          "cells": 0,
+          "cm": [
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "omega": 0.0,
+          "separated": false,
+          "v": [
+            0.0,
+            0.0
+          ]
+        },
+        "fragments": [],
+        "ke_max": 8571.515072855,
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 0.0,
+          "d_model": 0.004774790290788422,
+          "d_num_r": 1.794833832458682,
+          "d_rad": 0.0,
+          "d_red": 0.011333080742666368,
+          "w_ext": -0.685944401987479,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "mean_active": 0.9984175078795396,
+        "p95_frame_work": 7959134986.0,
+        "peak_frame_wall_s": 1.775248834,
+        "peak_frame_work": 9594394507.0,
+        "rejected": 51,
+        "startup_work": 3415940.0,
+        "steps": 672,
+        "wall_s": 47.305888792,
+        "work": 250274901517.0
+      }
+    },
+    {
+      "dmin": 0.06,
+      "mode": "reference",
+      "mu": 0.5,
+      "run": {
+        "D": 1353.104621593182,
+        "completed": true,
+        "energy_rise": 0.016918898170072083,
+        "failed_at": null,
+        "fragment": {
+          "cells": 0,
+          "cm": [
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "omega": 0.0,
+          "separated": false,
+          "v": [
+            0.0,
+            0.0
+          ]
+        },
+        "fragments": [],
+        "ke_max": 6076.847252665391,
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 9609.36992138558,
+          "d_model": 0.0,
+          "d_num_r": 0.0,
+          "d_rad": 0.0,
+          "d_red": 0.0,
+          "w_ext": -0.7843555530179751,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "mean_active": 1.0000000000000038,
+        "p95_frame_work": 2104926804.0,
+        "peak_frame_wall_s": 1.057303417,
+        "peak_frame_work": 2549777812.0,
+        "rejected": 0,
+        "startup_work": 29727312.0,
+        "steps": 1200,
+        "wall_s": 23.519784041,
+        "work": 72090731220.0
+      }
+    },
+    {
+      "dmin": 0.06,
+      "mode": "reference_half",
+      "mu": 0.5,
+      "run": {
+        "D": 1353.1046215931656,
+        "completed": true,
+        "energy_rise": 0.0029964218033438073,
+        "failed_at": null,
+        "fragment": {
+          "cells": 0,
+          "cm": [
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "omega": 0.0,
+          "separated": false,
+          "v": [
+            0.0,
+            0.0
+          ]
+        },
+        "fragments": [],
+        "ke_max": 6067.369668594705,
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 9544.703092924015,
+          "d_model": 0.0,
+          "d_num_r": 0.0,
+          "d_rad": 0.0,
+          "d_red": 0.0,
+          "w_ext": -3.2164936107244118,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "mean_active": 1.0000000000000038,
+        "p95_frame_work": 3842383988.0,
+        "peak_frame_wall_s": 1.943761457,
+        "peak_frame_work": 4496249348.0,
+        "rejected": 0,
+        "startup_work": 29727312.0,
+        "steps": 1200,
+        "wall_s": 45.970227292,
+        "work": 141161620572.0
+      }
+    },
+    {
+      "dmin": 0.06,
+      "mode": "engine",
+      "mu": 0.5,
+      "run": {
+        "D": 1353.1046215931942,
+        "completed": true,
+        "energy_rise": 1.4207394702925313e-6,
+        "failed_at": null,
+        "fragment": {
+          "cells": 0,
+          "cm": [
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "omega": 0.0,
+          "separated": false,
+          "v": [
+            0.0,
+            0.0
+          ]
+        },
+        "fragments": [],
+        "ke_max": 5972.439242209983,
+        "ledger": {
+          "d_coupling": 0.0,
+          "d_fric": 9651.037784007818,
+          "d_model": 0.004774440419492043,
+          "d_num_r": 1.794833832458682,
+          "d_rad": 0.0,
+          "d_red": 0.012472428232364052,
+          "w_ext": -0.7771423940140005,
+          "w_iface_e": 0.0,
+          "w_iface_r": 0.0
+        },
+        "mean_active": 0.9984175078795396,
+        "p95_frame_work": 4370467904.0,
+        "peak_frame_wall_s": 1.431074042,
+        "peak_frame_work": 5094823256.0,
+        "rejected": 50,
+        "startup_work": 3415940.0,
+        "steps": 663,
+        "wall_s": 38.152530333,
+        "work": 158497933212.0
+      }
+    }
+  ],
+  "meta": {
+    "config": {},
+    "experiment": "phase0e",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "collapse",
+    "seed": null,
+    "solver_schedule": "CPU f64; work is an operation estimate, not GPU timing",
+    "source_hash": "c90d90adac1e6800",
+    "unix_time": 1794056827
+  }
+}

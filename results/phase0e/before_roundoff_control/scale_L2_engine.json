@@ -1,0 +1,179 @@
+{
+  "label": "scale_L2_engine",
+  "scene": "cantilever2_SBIL1_s1_g0.5000",
+  "onset_t": null,
+  "sep_t": null,
+  "d_end": 0.0,
+  "crack": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "fragment": {
+    "separated": false,
+    "mass": 576.0000000000001,
+    "cm": [
+      1.000000000427553,
+      0.19997436716281244
+    ],
+    "v": [
+      -1.4680066153606402e-10,
+      -0.00028318358270570937
+    ],
+    "omega": -0.0003776466832590434,
+    "cells": 165
+  },
+  "frags": [
+    {
+      "separated": true,
+      "mass": 576.0000000000001,
+      "cm": [
+        1.000000000427553,
+        0.19997436716281244
+      ],
+      "v": [
+        -1.4680066153606402e-10,
+        -0.00028318358270570937
+      ],
+      "omega": -0.0003776466832590434,
+      "cells": 165
+    }
+  ],
+  "e0": -0.0015254854410790331,
+  "e_end": -0.02986825415412588,
+  "e_max_rise": 0.0,
+  "ke_max": 0.028335119789967528,
+  "ledger": {
+    "w_ext": -0.004968900250577449,
+    "d_red": 4.107360598720744e-7,
+    "d_fric": 0.0,
+    "d_num_r": 0.028342502114194475,
+    "w_iface_r": 0.0,
+    "w_iface_e": 0.0,
+    "d_coupling": 0.0,
+    "d_rad": 0.0,
+    "d_model": 3.789861512722842e-10
+  },
+  "work": {
+    "pts_tangent": 34270,
+    "pts_force": 405404,
+    "e_pts": 12265552,
+    "e_body_flops": 13865940.0,
+    "iface_flops": 0.0,
+    "coupling_flops": 19961709.0,
+    "region_flops": 12007894.0,
+    "fact_flops": 17373966.0,
+    "solve_flops": 4266608.0,
+    "step_flops": 1111960.0,
+    "monitor_flops": 4065360.0,
+    "rebuild_flops": 21477388.0,
+    "contact_flops": 0.0,
+    "newton_iters": 97,
+    "factorizations": 47,
+    "e_substeps": 7003,
+    "coupling_iters": 0,
+    "macro_steps": 57,
+    "rejected": 5,
+    "activations": 28,
+    "rereductions": 8
+  },
+  "work_total": 861242185.0,
+  "wall_s": 0.395664,
+  "cells": 165,
+  "patches": 20,
+  "max_e_cells": 165,
+  "mean_e_frac": 0.98296875,
+  "v_impactor": null,
+  "failed_at": null,
+  "h_e": 0.0,
+  "chi_r_max": 0.06534398742480275,
+  "events": [
+    "t=0.00078 split 20 (window)",
+    "t=0.00078 window open (implicit solve/error-control failure)",
+    "t=0.00328 window close",
+    "t=0.00328 window open (implicit solve/error-control failure)",
+    "t=0.00728 window close",
+    "t=0.00728 window open (implicit solve/error-control failure)",
+    "t=0.01578 window close",
+    "t=0.01578 merge 8",
+    "t=0.01734 split 8 (window)",
+    "t=0.01734 window open (implicit solve/error-control failure)",
+    "t=0.03534 window close",
+    "t=0.11764 window open (implicit solve/error-control failure)",
+    "t=0.12000 window close"
+  ],
+  "momentum_drift": 0.16311374363851056,
+  "frames": [
+    {
+      "frame": 0,
+      "work": 378115777.0,
+      "wall_s": 0.17513608099999997,
+      "accepted": 22,
+      "rejected": 3,
+      "rebuild_work": 11332128.0
+    },
+    {
+      "frame": 1,
+      "work": 397486059.0,
+      "wall_s": 0.16582846,
+      "accepted": 10,
+      "rejected": 1,
+      "rebuild_work": 244200.0
+    },
+    {
+      "frame": 2,
+      "work": 7098319.0,
+      "wall_s": 0.006459292,
+      "accepted": 6,
+      "rejected": 0,
+      "rebuild_work": 1841700.0
+    },
+    {
+      "frame": 3,
+      "work": 3573792.0,
+      "wall_s": 0.0047026260000000005,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 1502800.0
+    },
+    {
+      "frame": 4,
+      "work": 3573792.0,
+      "wall_s": 0.004647041,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 1502800.0
+    },
+    {
+      "frame": 5,
+      "work": 3573792.0,
+      "wall_s": 0.004649416,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 1502800.0
+    },
+    {
+      "frame": 6,
+      "work": 3573792.0,
+      "wall_s": 0.004646457,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 1502800.0
+    },
+    {
+      "frame": 7,
+      "work": 60473834.0,
+      "wall_s": 0.027957541000000002,
+      "accepted": 3,
+      "rejected": 1,
+      "rebuild_work": 379212.0
+    }
+  ],
+  "startup_work": 3773028.0,
+  "fragment_masses": [
+    576.0000000000001
+  ]
+}

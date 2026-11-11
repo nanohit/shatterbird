@@ -135,13 +135,26 @@ impl ContactModel {
     /// Gap, unit normal (a → b; ground: +y) and the contact arms of a pair.
     pub fn geometry(&self, a: usize, b: usize, q: &[[f64; 3]]) -> (f64, V2) {
         if b == GROUND {
-            let yg = self.ground_y.unwrap();
-            (q[a][1] - self.radius[a] - yg, V2::new(0.0, -1.0))
+            // The monitor must see the same polygon that generates the force.
+            let gap = self.ground_points(a, q).iter().map(|p| p.0).fold(f64::INFINITY, f64::min);
+            (gap, V2::new(0.0, -1.0))
         } else {
             let d = V2::new(q[b][0] - q[a][0], q[b][1] - q[a][1]);
             let dn = d.norm().max(1e-12);
             (dn - self.radius[a] - self.radius[b], d * (1.0 / dn))
         }
+    }
+
+    /// Conservative surface-speed bound, including rotation. Used for candidate
+    /// reach and contact refinement, not as a replacement for point kinematics.
+    pub fn surface_speed(&self, a: usize, v: &[[f64; 3]]) -> f64 {
+        let r = self.verts[a].iter().fold(self.radius[a], |r, p| r.max(p.0.norm()));
+        V2::new(v[a][0], v[a][1]).norm() + r * v[a][2].abs()
+    }
+
+    pub fn may_contact(&self, a: usize, b: usize, q: &[[f64; 3]], v: &[[f64; 3]], dt: f64) -> bool {
+        let speed = self.surface_speed(a, v) + if b == GROUND { 0.0 } else { self.surface_speed(b, v) };
+        self.geometry(a, b, q).0 <= dt * speed
     }
 
     /// Ground contact points of a cell: (gap, world arm R(θ) r, stiffness) per vertex.

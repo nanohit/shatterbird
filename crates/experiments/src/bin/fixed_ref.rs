@@ -367,5 +367,5 @@ fn main() {
             "damaged_fixed": on_x, "damaged_f64": on_f, "broken_fixed": br_x, "broken_f64": br_f, "onset_disagreements": flip},
         "headroom": headroom, "cpu_fixed_s": t_fix});
     eprintln!("{label}: {}", serde_json::to_string(&out).unwrap());
-    write_json(EXP, &format!("fixed_ref_{label}_{tag}"), &out);
+    write_json(if a.iter().any(|s| s == "--phase0e") { "phase0e/gpu" } else { EXP }, &format!("fixed_ref_{label}_{tag}"), &out);
 }

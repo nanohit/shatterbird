@@ -1,0 +1,118 @@
+{
+  "label": "fine",
+  "scene": "wall_W8_s1_v1.50",
+  "onset_t": 0.004166666666666667,
+  "sep_t": null,
+  "d_end": 7.607752174799638,
+  "crack": [
+    4.002889117037312,
+    0.8760151975676903,
+    0.003960211528475231,
+    7.994036030736545,
+    0.19099175241466973,
+    0.9998620343725142
+  ],
+  "fragment": {
+    "separated": false,
+    "mass": 0.0,
+    "cm": [
+      0.0,
+      0.0
+    ],
+    "v": [
+      0.0,
+      0.0
+    ],
+    "omega": 0.0,
+    "cells": 0
+  },
+  "frags": [
+    {
+      "separated": true,
+      "mass": 3839.9999999999964,
+      "cm": [
+        4.000000082765297,
+        0.49999453765857116
+      ],
+      "v": [
+        0.00023126923269005953,
+        0.018197015372986892
+      ],
+      "omega": -0.000027866427856110347,
+      "cells": 3329
+    }
+  ],
+  "e0": 56.24506085990551,
+  "e_end": 56.240299727070315,
+  "e_max_rise": 0.025134259096304845,
+  "ke_max": 56.25,
+  "ledger": {
+    "w_ext": 0.0,
+    "d_red": 0.0,
+    "d_fric": 0.0,
+    "d_num_r": 0.0,
+    "w_iface_r": 0.0,
+    "w_iface_e": 0.0,
+    "d_coupling": 0.0,
+    "d_rad": 0.0,
+    "d_model": 0.0
+  },
+  "work": {
+    "pts_tangent": 0,
+    "pts_force": 0,
+    "e_pts": 173265300,
+    "e_body_flops": 353326320.0,
+    "iface_flops": 0.0,
+    "coupling_flops": 0.0,
+    "region_flops": 0.0,
+    "fact_flops": 0.0,
+    "solve_flops": 0.0,
+    "step_flops": 0.0,
+    "monitor_flops": 0.0,
+    "rebuild_flops": 333000505.0,
+    "contact_flops": 0.0,
+    "newton_iters": 0,
+    "factorizations": 0,
+    "e_substeps": 8842,
+    "coupling_iters": 0,
+    "macro_steps": 8,
+    "rejected": 0,
+    "activations": 0,
+    "rereductions": 0,
+    "roundoff_accepts": 0
+  },
+  "work_total": 11082244825.0,
+  "wall_s": 4.767299292,
+  "cells": 3329,
+  "patches": 1,
+  "max_e_cells": 3329,
+  "mean_e_frac": 1.0000000000000002,
+  "v_impactor": 0.8486022840933414,
+  "failed_at": null,
+  "h_e": 3.3941125496954284e-6,
+  "chi_r_max": 0.0,
+  "events": [],
+  "momentum_drift": 187.30875852984386,
+  "frames": [
+    {
+      "frame": 0,
+      "work": 5971010400.0,
+      "wall_s": 2.659661626,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 1,
+      "work": 4778233920.0,
+      "wall_s": 2.103321625,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    }
+  ],
+  "startup_work": 333000505.0,
+  "fragment_masses": [
+    3839.9999999999964
+  ]
+}

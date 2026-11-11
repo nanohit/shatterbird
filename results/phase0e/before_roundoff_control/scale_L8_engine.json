@@ -1,0 +1,203 @@
+{
+  "label": "scale_L8_engine",
+  "scene": "cantilever8_SBIL1_s1_g0.5000",
+  "onset_t": 0.052041666666666694,
+  "sep_t": 0.08104166666666669,
+  "d_end": 14.331976594071962,
+  "crack": [
+    0.4079032004018292,
+    0.19684641382595897,
+    0.17607056549143468,
+    1.1829133680163464,
+    0.03309754890195178,
+    0.3934282369316649
+  ],
+  "fragment": {
+    "separated": true,
+    "mass": 2186.589990240781,
+    "cm": [
+      4.207871754363217,
+      0.18051755144998988
+    ],
+    "v": [
+      0.14886653004722217,
+      -0.34724192618038563
+    ],
+    "omega": -0.0769157431494849,
+    "cells": 626
+  },
+  "frags": [
+    {
+      "separated": true,
+      "mass": 117.41000975922128,
+      "cm": [
+        0.20401036438289447,
+        0.20218306376138465
+      ],
+      "v": [
+        0.00011678127084495395,
+        0.01590642730919056
+      ],
+      "omega": 0.09408278473107527,
+      "cells": 31
+    },
+    {
+      "separated": true,
+      "mass": 2186.589990240781,
+      "cm": [
+        4.207871754363217,
+        0.18051755144998988
+      ],
+      "v": [
+        0.14886653004722217,
+        -0.34724192618038563
+      ],
+      "omega": -0.0769157431494849,
+      "cells": 626
+    }
+  ],
+  "e0": -1.2325242908559944,
+  "e_end": -1.5310185980437057,
+  "e_max_rise": 0.0,
+  "ke_max": 187.6100468921975,
+  "ledger": {
+    "w_ext": -0.25624302502124086,
+    "d_red": 0.0002217224346487967,
+    "d_fric": 0.0,
+    "d_num_r": 0.298273785868717,
+    "w_iface_r": 0.0,
+    "w_iface_e": 0.0,
+    "d_coupling": 0.0,
+    "d_rad": 0.0,
+    "d_model": -6.021267344724635e-7
+  },
+  "work": {
+    "pts_tangent": 222196,
+    "pts_force": 2967814,
+    "e_pts": 164395288,
+    "e_body_flops": 185108436.0,
+    "iface_flops": 0.0,
+    "coupling_flops": 167114415.0,
+    "region_flops": 108425498.0,
+    "fact_flops": 142723592.0,
+    "solve_flops": 22823912.0,
+    "step_flops": 2749304.0,
+    "monitor_flops": 3909000.0,
+    "rebuild_flops": 140911204.0,
+    "contact_flops": 0.0,
+    "newton_iters": 106,
+    "factorizations": 78,
+    "e_substeps": 23479,
+    "coupling_iters": 0,
+    "macro_steps": 69,
+    "rejected": 8,
+    "activations": 163,
+    "rereductions": 83
+  },
+  "work_total": 10859990681.0,
+  "wall_s": 4.9828105,
+  "cells": 657,
+  "patches": 80,
+  "max_e_cells": 657,
+  "mean_e_frac": 0.9861861576188057,
+  "v_impactor": null,
+  "failed_at": null,
+  "h_e": 0.0,
+  "chi_r_max": 0.5370785480166957,
+  "events": [
+    "t=0.00052 split 80 (window)",
+    "t=0.00052 window open (implicit solve/error-control failure)",
+    "t=0.00302 window close",
+    "t=0.00341 window open (implicit solve/error-control failure)",
+    "t=0.00741 window close",
+    "t=0.00741 window open (implicit solve/error-control failure)",
+    "t=0.01591 window close",
+    "t=0.01591 window open (implicit solve/error-control failure)",
+    "t=0.03341 window close",
+    "t=0.03341 merge 43",
+    "t=0.03354 split 43 (window)",
+    "t=0.03354 window open (implicit solve/error-control failure)",
+    "t=0.08521 window close",
+    "t=0.08521 merge 28",
+    "t=0.08547 split 28 (window)",
+    "t=0.08547 window open (implicit solve/error-control failure)",
+    "t=0.09997 drop 1 open cracks",
+    "t=0.11214 drop 1 open cracks",
+    "t=0.11630 window close",
+    "t=0.11630 merge 12",
+    "t=0.11630 split 12 (window)",
+    "t=0.11630 window open (implicit solve/error-control failure)"
+  ],
+  "momentum_drift": 824.3984646469399,
+  "frames": [
+    {
+      "frame": 0,
+      "work": 1695941125.0,
+      "wall_s": 0.799870751,
+      "accepted": 22,
+      "rejected": 5,
+      "rebuild_work": 43500516.0
+    },
+    {
+      "frame": 1,
+      "work": 1357035144.0,
+      "wall_s": 0.609092084,
+      "accepted": 7,
+      "rejected": 0,
+      "rebuild_work": 1546656.0
+    },
+    {
+      "frame": 2,
+      "work": 1624189639.0,
+      "wall_s": 0.7825935860000001,
+      "accepted": 12,
+      "rejected": 1,
+      "rebuild_work": 776328.0
+    },
+    {
+      "frame": 3,
+      "work": 1396436868.0,
+      "wall_s": 0.683016875,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 4,
+      "work": 1412415342.0,
+      "wall_s": 0.610860207,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 1846894.0
+    },
+    {
+      "frame": 5,
+      "work": 1820000365.0,
+      "wall_s": 0.811745291,
+      "accepted": 12,
+      "rejected": 1,
+      "rebuild_work": 43122923.0
+    },
+    {
+      "frame": 6,
+      "work": 1265562473.0,
+      "wall_s": 0.5660464159999999,
+      "accepted": 4,
+      "rejected": 1,
+      "rebuild_work": 43389647.0
+    },
+    {
+      "frame": 7,
+      "work": 272039736.0,
+      "wall_s": 0.113968625,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    }
+  ],
+  "startup_work": 16369989.0,
+  "fragment_masses": [
+    117.41000975922128,
+    2186.589990240781
+  ]
+}

@@ -19,13 +19,11 @@ pub enum Rep {
 }
 
 pub struct RegStep {
-    pub xh: V2,
+    pub qhat: Vec<[f64; 3]>,
     pub a0: f64,
     pub b0: f64,
     pub a: Vec<f64>,
     pub b: Vec<f64>,
-    pub th: f64,
-    pub tth: Vec<f64>,
 }
 
 pub struct StepData {
@@ -49,6 +47,7 @@ struct Fact {
     spd: Spd,
     ah: f64,
     valid: bool,
+    roundoff: Vec<f64>,
 }
 
 pub struct RSys {
@@ -244,7 +243,7 @@ impl RSys {
             let sp = Spd::analyze(&pat.matrix(vec![1.0; pat.nnz()]));
             rs.fact_est = sp.stats.flops_factor;
             rs.nnz_l = sp.stats.nnz_l;
-            rs.fact[0] = Some(Fact { spd: sp, ah: f64::NAN, valid: false });
+            rs.fact[0] = Some(Fact { spd: sp, ah: f64::NAN, valid: false, roundoff: vec![0.0; rs.n] });
             rs.pat = Some(pat);
         }
         w.rebuild_flops += (m.facets.len() * 4) as f64;
@@ -320,31 +319,32 @@ impl RSys {
         for &pid in &self.closed {
             let rg = &patches[pid];
             let me = rg.me;
-            let (mut xh, mut a0, mut b0, mut th) = (V2::ZERO, 0.0, 0.0, 0.0);
-            let (mut a, mut b, mut tth) = (vec![0.0; me], vec![0.0; me], vec![0.0; me]);
+            let (mut a0, mut b0) = (0.0, 0.0);
+            let (mut a, mut b) = (vec![0.0; me], vec![0.0; me]);
             for (li, &i) in rg.cells.iter().enumerate() {
-                let x = V2::new(qhat[i][0], qhat[i][1]);
+                let x = V2::new(qhat[i][0], qhat[i][1]) - rg.xc;
                 let jx = jperp(x);
                 let mm = rg.mi[li];
-                xh = xh + x * mm;
                 a0 += mm * x.dot(rg.p[li]);
                 b0 += mm * jx.dot(rg.p[li]);
-                th += rg.ii[li] * qhat[i][2];
                 for j in 0..me {
-                    let (ux, uy, uw) = (rg.te[(3 * li) * me + j], rg.te[(3 * li + 1) * me + j], rg.te[(3 * li + 2) * me + j]);
+                    let (ux, uy) = (rg.te[(3 * li) * me + j], rg.te[(3 * li + 1) * me + j]);
                     a[j] += mm * (x.x * ux + x.y * uy);
                     b[j] += mm * (jx.x * ux + jx.y * uy);
-                    tth[j] += rg.ii[li] * qhat[i][2] * uw;
                 }
             }
             w.step_flops += 12.0 * (rg.cells.len() * me.max(1)) as f64;
-            reg.push(RegStep { xh, a0, b0, a, b, th, tth });
+            reg.push(RegStep { qhat: rg.cells.iter().map(|&i| qhat[i]).collect(), a0, b0, a, b });
         }
         StepData { ah, reg }
     }
 
     /// Gradient, Hessian triplets (if want_h) and incremental potential.
     pub fn assemble(&self, m: &Model, patches: &[Patch], z: &[f64], sd: &StepData, ex: &Extra, want_h: bool, w: &mut Work) -> (Vec<f64>, Vec<(usize, usize, f64)>, f64) {
+        self.assemble_impl(m, patches, z, sd, ex, want_h, false, w)
+    }
+
+    fn assemble_impl(&self, m: &Model, patches: &[Patch], z: &[f64], sd: &StepData, ex: &Extra, want_h: bool, secant: bool, w: &mut Work) -> (Vec<f64>, Vec<(usize, usize, f64)>, f64) {
         let n = self.n;
         let mut g = vec![0.0; n];
         let mut trip = Vec::new();
@@ -399,7 +399,12 @@ impl RSys {
                 }
                 if want_h {
                     w.pts_tangent += 1;
-                    let dd = e.tan;
+                    // Change only the material Hessian, never the physical force or
+                    // potential. In compression even a broken cohesive point retains kn.
+                    let dd = if secant {
+                        let (kn, kt) = f.pts[pt].law.secant(j.dn, e.d);
+                        [kn, 0.0, kt]
+                    } else { e.tan };
                     for r in 0..6 {
                         let ar = dd[0] * jn[r] + dd[1] * jt[r];
                         let br = dd[1] * jn[r] + dd[2] * jt[r];
@@ -547,22 +552,24 @@ impl RSys {
             if sd.ah > 0.0 {
                 let rs = &sd.reg[k];
                 let ah = sd.ah;
-                let c = V2::new(rg.xc.x + y[0], rg.xc.y + y[1]);
                 let phi = y[2];
                 let (cs, sn) = (phi.cos(), phi.sin());
                 let ae = rs.a0 + (0..me).map(|j| rs.a[j] * eta[j]).sum::<f64>();
                 let be = rs.b0 + (0..me).map(|j| rs.b[j] * eta[j]).sum::<f64>();
-                let weta: f64 = (0..me).map(|j| rg.w[j] * eta[j]).sum();
-                let s1eta: f64 = (0..me).map(|j| rg.s1[j] * eta[j]).sum();
-                let tteta: f64 = (0..me).map(|j| rs.tth[j] * eta[j]).sum();
-                let ee: f64 = eta.iter().map(|v| v * v).sum();
-                energy += 0.5 * ah * (rg.mass * c.dot(c) - 2.0 * c.dot(rs.xh) - 2.0 * (cs * ae - sn * be) + 2.0 * s1eta + ee + rg.it * phi * phi + 2.0 * phi * weta - 2.0 * phi * rs.th - 2.0 * tteta);
-                g[o] += ah * (rg.mass * c.x - rs.xh.x);
-                g[o + 1] += ah * (rg.mass * c.y - rs.xh.y);
-                g[o + 2] += ah * (sn * ae + cs * be + rg.it * phi + weta - rs.th);
-                for j in 0..me {
-                    g[o + 3 + j] += ah * (-cs * rs.a[j] + sn * rs.b[j] + rg.s1[j] + eta[j] + phi * rg.w[j] - rs.tth[j]);
+                // Evaluate the inertial residual as short differences, rather than
+                // subtracting O(m*x/h^2) absolute-coordinate moments. The latter
+                // falsely stalled Newton and hid behind the small-step escape.
+                for li in 0..rg.cells.len() {
+                    let qi = self.cell_q(patches, k, li, z);
+                    let dx = [qi[0]-rs.qhat[li][0], qi[1]-rs.qhat[li][1], qi[2]-rs.qhat[li][2]];
+                    let mm = [rg.mi[li], rg.mi[li], rg.ii[li]];
+                    let dj = self.cell_jac(patches, k, li, z).0;
+                    energy += 0.5 * ah * (0..3).map(|r| mm[r]*dx[r]*dx[r]).sum::<f64>();
+                    for j in 0..rg.ny() {
+                        g[o+j] += ah * (0..3).map(|r| dj[j][r]*mm[r]*dx[r]).sum::<f64>();
+                    }
                 }
+                w.region_flops += (rg.cells.len() * (18 + 12*rg.ny())) as f64;
                 if want_h {
                     trip.push((o, o, ah * rg.mass));
                     trip.push((o + 1, o + 1, ah * rg.mass));
@@ -636,7 +643,7 @@ impl RSys {
         w.fact_flops += self.fact_est;
         w.factorizations += 1;
         let ok = spd.factor(&mat).is_ok();
-        self.fact[slot] = Some(Fact { spd, ah, valid: ok });
+        self.fact[slot] = Some(Fact { spd, ah, valid: ok, roundoff: vec![0.0; self.n] });
         ok
     }
 
@@ -663,10 +670,30 @@ impl RSys {
         }
         let mut fresh = false;
         let mut secant = false;
+        // At a microsecond step a few ULPs of position can mean a force residual
+        // above the static tolerance after multiplication by M/h^2. Bound that
+        // attainable residual with |H| times 64 ULPs in physical coordinates.
+        // Static force tests retain their original force-only criterion.
+        let mut ulp = vec![0.0; self.n];
+        if sd.ah > 0.0 {
+            for (k,&pid) in self.closed.iter().enumerate() {
+                let pa=&patches[pid];let o=self.off[k];
+                let dx=64.0*f64::EPSILON*(1.0+pa.xc.x.abs()+pa.xc.y.abs()+pa.radius);
+                ulp[o]=dx;ulp[o+1]=dx;ulp[o+2]=dx/pa.radius.max((pa.it/pa.mass).sqrt()).max(1e-3);
+                for j in 0..pa.me {ulp[o+3+j]=dx*pa.mass.sqrt();}
+            }
+        }
         let (mut g, _, mut e0) = self.assemble(m, patches, z, sd, ex, false, w);
-        for _ in 0..max_iter {
+        for iteration in 0..max_iter {
             let res = g.iter().fold(0.0f64, |a, &v| a.max(v.abs()));
+            if std::env::var_os("SB_NEWTON_TRACE").is_some() {
+                eprintln!("Newton it={iteration} ah={} res={res:.8e} tol={tol:.8e}", sd.ah);
+            }
             if res <= tol {
+                return true;
+            }
+            if self.fact_valid(slot) && g.iter().zip(&self.fact[slot].as_ref().unwrap().roundoff).all(|(g,r)|g.abs()<=tol+r) {
+                w.roundoff_accepts+=1;
                 return true;
             }
             if !self.fact_valid(slot) {
@@ -675,12 +702,19 @@ impl RSys {
                     // drop the softening part: Gauss–Newton with the elastic facet stiffness
                     trip = self.secant_trip(m, patches, z, sd, ex, w);
                 }
+                let mut roundoff=vec![0.0;self.n];
+                for &(r,c,v) in &trip {roundoff[r]+=v.abs()*ulp[c];}
                 if !self.factorize(trip, slot, sd.ah, w) {
                     if secant {
                         return false;
                     }
                     secant = true;
                     continue;
+                }
+                self.fact[slot].as_mut().unwrap().roundoff=roundoff;
+                if g.iter().zip(&self.fact[slot].as_ref().unwrap().roundoff).all(|(g,r)|g.abs()<=tol+r) {
+                    w.roundoff_accepts+=1;
+                    return true;
                 }
                 fresh = true;
             }
@@ -700,8 +734,9 @@ impl RSys {
                 continue;
             }
             let pmax = p.iter().fold(0.0f64, |a, &v| a.max(v.abs()));
-            if pmax <= 1e-13 {
-                return true;
+            if pmax == 0.0 {
+                // A tiny displacement is not a force residual certificate.
+                return res <= tol;
             }
             let mut alpha = 1.0;
             let mut accepted = false;
@@ -709,7 +744,8 @@ impl RSys {
                 let zt: Vec<f64> = z.iter().zip(&p).map(|(a, b)| a + alpha * b).collect();
                 let (gt, _, e1) = self.assemble(m, patches, &zt, sd, ex, false, w);
                 let rt = gt.iter().fold(0.0f64, |a, &v| a.max(v.abs()));
-                if e1 <= e0 + 1e-4 * alpha * gp || rt < (1.0 - 1e-4 * alpha) * res {
+                let energy_noise = 64.0 * f64::EPSILON * (1.0 + e0.abs());
+                if e1 <= e0 + 1e-4 * alpha * gp || (e1 <= e0 + energy_noise && rt < (1.0 - 1e-4 * alpha) * res) {
                     *z = zt;
                     // lagged Jacobian: refresh when the contraction is poor
                     if rt > 0.5 * res {
@@ -734,18 +770,7 @@ impl RSys {
     }
 
     fn secant_trip(&self, m: &Model, patches: &[Patch], z: &[f64], sd: &StepData, ex: &Extra, w: &mut Work) -> Vec<(usize, usize, f64)> {
-        // Hessian with every eval facet point at its secant stiffness
-        let mut mm = m.clone();
-        for &fi in &self.eval_facets {
-            let f = &mut mm.facets[fi];
-            for p in f.pts.iter_mut() {
-                let d = p.law.damage(p.kappa_c);
-                p.law.kind = LawKind::Elastic;
-                p.law.kn *= 1.0 - d;
-                p.law.kt *= 1.0 - d;
-            }
-        }
-        self.assemble(&mm, patches, z, sd, ex, true, w).1
+        self.assemble_impl(m, patches, z, sd, ex, true, true, w).1
     }
 
     /// Elastic energy of the R part: eval facets + K̂.
@@ -876,4 +901,28 @@ pub fn fit_patch(pa: &Patch, q: &[[f64; 3]], k_fit: bool, kmat: Option<&dyn Fn(&
         }
     }
     y
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::{rect_tess,engine::patch::build_patch};
+    use model::{Material,LawOptions};
+    #[test]
+    fn secant_fallback_keeps_broken_point_compression_and_real_gradient() {
+        let tess=rect_tess(V2::ZERO,V2::new(0.5,0.3),0.15,5);
+        let mut m=Model::from_tessellation(&tess,Material::concrete(0.2),LawOptions::elastic(),&[]);
+        let fi=m.facets.iter().position(|f|f.tag==0).unwrap();
+        let f=&mut m.facets[fi];f.pts[0].law.kind=LawKind::Damage;f.pts[0].kappa_c=f.pts[0].law.wc;
+        let (b,n)=(f.b,f.n0);let mut q=m.q.clone();q[b][0]-=1e-5*n.x;q[b][1]-=1e-5*n.y;
+        let adj=m.neighbours();let loaded=vec![false;m.bodies.len()];let mut w=Work::default();
+        let p:Vec<_>=(0..m.n_cells()).map(|i|build_patch(&m,&adj,&[i],0,0,&loaded,&mut w)).collect();
+        let rs=RSys::build(&m,&p,&vec![true;p.len()],&loaded,&[],1,&mut w);
+        let z=rs.fit(&p,&q,&mut w);let sd=rs.step_data(&p,&q,1e6,&mut w);
+        let ex=Extra{ext:&[],fj:None,robin:None,contacts:None};
+        let (g,h,e)=rs.assemble(&m,&p,&z,&sd,&ex,true,&mut w);
+        let (gs,hs,es)=rs.assemble_impl(&m,&p,&z,&sd,&ex,true,true,&mut w);
+        assert_eq!(g,gs);assert_eq!(e,es);
+        assert_eq!(h,hs,"fully broken compression must not lose kn in the fallback");
+    }
 }

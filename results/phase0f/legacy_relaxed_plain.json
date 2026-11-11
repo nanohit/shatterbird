@@ -1,0 +1,121 @@
+{
+  "label": "disabled force residual gate",
+  "scene": "wall_W8_s1_v1.50",
+  "onset_t": 0.004166666666666667,
+  "sep_t": null,
+  "d_end": 18.59722134618416,
+  "crack": [
+    3.9789629820182792,
+    0.8295669242937423,
+    3.402417585885711,
+    4.608895135902805,
+    0.40245590895018923,
+    0.9998620343725142
+  ],
+  "fragment": {
+    "separated": false,
+    "mass": 0.0,
+    "cm": [
+      0.0,
+      0.0
+    ],
+    "v": [
+      0.0,
+      0.0
+    ],
+    "omega": 0.0,
+    "cells": 0
+  },
+  "frags": [
+    {
+      "separated": true,
+      "mass": 3839.9999999999964,
+      "cm": [
+        3.9999997922942656,
+        0.49999991770340485
+      ],
+      "v": [
+        0.00014778683234710916,
+        0.0025980469262852856
+      ],
+      "omega": 0.00003205702386826232,
+      "cells": 3329
+    }
+  ],
+  "e0": 56.24507990132529,
+  "e_end": 56.22976024267983,
+  "e_max_rise": 0.0009331631955475927,
+  "ke_max": 56.25,
+  "ledger": {
+    "w_ext": 0.0,
+    "d_red": 0.0,
+    "d_fric": 0.0,
+    "d_num_r": -8.613871496546133e-6,
+    "w_iface_r": 0.15299503007317075,
+    "w_iface_e": -0.1518074909839261,
+    "d_coupling": 0.012557745957897184,
+    "d_rad": 0.0,
+    "d_model": 0.0
+  },
+  "work": {
+    "pts_tangent": 33404,
+    "pts_force": 1143508,
+    "e_pts": 35433306,
+    "e_body_flops": 68251608.0,
+    "iface_flops": 513251640.0,
+    "coupling_flops": 247388400.0,
+    "region_flops": 217467244.0,
+    "fact_flops": 287954440.0,
+    "solve_flops": 245579040.0,
+    "step_flops": 17523692.0,
+    "monitor_flops": 8571840.0,
+    "rebuild_flops": 169840962.0,
+    "contact_flops": 0.0,
+    "newton_iters": 150,
+    "factorizations": 6,
+    "e_substeps": 27754,
+    "coupling_iters": 25,
+    "macro_steps": 8,
+    "rejected": 1,
+    "activations": 14,
+    "rereductions": 0,
+    "roundoff_accepts": 40
+  },
+  "work_total": 3977118506.0,
+  "wall_s": 3.9349517499999997,
+  "cells": 3329,
+  "patches": 200,
+  "max_e_cells": 228,
+  "mean_e_frac": 0.058976669670571746,
+  "v_impactor": 1.0907691464027132,
+  "failed_at": null,
+  "h_e": 3.3941125496954284e-6,
+  "chi_r_max": 0.11084596455527934,
+  "events": [
+    "t=0.00000 open 6 (contact)",
+    "t=0.00000 open 8 (coupling)"
+  ],
+  "momentum_drift": 139.51611171785956,
+  "frames": [
+    {
+      "frame": 0,
+      "work": 2563301805.0,
+      "wall_s": 2.57523775,
+      "accepted": 4,
+      "rejected": 1,
+      "rebuild_work": 79141247.0
+    },
+    {
+      "frame": 1,
+      "work": 1374538414.0,
+      "wall_s": 1.3536702079999998,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 51421428.0
+    }
+  ],
+  "startup_work": 39278287.0,
+  "fragment_masses": [
+    3839.9999999999964
+  ]
+}

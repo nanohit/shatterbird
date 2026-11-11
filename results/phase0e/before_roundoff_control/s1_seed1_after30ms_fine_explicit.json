@@ -1,0 +1,260 @@
+{
+  "label": "s1_seed1_after30ms_fine_explicit",
+  "scene": "cantilever_SBIL1_s1_g1.1309",
+  "onset_t": 0.0305,
+  "sep_t": 0.04400000000000001,
+  "d_end": 14.508254161812689,
+  "crack": [
+    0.23142240213033166,
+    0.20954763732418868,
+    0.04744395488322574,
+    0.705901370525491,
+    0.0421970073395246,
+    0.3932158836337937
+  ],
+  "fragment": {
+    "separated": true,
+    "mass": 1099.187647587892,
+    "cm": [
+      2.1408626185854205,
+      -0.18417828684353055
+    ],
+    "v": [
+      0.21866319399910406,
+      -2.8884058809291484
+    ],
+    "omega": -0.27828981768406014,
+    "cells": 683
+  },
+  "frags": [
+    {
+      "separated": true,
+      "mass": 1099.187647587892,
+      "cm": [
+        2.1408626185854205,
+        -0.18417828684353055
+      ],
+      "v": [
+        0.21866319399910406,
+        -2.8884058809291484
+      ],
+      "omega": -0.27828981768406014,
+      "cells": 683
+    }
+  ],
+  "e0": -0.214794275090197,
+  "e_end": -0.21496093792790893,
+  "e_max_rise": 1.9051337503128707e-6,
+  "ke_max": 4664.8021582609845,
+  "ledger": {
+    "w_ext": -0.0956385141215448,
+    "d_red": 1.1165934399315347e-7,
+    "d_fric": 0.0,
+    "d_num_r": 0.0028863399764739173,
+    "w_iface_r": 0.0,
+    "w_iface_e": 0.0,
+    "d_coupling": 0.0,
+    "d_rad": 0.0,
+    "d_model": 4.0466537676309144e-8
+  },
+  "work": {
+    "pts_tangent": 86146,
+    "pts_force": 1064536,
+    "e_pts": 692469816,
+    "e_body_flops": 758097936.0,
+    "iface_flops": 0.0,
+    "coupling_flops": 50062698.0,
+    "region_flops": 31507290.0,
+    "fact_flops": 45605908.0,
+    "solve_flops": 8415776.0,
+    "step_flops": 2178628.0,
+    "monitor_flops": 4301280.0,
+    "rebuild_flops": 532232080.0,
+    "contact_flops": 0.0,
+    "newton_iters": 43,
+    "factorizations": 28,
+    "e_substeps": 88233,
+    "coupling_iters": 0,
+    "macro_steps": 101,
+    "rejected": 5,
+    "activations": 45,
+    "rereductions": 5
+  },
+  "work_total": 43061691916.0,
+  "wall_s": 16.189833792,
+  "cells": 716,
+  "patches": 844,
+  "max_e_cells": 716,
+  "mean_e_frac": 1.0000000000000007,
+  "v_impactor": null,
+  "failed_at": null,
+  "h_e": 3.3941125496954284e-6,
+  "chi_r_max": 0.16454685626385604,
+  "events": [
+    "t=0.00052 split 40 (window)",
+    "t=0.00052 window open (implicit solve/error-control failure)",
+    "t=0.00302 window close",
+    "t=0.00315 window open (implicit solve/error-control failure)",
+    "t=0.00865 window close",
+    "t=0.00865 window open (implicit solve/error-control failure)",
+    "t=0.01665 window close",
+    "t=0.01665 merge 5",
+    "t=0.01685 split 5 (window)",
+    "t=0.01685 window open (implicit solve/error-control failure)",
+    "t=0.03000 window open (explicit control)",
+    "t=0.05200 drop 1 open cracks",
+    "t=0.05617 drop 1 open cracks",
+    "t=0.06033 drop 1 open cracks",
+    "t=0.07700 drop 1 open cracks",
+    "t=0.08117 drop 1 open cracks",
+    "t=0.08950 drop 2 open cracks",
+    "t=0.09367 drop 4 open cracks",
+    "t=0.09783 drop 2 open cracks",
+    "t=0.10200 drop 3 open cracks",
+    "t=0.10617 drop 1 open cracks"
+  ],
+  "momentum_drift": 3102.7484968397825,
+  "frames": [
+    {
+      "frame": 1,
+      "work": 572902848.0,
+      "wall_s": 0.253731749,
+      "accepted": 5,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 2,
+      "work": 2617565604.0,
+      "wall_s": 1.116729998,
+      "accepted": 6,
+      "rejected": 0,
+      "rebuild_work": 47311908.0
+    },
+    {
+      "frame": 3,
+      "work": 2460745560.0,
+      "wall_s": 1.027073166,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 94551816.0
+    },
+    {
+      "frame": 4,
+      "work": 2458879800.0,
+      "wall_s": 1.023219207,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 94455816.0
+    },
+    {
+      "frame": 5,
+      "work": 2546445456.0,
+      "wall_s": 1.049714917,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 188215632.0
+    },
+    {
+      "frame": 6,
+      "work": 2396013972.0,
+      "wall_s": 0.9990001660000001,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 46927908.0
+    },
+    {
+      "frame": 7,
+      "work": 2348791104.0,
+      "wall_s": 0.987967083,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 8,
+      "work": 2348791104.0,
+      "wall_s": 0.984818459,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 9,
+      "work": 2348791104.0,
+      "wall_s": 0.986496418,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 10,
+      "work": 2348791104.0,
+      "wall_s": 0.985498334,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 11,
+      "work": 2348791104.0,
+      "wall_s": 0.985327792,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 12,
+      "work": 2348791104.0,
+      "wall_s": 0.98483604,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 13,
+      "work": 2348791104.0,
+      "wall_s": 0.983703417,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 14,
+      "work": 2348791104.0,
+      "wall_s": 0.981158334,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 15,
+      "work": 2348791104.0,
+      "wall_s": 0.978752791,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 16,
+      "work": 2348791104.0,
+      "wall_s": 0.982763458,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 17,
+      "work": 2067371616.0,
+      "wall_s": 0.871579459,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    }
+  ],
+  "startup_work": 4453856020.0,
+  "fragment_masses": [
+    52.812352412107025,
+    1099.187647587892
+  ]
+}

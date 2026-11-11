@@ -1,0 +1,166 @@
+{
+  "label": "scale_L2_reference",
+  "scene": "cantilever2_SBIL1_s1_g0.5000",
+  "onset_t": null,
+  "sep_t": null,
+  "d_end": 0.0,
+  "crack": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "fragment": {
+    "separated": false,
+    "mass": 576.0000000000001,
+    "cm": [
+      1.0000000072209734,
+      0.1999543954985316
+    ],
+    "v": [
+      0.000010707115335897506,
+      0.002627976131461181
+    ],
+    "omega": 0.003511533098440664,
+    "cells": 165
+  },
+  "frags": [
+    {
+      "separated": true,
+      "mass": 576.0000000000001,
+      "cm": [
+        1.0000000072209734,
+        0.1999543954985316
+      ],
+      "v": [
+        0.000010707115335897506,
+        0.002627976131461181
+      ],
+      "omega": 0.003511533098440664,
+      "cells": 165
+    }
+  ],
+  "e0": -0.0015341382079613753,
+  "e_end": -0.0015341182484487617,
+  "e_max_rise": 2.2535711340218242e-8,
+  "ke_max": 0.02846560751860476,
+  "ledger": {
+    "w_ext": -0.0049221044204477435,
+    "d_red": 0.0,
+    "d_fric": 0.0,
+    "d_num_r": 0.0,
+    "w_iface_r": 0.0,
+    "w_iface_e": 0.0,
+    "d_coupling": 0.0,
+    "d_rad": 0.0,
+    "d_model": 0.0
+  },
+  "work": {
+    "pts_tangent": 0,
+    "pts_force": 0,
+    "e_pts": 20718720,
+    "e_body_flops": 46807200.0,
+    "iface_flops": 0.0,
+    "coupling_flops": 0.0,
+    "region_flops": 0.0,
+    "fact_flops": 0.0,
+    "solve_flops": 0.0,
+    "step_flops": 0.0,
+    "monitor_flops": 0.0,
+    "rebuild_flops": 13343201.0,
+    "contact_flops": 0.0,
+    "newton_iters": 0,
+    "factorizations": 0,
+    "e_substeps": 23640,
+    "coupling_iters": 0,
+    "macro_steps": 120,
+    "rejected": 0,
+    "activations": 0,
+    "rereductions": 0,
+    "roundoff_accepts": 0
+  },
+  "work_total": 1303273601.0,
+  "wall_s": 0.584741708,
+  "cells": 165,
+  "patches": 1,
+  "max_e_cells": 165,
+  "mean_e_frac": 1.0000000000000004,
+  "v_impactor": null,
+  "failed_at": null,
+  "h_e": 5.091168824543142e-6,
+  "chi_r_max": 0.0,
+  "events": [],
+  "momentum_drift": 1.5137268153253987,
+  "frames": [
+    {
+      "frame": 0,
+      "work": 182740140.0,
+      "wall_s": 0.09260716800000002,
+      "accepted": 17,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 1,
+      "work": 182740140.0,
+      "wall_s": 0.080896166,
+      "accepted": 17,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 2,
+      "work": 171990720.0,
+      "wall_s": 0.076175669,
+      "accepted": 16,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 3,
+      "work": 182740140.0,
+      "wall_s": 0.08088541599999999,
+      "accepted": 17,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 4,
+      "work": 182740140.0,
+      "wall_s": 0.08075554200000001,
+      "accepted": 17,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 5,
+      "work": 171990720.0,
+      "wall_s": 0.075877623,
+      "accepted": 16,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 6,
+      "work": 182740140.0,
+      "wall_s": 0.080704666,
+      "accepted": 17,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 7,
+      "work": 32248260.0,
+      "wall_s": 0.014300917,
+      "accepted": 3,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    }
+  ],
+  "startup_work": 13343201.0,
+  "fragment_masses": [
+    576.0000000000001
+  ]
+}

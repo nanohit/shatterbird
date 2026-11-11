@@ -1,0 +1,275 @@
+{
+  "label": "s1_seed1_engine",
+  "scene": "cantilever_SBIL1_s1_g1.1309",
+  "onset_t": 0.020846354166666674,
+  "sep_t": 0.043013020833333346,
+  "d_end": 14.508251246662406,
+  "crack": [
+    0.23142260714724658,
+    0.2095503135791042,
+    0.04744395488322574,
+    0.705901370525491,
+    0.0421970073395246,
+    0.3932158836337937
+  ],
+  "fragment": {
+    "separated": true,
+    "mass": 1099.187647587892,
+    "cm": [
+      2.118834624783613,
+      -0.19899618392947083
+    ],
+    "v": [
+      0.10782632756697431,
+      -2.9629622007702903
+    ],
+    "omega": -0.15383414173301033,
+    "cells": 683
+  },
+  "frags": [
+    {
+      "separated": true,
+      "mass": 1099.187647587892,
+      "cm": [
+        2.118834624783613,
+        -0.19899618392947083
+      ],
+      "v": [
+        0.10782632756697431,
+        -2.9629622007702903
+      ],
+      "omega": -0.15383414173301033,
+      "cells": 683
+    }
+  ],
+  "e0": -0.21184336748853136,
+  "e_end": -1.4520670175511747,
+  "e_max_rise": 0.0,
+  "ke_max": 4847.316631744731,
+  "ledger": {
+    "w_ext": -0.0956385141215448,
+    "d_red": 0.0002663254908670254,
+    "d_fric": 0.0,
+    "d_num_r": 1.2400920085237495,
+    "w_iface_r": 0.0,
+    "w_iface_e": 0.0,
+    "d_coupling": 0.0,
+    "d_rad": 0.0,
+    "d_model": -1.2995527476356017e-7
+  },
+  "work": {
+    "pts_tangent": 600252,
+    "pts_force": 4487308,
+    "e_pts": 187685832,
+    "e_body_flops": 204188880.0,
+    "iface_flops": 0.0,
+    "coupling_flops": 154659942.0,
+    "region_flops": 86969610.0,
+    "fact_flops": 252577490.0,
+    "solve_flops": 106144004.0,
+    "step_flops": 14438084.0,
+    "monitor_flops": 64527840.0,
+    "rebuild_flops": 463385636.0,
+    "contact_flops": 0.0,
+    "newton_iters": 515,
+    "factorizations": 167,
+    "e_substeps": 23765,
+    "coupling_iters": 0,
+    "macro_steps": 129,
+    "rejected": 9,
+    "activations": 56,
+    "rereductions": 15
+  },
+  "work_total": 12997330286.0,
+  "wall_s": 6.051323209,
+  "cells": 716,
+  "patches": 40,
+  "max_e_cells": 716,
+  "mean_e_frac": 0.9958484515634711,
+  "v_impactor": null,
+  "failed_at": null,
+  "h_e": 0.0,
+  "chi_r_max": 0.2656586017570444,
+  "events": [
+    "t=0.00052 split 40 (window)",
+    "t=0.00052 window open (implicit solve/error-control failure)",
+    "t=0.00302 window close",
+    "t=0.00315 window open (implicit solve/error-control failure)",
+    "t=0.00865 window close",
+    "t=0.00865 window open (implicit solve/error-control failure)",
+    "t=0.01665 window close",
+    "t=0.01665 merge 5",
+    "t=0.01685 split 5 (window)",
+    "t=0.01685 window open (implicit solve/error-control failure)",
+    "t=0.05135 drop 1 open cracks",
+    "t=0.05551 drop 1 open cracks",
+    "t=0.05968 drop 1 open cracks",
+    "t=0.05968 window close",
+    "t=0.05968 merge 10",
+    "t=0.06027 split 11 (window)",
+    "t=0.06027 window open (cost)",
+    "t=0.07777 drop 1 open cracks",
+    "t=0.08177 drop 1 open cracks",
+    "t=0.08177 window close",
+    "t=0.08815 drop 2 open cracks",
+    "t=0.09023 drop 1 open cracks",
+    "t=0.09127 drop 1 open cracks",
+    "t=0.09231 drop 1 open cracks",
+    "t=0.09544 drop 2 open cracks",
+    "t=0.09804 drop 2 open cracks",
+    "t=0.10013 drop 2 open cracks",
+    "t=0.10117 drop 1 open cracks"
+  ],
+  "momentum_drift": 3259.007316763933,
+  "frames": [
+    {
+      "frame": 0,
+      "work": 2493074032.0,
+      "wall_s": 1.149664709,
+      "accepted": 20,
+      "rejected": 4,
+      "rebuild_work": 50558964.0
+    },
+    {
+      "frame": 1,
+      "work": 2637196344.0,
+      "wall_s": 1.269194541,
+      "accepted": 11,
+      "rejected": 1,
+      "rebuild_work": 1492812.0
+    },
+    {
+      "frame": 2,
+      "work": 2403631620.0,
+      "wall_s": 1.00300775,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 47311908.0
+    },
+    {
+      "frame": 3,
+      "work": 2640904325.0,
+      "wall_s": 1.165590706,
+      "accepted": 14,
+      "rejected": 1,
+      "rebuild_work": 104142188.0
+    },
+    {
+      "frame": 4,
+      "work": 2175681816.0,
+      "wall_s": 0.92401346,
+      "accepted": 11,
+      "rejected": 0,
+      "rebuild_work": 107936324.0
+    },
+    {
+      "frame": 5,
+      "work": 184526325.0,
+      "wall_s": 0.15859829,
+      "accepted": 18,
+      "rejected": 3,
+      "rebuild_work": 35997150.0
+    },
+    {
+      "frame": 6,
+      "work": 68865282.0,
+      "wall_s": 0.055703126000000006,
+      "accepted": 7,
+      "rejected": 0,
+      "rebuild_work": 14539270.0
+    },
+    {
+      "frame": 7,
+      "work": 47895778.0,
+      "wall_s": 0.035168332,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 8427064.0
+    },
+    {
+      "frame": 8,
+      "work": 40395904.0,
+      "wall_s": 0.031545832999999995,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 8427064.0
+    },
+    {
+      "frame": 9,
+      "work": 45535408.0,
+      "wall_s": 0.0337245,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 8427064.0
+    },
+    {
+      "frame": 10,
+      "work": 33491668.0,
+      "wall_s": 0.027896584,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 8427064.0
+    },
+    {
+      "frame": 11,
+      "work": 31187800.0,
+      "wall_s": 0.026475124,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 8427064.0
+    },
+    {
+      "frame": 12,
+      "work": 30153760.0,
+      "wall_s": 0.025825584999999998,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 8427064.0
+    },
+    {
+      "frame": 13,
+      "work": 30153760.0,
+      "wall_s": 0.02584575,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 8427064.0
+    },
+    {
+      "frame": 14,
+      "work": 30153760.0,
+      "wall_s": 0.025690042000000003,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 8427064.0
+    },
+    {
+      "frame": 15,
+      "work": 30153760.0,
+      "wall_s": 0.025837584,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 8427064.0
+    },
+    {
+      "frame": 16,
+      "work": 30153760.0,
+      "wall_s": 0.025871291999999997,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 8427064.0
+    },
+    {
+      "frame": 17,
+      "work": 29119720.0,
+      "wall_s": 0.025474916,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 8427064.0
+    }
+  ],
+  "startup_work": 15055464.0,
+  "fragment_masses": [
+    52.812352412107025,
+    1099.187647587892
+  ]
+}

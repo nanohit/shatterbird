@@ -7,6 +7,7 @@
 //! monitor or a contact prediction fires and close again when their material is quiet.
 
 pub mod contact;
+pub mod carrier;
 pub mod patch;
 pub mod rsys;
 pub mod scenes;
@@ -45,6 +46,9 @@ pub struct Work {
     pub rejected: u64,
     pub activations: u64,
     pub rereductions: u64,
+    /// Dynamic solves stopped at the explicit |H|*ULP roundoff floor, rather than
+    /// the static absolute force tolerance. These are reported, never hidden.
+    pub roundoff_accepts: u64,
 }
 
 impl Work {

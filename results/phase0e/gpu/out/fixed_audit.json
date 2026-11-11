@@ -1,0 +1,68 @@
+{
+ "adapter": {
+  "vendor": "apple",
+  "architecture": "metal-3"
+ },
+ "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+ "steps": 100,
+ "meshes": [
+  {
+   "label": "1k",
+   "cells": 991,
+   "facets": 6336,
+   "formats": {
+    "U": 28,
+    "TH": 30,
+    "V": 20,
+    "W": 22,
+    "F": 6,
+    "Q": 30,
+    "R": 28,
+    "G": 16
+   },
+   "scales": {
+    "SK": 5,
+    "SR": 0,
+    "SM": 34,
+    "SI": 23,
+    "SH": 37,
+    "wc": 17896,
+    "ch": 756324886,
+    "knMax": 32571592704,
+    "krMax": 648686400,
+    "gMax": 1,
+    "cmMax": 0.051821801796589226,
+    "ciMax": 91.32658619344122
+   },
+   "timings": [
+    {
+     "substeps": 100,
+     "gpu_ms": {
+      "median": 16.935333,
+      "p95": 17.296375,
+      "min": 16.901069,
+      "max": 17.296375,
+      "n": 5
+     }
+    },
+    {
+     "substeps": 500,
+     "gpu_ms": {
+      "median": 85.165984,
+      "p95": 87.655325,
+      "min": 83.117172,
+      "max": 87.655325,
+      "n": 5
+     }
+    }
+   ],
+   "run": {
+    "steps": 100,
+    "overflow_flag": 0,
+    "fnv1a32": "6f22034e",
+    "pair_force_exact_opposite": "6244/6244",
+    "pair_kappa_equal": "6244/6244"
+   }
+  }
+ ]
+}

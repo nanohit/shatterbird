@@ -1,0 +1,185 @@
+{
+  "label": "scale_L4_engine",
+  "scene": "cantilever_SBIL1_s1_g0.5000",
+  "onset_t": null,
+  "sep_t": null,
+  "d_end": 0.0,
+  "crack": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "fragment": {
+    "separated": false,
+    "mass": 1152.0000000000007,
+    "cm": [
+      1.9999998956853948,
+      0.19942432481377567
+    ],
+    "v": [
+      8.793961954497675e-6,
+      0.023038551772190725
+    ],
+    "omega": 0.015557397651780571,
+    "cells": 323
+  },
+  "frags": [
+    {
+      "separated": true,
+      "mass": 1152.0000000000007,
+      "cm": [
+        1.9999998956853948,
+        0.19942432481377567
+      ],
+      "v": [
+        8.793961954497675e-6,
+        0.023038551772190725
+      ],
+      "omega": 0.015557397651780571,
+      "cells": 323
+    }
+  ],
+  "e0": -0.042921785754596285,
+  "e_end": -0.2725483111606074,
+  "e_max_rise": 0.0,
+  "ke_max": 1.0054290579605067,
+  "ledger": {
+    "w_ext": -0.019385557455578985,
+    "d_red": 5.114935983652202e-7,
+    "d_fric": 0.0,
+    "d_num_r": 0.2296200939650817,
+    "w_iface_r": 0.0,
+    "w_iface_e": 0.0,
+    "d_coupling": 0.0,
+    "d_rad": 0.0,
+    "d_model": -4.1982839543014405e-7
+  },
+  "work": {
+    "pts_tangent": 81380,
+    "pts_force": 965646,
+    "e_pts": 43463280,
+    "e_body_flops": 48732948.0,
+    "iface_flops": 0.0,
+    "coupling_flops": 47964105.0,
+    "region_flops": 29206798.0,
+    "fact_flops": 44753865.0,
+    "solve_flops": 10124348.0,
+    "step_flops": 2192578.0,
+    "monitor_flops": 6184920.0,
+    "rebuild_flops": 36051539.0,
+    "contact_flops": 0.0,
+    "newton_iters": 101,
+    "factorizations": 56,
+    "e_substeps": 12573,
+    "coupling_iters": 0,
+    "macro_steps": 68,
+    "rejected": 7,
+    "activations": 79,
+    "rereductions": 39
+  },
+  "work_total": 2907222661.0,
+  "wall_s": 1.364994875,
+  "cells": 323,
+  "patches": 40,
+  "max_e_cells": 323,
+  "mean_e_frac": 0.8959591073271413,
+  "v_impactor": null,
+  "failed_at": null,
+  "h_e": 0.0,
+  "chi_r_max": 0.3339093664393439,
+  "events": [
+    "t=0.00000 split 40 (window)",
+    "t=0.00000 window open (implicit solve/error-control failure)",
+    "t=0.00250 window close",
+    "t=0.00250 window open (implicit solve/error-control failure)",
+    "t=0.00650 window close",
+    "t=0.00676 window open (implicit solve/error-control failure)",
+    "t=0.01476 window close",
+    "t=0.01476 merge 22",
+    "t=0.01502 split 22 (window)",
+    "t=0.01502 window open (implicit solve/error-control failure)",
+    "t=0.03352 window close",
+    "t=0.03404 window open (implicit solve/error-control failure)",
+    "t=0.05654 window close",
+    "t=0.05654 merge 17",
+    "t=0.08675 split 17 (window)",
+    "t=0.08675 window open (implicit solve/error-control failure)",
+    "t=0.08925 window close",
+    "t=0.08925 window open (implicit solve/error-control failure)",
+    "t=0.09475 window close"
+  ],
+  "momentum_drift": 26.540413575029362,
+  "frames": [
+    {
+      "frame": 0,
+      "work": 855341004.0,
+      "wall_s": 0.417992332,
+      "accepted": 22,
+      "rejected": 4,
+      "rebuild_work": 21823112.0
+    },
+    {
+      "frame": 1,
+      "work": 668738932.0,
+      "wall_s": 0.324510582,
+      "accepted": 7,
+      "rejected": 0,
+      "rebuild_work": 377764.0
+    },
+    {
+      "frame": 2,
+      "work": 783989972.0,
+      "wall_s": 0.335908293,
+      "accepted": 12,
+      "rejected": 1,
+      "rebuild_work": 377764.0
+    },
+    {
+      "frame": 3,
+      "work": 189347206.0,
+      "wall_s": 0.096337625,
+      "accepted": 8,
+      "rejected": 0,
+      "rebuild_work": 4053352.0
+    },
+    {
+      "frame": 4,
+      "work": 9379964.0,
+      "wall_s": 0.009851751,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 1883436.0
+    },
+    {
+      "frame": 5,
+      "work": 384263630.0,
+      "wall_s": 0.171410044,
+      "accepted": 10,
+      "rejected": 2,
+      "rebuild_work": 1895280.0
+    },
+    {
+      "frame": 6,
+      "work": 5885904.0,
+      "wall_s": 0.004162458,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 1873056.0
+    },
+    {
+      "frame": 7,
+      "work": 2347072.0,
+      "wall_s": 0.001490709,
+      "accepted": 1,
+      "rejected": 0,
+      "rebuild_work": 468264.0
+    }
+  ],
+  "startup_work": 7928977.0,
+  "fragment_masses": [
+    1152.0000000000007
+  ]
+}

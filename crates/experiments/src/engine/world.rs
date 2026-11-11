@@ -14,6 +14,9 @@ use std::time::Instant;
 
 #[path = "implicit.rs"]
 mod implicit;
+#[cfg(test)]
+#[path = "tests.rs"]
+mod tests;
 
 #[derive(Clone, Copy, Debug, Serialize, PartialEq)]
 pub enum Open0 {
@@ -64,6 +67,12 @@ pub struct Params {
     pub h_min: f64,
     /// material points enter the local-error control from this χ_rel on
     pub chi_lte: f64,
+    /// Generalised force residual relative to cell weight. Kept explicit because
+    /// 1e-9 was below the attainable facet-force roundoff on the large 2D scenes.
+    pub newton_force_rtol: f64,
+    /// Velocity tolerance for leaving a global explicit contact window. This is a
+    /// scheduling guard, never a reason to exclude contacts from error control.
+    pub contact_quiet_speed: f64,
     /// switch the implicit mode to an all-explicit window when it costs more per
     /// simulated second than explicit on the whole model (ratio), and back when quiet
     pub cost_switch: Option<f64>,
@@ -100,6 +109,8 @@ impl Params {
             lte_rtol: 0.05,
             h_min: 1e-7,
             chi_lte: 0.5,
+            newton_force_rtol: 1e-8,
+            contact_quiet_speed: 0.02,
             cost_switch: Some(1.0),
             absorbing: false,
         }
@@ -120,6 +131,19 @@ pub struct Ledger {
     pub d_coupling: f64,
     /// wave energy radiated through an absorbing interface
     pub d_rad: f64,
+    /// Signed energy removed by a change of the elastic representation (e.g.
+    /// Khat -> full law on split). This is model discrepancy, NOT dissipation.
+    pub d_model: f64,
+}
+
+#[derive(Clone, Debug, Default, Serialize)]
+pub struct FrameCost {
+    pub frame: usize,
+    pub work: f64,
+    pub wall_s: f64,
+    pub accepted: u64,
+    pub rejected: u64,
+    pub rebuild_work: f64,
 }
 
 #[derive(Clone, Debug, Default, Serialize)]
@@ -166,6 +190,13 @@ pub struct Traj {
     pub chi_r_max: f64,
     pub events: Vec<String>,
     pub momentum_drift: f64,
+    /// All work caused by an accepted advance, including rejected attempts,
+    /// switches and merges, charged to the 60-Hz frame where it starts.
+    /// This deliberately does not amortise a costly event over later frames.
+    pub frames: Vec<FrameCost>,
+    pub startup_work: f64,
+    /// All cohesive components, including those below the visual 5% filter.
+    pub fragment_masses: Vec<f64>,
 }
 
 struct Snap {
@@ -182,6 +213,8 @@ struct Snap {
 }
 
 pub struct World {
+    /// Research-only constitutive mask; independent of the E/R DOF partition.
+    pub carrier: Option<super::carrier::Carrier>,
     pub sc: Scene,
     pub p: Params,
     pub adj: Vec<Vec<usize>>,
@@ -208,6 +241,7 @@ pub struct World {
     pub e_bodies: Vec<usize>,
     pub e_facets: Vec<usize>,
     pub he: f64,
+    material_spectrum_cache: Option<(Vec<usize>, Vec<usize>, f64)>,
     sub_t0: f64,
     sub_count: u64,
     pub last_growth: Vec<f64>,
@@ -233,7 +267,9 @@ pub struct World {
     fric_power: f64,
     removed_tags: Vec<u32>,
     /// R interface-cell velocities over the current macro step (absorbing interface)
-    vr_iface: Vec<[f64; 3]>,
+    // Velocities belong to stable body IDs, not to the current iface_cells order.
+    // This cache is valid only while a particular subcycle is running.
+    vr_iface: std::collections::BTreeMap<usize, [f64; 3]>,
     rad_power: f64,
     version: u64,
     tol: f64,
@@ -284,6 +320,7 @@ impl World {
         let h = p.h_macro;
         let nf = m.facets.len();
         let mut wd = World {
+            carrier: None,
             adj,
             patches,
             alive: vec![true; np],
@@ -307,6 +344,7 @@ impl World {
             e_bodies: Vec::new(),
             e_facets: Vec::new(),
             he: 0.0,
+            material_spectrum_cache: None,
             sub_t0: 0.0,
             sub_count: 0,
             last_growth: vec![f64::NEG_INFINITY; nf],
@@ -330,10 +368,10 @@ impl World {
             cpairs: Vec::new(),
             fric_power: 0.0,
             removed_tags: Vec::new(),
-            vr_iface: Vec::new(),
+            vr_iface: Default::default(),
             rad_power: 0.0,
             version: 0,
-            tol: 1e-9 * mg,
+            tol: p.newton_force_rtol * mg,
             delta0_ref,
             iface_d0: delta0_ref,
             events: Vec::new(),
@@ -384,12 +422,19 @@ impl World {
         wd
     }
 
+    pub fn enable_carrier(&mut self, config: super::carrier::Config) {
+        assert!(self.p.open0 == Open0::All && !self.p.implicit && !self.p.rereduce);
+        assert_eq!(self.rs.n,0,"carrier requires all wave DOFs; E/R rollback is unsupported");
+        self.carrier=Some(super::carrier::Carrier::new(&self.sc.m,&self.q,config));
+    }
+
     fn is_cell(&self, i: usize) -> bool {
         self.sc.m.bodies[i].kind == BodyKind::Cell
     }
 
     /// Rebuild the R system and the active-zone lists after the open set changed.
     fn rebuild(&mut self) {
+        self.vr_iface.clear();
         self.version += 1;
         let closed: Vec<bool> = (0..self.patches.len()).map(|pid| self.alive[pid] && !self.open[pid]).collect();
         self.rs = RSys::build(&self.sc.m, &self.patches, &closed, &self.loaded, &self.cpairs, self.version, &mut self.w);
@@ -441,7 +486,9 @@ impl World {
         let mut x: Vec<[f64; 3]> = (0..nb).map(|i| std::array::from_fn(|k| if sq[i][k] > 0.0 { ((i * 3 + k) as f64 * 0.618).sin() } else { 0.0 })).collect();
         let mut lam = 0.0;
         let mut flops = 0.0;
-        for _ in 0..200 {
+        if let Some((_, _, cached)) = self.material_spectrum_cache.as_ref().filter(|(b,f,_)| *b == self.e_bodies && *f == self.e_facets) {
+            lam = *cached;
+        } else { for _ in 0..200 {
             let u: Vec<[f64; 3]> = (0..nb).map(|i| std::array::from_fn(|k| if sq[i][k] > 0.0 { x[i][k] / sq[i][k] } else { 0.0 })).collect();
             let mut y = vec![[0.0f64; 3]; nb];
             for &fi in &self.e_facets {
@@ -471,7 +518,30 @@ impl World {
             lam = ny / nx;
             x = y.iter().map(|r| std::array::from_fn(|k| r[k] / ny)).collect();
         }
+            self.material_spectrum_cache = Some((self.e_bodies.clone(), self.e_facets.clone(), lam));
+        }
         self.w.rebuild_flops += flops;
+        // Normal contact stiffness is absent from the material spectrum. In
+        // particular polygon vertices against the floor can be much stiffer than
+        // a cell facet. A trace bound on each mass-scaled contact block is an upper
+        // bound at every orientation; sum it with the material estimate.
+        if let Some(cm) = &self.cm {
+            let mut cb = vec![0.0; nb];
+            for &(a, b) in &self.cpairs {
+                if b == GROUND {
+                    if self.rs.rep[a] == Rep::E {
+                        for &(r, k) in &cm.verts[a] {
+                            cb[a] += k * (1.0 / m.bodies[a].mass + r.dot(r) / m.bodies[a].inertia);
+                        }
+                    }
+                } else {
+                    let k = cm.k_pair(a, b);
+                    if self.rs.rep[a] == Rep::E { cb[a] += 2.0 * k / m.bodies[a].mass; }
+                    if self.rs.rep[b] == Rep::E { cb[b] += 2.0 * k / m.bodies[b].mass; }
+                }
+            }
+            lam += cb.into_iter().fold(0.0f64, f64::max);
+        }
         let c = m.mat.wave_speed();
         let mut h = if lam > 0.0 { 0.8 * 2.0 / lam.sqrt() } else { f64::INFINITY };
         if self.p.h_e_cap_cfl {
@@ -529,6 +599,7 @@ impl World {
     /// already written into it). Returns the force on each R interface cell too.
     fn e_forces(&mut self, qw: &[[f64; 3]], t: f64, f: &mut [[f64; 3]], fr: &mut [[f64; 3]], commit: bool) {
         let m = &self.sc.m;
+        let mut updates = Vec::new();
         for &i in &self.e_bodies {
             f[i] = m.loads[i];
         }
@@ -544,8 +615,16 @@ impl World {
         }
         for &fi in &self.e_facets {
             let fa = &m.facets[fi];
+            let evals = if let Some(c)=self.carrier.as_mut() {
+                if c.hot[fi] {c.stats.full_points+=2;None} else {
+                    let (evals,de)=c.evaluate(m,fi,qw);self.led.d_model-=de;Some(evals)
+                }
+            } else {None};
             for pt in 0..2 {
-                let (j, e) = m.eval_point(qw, fa, pt);
+                let (j, e) = if let Some(evals)=evals.as_ref(){evals[pt]}else{m.eval_point(qw,fa,pt)};
+                if commit && e.kappa > fa.pts[pt].kappa_c {
+                    updates.push((fi,pt,e.kappa,fa.pts[pt].law.dissipation(e.kappa)-fa.pts[pt].law.dissipation(fa.pts[pt].kappa_c)));
+                }
                 for r in 0..3 {
                     let ga = j.jna[r] * e.fnorm + j.jta[r] * e.ftan;
                     let gb = j.jnb[r] * e.fnorm + j.jtb[r] * e.ftan;
@@ -571,12 +650,12 @@ impl World {
             for &fi in &self.rs.iface_facets {
                 let fa = &m.facets[fi];
                 let (ie, ir) = if self.rs.rep[fa.a] == Rep::E { (fa.a, fa.b) } else { (fa.b, fa.a) };
-                let Some(k) = self.rs.iface_cells.iter().position(|&c| c == ir) else { continue };
+                let Some(vr) = self.vr_iface.get(&ir) else { continue };
                 if self.rs.rep[ie] != Rep::E {
                     continue;
                 }
                 let z = rc * fa.len;
-                let dv = [self.vh[ie][0] - self.vr_iface[k][0], self.vh[ie][1] - self.vr_iface[k][1]];
+                let dv = [self.vh[ie][0] - vr[0], self.vh[ie][1] - vr[1]];
                 for r in 0..2 {
                     f[ie][r] -= z * dv[r];
                     fr[ir][r] += z * dv[r];
@@ -596,22 +675,39 @@ impl World {
         if commit {
             let t_now = t;
             let m = &mut self.sc.m;
-            for &fi in &self.e_facets {
-                for pt in 0..2 {
-                    let (_, e) = m.eval_point(qw, &m.facets[fi], pt);
-                    let p = &mut m.facets[fi].pts[pt];
-                    if e.kappa > p.kappa_c {
-                        let dd = p.law.dissipation(e.kappa) - p.law.dissipation(p.kappa_c);
-                        m.dissipated += dd;
-                        p.kappa_c = e.kappa;
-                        if dd > 0.0 {
-                            self.last_growth[fi] = t_now;
-                        }
-                    }
-                }
+            for (fi,pt,kappa,dd) in updates {
+                m.facets[fi].pts[pt].kappa_c=kappa;
+                m.dissipated+=dd;
+                if dd>0.0 {self.last_growth[fi]=t_now;}
             }
-            self.w.e_pts += 2 * self.e_facets.len() as u64;
         }
+    }
+
+    /// All-fine contact path: symmetric friction half-impulses around a complete
+    /// velocity-Verlet step. Book impulses at synchronised velocities. Applying
+    /// and booking them on the leapfrog half-grid produced a first-order energy
+    /// defect when normal force and tangential torque were strongly coupled.
+    fn subcycle_contact(&mut self, ns:usize) -> f64 {
+        let nb=self.sc.m.bodies.len();let he=self.he;let bodies=self.e_bodies.clone();
+        let mut qw=self.q.clone();let mut f=vec![[0.0;3];nb];let mut fr=f.clone();let mut work=0.0;
+        for _ in 0..ns {
+            let t=self.sub_t0+self.sub_count as f64*he;
+            self.e_forces(&qw,t,&mut f,&mut fr,false);
+            self.vh.clone_from(&self.v);self.contact_friction(&qw,0.5*he);
+            for &i in &bodies {for k in 0..3 {if !self.sc.m.bodies[i].fixed[k] {self.vh[i][k]+=0.5*he*self.minv[i][k]*f[i][k];}}}
+            let ext0=self.sc.ext(t);let ext1=self.sc.ext(t+he);
+            for &(i,f0) in &ext0 {
+                let f1=ext1.iter().find(|x|x.0==i).map(|x|x.1).unwrap_or([0.0;3]);
+                for k in 0..3 {if !self.sc.m.bodies[i].fixed[k] {work+=0.5*(f0[k]+f1[k])*he*self.vh[i][k];}}
+            }
+            for &i in &bodies {for k in 0..3 {if !self.sc.m.bodies[i].fixed[k] {self.q[i][k]+=he*self.vh[i][k];}}qw[i]=self.q[i];}
+            self.e_forces(&qw,t+he,&mut f,&mut fr,true);
+            for &i in &bodies {for k in 0..3 {if !self.sc.m.bodies[i].fixed[k] {self.vh[i][k]+=0.5*he*self.minv[i][k]*f[i][k];}}}
+            self.contact_friction(&qw,0.5*he);self.v.clone_from(&self.vh);
+            for &i in &bodies {self.fresh[i]=true;}
+            self.sub_count+=1;self.w.e_substeps+=1;self.w.e_body_flops+=(bodies.len()*36) as f64;
+        }
+        work
     }
 
     /// Sub-cycle the active zone over the macro step with the R side moving linearly
@@ -632,7 +728,7 @@ impl World {
         let hmac = he * ns as f64;
         self.vr_iface = iface.iter().zip(&q_r_prev).map(|(&i, q0)| {
             let q1 = self.rq(i, z_e);
-            std::array::from_fn(|k| (q1[k] - q0[k]) / hmac)
+            (i, std::array::from_fn(|k| (q1[k] - q0[k]) / hmac))
         }).collect();
         for s in 0..ns {
             let t_s = self.sub_t0 + self.sub_count as f64 * he;
@@ -660,6 +756,7 @@ impl World {
                 }
                 self.fresh[i] = false;
             }
+            self.contact_friction(&qw, he);
             for &(i, fe) in &ext0 {
                 if self.rs.rep[i] == Rep::E {
                     let fe1 = ext1.iter().find(|x| x.0 == i).map(|x| x.1).unwrap_or([0.0; 3]);
@@ -718,6 +815,8 @@ impl World {
                 }
             }
         }
+        self.vr_iface.clear();
+        self.rad_power = 0.0;
         (jimp, w_e, w_ext)
     }
 
@@ -850,7 +949,7 @@ impl World {
         let mut u = 0.0;
         for &fi in &self.e_facets {
             for pt in 0..2 {
-                u += m.eval_point(q, &m.facets[fi], pt).1.psi;
+                u += if let Some(c)=self.carrier.as_ref(){c.energy(m,fi,pt,q)}else{m.eval_point(q, &m.facets[fi], pt).1.psi};
             }
         }
         self.kinetic_of(&self.e_bodies, v) + u + self.vg_of(&self.e_bodies, q)
@@ -960,14 +1059,15 @@ impl World {
     pub fn refresh_contacts(&mut self) -> bool {
         let Some(cm) = &self.cm else { return false };
         // margins cover the relative motion over a macro step
-        let vmax = self.v.iter().fold(0.0f64, |a, v| a.max(V2::new(v[0], v[1]).norm()));
+        let vmax = (0..self.v.len()).map(|i| cm.surface_speed(i, &self.v)).fold(0.0f64, f64::max);
         let reach = 2.0 * vmax * self.p.h_macro;
         let near = cm.near_pairs(&self.q, 0.25 * self.sc.dmin + reach);
-        let have: std::collections::BTreeSet<(usize, usize)> = self.cpairs.iter().copied().collect();
-        if near.iter().all(|p| have.contains(p)) {
+        if near == self.cpairs {
             return false;
         }
-        self.cpairs = cm.near_pairs(&self.q, self.sc.dmin + 2.0 * reach);
+        // Remove obsolete candidates too. Retaining an old wide list forever
+        // made a window entered from a large H several times dearer than E alone.
+        self.cpairs = near;
         self.w.contact_flops += (self.sc.m.bodies.len() * 40) as f64;
         self.rebuild();
         true
@@ -992,87 +1092,68 @@ impl World {
             .collect()
     }
 
-    /// Explicit contact forces on active bodies (normal penalty + regularised Coulomb
-    /// friction with the half-step velocities); returns the friction power.
+    /// Conservative normal contact forces. Friction is a separate passive,
+    /// canonically ordered impulse update after the conservative kick.
     fn e_contact_forces(&mut self, qw: &[[f64; 3]], f: &mut [[f64; 3]]) -> f64 {
         let Some(cm) = &self.cm else { return 0.0 };
-        let mut pw = 0.0;
-        for &(a, b) in &self.cpairs {
-            let ea = self.rs.rep[a] == Rep::E;
-            let eb = b != GROUND && self.rs.rep[b] == Rep::E;
-            if !ea && !eb {
-                continue;
-            }
-            if b == GROUND {
-                // polygon vertices against the ground; friction as a stick-limited impulse
-                let m = &self.sc.m;
-                for (gap, w, k) in cm.ground_points(a, qw) {
-                    if gap >= 0.0 {
-                        continue;
-                    }
-                    let fnrm = -k * gap;
-                    f[a][1] += fnrm;
-                    f[a][2] += w.x * fnrm;
-                    if cm.mu > 0.0 {
-                        let s = self.vh[a][0] - w.y * self.vh[a][2];
-                        let inv = 1.0 / m.bodies[a].mass + w.y * w.y / m.bodies[a].inertia;
-                        let stick = if self.he > 0.0 { s.abs() / (inv * self.he) } else { f64::INFINITY };
-                        let ft = (cm.mu * fnrm).min(stick) * s.signum();
-                        f[a][0] -= ft;
-                        f[a][2] += w.y * ft;
-                        let s_after = s - inv * ft * self.he;
-                        pw += ft * 0.5 * (s + s_after);
-                    }
+        for &(a,b) in &self.cpairs {
+            let ea=self.rs.rep[a]==Rep::E;
+            let eb=b!=GROUND && self.rs.rep[b]==Rep::E;
+            if !ea && !eb {continue;}
+            if b==GROUND {
+                for (gap,w,k) in cm.ground_points(a,qw) {
+                    if gap<0.0 {let force=-k*gap; f[a][1]+=force; f[a][2]+=w.x*force;}
                 }
-                continue;
-            }
-            let (g, n) = cm.geometry(a, b, qw);
-            let kp = cm.k_pair(a, b);
-            let (fnrm, _) = cm.normal_k(kp, g);
-            if fnrm <= 0.0 {
-                continue;
-            }
-            // normal: on a along −n·(−1)… force on a = −∂E/∂x_a = −k g ∂g/∂x_a
-            let dga: [f64; 3] = if b == GROUND { [0.0, 1.0, 0.0] } else { [-n.x, -n.y, 0.0] };
-            for k in 0..3 {
-                if ea {
-                    f[a][k] -= kp * g * dga[k];
-                }
-                if eb {
-                    f[b][k] += kp * g * dga[k];
-                }
-            }
-            if cm.mu > 0.0 {
-                // Coulomb friction as a stick-limited impulse: never more than what stops
-                // the slip within one sub-step (stable at any normal force)
-                let s = cm.slip_rate(a, b, n, &self.vh);
-                let m = &self.sc.m;
-                let (ra, rb) = (cm.radius[a], if b == GROUND { 0.0 } else { cm.radius[b] });
-                let mut inv = 0.0;
-                if ea {
-                    inv += 1.0 / m.bodies[a].mass + ra * ra / m.bodies[a].inertia;
-                }
-                if eb {
-                    inv += 1.0 / m.bodies[b].mass + rb * rb / m.bodies[b].inertia;
-                }
-                let stick = if inv > 0.0 && self.he > 0.0 { s.abs() / (inv * self.he) } else { f64::INFINITY };
-                let ft = (cm.mu * fnrm).min(stick) * s.signum();
-                // work of the impulse: mean of the slip before and after it
-                let s_after = s - inv * ft * self.he;
-                let (ja, jb) = cm.slip_jac(a, b, n);
-                for k in 0..3 {
-                    if ea {
-                        f[a][k] -= ft * ja[k];
-                    }
-                    if eb {
-                        f[b][k] -= ft * jb[k];
-                    }
-                }
-                pw += ft * 0.5 * (s + s_after);
+            } else {
+                let (gap,n)=cm.geometry(a,b,qw);let force=cm.normal(a,b,gap).0;
+                if ea {f[a][0]-=force*n.x;f[a][1]-=force*n.y;}
+                if eb {f[b][0]+=force*n.x;f[b][1]+=force*n.y;}
             }
         }
-        self.w.contact_flops += 60.0 * self.cpairs.len() as f64;
-        pw
+        self.w.contact_flops+=40.0*self.cpairs.len() as f64;
+        0.0
+    }
+
+    /// Sequential impulses see the velocity updated by earlier contact points.
+    /// Each impulse removes J*s - 1/2 J^2*(J M^-1 J^T) >= 0 kinetic energy;
+    /// unlike simultaneous independently capped forces, their cross terms cannot
+    /// over-brake or disappear from the friction ledger. Same Huber slip law as I.
+    fn contact_friction(&mut self, qw: &[[f64;3]], h: f64) {
+        let Some(cm)=&self.cm else {return};
+        if cm.mu==0.0 {return;}
+        let m=&self.sc.m;
+        for &(a,b) in &self.cpairs {
+            let ea=self.rs.rep[a]==Rep::E;
+            let eb=b!=GROUND && self.rs.rep[b]==Rep::E;
+            if !ea && !eb {continue;}
+            if b==GROUND {
+                for (gap,w,k) in cm.ground_points(a,qw) {
+                    if gap>=0.0 {continue;}
+                    let s=self.vh[a][0]-w.y*self.vh[a][2];
+                    let inv=1.0/m.bodies[a].mass+w.y*w.y/m.bodies[a].inertia;
+                    let cap=cm.mu*(-k*gap)*h*(s.abs()/cm.ev).min(1.0);
+                    let impulse=(s.abs()/inv).min(cap)*s.signum();
+                    self.vh[a][0]-=impulse/m.bodies[a].mass;
+                    self.vh[a][2]+=w.y*impulse/m.bodies[a].inertia;
+                    self.led.d_fric+=impulse*s-0.5*inv*impulse*impulse;
+                }
+            } else {
+                let (gap,n)=cm.geometry(a,b,qw);let lam=cm.normal(a,b,gap).0;
+                if lam<=0.0 {continue;}
+                let (ja,jb)=cm.slip_jac(a,b,n);
+                let s=cm.slip_rate(a,b,n,&self.vh);
+                let mut inv=0.0;
+                for (i,j,free) in [(a,ja,ea),(b,jb,eb)] {
+                    if free {for k in 0..3 {if !m.bodies[i].fixed[k] {inv+=j[k]*j[k]*self.minv[i][k];}}}
+                }
+                if inv==0.0 {continue;}
+                let cap=cm.mu*lam*h*(s.abs()/cm.ev).min(1.0);
+                let impulse=(s.abs()/inv).min(cap)*s.signum();
+                for (i,j,free) in [(a,ja,ea),(b,jb,eb)] {if free {for k in 0..3 {self.vh[i][k]-=impulse*j[k]*self.minv[i][k];}}}
+                self.led.d_fric+=impulse*s-0.5*inv*impulse*impulse;
+            }
+        }
+        self.w.contact_flops+=40.0*self.cpairs.len() as f64;
     }
 
     /// Remove support facets whose time has come (Scene.removals). Their elastic energy
@@ -1219,9 +1300,17 @@ impl World {
 
     /// One macro step. Returns false on failure (step below 1e-7 s).
     pub fn macro_step(&mut self, t_end: f64) -> bool {
+        assert!(self.carrier.is_none() || (self.rs.n==0 && !self.p.implicit),"carrier has no reduced-state/rollback integration");
         self.refresh_contacts();
         loop {
             let hs = self.h.min(t_end - self.t);
+            // General E/R contacts are not part of the legacy Robin interface.
+            // Promote their R side instead of silently dropping its reaction.
+            if let Some(cm)=&self.cm {
+                let cells: Vec<usize> = self.cpairs.iter().filter(|&&(a,b)| b!=GROUND && (self.rs.rep[a]==Rep::E || self.rs.rep[b]==Rep::E) && cm.may_contact(a,b,&self.q,&self.v,hs))
+                    .flat_map(|&(a,b)|[a,b]).filter(|&i|matches!(self.rs.rep[i],Rep::R{..})).collect();
+                if !cells.is_empty() && self.open_around(&cells,&[],"general E/R contact")>0 {self.rebuild();continue;}
+            }
             // contact prediction on R cells
             if self.p.open0 != Open0::Never && self.rs.n > 0 {
                 let ev = self.contact_events(hs);
@@ -1306,9 +1395,13 @@ impl World {
                 return StepOutcome::Failed;
             }
         } else if have_e && !have_r {
-            let (_, we, wx) = self.subcycle(&z_n, &z_n, ns);
-            w_e = we;
-            w_ext_e = wx;
+            if self.cm.is_some() {
+                w_ext_e=self.subcycle_contact(ns);
+            } else {
+                let (_, we, wx) = self.subcycle(&z_n, &z_n, ns);
+                w_e = we;
+                w_ext_e = wx;
+            }
         } else {
             // impulse-matched multirate coupling
             let e_snap = (
@@ -1320,6 +1413,7 @@ impl World {
                 self.sc.m.dissipated,
                 self.sub_count,
                 self.e_facets.iter().map(|&fi| (fi, self.last_growth[fi])).collect::<Vec<_>>(),
+                self.led,
             );
             let rob = self.robin(&z_n, hs);
             // predictor: E's force on R linearised about the start state,
@@ -1356,6 +1450,7 @@ impl World {
                 for &(fi, t) in &e_snap.7 {
                     self.last_growth[fi] = t;
                 }
+                self.led = e_snap.8;
                 let zk: Vec<f64> = zmk.iter().zip(&z_n).map(|(a, b)| 2.0 * a - b).collect();
                 let (jimp, we, wx) = self.subcycle(&z_n, &zk, ns);
                 w_e = we;
@@ -1391,7 +1486,7 @@ impl World {
                     eprintln!("      rf {rf_max:.3e} fj {fj_max:.3e}");
                 }
                 let _ = (rf_max, fj_max);
-                if err <= self.p.coupling_tol * self.iface_d0 {
+                if err <= self.p.coupling_tol * self.iface_d0 && rf_max <= self.p.coupling_ftol * fj_max + tol {
                     // candidate: R without the Robin term (receives exactly −E's impulse); accept
                     // if the interface energy jump between what E saw (zk) and where R ends is
                     // within the per-step budget, otherwise keep iterating
@@ -1607,7 +1702,7 @@ impl World {
         let mut u = 0.0;
         for &fi in &self.e_facets {
             for pt in 0..2 {
-                u += m.eval_point(&self.q, &m.facets[fi], pt).1.psi;
+                u += if let Some(c)=self.carrier.as_ref() {c.energy(m,fi,pt,&self.q)} else {m.eval_point(&self.q, &m.facets[fi], pt).1.psi};
             }
         }
         if self.rs.n > 0 {
@@ -1722,7 +1817,7 @@ impl World {
             for &i in &pa.cells {
                 for &fi in &self.adj[i] {
                     let f = &m.facets[fi];
-                    let intact = f.tag == 0 && f.pts.iter().all(|p| p.law.damage(p.kappa_c) < 0.99);
+                    let intact = f.tag == 0 && f.pts.iter().any(|p| p.law.damage(p.kappa_c) < 0.99);
                     if !intact {
                         continue;
                     }
@@ -1985,7 +2080,7 @@ pub fn fragments(m: &Model, q: &[[f64; 3]], v: &[[f64; 3]], min_frac: f64) -> Ve
     let nc = m.n_cells();
     let mut parent: Vec<usize> = (0..nc).collect();
     for f in m.facets.iter().filter(|f| f.active && f.tag == 0) {
-        if f.pts.iter().all(|p| p.law.damage(p.kappa_c) < 0.99) {
+        if f.pts.iter().any(|p| p.law.damage(p.kappa_c) < 0.99) {
             let (a, b) = (find(&mut parent, f.a), find(&mut parent, f.b));
             if a != b {
                 parent[a] = b;
@@ -2029,7 +2124,7 @@ pub fn tip_fragment(sc: &Scene, m: &Model, q: &[[f64; 3]], v: &[[f64; 3]]) -> Fr
     let nc = m.n_cells();
     let mut parent: Vec<usize> = (0..nc).collect();
     for f in m.facets.iter().filter(|f| f.active && f.tag == 0) {
-        if f.pts.iter().all(|p| p.law.damage(p.kappa_c) < 0.99) {
+        if f.pts.iter().any(|p| p.law.damage(p.kappa_c) < 0.99) {
             let (a, b) = (find(&mut parent, f.a), find(&mut parent, f.b));
             if a != b {
                 parent[a] = b;
@@ -2114,7 +2209,7 @@ pub fn run(mut wd: World, label: &str, t_end: f64, rec: f64) -> (Traj, World) {
     let record = |wd: &World, tr: &mut Traj, e_max: &mut f64| {
         let (ke, u, vg) = wd.energies();
         let m = &wd.sc.m;
-        let e = ke + u + vg + m.dissipated + wd.led.d_red + wd.led.d_fric + wd.led.d_rad - wd.led.w_ext;
+        let e = ke + u + vg + m.dissipated + wd.led.d_red + wd.led.d_fric + wd.led.d_rad + wd.led.d_model - wd.led.w_ext;
         if tr.rows.is_empty() {
             tr.e0 = e;
         }
@@ -2126,8 +2221,12 @@ pub fn run(mut wd: World, label: &str, t_end: f64, rec: f64) -> (Traj, World) {
     record(&wd, &mut tr, &mut e_max);
     next_rec += rec;
     tr.max_e_cells = wd.e_cells();
+    tr.startup_work = wd.w.total();
+    let run_start = wd.t;
     while wd.t < t_end - 1e-12 {
         let t_before = wd.t;
+        let work_before = wd.w;
+        let step_clock = Instant::now();
         let ec = wd.e_cells();
         wd.apply_removals();
         let t_stop = wd.next_removal().map_or(t_end, |tr| tr.min(t_end));
@@ -2151,6 +2250,16 @@ pub fn run(mut wd: World, label: &str, t_end: f64, rec: f64) -> (Traj, World) {
         } else {
             wd.rereduce();
         }
+        let frame = (t_before * 60.0).floor() as usize;
+        if tr.frames.last().map(|f| f.frame) != Some(frame) {
+            tr.frames.push(FrameCost { frame, ..Default::default() });
+        }
+        let fc = tr.frames.last_mut().unwrap();
+        fc.work += wd.w.total() - work_before.total();
+        fc.wall_s += step_clock.elapsed().as_secs_f64();
+        fc.accepted += 1;
+        fc.rejected += wd.w.rejected - work_before.rejected;
+        fc.rebuild_work += wd.w.rebuild_flops - work_before.rebuild_flops;
         tr.max_e_cells = tr.max_e_cells.max(wd.e_cells());
         if wd.t >= next_rec - 1e-12 || wd.t >= t_end - 1e-12 {
             record(&wd, &mut tr, &mut e_max);
@@ -2167,6 +2276,7 @@ pub fn run(mut wd: World, label: &str, t_end: f64, rec: f64) -> (Traj, World) {
         tr.fragment = tip_fragment(&wd.sc, m, &wd.q, &wd.v);
     }
     tr.frags = fragments(m, &wd.q, &wd.v, 0.05);
+    tr.fragment_masses = fragments(m, &wd.q, &wd.v, 0.0).iter().map(|f|f.mass).collect();
     tr.v_impactor = wd.sc.impactor.map(|p| wd.v[p][1]);
     tr.d_end = m.dissipated;
     tr.crack = crack_stats(m);
@@ -2176,7 +2286,7 @@ pub fn run(mut wd: World, label: &str, t_end: f64, rec: f64) -> (Traj, World) {
     tr.work = wd.w;
     tr.work_total = wd.w.total();
     tr.wall_s = t0.elapsed().as_secs_f64();
-    tr.mean_e_frac = e_frac_int / (wd.t.max(1e-30) * nc as f64);
+    tr.mean_e_frac = e_frac_int / ((wd.t - run_start).max(1e-30) * nc as f64);
     tr.chi_r_max = wd.chi_r_max;
     tr.events = wd.events.clone();
     let p1 = momentum(&wd);

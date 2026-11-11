@@ -217,10 +217,12 @@ fn write_mesh(path: &std::path::Path, m: &Model3, push_z: f64) -> serde_json::Va
 }
 
 fn main() {
+    let audit = std::env::args().any(|s| s == "--phase0e");
     let dir = std::path::PathBuf::from(std::env::args().nth(1).expect("output directory"));
     std::fs::create_dir_all(&dir).unwrap();
     let mut index = Vec::new();
     for (label, side) in [("1k", 2.25), ("10k", 4.85), ("30k", 7.0)] {
+        if audit && label != "1k" { continue; }
         let t0 = std::time::Instant::now();
         let hi = V3::new(side, side, side);
         let keep = |p: V3| p.z >= 0.5 * DMIN;
@@ -235,5 +237,5 @@ fn main() {
     let doc = json!({"meta": meta("phase0b/architecture-selection/gpu", "export", Some(1), "rbsn3 contract meshes for the WebGPU probe", json!({"dmin": DMIN, "mu": MU})),
         "dt_contract_s": 0.38 * DMIN / c, "meshes": index});
     std::fs::write(dir.join("index.json"), serde_json::to_string_pretty(&doc).unwrap()).unwrap();
-    write_json("phase0b/architecture-selection/gpu", "export", &doc);
+    write_json(if audit { "phase0e/gpu" } else { "phase0b/architecture-selection/gpu" }, "export", &doc);
 }

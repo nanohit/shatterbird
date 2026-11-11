@@ -1,0 +1,261 @@
+{
+  "label": "s1_seed1_after30ms_no_merge",
+  "scene": "cantilever_SBIL1_s1_g1.1309",
+  "onset_t": 0.034,
+  "sep_t": 0.04216666666666667,
+  "d_end": 14.508249472038402,
+  "crack": [
+    0.23142264352524686,
+    0.2095484274364656,
+    0.04744395488322574,
+    0.705901370525491,
+    0.0421970073395246,
+    0.3932158836337937
+  ],
+  "fragment": {
+    "separated": true,
+    "mass": 1099.187647587892,
+    "cm": [
+      2.1188345815984237,
+      -0.19899569641910417
+    ],
+    "v": [
+      0.10782618775173379,
+      -2.9629607961135225
+    ],
+    "omega": -0.15383562347845847,
+    "cells": 683
+  },
+  "frags": [
+    {
+      "separated": true,
+      "mass": 1099.187647587892,
+      "cm": [
+        2.1188345815984237,
+        -0.19899569641910417
+      ],
+      "v": [
+        0.10782618775173379,
+        -2.9629607961135225
+      ],
+      "omega": -0.15383562347845847,
+      "cells": 683
+    }
+  ],
+  "e0": -0.214794275090197,
+  "e_end": -1.4506739041250787,
+  "e_max_rise": 0.0,
+  "ke_max": 4847.312347930177,
+  "ledger": {
+    "w_ext": -0.0956385141215448,
+    "d_red": 1.1165934399315347e-7,
+    "d_fric": 0.0,
+    "d_num_r": 1.2387215038676835,
+    "w_iface_r": 0.0,
+    "w_iface_e": 0.0,
+    "d_coupling": 0.0,
+    "d_rad": 0.0,
+    "d_model": 4.0466537676309144e-8
+  },
+  "work": {
+    "pts_tangent": 639816,
+    "pts_force": 4362848,
+    "e_pts": 145280268,
+    "e_body_flops": 157998288.0,
+    "iface_flops": 0.0,
+    "coupling_flops": 117902493.0,
+    "region_flops": 66111570.0,
+    "fact_flops": 240656423.0,
+    "solve_flops": 98023916.0,
+    "step_flops": 6612100.0,
+    "monitor_flops": 64989360.0,
+    "rebuild_flops": 202695988.0,
+    "contact_flops": 0.0,
+    "newton_iters": 475,
+    "factorizations": 167,
+    "e_substeps": 18389,
+    "coupling_iters": 0,
+    "macro_steps": 120,
+    "rejected": 9,
+    "activations": 45,
+    "rereductions": 5
+  },
+  "work_total": 10061540298.0,
+  "wall_s": 2.565753041,
+  "cells": 716,
+  "patches": 844,
+  "max_e_cells": 716,
+  "mean_e_frac": 1.0000000000000007,
+  "v_impactor": null,
+  "failed_at": null,
+  "h_e": 3.376494468236962e-6,
+  "chi_r_max": 0.16454685626385604,
+  "events": [
+    "t=0.00052 split 40 (window)",
+    "t=0.00052 window open (implicit solve/error-control failure)",
+    "t=0.00302 window close",
+    "t=0.00315 window open (implicit solve/error-control failure)",
+    "t=0.00865 window close",
+    "t=0.00865 window open (implicit solve/error-control failure)",
+    "t=0.01665 window close",
+    "t=0.01665 merge 5",
+    "t=0.01685 split 5 (window)",
+    "t=0.01685 window open (implicit solve/error-control failure)",
+    "t=0.05050 drop 1 open cracks",
+    "t=0.05467 drop 1 open cracks",
+    "t=0.06300 drop 1 open cracks",
+    "t=0.06300 window close",
+    "t=0.07596 drop 1 open cracks",
+    "t=0.08012 drop 1 open cracks",
+    "t=0.08846 drop 2 open cracks",
+    "t=0.09262 drop 3 open cracks",
+    "t=0.09679 drop 2 open cracks",
+    "t=0.09783 drop 2 open cracks",
+    "t=0.09991 drop 2 open cracks",
+    "t=0.10200 drop 1 open cracks"
+  ],
+  "momentum_drift": 3178.827027707153,
+  "frames": [
+    {
+      "frame": 1,
+      "work": 571491600.0,
+      "wall_s": 0.255826084,
+      "accepted": 1,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 2,
+      "work": 2405559108.0,
+      "wall_s": 1.054734957,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 47311908.0
+    },
+    {
+      "frame": 3,
+      "work": 2165756956.0,
+      "wall_s": 0.9655981669999999,
+      "accepted": 18,
+      "rejected": 2,
+      "rebuild_work": 94559724.0
+    },
+    {
+      "frame": 4,
+      "work": 113835101.0,
+      "wall_s": 0.06978395899999999,
+      "accepted": 11,
+      "rejected": 1,
+      "rebuild_work": 15816.0
+    },
+    {
+      "frame": 5,
+      "work": 61222817.0,
+      "wall_s": 0.043702209,
+      "accepted": 7,
+      "rejected": 1,
+      "rebuild_work": 47448.0
+    },
+    {
+      "frame": 6,
+      "work": 37746618.0,
+      "wall_s": 0.021266333000000002,
+      "accepted": 5,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 7,
+      "work": 30541890.0,
+      "wall_s": 0.017164958,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 8,
+      "work": 29791248.0,
+      "wall_s": 0.016513333,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 9,
+      "work": 21473244.0,
+      "wall_s": 0.012208333,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 10,
+      "work": 22252128.0,
+      "wall_s": 0.012469542,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 11,
+      "work": 21735900.0,
+      "wall_s": 0.012227833,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 12,
+      "work": 21219672.0,
+      "wall_s": 0.011949834,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 13,
+      "work": 21219672.0,
+      "wall_s": 0.011859626,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 14,
+      "work": 21219672.0,
+      "wall_s": 0.011838626,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 15,
+      "work": 21219672.0,
+      "wall_s": 0.011876167,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 16,
+      "work": 21219672.0,
+      "wall_s": 0.011957668,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    },
+    {
+      "frame": 17,
+      "work": 20187216.0,
+      "wall_s": 0.011307749,
+      "accepted": 4,
+      "rejected": 0,
+      "rebuild_work": 0.0
+    }
+  ],
+  "startup_work": 4453848112.0,
+  "fragment_masses": [
+    52.812352412107025,
+    1099.187647587892
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "dt_contract_s": 0.000021496046148071047,
+  "meshes": [
+    {
+      "file": "mesh_1k.bin",
+      "info": {
+        "aggregates": 111,
+        "bytes": 863832,
+        "cells": 991,
+        "csr_entries": 12580,
+        "facets": 6336,
+        "support_facets": 92
+      },
+      "label": "1k",
+      "side_m": 2.25
+    }
+  ],
+  "meta": {
+    "config": {
+      "dmin": 0.2,
+      "mu": 518400.0
+    },
+    "experiment": "phase0b/architecture-selection/gpu",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "export",
+    "seed": 1,
+    "solver_schedule": "rbsn3 contract meshes for the WebGPU probe",
+    "source_hash": "235ef465c6b118ac",
+    "unix_time": 1794056912
+  }
+}

@@ -185,7 +185,7 @@ fn pairx(fi: u32, ua: vec3i, wa: vec3i, ub: vec3i, wb: vec3i, kold: u32) -> Pair
   sout[s+6u] = v.x; sout[s+7u] = v.y; sout[s+8u] = v.z; sout[s+9u] = w.x; sout[s+10u] = w.y; sout[s+11u] = w.z;
 }`;
 
-async function fixedRun(labels, steps, reps, warm, saveTag, FX = FIX) {
+async function fixedRun(labels, steps, reps, warm, saveTag, FX = FIX, chains = [250, 800]) {
   const G = await makeDevice();
   const mod = G.device.createShaderModule({ code: FIX_WGSL });
   const info = await mod.getCompilationInfo();
@@ -214,7 +214,7 @@ async function fixedRun(labels, steps, reps, warm, saveTag, FX = FIX) {
     const wcnt = Math.ceil(m.nc / 64);
     const chainOf = (n) => { const s = []; for (let q = 0; q < n; q++) s.push([pipe, q % 2 ? g10 : g01, wcnt]); return s; };
     const res = { label, cells: m.nc, facets: m.nf, formats: FX, scales: k.scales, timings: [] };
-    for (const n of [250, 800]) {
+    for (const n of chains) {
       const ch = chainOf(n);
       for (let q = 0; q < warm; q++) { reset(); await G.chain(ch); }
       const gg = [];
@@ -245,9 +245,9 @@ async function fixedRun(labels, steps, reps, warm, saveTag, FX = FIX) {
   return out;
 }
 
-window.runFixed = async (labels = ['1k', '10k', '30k'], steps = 800, reps = 10, warm = 3, saveTag = 's800', FX = FIX) => {
+window.runFixed = async (labels = ['1k', '10k', '30k'], steps = 800, reps = 10, warm = 3, saveTag = 's800', FX = FIX, chains = [250, 800]) => {
   const o = document.getElementById('o'); o.textContent = 'fixed…';
-  try { window.__fx = await fixedRun(labels, steps, reps, warm, saveTag, FX); o.textContent = JSON.stringify(window.__fx, null, 1); await fetch(`save/fixed_${saveTag}.json`, { method: 'POST', body: JSON.stringify(window.__fx, null, 1) }); }
+  try { window.__fx = await fixedRun(labels, steps, reps, warm, saveTag, FX, chains); o.textContent = JSON.stringify(window.__fx, null, 1); await fetch(`save/fixed_${saveTag}.json`, { method: 'POST', body: JSON.stringify(window.__fx, null, 1) }); }
   catch (e) { window.__fx = { error: String(e), stack: e.stack }; o.textContent = String(e); }
   return 'done';
 };
