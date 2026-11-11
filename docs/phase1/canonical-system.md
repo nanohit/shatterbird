@@ -78,12 +78,12 @@ GPU time per substep, Jacobi variant (`f_gpu_time_summary.json`):
 
 | bodies | device | all moving, full / incr. | at rest, full / incr. | wake of a 1 m/s kick, full / incr. |
 |---|---|---|---|---|
-| 524 288 | M3 Pro | 3.3 / 3.3 ms | 9.15 / 0.131 ms (1.4 %) | 1275 / 32.0 ms over 140 substeps (2.5 %) |
-| 524 288 | GTX 1660 S | 2.66 / 2.66 ms | 14.73 / 0.126 ms (0.85 %) | 2062 / 36.9 ms (1.8 %) |
-| 204 800 | M3 Pro | 1.4 / 1.4 ms | 3.56 / 0.111 ms (3.1 %) | 361 / 20.4 ms (5.6 %) |
-| 204 800 | GTX 1660 S | 1.13 / 1.13 ms | 5.83 / 0.125 ms (2.1 %) | 583 / 22.9 ms (3.9 %) |
+| 524 288 | M3 Pro | 3.67 / 3.70 ms | 9.15 / 0.131 ms (1.4 %) | 1275 / 32.0 ms over 140 substeps (2.5 %) |
+| 524 288 | GTX 1660 S | 2.70 / 2.70 ms | 14.73 / 0.126 ms (0.85 %) | 2062 / 36.9 ms (1.8 %) |
+| 204 800 | M3 Pro | 1.53 / 1.54 ms | 3.56 / 0.111 ms (3.1 %) | 361 / 20.4 ms (5.6 %) |
+| 204 800 | GTX 1660 S | 1.17 / 1.17 ms | 5.83 / 0.125 ms (2.1 %) | 583 / 22.9 ms (3.9 %) |
 | 32 768 | M3 Pro | — | 0.66 / 0.113 ms (17 %) | 79 / 43.2 ms (55 %) |
-| 32 768 | GTX 1660 S | 0.33 / 0.33 ms | 1.07 / 0.124 ms (12 %) | 128 / 60.4 ms (47 %) |
+| 32 768 | GTX 1660 S | 0.38 / 0.38 ms | 1.07 / 0.124 ms (12 %) | 128 / 60.4 ms (47 %) |
 
 - **A resting world costs the same at any size**: 0.11–0.13 ms per substep on both GPUs for 32k,
   205k and 524k bodies. That is the fixed price of 25 dispatches; no term proportional to the number
