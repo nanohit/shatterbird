@@ -3,8 +3,9 @@
 2026-11-11. Pre-registration: [prereg-1b.md](prereg-1b.md) (two addenda are marked
 post-hoc there). Raw results: `results/phase1/a1_*.json`, `a2_*.json`, `a3*.json`,
 `p_port_model*.json`, `b_basis_cost.json`, `det_chrome_metal_m3pro_v2.json`.
-Everything below was measured on one machine (M3 Pro; Chrome 157 / Dawn / Metal for the GPU
-part). No result from another GPU has arrived yet.
+The mechanics (§2–5) was measured on one machine. The GPU part (§6) now has three devices:
+M3 Pro (Chrome 157 / Dawn / Metal), iPhone (Safari 18.6 / WebKit / Metal) and GTX 1660 Super
+(Chrome 157 on Windows); see §6.1.
 
 This document supersedes two things in [runtime-reframing.md](runtime-reframing.md):
 - §3, the tier ladder T0–T3. It fixed model classes too early and is withdrawn.
@@ -20,7 +21,8 @@ This document supersedes two things in [runtime-reframing.md](runtime-reframing.
 | Can the basis be fixed in advance? | No. The intact-beam basis is wrong once damage has localised: D is off by 60–2800 % for every k up to 160. |
 | What does basis upkeep cost? | One rebuild equals 0.2–0.8 ms of explicit simulation of the same member. During a 4 ms fracture that is more than simulating it; afterwards it pays back within a small fraction of one frame. |
 | Does a reduced model evolve correctly through contact? | With 40 modes: striker velocity within 1–4 % of v0, mid-span deflection within 4–9 %, damage onset 10–12 % early. Only after the unilateral supports were taken out of the linear operator; with them inside, the deflection is 24 % off at every k. |
-| What does a deterministic contact pipeline cost? | 4.7 ns per sphere-substep at 125 000 spheres, 6.5 ns at 10⁶, bit-identical to the CPU reference. With memory order decoupled from space: 8 ns and 41 ns. Tall stacks compress 8–28 % with this solver. |
+| What does a deterministic contact pipeline cost? | 4.7 ns per sphere-substep at 125 000 spheres, 6.5 ns at 10⁶ on the M3 Pro, bit-identical to the CPU reference. With memory order decoupled from space: 8 ns and 41 ns. Tall stacks compress 8–28 % with this solver. |
+| Is it the same on other GPUs? | Yes for the bits: M3 Pro, iPhone and GTX 1660 Super agree on every integer workload, and disagree on every float one across vendors. Coherent speed transfers; the penalty for incoherent memory order is 3–6× at 125 000 spheres on the other two devices. |
 
 ## 1. What is being minimised
 
@@ -228,6 +230,49 @@ products fit 32 bits. Every reduction is an integer sum, so slot order does not 
   contact), 4 / 9 / 19 % at 1/4, and keep jittering at 0.5–2 % of a diameter per substep.
   One Jacobi iteration per substep moves information one layer per substep.
 
+### 6.1 Three devices (added 2026-11-11, probe v2, full size)
+
+Raw: `results/phase1/devices/`. The iPhone and the GTX were run by hand from the published
+page, once each; their load during the run is unknown.
+
+**Bits.**
+
+| workload | M3 Pro, Chrome | iPhone, Safari | GTX 1660 Super, Chrome |
+|---|---|---|---|
+| integer facet kernel, 32-bit and 64-bit variants | `99b34cc3` / `2ae7e6fc` | same | same |
+| block automaton, 64 steps | `5065ab0a` | same | same |
+| sphere contacts, 21 952 × 64 substeps | `738b4865d8570d24` | same | same |
+| f32 facet kernel, plain | `e4992206` | `e4992206` | `84b787f7` |
+| f32, explicit fma | `8131c96b` | `8131c96b` | `460cd228` |
+| f32, re-associated | `ff370890` | `ff370890` | `e7021c46` |
+
+Every integer workload, including the grid built with unordered atomic counters, gives the
+same bits on two GPU vendors, two shader compilers (Tint, WebKit) and two graphics APIs.
+Every float variant gives different bits on NVIDIA than on Apple. On NVIDIA the plain and
+the fma variants differ in 78 % of elements (4 % on Apple), so the two stacks do not even
+agree on which operations get fused. This replaces the synthetic census of Phase 1 with a
+real cross-vendor one, for one kernel.
+
+**Speed.**
+
+| | M3 Pro | iPhone | GTX 1660 Super |
+|---|---|---|---|
+| copy, read + write | 114 GB/s | 47 GB/s | 139 GB/s |
+| facet kernel, memory-bound, ns per facet (F / N / W) | 1.74 / 1.73 / 1.69 | 3.81 / 3.81 / 3.93 | 1.30 / 1.31 / 1.34 |
+| integer cost, compute-bound (N / W over F) | 1.65 / 4.57 | 1.34 / 3.15 | 1.17 / 3.00 |
+| automaton, 16.7 M cells, ms per step | 1.39 | 3.19 | 0.64 |
+| spheres 125 000, coherent / shuffled, ns | 4.7 / 8.0 | 9.9 / 30.4 | 5.0 / 29.2 |
+| spheres 10⁶, coherent / shuffled, ns | 6.5 / 41 | 14.8 / 79 | 6.0 / 68 |
+
+- The determinism cost stays at 1.00–1.03 when memory-bound on all three, and is lower
+  than on the M3 Pro when compute-bound.
+- Streaming and coherent workloads transfer between devices roughly with bandwidth: the
+  phone is 2.1–2.4× slower than the M3 Pro, not the 5× assumed in Phase 1.
+- Incoherent gathers do not transfer. Shuffling costs 1.7× on the M3 Pro at 125 000
+  spheres, 3.1× on the iPhone and 5.9× on the GTX; at 10⁶ it is 6.3×, 5.3× and 11.4×.
+  The M3 Pro was the most forgiving device, so its numbers understated the layout penalty.
+- Safari reports time in 1 ms steps; the iPhone dispatch overhead is not resolved.
+
 Not covered: non-spherical bodies, rotation, friction, joints, sleeping, slot overflow
 handling (the count is deterministic, so a fault is the same on every peer; it was zero).
 
@@ -257,7 +302,8 @@ Approaches to drop:
 
 ## 8. Not verified
 
-- One GPU, one browser, one shader compiler. Probe v2 is published for other devices.
+- Three devices, two vendors. No AMD, Intel, Adreno or Mali GPU, no Vulkan backend, no Firefox.
+- The cross-vendor float comparison is one kernel; the iPhone and GTX runs are single runs.
 - GPU timings under foreign load on the same machine; ±25 %.
 - A, B, P: one beam geometry, two meshes, 2D. No scene with several members.
 - The hybrid (reduced → full → reduced) was not run end to end. A3b truncates once and
