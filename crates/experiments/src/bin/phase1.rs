@@ -460,6 +460,14 @@ fn modes(sc: &Scene, nev: usize) -> Modes {
     modes_of(&sc.m, None, sc.impactor.unwrap(), sc.m.q.clone(), nev, true)
 }
 
+fn modes_pinned(sc: &Scene, nev: usize) -> Modes {
+    let mut m = sc.m.clone();
+    pin_supports(&mut m, 0.5 * sc.len);
+    let mut md = modes_of(&m, None, sc.impactor.unwrap(), sc.m.q.clone(), nev, true);
+    md.pad = sc.m.facets.iter().filter(|f| f.tag == 3).map(|f| (f.a, f.len)).collect();
+    md
+}
+
 /// Lowest modes of `m0` with the striker detached. With `state = Some(q)` the operator is the
 /// secant stiffness of the committed damage at configuration q (open points and shear scaled
 /// by 1 - d, floor 1e-3), so separated parts appear as near-rigid low modes.
@@ -739,6 +747,225 @@ fn a3b() {
     write_json("phase1", "a3b_truncation_damaged_basis_thresholds", &json!({"meta": meta("phase1", "a3bt", None, "threshold when the cell state is projected at t_c on k modes of the current damaged operator", json!({})), "rows": trows}));
 }
 
+// ---------------------------------------------------------------- P: modal port model against the elastic reference
+
+/// Under a downward load the beam ends rotate and each unilateral pad carries only at its inner
+/// edge. Linearise that contact state: keep the support facet nearest to mid-span, with the
+/// whole pad's stiffness, and switch the others off.
+fn pin_supports(m: &mut Model, xc: f64) {
+    let tags: std::collections::BTreeSet<u32> = m.facets.iter().filter(|f| f.tag >= 10).map(|f| f.tag).collect();
+    for t in tags {
+        let ids: Vec<usize> = (0..m.facets.len()).filter(|&i| m.facets[i].tag == t && m.facets[i].active).collect();
+        let keep = *ids.iter().min_by(|&&a, &&b| (m.facets[a].pc.x - xc).abs().partial_cmp(&(m.facets[b].pc.x - xc).abs()).unwrap()).unwrap();
+        let ktot: f64 = ids.iter().map(|&i| m.facets[i].pts.iter().map(|p| p.law.kn).sum::<f64>()).sum();
+        let kkeep: f64 = m.facets[keep].pts.iter().map(|p| p.law.kn).sum();
+        for &i in &ids {
+            if i == keep {
+                for p in m.facets[i].pts.iter_mut() {
+                    p.law.kn *= ktot / kkeep;
+                }
+            } else {
+                m.facets[i].active = false;
+            }
+        }
+    }
+}
+
+fn interior_dissipation(m: &Model) -> f64 {
+    m.facets.iter().filter(|f| f.active && f.tag == 0).map(|f| f.pts.iter().map(|p| p.law.dissipation(p.kappa_c)).sum::<f64>()).sum()
+}
+
+struct PortOut {
+    peak_f: f64,
+    impulse: f64,
+    v_after: f64,
+    mid_peak: f64,
+    onset_ratio: f64,
+}
+
+/// Port model: k modes + optional attachment shape, striker mass mp, contact spring kc, gap g0.
+fn port_model(sc: &Scene, md: &Modes, u_att: &[[f64; 3]], k: usize, residual: bool, v0: f64, t_end: f64) -> PortOut {
+    let m = &sc.m;
+    let plate = sc.impactor.unwrap();
+    let mp = m.bodies[plate].mass;
+    let wsum: f64 = md.pad.iter().map(|x| x.1).sum();
+    let n = md.sqm.len();
+    // physical mode shapes on demand: phi[g] = y[g] / sqm[g]
+    let psi: Vec<f64> = (0..k).map(|j| md.pad.iter().map(|&(c, w)| w * md.y[j][md.idx[c][1].unwrap()] / md.sqm[md.idx[c][1].unwrap()]).sum::<f64>() / wsum).collect();
+    // residual field: u_att - modal static response to the unit downward port load
+    let mut ures = vec![0.0; n];
+    if residual {
+        for (i, r) in md.idx.iter().enumerate() {
+            for d in 0..3 {
+                if let Some(g) = r[d] {
+                    let mut s = u_att[i][d];
+                    for j in 0..k {
+                        s += md.y[j][g] / md.sqm[g] * psi[j] / md.lam[j];
+                    }
+                    ures[g] = s;
+                }
+            }
+        }
+    }
+    let c_res: f64 = -md.pad.iter().map(|&(c, w)| w * ures[md.idx[c][1].unwrap()]).sum::<f64>() / wsum;
+    let kc: f64 = m.facets.iter().filter(|f| f.tag == 3).map(|f| f.pts.iter().map(|p| p.law.kn).sum::<f64>()).sum();
+    let g0 = m.q[plate][1] - sc.depth - md.pad.iter().map(|&(c, w)| w * (m.q[c][1] - m.bodies[c].x0.y)).sum::<f64>() / wsum;
+    let gauge = sc.tip_cells[0];
+    let gg = md.idx[gauge][1].unwrap();
+    let (mut a, mut ad) = (vec![0.0; k], vec![0.0; k]);
+    let (mut s, mut sv) = (0.0f64, v0);
+    let dt = 2e-7;
+    let mut o = PortOut { peak_f: 0.0, impulse: 0.0, v_after: -v0, mid_peak: 0.0, onset_ratio: 0.0 };
+    let mut q = m.q.clone();
+    let steps = (t_end / dt).round() as usize;
+    for it in 0..steps {
+        let dm: f64 = -(0..k).map(|j| psi[j] * a[j]).sum::<f64>();
+        let f = ((s - g0 - dm) / (1.0 / kc + c_res)).max(0.0);
+        for j in 0..k {
+            ad[j] += dt * (-md.lam[j] * a[j] - psi[j] * f);
+            a[j] += dt * ad[j];
+        }
+        sv += dt * (G - f / mp);
+        s += dt * sv;
+        o.peak_f = o.peak_f.max(f);
+        o.impulse += f * dt;
+        let ug: f64 = (0..k).map(|j| md.y[j][gg] / md.sqm[gg] * a[j]).sum::<f64>() + ures[gg] * f;
+        o.mid_peak = o.mid_peak.max(-ug);
+        if it % 25 == 0 {
+            // stress recovery: facet openings of the reconstructed field against their onset
+            for (i, r) in md.idx.iter().enumerate() {
+                for d in 0..3 {
+                    if let Some(g) = r[d] {
+                        let mut u = ures[g] * f;
+                        for j in 0..k {
+                            u += md.y[j][g] / md.sqm[g] * a[j];
+                        }
+                        q[i][d] = md.qs[i][d] + u;
+                    }
+                }
+            }
+            for fc in m.facets.iter().filter(|f| f.active && f.tag == 0) {
+                for p in 0..2 {
+                    let (_, e) = m.eval_point(&q, fc, p);
+                    o.onset_ratio = o.onset_ratio.max(e.kappa / fc.pts[p].law.delta0);
+                }
+            }
+        }
+    }
+    o.v_after = -sv;
+    o
+}
+
+fn p_exp(pinned: bool) {
+    let v0 = 0.5;
+    let t_end = 0.003;
+    let rows: Vec<Value> = par_map(vec![1u64, 2], |seed| {
+        let sc = imp_scene(seed, v0, 50.0, 1.0);
+        let plate = sc.impactor.unwrap();
+        let gauge = sc.tip_cells[0];
+        let md = if pinned { modes_pinned(&sc, 161) } else { modes(&sc, 161) };
+        // attachment shape: static response of the elastic beam to a unit downward port load
+        let mut me = sc.m.clone();
+        if pinned {
+            pin_supports(&mut me, 0.5 * sc.len);
+        }
+        me.bodies[plate].fixed = [true; 3];
+        for f in me.facets.iter_mut() {
+            if f.tag == 3 {
+                f.active = false;
+            }
+            for p in f.pts.iter_mut() {
+                p.law.kind = model::LawKind::Elastic;
+                if f.tag >= 10 && p.law.kt == 0.0 {
+                    p.law.kt = 1e-6 * p.law.kn;
+                }
+            }
+        }
+        let wsum: f64 = md.pad.iter().map(|x| x.1).sum();
+        let load = 1000.0;
+        for &(c, w) in &md.pad {
+            me.pattern[c][1] = -load * w / wsum;
+        }
+        let mut q0 = me.q.clone();
+        let tol = 1e-9 * mg(&me);
+        let r0 = newton(&me, &mut q0, 0.0, None, NewtonOpts { tol, max_iter: 100 });
+        let mut q1 = q0.clone();
+        let r1 = newton(&me, &mut q1, 1.0, None, NewtonOpts { tol, max_iter: 100 });
+        assert!(r0.converged && r1.converged, "attachment solve");
+        let u_att: Vec<[f64; 3]> = q1.iter().zip(&q0).map(|(a, b)| [(a[0] - b[0]) / load, (a[1] - b[1]) / load, (a[2] - b[2]) / load]).collect();
+        // elastic reference
+        let mut se = sc.clone();
+        for f in se.m.facets.iter_mut().filter(|f| f.tag == 0) {
+            for p in f.pts.iter_mut() {
+                p.law.kind = model::LawKind::Elastic;
+            }
+        }
+        let ys = se.m.q[gauge][1];
+        let mut mid = 0.0f64;
+        let rf = run_imp(se, 4e-6, t_end, |wd| mid = mid.max(ys - wd.q[gauge][1]));
+        let reference = json!({"peak_f": rf.peak_f, "impulse": rf.impulse, "v_after": rf.v_imp, "mid_peak": mid});
+        // damage onset velocity of the reference (damage law, 3 ms)
+        let (mut lo, mut hi) = (0.005f64.ln(), 1.0f64.ln());
+        for _ in 0..12 {
+            let midv = 0.5 * (lo + hi);
+            let mut dmg = false;
+            run_imp(imp_scene(seed, midv.exp(), 50.0, 1.0), 1e-4, t_end, |wd| dmg |= interior_dissipation(&wd.sc.m) > 0.0);
+            if dmg {
+                hi = midv;
+            } else {
+                lo = midv;
+            }
+        }
+        let v_on = (0.5 * (lo + hi)).exp();
+        let sc_on = imp_scene(seed, v_on, 50.0, 1.0);
+        let mut models = Vec::new();
+        for residual in [true, false] {
+            for k in [2usize, 4, 6, 11, 21, 41, 81, 161] {
+                let o = port_model(&sc, &md, &u_att, k, residual, v0, t_end);
+                let on = port_model(&sc_on, &md, &u_att, k, residual, v_on, t_end);
+                models.push(json!({"k": k, "residual": residual, "peak_f": o.peak_f, "impulse": o.impulse, "v_after": o.v_after, "mid_peak": o.mid_peak, "onset_ratio_at_ref_onset": on.onset_ratio, "v_onset": v_on / on.onset_ratio}));
+            }
+        }
+        println!("P seed {seed}: reference {reference}, onset {v_on:.4}");
+        json!({"seed": seed, "v0": v0, "reference_elastic": reference, "v_onset_ref": v_on, "models": models})
+    });
+    write_json("phase1", if pinned { "p_port_model_pinned" } else { "p_port_model" }, &json!({"meta": meta("phase1", "p", None, "k modes + attachment shape, striker and contact spring as in the reference; 3 ms; reference force sampled every 4 us", json!({"supports_linearised_as": if pinned { "inner-edge pin" } else { "bilateral pad" }})), "rows": rows}));
+}
+
+/// B: what the upkeep of a modal basis costs next to explicit stepping (same CPU, one thread).
+fn b_cost() {
+    let sc = imp_scene(1, 0.6, 50.0, 1.0);
+    let plate = sc.impactor.unwrap();
+    let mut rows = Vec::new();
+    for nev in [6usize, 11, 21, 41, 81] {
+        let t = std::time::Instant::now();
+        let mut steps = 0;
+        for _ in 0..5 {
+            let mut m = sc.m.clone();
+            m.bodies[plate].fixed = [true; 3];
+            for f in m.facets.iter_mut() {
+                if f.tag == 3 {
+                    f.active = false;
+                }
+                if f.tag >= 10 {
+                    for p in f.pts.iter_mut() {
+                        p.law.kt = 1e-6 * p.law.kn;
+                    }
+                }
+            }
+            let sp = Spectral::from_model2d(&m);
+            let pr = sp.low(nev, 7, 1e-10, m.dof_map().1).unwrap();
+            steps = pr.steps;
+        }
+        rows.push(json!({"modes": nev, "lanczos_steps": steps, "wall_ms": t.elapsed().as_secs_f64() * 1e3 / 5.0}));
+    }
+    let o = run_imp(sc.clone(), H240, 0.05, |_| {});
+    let nsteps = 0.05 / o.he;
+    let us_per_step = o.wall_s * 1e6 / nsteps;
+    println!("explicit: {:.0} steps of {:.2} us, wall {:.2} s, {:.1} us per step; bases: {}", nsteps, o.he * 1e6, o.wall_s, us_per_step, serde_json::to_string(&rows).unwrap());
+    write_json("phase1", "b_basis_cost", &json!({"meta": meta("phase1", "b", None, "one thread; shift-invert Lanczos with full reorthogonalisation; explicit reference", json!({})), "cells": sc.m.n_cells(), "explicit": {"he": o.he, "steps_50ms": nsteps, "wall_s": o.wall_s, "us_per_step": us_per_step}, "basis": rows}));
+}
+
 fn main() {
     match std::env::args().nth(1).as_deref() {
         Some("wavefree") => {
@@ -755,6 +982,9 @@ fn main() {
         Some("a2") => a2(),
         Some("a3") => a3(),
         Some("a3b") => a3b(),
+        Some("p") => p_exp(false),
+        Some("p2") => p_exp(true),
+        Some("b") => b_cost(),
         Some("one") => {
             let a: Vec<f64> = std::env::args().skip(2).map(|x| x.parse().unwrap()).collect();
             let o = run_imp(imp_scene(a[0] as u64, a[1], a[2], a[3]), a[4], 0.05, |_| {});

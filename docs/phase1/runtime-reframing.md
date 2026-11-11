@@ -1,5 +1,11 @@
 # Phase 1 — Shatterbird as a deterministic runtime: cost model, determinism tax, minimal world state
 
+> **Update 2026-11-11.** [sufficiency.md](sufficiency.md) withdraws the tier ladder of §3 and
+> narrows the contact-pulse statement of §4: in the explicit reference the threshold moves by
+> at most 6 % under a 1000× change of contact stiffness, but the dissipated energy changes by
+> up to 60 %.
+
+
 *2026-11-11. Status tags: **[measured]** on one device (Apple M3 Pro, Chrome 157 / Dawn / Metal),
 **[derived]** from measured coefficients, **[proposal]** not yet tested. Post-hoc changes are marked.*
 

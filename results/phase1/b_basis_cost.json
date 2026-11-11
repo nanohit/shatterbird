@@ -1,0 +1,46 @@
+{
+  "basis": [
+    {
+      "lanczos_steps": 16,
+      "modes": 6,
+      "wall_ms": 8.389258199999999
+    },
+    {
+      "lanczos_steps": 26,
+      "modes": 11,
+      "wall_ms": 8.9702334
+    },
+    {
+      "lanczos_steps": 46,
+      "modes": 21,
+      "wall_ms": 11.936975
+    },
+    {
+      "lanczos_steps": 114,
+      "modes": 41,
+      "wall_ms": 30.804125
+    },
+    {
+      "lanczos_steps": 162,
+      "modes": 81,
+      "wall_ms": 52.41080000000001
+    }
+  ],
+  "cells": 454,
+  "explicit": {
+    "he": 2.120441051738762e-6,
+    "steps_50ms": 23580.0,
+    "us_per_step": 83.84825415606447,
+    "wall_s": 1.9771418330000001
+  },
+  "meta": {
+    "config": {},
+    "experiment": "phase1",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "b",
+    "seed": null,
+    "solver_schedule": "one thread; shift-invert Lanczos with full reorthogonalisation; explicit reference",
+    "source_hash": "ebac4f493b32182a",
+    "unix_time": 1794370992
+  }
+}

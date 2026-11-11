@@ -111,3 +111,26 @@ Predictions, stated before the run:
 
 If prediction 1 fails, a modal state is insufficient during fracture even with an updated
 basis, and the member has to be simulated in full while it is breaking.
+
+## Addendum 2 (2026-11-11, after A and C, before P) — experiment P: a port model
+
+A3b showed which state is sufficient; it did not show that a reduced model can *evolve*
+through a contact. P tests that. The beam is replaced by k modal coordinates of its current
+(intact) operator plus one quasi-static attachment shape per port (the static response to
+the port load minus its modal part, "residual compliance"). The striker and the contact
+spring stay as in the reference. Reference for P: the explicit run with elastic interior
+facets (no damage), v0 = 0.5 m/s, so only the reduction is tested.
+
+Compared over the first 3 ms: contact force peak, transferred impulse, striker velocity
+after contact, peak mid-span deflection; and the damage-onset velocity (first interior
+facet point reaching its onset opening), reference by bisection with the damage law,
+port model from recovered facet openings.
+
+Predictions:
+1. With the attachment shape, k = 21: impulse and striker velocity within 5 %, mid-span
+   deflection within 5 %, peak force within 15 %, onset velocity within 15 %.
+2. Without it, the peak force is off by more than 30 % for every k ≤ 21: truncated modes
+   make the contact point too stiff.
+
+Refutation of "boundary response with a few internal coordinates is enough for a member
+that is not breaking": prediction 1 fails at k = 41 as well.

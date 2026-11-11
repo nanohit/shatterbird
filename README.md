@@ -1,6 +1,12 @@
 # Shatterbird — Phase 0 (mechanics and solver truth, CPU f64)
 
-**Phase 1 (current): Shatterbird as a deterministic runtime** — [`docs/phase1/runtime-reframing.md`](docs/phase1/runtime-reframing.md).
+**Phase 1b (current): what state is sufficient, and what a contact pipeline costs** — [`docs/phase1/sufficiency.md`](docs/phase1/sufficiency.md).
+- **Reference:** a 1000× change of contact stiffness moves the fracture threshold by at most 6 %, but changes the dissipated energy by up to 60 %.
+- **State:** about 20 modal coordinates after an impact, 6–11 while a crack runs, rigid fragments afterwards — only in the basis of the current damaged operator; a basis fixed in advance fails.
+- **GPU:** an integer sphere-contact pipeline with an atomics-built grid matches the CPU bit for bit at 4.7–6.5 ns per sphere-substep; memory layout changes that by up to 6×; tall stacks are the open problem.
+- **Probe for other devices:** https://nanohit.me/shatterbird/ (`gpu-probe/det.html`, `gpu-probe/spheres.js`, `sh gpu-probe/publish.sh`).
+
+**Phase 1: Shatterbird as a deterministic runtime** — [`docs/phase1/runtime-reframing.md`](docs/phase1/runtime-reframing.md).
 - **Question:** what has to be computed at all, and what determinism costs, before asking how to compute an elastic network cheaply.
 - **Measured on one GPU:** integer kernels are bit-identical to their reference and cost the same as f32 when memory-bound; bytes, not arithmetic, set the tick budget.
 - **Mechanics:** wave-free predictors reproduce the explicit support-removal threshold within 5 % and the impact threshold 13–19 % low.
