@@ -1,7 +1,7 @@
 <!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Shatterbird determinism / limits probe</title>
 <style>body{font:13px/1.4 ui-monospace,Menlo,monospace;margin:12px;background:#111;color:#ddd}button{font:inherit;padding:10px 14px;margin:3px 0}pre{white-space:pre-wrap;word-break:break-all}a{color:#8cf}#st{color:#fc6}</style></head>
-<body><p><b>Shatterbird WebGPU probe.</b> Checks that integer compute kernels give bit-identical results on this GPU and measures memory bandwidth, dispatch overhead and a cellular-automaton workload. Nothing leaves this page unless you press "Send result".<br>
+<body><p><b>Shatterbird WebGPU probe.</b> Checks that integer compute kernels give bit-identical results on this GPU and measures memory bandwidth, dispatch overhead and a cellular-automaton workload and a contact pipeline for spheres. Nothing leaves this page unless you press "Send result".<br>
 1. Press a Run button and wait. 2. Press "Send result" (opens a prefilled GitHub issue) or "Copy result" and paste it into any chat.</p>
 <button id="gs">Run small (phones, 30 s)</button> <button id="go">Run full (desktop, 1-3 min)</button><br><button id="gh">Send result (GitHub issue)</button> <button id="cp">Copy result</button>
-<p id="st"></p><pre id="o">idle</pre><script src="det.js"></script></body></html>
+<p id="st"></p><pre id="o">idle</pre><script src="spheres.js"></script><script src="det.js"></script></body></html>
