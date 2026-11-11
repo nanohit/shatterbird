@@ -1,0 +1,118 @@
+{
+ "worker": {
+  "target": "win",
+  "host": "DESKTOP-ELEP24S",
+  "os": "Microsoft Windows [Version 10.0.22621.4317]",
+  "gpu_driver": "NVIDIA GeForce GTX 1660 SUPER, 610.88, 6144 MiB",
+  "video_controllers": "SudoMaker Virtual Display Adapter | 0.22.37.632\r\nNVIDIA GeForce GTX 1660 SUPER | 32.0.16.1088",
+  "chrome": "Chrome/157.0.8103.38",
+  "adapter_wait_tries": 0,
+  "wall_s": 25.539
+ },
+ "tag": "gtx1660s",
+ "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+ "when": "2026-11-11T16:58:21.315Z",
+ "errors": [],
+ "adapter": {
+  "vendor": "nvidia",
+  "architecture": "turing",
+  "device": "0x21c4",
+  "description": "NVIDIA GeForce GTX 1660 SUPER",
+  "isFallbackAdapter": false
+ },
+ "timestamp_query": true,
+ "spec": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 4,
+  "slop": 4,
+  "cq": 8,
+  "eps": 32,
+  "g0": 2,
+  "bg": 0,
+  "margin": 16,
+  "hi": 24,
+  "th": 0
+ },
+ "signature": {
+  "small": {
+   "n": 1728,
+   "substeps": 400,
+   "hash_gpu": "9ff33c42",
+   "hash_cpu": "9ff33c42",
+   "mismatch_words": 0,
+   "cell_capacity": 8,
+   "max_cell_count_gpu_sampled": 4,
+   "max_cell_count_cpu_every_step": 4,
+   "contact_capacity": 16,
+   "max_contacts_gpu": 8,
+   "max_contacts_cpu_every_step": 9,
+   "cpu_overflow_events": 0
+  },
+  "full": {
+   "n": 8000,
+   "substeps": 600,
+   "hash_gpu": "c82e2c76",
+   "hash_cpu": "c82e2c76",
+   "mismatch_words": 0,
+   "cell_capacity": 8,
+   "max_cell_count_gpu_sampled": 4,
+   "max_cell_count_cpu_every_step": 4,
+   "contact_capacity": 16,
+   "max_contacts_gpu": 10,
+   "max_contacts_cpu_every_step": 10,
+   "cpu_overflow_events": 0
+  }
+ },
+ "permutation": {
+  "n": 8000,
+  "substeps": 600,
+  "mismatch_words_pos_vel": 0,
+  "bodies_with_different_contact_count": 0,
+  "bodies_with_different_contact_sets_or_impulses": 0
+ },
+ "profile": {
+  "50": {
+   "n": 125000,
+   "bytes_per_body": 1664,
+   "substeps": 32,
+   "wall_ns_per_sphere_substep": 37.5,
+   "runs": [
+    {
+     "gpu_ns_per_sphere_substep": 37.419072,
+     "stage_ns": {
+      "clear": 0.13702399999999998,
+      "insert": 0.29858399999999996,
+      "match": 9.336927999999999,
+      "solve": 25.241183999999986,
+      "finish": 2.405183999999999
+     }
+    },
+    {
+     "gpu_ns_per_sphere_substep": 37.45124,
+     "stage_ns": {
+      "clear": 0.139832,
+      "insert": 0.29820000000000013,
+      "match": 9.329848000000002,
+      "solve": 25.26185600000001,
+      "finish": 2.4208
+     }
+    },
+    {
+     "gpu_ns_per_sphere_substep": 37.444048,
+     "stage_ns": {
+      "clear": 0.138696,
+      "insert": 0.29823999999999995,
+      "match": 9.353855999999999,
+      "solve": 25.237703999999994,
+      "finish": 2.4150559999999994
+     }
+    }
+   ],
+   "contacts_per_sphere": 5.330984,
+   "moving": 115101
+  }
+ }
+}

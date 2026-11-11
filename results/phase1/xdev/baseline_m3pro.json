@@ -1,0 +1,116 @@
+{
+ "worker": {
+  "target": "local",
+  "host": "MacBook-Pro-Pavel.local",
+  "os": "14.7.4",
+  "gpu_driver": "Chipset Model: Apple M3 Pro; Metal Support: Metal 3;",
+  "chrome": "Chrome/157.0.8103.39",
+  "wall_s": 12.526
+ },
+ "tag": "m3pro",
+ "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+ "when": "2026-11-11T16:55:47.096Z",
+ "errors": [],
+ "adapter": {
+  "vendor": "apple",
+  "architecture": "metal-3",
+  "device": "0x0000",
+  "description": "Apple M3 Pro",
+  "isFallbackAdapter": false
+ },
+ "timestamp_query": true,
+ "spec": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 4,
+  "slop": 4,
+  "cq": 8,
+  "eps": 32,
+  "g0": 2,
+  "bg": 0,
+  "margin": 16,
+  "hi": 24,
+  "th": 0
+ },
+ "signature": {
+  "small": {
+   "n": 1728,
+   "substeps": 400,
+   "hash_gpu": "9ff33c42",
+   "hash_cpu": "9ff33c42",
+   "mismatch_words": 0,
+   "cell_capacity": 8,
+   "max_cell_count_gpu_sampled": 4,
+   "max_cell_count_cpu_every_step": 4,
+   "contact_capacity": 16,
+   "max_contacts_gpu": 8,
+   "max_contacts_cpu_every_step": 9,
+   "cpu_overflow_events": 0
+  },
+  "full": {
+   "n": 8000,
+   "substeps": 600,
+   "hash_gpu": "c82e2c76",
+   "hash_cpu": "c82e2c76",
+   "mismatch_words": 0,
+   "cell_capacity": 8,
+   "max_cell_count_gpu_sampled": 4,
+   "max_cell_count_cpu_every_step": 4,
+   "contact_capacity": 16,
+   "max_contacts_gpu": 10,
+   "max_contacts_cpu_every_step": 10,
+   "cpu_overflow_events": 0
+  }
+ },
+ "permutation": {
+  "n": 8000,
+  "substeps": 600,
+  "mismatch_words_pos_vel": 0,
+  "bodies_with_different_contact_count": 0,
+  "bodies_with_different_contact_sets_or_impulses": 0
+ },
+ "profile": {
+  "50": {
+   "n": 125000,
+   "bytes_per_body": 1664,
+   "substeps": 32,
+   "wall_ns_per_sphere_substep": 18.375,
+   "runs": [
+    {
+     "gpu_ns_per_sphere_substep": 20.27168025,
+     "stage_ns": {
+      "clear": 0.19879774999999997,
+      "insert": 0.26085075,
+      "match": 5.810161000000001,
+      "solve": 11.21489025,
+      "finish": 2.4115589999999996
+     }
+    },
+    {
+     "gpu_ns_per_sphere_substep": 18.517551,
+     "stage_ns": {
+      "clear": 0.18077849999999995,
+      "insert": 0.223621,
+      "match": 4.894425250000001,
+      "solve": 10.425310499999997,
+      "finish": 2.38456875
+     }
+    },
+    {
+     "gpu_ns_per_sphere_substep": 18.511655,
+     "stage_ns": {
+      "clear": 0.176185,
+      "insert": 0.22144475,
+      "match": 4.894278750000002,
+      "solve": 10.4198505,
+      "finish": 2.3909932500000006
+     }
+    }
+   ],
+   "contacts_per_sphere": 5.330984,
+   "moving": 115101
+  }
+ }
+}

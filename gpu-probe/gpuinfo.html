@@ -1,0 +1,9 @@
+<!doctype html><html><head><meta charset="utf-8"><title>adapter</title></head><body><script>
+async function gpuInfo() {
+  const a = await navigator.gpu.requestAdapter({ powerPreference: 'high-performance' }); if (!a) return { error: 'no adapter' };
+  const i = a.info || {}; const fb = await navigator.gpu.requestAdapter({ forceFallbackAdapter: true });
+  return { vendor: i.vendor, architecture: i.architecture, device: i.device, description: i.description, isFallbackAdapter: i.isFallbackAdapter ?? a.isFallbackAdapter ?? null, subgroupMinSize: i.subgroupMinSize, features: [...a.features].sort(),
+    limits: { maxStorageBuffersPerShaderStage: a.limits.maxStorageBuffersPerShaderStage, maxStorageBufferBindingSize: a.limits.maxStorageBufferBindingSize, maxBufferSize: a.limits.maxBufferSize, maxComputeWorkgroupsPerDimension: a.limits.maxComputeWorkgroupsPerDimension },
+    fallback_adapter_for_comparison: fb ? { vendor: fb.info.vendor, architecture: fb.info.architecture, description: fb.info.description } : null, preferredFormat: navigator.gpu.getPreferredCanvasFormat(), ua: navigator.userAgent };
+}
+</script></body></html>
