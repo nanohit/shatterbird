@@ -1,0 +1,11 @@
+{
+ "note": "single column of spheres placed touching, impulses zero at t = 0 (cold start); node gpu-probe/rest.js specification, defaults except iterations; sag = loss of column height",
+ "spec": {"grav": 111, "f": 32, "mu8": 4, "muk8": 3, "slop": 4, "cq": 8, "eps": 32, "g0": 2, "margin": 16, "hi": 24, "th": 0},
+ "rows": [
+  {"layers": 16, "iters": 4, "sag_transient_pct": 0.72, "sag_final_pct": 0.384, "exact_rest_at_substep": 1143},
+  {"layers": 64, "iters": 1, "sag_transient_pct": 11.52, "sag_final_pct": null, "exact_rest_at_substep": null, "comment": "bounces, not at rest after 38400 substeps"},
+  {"layers": 64, "iters": 2, "sag_transient_pct": 5.78, "sag_final_pct": 0.446, "exact_rest_at_substep": 32998},
+  {"layers": 64, "iters": 4, "sag_transient_pct": 2.89, "sag_final_pct": 0.523, "exact_rest_at_substep": 16412},
+  {"layers": 64, "iters": 8, "sag_transient_pct": 1.44, "sag_final_pct": 0.540, "exact_rest_at_substep": 8166, "comment": "run before kinetic friction was added; a straight column has no sliding contacts"}
+ ]
+}

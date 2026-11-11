@@ -1,0 +1,94 @@
+{
+ "prm": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 4,
+  "slop": 4,
+  "cq": 8,
+  "eps": 32,
+  "g0": 2,
+  "bg": 0,
+  "margin": 16,
+  "hi": 24,
+  "th": 0
+ },
+ "settle": {
+  "N": 21952,
+  "rest_at_step": 1692,
+  "evals": 36636672,
+  "evals_full": 37142784,
+  "pen_max": 16,
+  "depth_D": 13.2,
+  "contacts": 4.99,
+  "cmax": 10,
+  "hash": "80dabe1f",
+  "sink_pct_weight_at_rest": 0.406,
+  "full_step_still_fixed": true
+ },
+ "settle_history": [
+  {
+   "t": 480,
+   "changed": 21910,
+   "evaluated": 21952,
+   "pen": 26,
+   "sink_pct_w": 0.001
+  },
+  {
+   "t": 960,
+   "changed": 21849,
+   "evaluated": 21952,
+   "pen": 15,
+   "sink_pct_w": 0.03
+  },
+  {
+   "t": 1440,
+   "changed": 19355,
+   "evaluated": 21952,
+   "pen": 16,
+   "sink_pct_w": 0.123
+  }
+ ],
+ "kicks": [
+  {
+   "kick_m_per_s": 0.25,
+   "quiet_after_steps": 50,
+   "ever_changed": 3849,
+   "ever_changed_pct": 17.53,
+   "wake_volume_body_steps": 56501,
+   "peak_changed": 2969,
+   "reach_D": 16.8,
+   "moved_over_0p1D": 0,
+   "evaluated_body_steps": 405573,
+   "full_body_steps": 1097600,
+   "wall_s": 0.8
+  },
+  {
+   "kick_m_per_s": 1,
+   "quiet_after_steps": 75,
+   "ever_changed": 11397,
+   "ever_changed_pct": 51.92,
+   "wake_volume_body_steps": 315922,
+   "peak_changed": 8623,
+   "reach_D": 24.1,
+   "moved_over_0p1D": 0,
+   "evaluated_body_steps": 1034103,
+   "full_body_steps": 1646400,
+   "wall_s": 2.3
+  },
+  {
+   "kick_m_per_s": 4,
+   "quiet_after_steps": 240,
+   "ever_changed": 20909,
+   "ever_changed_pct": 95.25,
+   "wake_volume_body_steps": 1295349,
+   "peak_changed": 17754,
+   "reach_D": 31.3,
+   "moved_over_0p1D": 2,
+   "evaluated_body_steps": 3000142,
+   "full_body_steps": 5268480,
+   "wall_s": 6.9
+  }
+ ]
+}

@@ -1,0 +1,81 @@
+{
+ "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+ "when": "2026-11-11T14:06:24.154Z",
+ "errors": [],
+ "adapter": {
+  "vendor": "apple",
+  "architecture": "metal-3",
+  "device": "",
+  "description": ""
+ },
+ "rest": {
+  "spec": {
+   "grav": 111,
+   "f": 32,
+   "mu8": 4,
+   "muk8": 3,
+   "iters": 4,
+   "slop": 4,
+   "cq": 8,
+   "eps": 32,
+   "g0": 2,
+   "bg": 0,
+   "margin": 16,
+   "hi": 24,
+   "th": 0
+  },
+  "cpu_ms_per_substep": 7.1414999999602635,
+  "correct": {
+   "n": 8000,
+   "substeps": 600,
+   "hash_gpu": "c82e2c76",
+   "hash_cpu": "c82e2c76",
+   "mismatch_words": 0,
+   "cpu_overflow": 0,
+   "cpu_changed_last": 7907,
+   "contacts": 4.832375,
+   "cmax": 10,
+   "pen_max": 13
+  },
+  "throughput": {
+   "50": {
+    "n": 125000,
+    "cells": 357911,
+    "bytes_per_body": 1664,
+    "warm_substeps": 3000,
+    "substeps_timed": 18,
+    "ms_per_substep": 2.2777777777777777,
+    "ns_per_sphere_substep": 18.22222222222222,
+    "pass_ns": {
+     "clear_insert": 0.4444444444444444,
+     "match": 4.933333290947808,
+     "solve_all": 10.622222211625841,
+     "finish": 2.355555534362793
+    },
+    "contacts_per_sphere": 5.292608,
+    "cmax": 10,
+    "moving": 123626,
+    "depth_D": 23.382291666666667
+   },
+   "100": {
+    "n": 1000000,
+    "cells": 2685619,
+    "bytes_per_body": 1664,
+    "warm_substeps": 3000,
+    "substeps_timed": 4,
+    "ms_per_substep": 21.974999994039536,
+    "ns_per_sphere_substep": 21.974999994039536,
+    "pass_ns": {
+     "clear_insert": 0.824999988079071,
+     "match": 5.875,
+     "solve_all": 12.699999988079071,
+     "finish": 2.824999988079071
+    },
+    "contacts_per_sphere": 5.950733,
+    "cmax": 12,
+    "moving": 996861,
+    "depth_D": 47.158243815104164
+   }
+  }
+ }
+}

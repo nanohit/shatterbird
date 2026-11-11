@@ -525,6 +525,24 @@ impl Spectral {
         Ok(p)
     }
 
+    /// (B + sigma I)^-1 applied to whitened vectors: static response of the shifted operator, with the
+    /// same factorisation as `low_shift`. Used for residual-attachment (Ritz) shapes.
+    pub fn shift_inv(&self, sigma: f64, ys: &[Vec<f64>]) -> Result<Vec<Vec<f64>>, String> {
+        let mut trip = self.k_triplets();
+        trip.extend(self.m_triplets(sigma));
+        let kmat = csc_from_triplets(self.n, trip);
+        let mut spd = Spd::analyze(&kmat);
+        spd.factor(&kmat)?;
+        let mut tmp = vec![0.0; self.n];
+        Ok(ys.iter().map(|y| {
+            let mut out = vec![0.0; self.n];
+            self.apply_msqrt(y, &mut tmp);
+            spd.solve(&mut tmp);
+            self.apply_msqrt(&tmp, &mut out);
+            out
+        }).collect())
+    }
+
     /// All eigenvalues of B (descending), dense.
     pub fn dense_eigs(&self) -> Vec<f64> {
         let mut a = Mat::<f64>::zeros(self.n, self.n);

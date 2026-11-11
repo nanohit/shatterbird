@@ -5,7 +5,7 @@ use experiments::engine::world::{crack_stats, fragments};
 use experiments::{meta, write_json};
 use model::{BodyKind, LawKind, Model};
 use serde_json::{json, Value};
-use solvers::spectrum::Spectral;
+use solvers::spectrum::{jacobi_eig, Spectral};
 
 const DT: f64 = 2e-6;
 const C_PT: f64 = 120.0;
@@ -52,6 +52,12 @@ struct Member {
     qd: Vec<f64>,
     /// built on a damaged set: secant operator, damage frozen, watched against history
     frozen: bool,
+    /// band bounds on the equivalent opening of interior points: wb[p * nb + b] * |eta|_band(b)
+    wb: Vec<f64>,
+    nb: usize,
+    /// per band: max over points of wb / d0 (member-level screen); points that ever passed their threshold
+    wmax: Vec<f64>,
+    hot: Vec<usize>,
 }
 
 impl Member {
@@ -209,14 +215,149 @@ impl Sim {
         }
         let (idx, _) = mm.dof_map();
         let nc = cells.len();
+        let mut lam: Vec<f64> = (0..k).map(|j| pr.vals[ord[3 + j]]).collect();
+        let mut wv: Vec<Vec<f64>> = (0..k).map(|j| pr.vecs[ord[3 + j]].clone()).collect();
+        // residual-attachment shapes: static response to resultant loads on each port cluster,
+        // orthogonalised against every computed eigenvector, then diagonalised (Rayleigh-Ritz)
+        let att = envf("SB_ATT", 0.0) as usize;
+        if att > 0 {
+            let mut loc = vec![usize::MAX; m0.bodies.len()];
+            for (c, &bb) in cells.iter().enumerate() {
+                loc[bb] = c;
+            }
+            let mut is_port = vec![false; nc];
+            for fi in 0..m0.facets.len() {
+                let f = &m0.facets[fi];
+                if !f.active {
+                    continue;
+                }
+                let (ia, ib) = (inset[f.a], inset[f.b]);
+                if ia != ib {
+                    is_port[loc[if ia { f.a } else { f.b }]] = true;
+                } else if ia && ib && !mm.facets[fi].active {
+                    is_port[loc[f.a]] = true;
+                    is_port[loc[f.b]] = true;
+                }
+            }
+            let mut par: Vec<usize> = (0..nc).collect();
+            fn fnd(p: &mut [usize], mut i: usize) -> usize {
+                while p[i] != i {
+                    p[i] = p[p[i]];
+                    i = p[i];
+                }
+                i
+            }
+            for &fi in &interior {
+                let f = &m0.facets[fi];
+                let (a, b2) = (loc[f.a], loc[f.b]);
+                if is_port[a] && is_port[b2] {
+                    let (ra, rb) = (fnd(&mut par, a), fnd(&mut par, b2));
+                    par[ra] = rb;
+                }
+            }
+            let mut clusters: std::collections::BTreeMap<usize, Vec<usize>> = Default::default();
+            for c in 0..nc {
+                if is_port[c] {
+                    let r = fnd(&mut par, c);
+                    clusters.entry(r).or_default().push(c);
+                }
+            }
+            let mut loads: Vec<Vec<f64>> = Vec::new();
+            for (_, cl) in &clusters {
+                let np = cl.len() as f64;
+                let (mut mx, mut my) = (0.0, 0.0);
+                for &c in cl {
+                    mx += m0.bodies[cells[c]].x0.x / np;
+                    my += m0.bodies[cells[c]].x0.y / np;
+                }
+                let (mut sxx, mut sxy, mut syy) = (0.0, 0.0, 0.0);
+                for &c in cl {
+                    let (dx, dy) = (m0.bodies[cells[c]].x0.x - mx, m0.bodies[cells[c]].x0.y - my);
+                    sxx += dx * dx;
+                    sxy += dx * dy;
+                    syy += dy * dy;
+                }
+                let ang = 0.5 * (2.0 * sxy).atan2(sxx - syy);
+                let (ax, ay) = (ang.cos(), ang.sin());
+                let smax = cl.iter().map(|&c| ((m0.bodies[cells[c]].x0.x - mx) * ax + (m0.bodies[cells[c]].x0.y - my) * ay).abs()).fold(1e-12, f64::max);
+                for a in 0..att.min(cl.len()) {
+                    for d in 0..3 {
+                        let mut y = vec![0.0; n];
+                        for &c in cl {
+                            let bb = cells[c];
+                            let s_ = ((m0.bodies[bb].x0.x - mx) * ax + (m0.bodies[bb].x0.y - my) * ay) / smax;
+                            let sq = (if d < 2 { m0.bodies[bb].mass } else { m0.bodies[bb].inertia }).sqrt();
+                            y[idx[bb][d].unwrap()] = s_.powi(a as i32) / sq;
+                        }
+                        loads.push(y);
+                    }
+                }
+            }
+            let dotv = |a: &[f64], b: &[f64]| a.iter().zip(b).map(|(x, y)| x * y).sum::<f64>();
+            let mut zs: Vec<Vec<f64>> = Vec::new();
+            for mut z in sp.shift_inv(3.55e4, &loads).ok()? {
+                let n0 = dotv(&z, &z).sqrt();
+                for _ in 0..2 {
+                    for e in pr.vecs.iter().chain(zs.iter()) {
+                        let c = dotv(&z, e) / dotv(e, e);
+                        for (zi, ei) in z.iter_mut().zip(e) {
+                            *zi -= c * ei;
+                        }
+                    }
+                }
+                let n1 = dotv(&z, &z).sqrt();
+                if n1 > 1e-6 * n0 {
+                    for zi in z.iter_mut() {
+                        *zi /= n1;
+                    }
+                    zs.push(z);
+                }
+            }
+            let p = zs.len();
+            if p > 0 {
+                let mut bz = vec![vec![0.0; n]; p];
+                for i in 0..p {
+                    sp.apply_b(&zs[i], &mut bz[i]);
+                }
+                let mut t = vec![0.0; p * p];
+                for i in 0..p {
+                    for j in 0..p {
+                        t[i * p + j] = dotv(&zs[i], &bz[j]);
+                    }
+                }
+                let (vals, u) = jacobi_eig(&t, p);
+                let mut kept = 0;
+                let mut stiffest: f64 = 0.0;
+                for c in 0..p {
+                    stiffest = stiffest.max(vals[c]);
+                    // an explicit modal step needs lam * dt^2 < 4; shapes stiffer than that are dropped
+                    if vals[c] * DT * DT > envf("SB_ATT_LIM", 3.0) {
+                        continue;
+                    }
+                    let mut w = vec![0.0; n];
+                    for r in 0..p {
+                        let ur = u[r * p + c];
+                        for (wi, zi) in w.iter_mut().zip(&zs[r]) {
+                            *wi += ur * zi;
+                        }
+                    }
+                    wv.push(w);
+                    lam.push(vals[c]);
+                    kept += 1;
+                }
+                if std::env::var("SB_VERBOSE").is_ok() {
+                    eprintln!("member of {} cells: {} port cells in {} clusters, {} loads, {} shapes kept of {}, stiffest lam*dt^2 = {:.3}", nc, is_port.iter().filter(|&&x| x).count(), clusters.len(), loads.len(), kept, p, stiffest * DT * DT);
+                }
+            }
+        }
+        let k = wv.len();
         let mut phi = vec![0.0; nc * 3 * k];
-        let lam: Vec<f64> = (0..k).map(|j| pr.vals[ord[3 + j]]).collect();
         for (c, &b) in cells.iter().enumerate() {
             for d in 0..3 {
                 let g = idx[b][d].unwrap();
                 let sq = (if d < 2 { m0.bodies[b].mass } else { m0.bodies[b].inertia }).sqrt();
                 for j in 0..k {
-                    phi[(c * 3 + d) * k + j] = pr.vecs[ord[3 + j]][g] / sq;
+                    phi[(c * 3 + d) * k + j] = wv[j][g] / sq;
                 }
             }
         }
@@ -256,6 +397,25 @@ impl Sim {
                     sn[(2 * i + p) * k + j] = jp.dn / eps;
                     st[(2 * i + p) * k + j] = jp.dt / eps;
                 }
+            }
+        }
+        // rigorous screen for the interior check: deq_p <= sum_b wb[p][b] * |eta|_b (triangle and
+        // Cauchy-Schwarz over bands of modes); a point below its threshold cannot change
+        let nb = (envf("SB_BANDS", 0.0) as usize).min(k);
+        let mut wb = vec![0.0; np * nb];
+        for ip in 0..np {
+            for j in 0..k {
+                let b = j * nb.max(1) / k.max(1);
+                if nb > 0 {
+                    wb[ip * nb + b] += sn[ip * k + j] * sn[ip * k + j] + gam[ip] * st[ip * k + j] * st[ip * k + j];
+                }
+            }
+        }
+        wb.iter_mut().for_each(|x| *x = x.sqrt());
+        let mut wmax = vec![0.0f64; nb];
+        for ip in 0..np {
+            for b in 0..nb {
+                wmax[b] = wmax[b].max(wb[ip * nb + b] / d0[ip]);
             }
         }
         let (mut pg, mut sg) = (vec![0.0; k], vec![0.0; k]);
@@ -311,7 +471,7 @@ impl Sim {
                 etad[j] += mb * (px * ed[0] + py * ed[1]) + ib * pt * ed[2];
             }
         }
-        Some(Member { cells: cells.to_vec(), k, lam, phi, r, mass, inertia, x, th, v: vv, om, eta, etad, port_local: Vec::new(), sn, st, gam, d0, pg, sg, load, int_f: interior, qd: vec![0.0; k], frozen })
+        Some(Member { cells: cells.to_vec(), k, lam, phi, r, mass, inertia, x, th, v: vv, om, eta, etad, port_local: Vec::new(), sn, st, gam, d0, pg, sg, load, int_f: interior, qd: vec![0.0; k], frozen, wb, nb, wmax, hot: Vec::new() })
     }
 
     fn sync_member(&mut self, mi: usize) {
@@ -350,17 +510,47 @@ impl Sim {
         // collar: cells within `collar` rings of a natural port stay single, so local contact
         // compliance and stress concentration are carried by real cells, not by truncated modes
         let cd = std::env::var("SB_CD").map_or(false, |v| v == "1");
+        let cs = (envf("SB_COLLAR_S", self.collar as f64) as usize).min(self.collar);
         let mut ring = vec![usize::MAX; nb];
         for fi in 0..m.facets.len() {
             let f = &m.facets[fi];
             if f.active && (f.tag != 0 || (cd && !undamaged(m, fi))) {
+                // tag 3 is the striker contact (impulsive); every other tagged facet is a support
+                let depth = if f.tag == 3 || f.tag == 0 { self.collar } else { cs };
+                if depth == 0 {
+                    continue;
+                }
                 for b in [f.a, f.b] {
                     if m.bodies[b].kind == BodyKind::Cell {
-                        ring[b] = 0;
+                        ring[b] = ring[b].min(self.collar - depth);
                     }
                 }
             }
         }
+        // size-bounded members: cut lines at the interior supports
+        let mut cuts: Vec<f64> = Vec::new();
+        if std::env::var("SB_CUT").map_or(false, |v| v == "1") {
+            let mut xs: Vec<f64> = Vec::new();
+            for f in m.facets.iter().filter(|f| f.active && f.tag != 0 && f.tag != 3) {
+                for b in [f.a, f.b] {
+                    if m.bodies[b].kind == BodyKind::Cell {
+                        xs.push(m.bodies[b].x0.x);
+                    }
+                }
+            }
+            xs.sort_by(|a, b| a.partial_cmp(b).unwrap());
+            let mut groups: Vec<Vec<f64>> = Vec::new();
+            for x in xs {
+                match groups.last_mut() {
+                    Some(g) if x - g[g.len() - 1] < 0.2 => g.push(x),
+                    _ => groups.push(vec![x]),
+                }
+            }
+            if groups.len() > 2 {
+                cuts = groups[1..groups.len() - 1].iter().map(|g| g.iter().sum::<f64>() / g.len() as f64).collect();
+            }
+        }
+        let crosses = |a: usize, b: usize| cuts.iter().any(|&xc| (m.bodies[a].x0.x < xc) != (m.bodies[b].x0.x < xc));
         for h in 0..self.collar {
             for fi in 0..m.facets.len() {
                 let f = &m.facets[fi];
@@ -376,7 +566,7 @@ impl Sim {
         let single = |i: usize| self.owner[i] == NONE && m.bodies[i].kind == BodyKind::Cell && (self.collar == 0 || ring[i] >= self.collar);
         for fi in 0..m.facets.len() {
             let f = &m.facets[fi];
-            if f.active && f.tag == 0 && single(f.a) && single(f.b) && undamaged(m, fi) {
+            if f.active && f.tag == 0 && single(f.a) && single(f.b) && undamaged(m, fi) && !crosses(f.a, f.b) {
                 let (a, b) = (find(&mut parent, f.a), find(&mut parent, f.b));
                 if a != b {
                     parent[a] = b;
@@ -526,8 +716,43 @@ impl Sim {
             let (mut fx, mut fy, mut tq) = (mem.load[0], mem.load[1], 0.0);
             if self.step % NS == 0 && mem.frozen {
                 // frozen member: only watch the openings against the committed history
-                let r = mem.exact();
-                let c = mem.d0.len() as f64 * (2.0 * k as f64 + 10.0);
+                let nbd = mem.nb;
+                let mut scr = f64::INFINITY;
+                if nbd > 0 {
+                    let mut eb = vec![0.0; nbd];
+                    for j in 0..k {
+                        eb[j * nbd / k] += mem.eta[j] * mem.eta[j];
+                    }
+                    scr = (0..nbd).map(|b| mem.wmax[b] * eb[b].sqrt()).sum();
+                }
+                let (r, c) = if scr < chipost {
+                    (0.0, (k + nbd) as f64)
+                } else if nbd > 0 {
+                    // per-point screen: only points whose bound reaches chipost times their history are evaluated
+                    let mut eb = vec![0.0; nbd];
+                    for j in 0..k {
+                        eb[j * nbd / k] += mem.eta[j] * mem.eta[j];
+                    }
+                    eb.iter_mut().for_each(|x| *x = x.sqrt());
+                    let (mut mx, mut nev) = (0.0f64, 0.0);
+                    for ip in 0..mem.d0.len() {
+                        let bound: f64 = (0..nbd).map(|b| mem.wb[ip * nbd + b] * eb[b]).sum();
+                        if bound < chipost * mem.d0[ip] {
+                            continue;
+                        }
+                        nev += 1.0;
+                        let (mut dn, mut dt) = (0.0, 0.0);
+                        for j in 0..k {
+                            dn += mem.sn[ip * k + j] * mem.eta[j];
+                            dt += mem.st[ip * k + j] * mem.eta[j];
+                        }
+                        let dp = dn.max(0.0);
+                        mx = mx.max((dp * dp + mem.gam[ip] * dt * dt).sqrt() / mem.d0[ip]);
+                    }
+                    (mx, (k + nbd) as f64 + mem.d0.len() as f64 * (nbd as f64 + 1.0) + nev * (2.0 * k as f64 + 10.0))
+                } else {
+                    (mem.exact(), mem.d0.len() as f64 * (2.0 * k as f64 + 10.0))
+                };
                 self.flops += c;
                 self.check_flops += c;
                 if r >= chipost {
@@ -538,9 +763,36 @@ impl Sim {
                 let mut dmax = 0.0f64;
                 mem.qd.iter_mut().for_each(|x| *x = 0.0);
                 let mut nd = 0.0;
-                for (i, &fi) in mem.int_f.iter().enumerate() {
-                    for p in 0..2 {
-                        let ip = 2 * i + p;
+                let nbd = mem.nb;
+                let mut eb = vec![0.0; nbd];
+                for j in 0..k {
+                    if nbd > 0 {
+                        eb[j * nbd / k] += mem.eta[j] * mem.eta[j];
+                    }
+                }
+                eb.iter_mut().for_each(|x| *x = x.sqrt());
+                let mut nev = 0.0;
+                // member-level screen: no point can reach its threshold; only points already past it are evaluated
+                let quiet = nbd > 0 && (0..nbd).map(|b| mem.wmax[b] * eb[b]).sum::<f64>() < 1.0;
+                let hot = std::mem::take(&mut mem.hot);
+                let mut scanned = 0.0;
+                let npts = 2 * mem.int_f.len();
+                let mut list = |q: usize| if quiet { hot.get(q).copied() } else if q < npts { Some(q) } else { None };
+                let mut q = 0;
+                let mut newhot: Vec<usize> = Vec::new();
+                while let Some(ip) = list(q) {
+                    q += 1;
+                    {
+                        let (i, p) = (ip / 2, ip % 2);
+                        let fi = mem.int_f[i];
+                        if nbd > 0 && !quiet && self.sc.m.facets[fi].pts[p].kappa_c <= mem.d0[ip] {
+                            scanned += 1.0;
+                            let bound: f64 = (0..nbd).map(|b| mem.wb[ip * nbd + b] * eb[b]).sum();
+                            if bound < mem.d0[ip] {
+                                continue;
+                            }
+                        }
+                        nev += 1.0;
                         let (mut dn, mut dt) = (0.0, 0.0);
                         for j in 0..k {
                             dn += mem.sn[ip * k + j] * mem.eta[j];
@@ -561,9 +813,13 @@ impl Sim {
                                 mem.qd[j] -= gn * mem.sn[ip * k + j] + gt * mem.st[ip * k + j];
                             }
                         }
+                        if self.sc.m.facets[fi].pts[p].kappa_c > mem.d0[ip] {
+                            newhot.push(ip);
+                        }
                     }
                 }
-                let c = (2 * mem.int_f.len()) as f64 * (2.0 * k as f64 + 40.0) + nd * 2.0 * k as f64;
+                mem.hot = newhot;
+                let c = if nbd > 0 { (k + nbd) as f64 + scanned * (nbd as f64 + 1.0) + nev * (2.0 * k as f64 + 40.0) } else { (2 * mem.int_f.len()) as f64 * (2.0 * k as f64 + 40.0) } + nd * 2.0 * k as f64;
                 self.flops += c;
                 self.check_flops += c;
                 if dmax >= dtol {
@@ -713,7 +969,8 @@ fn main() {
                 r["factor"] = if v0.is_nan() { Value::Null } else { json!(v0 / vref(s)) };
                 r
             }).collect();
-            let name = if hybrid { format!("e_v3_k{kmax}_collar{}_tq{}", std::env::var("SB_COLLAR").unwrap_or("2".into()), tq * 1e3) } else { "e_validate_all_single".to_string() };
+            let v4 = std::env::var("SB_ATT").is_ok() || std::env::var("SB_COLLAR_S").is_ok();
+            let name = if hybrid && v4 { format!("e_v4_att{}_cs{}_k{kmax}_collar{}_tq{}{}", std::env::var("SB_ATT").unwrap_or("0".into()), std::env::var("SB_COLLAR_S").unwrap_or("same".into()), std::env::var("SB_COLLAR").unwrap_or("2".into()), tq * 1e3, std::env::var("SB_BANDS").map_or(String::new(), |b| format!("_bands{b}"))) } else if hybrid { format!("e_v3_k{kmax}_collar{}_tq{}", std::env::var("SB_COLLAR").unwrap_or("2".into()), tq * 1e3) } else { "e_validate_all_single".to_string() };
             write_json("phase1", &name, &json!({"meta": meta("phase1", &name, None, "member stepper, dt 2 us, beam impact 50 kg", json!({"k": kmax, "chi": chi, "tq": tq, "hybrid": hybrid})), "rows": rows}));
         }
         _ => eprintln!("usage: phase1e validate | hybrid | one seed v0 h|f [t_end]"),

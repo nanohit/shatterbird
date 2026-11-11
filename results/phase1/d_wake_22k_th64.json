@@ -1,0 +1,87 @@
+{
+ "prm": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 4,
+  "slop": 4,
+  "cq": 8,
+  "eps": 128,
+  "g0": 2,
+  "bg": 0,
+  "margin": 16,
+  "hi": 24,
+  "th": 64
+ },
+ "settle": {
+  "N": 21952,
+  "rest_at_step": 1345,
+  "evals": 28867904,
+  "evals_full": 29525440,
+  "pen_max": 23,
+  "depth_D": 13.4,
+  "contacts": 5.03,
+  "cmax": 10,
+  "hash": "babdee96",
+  "sink_pct_weight_at_rest": 1.598,
+  "full_step_still_fixed": true
+ },
+ "settle_history": [
+  {
+   "t": 480,
+   "changed": 21901,
+   "evaluated": 21952,
+   "pen": 31,
+   "sink_pct_w": 0.011
+  },
+  {
+   "t": 960,
+   "changed": 20664,
+   "evaluated": 21952,
+   "pen": 23,
+   "sink_pct_w": 0.36
+  }
+ ],
+ "kicks": [
+  {
+   "kick_m_per_s": 0.25,
+   "quiet_after_steps": 46,
+   "ever_changed": 1820,
+   "ever_changed_pct": 8.29,
+   "wake_volume_body_steps": 18264,
+   "peak_changed": 1127,
+   "reach_D": 14.1,
+   "moved_over_0p1D": 0,
+   "evaluated_body_steps": 231720,
+   "full_body_steps": 1009792,
+   "wall_s": 0.4
+  },
+  {
+   "kick_m_per_s": 1,
+   "quiet_after_steps": 61,
+   "ever_changed": 4145,
+   "ever_changed_pct": 18.88,
+   "wake_volume_body_steps": 61451,
+   "peak_changed": 2837,
+   "reach_D": 15,
+   "moved_over_0p1D": 0,
+   "evaluated_body_steps": 454685,
+   "full_body_steps": 1339072,
+   "wall_s": 0.8
+  },
+  {
+   "kick_m_per_s": 4,
+   "quiet_after_steps": 78,
+   "ever_changed": 6895,
+   "ever_changed_pct": 31.41,
+   "wake_volume_body_steps": 144777,
+   "peak_changed": 5713,
+   "reach_D": 16.8,
+   "moved_over_0p1D": 0,
+   "evaluated_body_steps": 675107,
+   "full_body_steps": 1712256,
+   "wall_s": 1.3
+  }
+ ]
+}

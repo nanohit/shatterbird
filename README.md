@@ -1,6 +1,10 @@
 # Shatterbird — Phase 0 (mechanics and solver truth, CPU f64)
 
-**Phase 1c (current): members with ports, end to end** — [`docs/phase1/members.md`](docs/phase1/members.md).
+**Phase 1d/1e (current): bodies at rest on the GPU, and the price of interfaces** — [`docs/phase1/bodies-and-interfaces.md`](docs/phase1/bodies-and-interfaces.md).
+- **Rest as an exact integer fixed point:** a contact solver with stored impulses (JS specification and WGSL, bit-identical) brings a 22k-sphere pile to zero state changes; skipping unchanged neighbourhoods is then bit-exact. Cost 18 ns per sphere-substep at 125k; tall stacks and deep piles settle slowly (layers^2 / iterations); a 1 m/s kick still wakes half of a 22k pile.
+- **Collars only at the impulsive port:** members sit directly on supports and on each other; with a rigorous screen for the interior damage check the eight-span beam costs 0.081 of the full run (was 0.45). Not robust at two and four spans.
+
+**Phase 1c: members with ports, end to end** — [`docs/phase1/members.md`](docs/phase1/members.md).
 - **One stepper for every level of detail:** rigid fragments, modal members and single cells; with every cell single it equals the Phase 0d reference to ten digits.
 - **Result:** consequences mostly within 10 % of the reference (threshold within 1.4 %), cost 0.43–0.51 of the full run on one span and 0.45 on eight; not a pass by the pre-registered cost criterion.
 - **Learned:** loaded interfaces need real cells; escalate on localisation, not onset; after fracture use the damaged basis with frozen damage; mode count must follow member size.
