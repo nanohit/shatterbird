@@ -1,0 +1,108 @@
+{
+ "prm": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 4,
+  "slop": 4,
+  "cq": 8,
+  "eps": 128,
+  "g0": 2,
+  "bg": 0,
+  "margin": 16,
+  "hi": 24,
+  "th": 64
+ },
+ "settle": {
+  "N": 79507,
+  "rest_at_step": 2527,
+  "evals": 191766752,
+  "evals_full": 200914189,
+  "pen_max": 24,
+  "depth_D": 20.6,
+  "contacts": 5.27,
+  "cmax": 10,
+  "hash": "b0acf2bd",
+  "sink_pct_weight_at_rest": 1.677,
+  "full_step_still_fixed": true
+ },
+ "settle_history": [
+  {
+   "t": 480,
+   "changed": 79448,
+   "evaluated": 79507,
+   "pen": 85,
+   "sink_pct_w": 0.006
+  },
+  {
+   "t": 960,
+   "changed": 78488,
+   "evaluated": 79507,
+   "pen": 30,
+   "sink_pct_w": 0.083
+  },
+  {
+   "t": 1440,
+   "changed": 62180,
+   "evaluated": 79496,
+   "pen": 24,
+   "sink_pct_w": 0.279
+  },
+  {
+   "t": 1920,
+   "changed": 73588,
+   "evaluated": 79507,
+   "pen": 24,
+   "sink_pct_w": 0.552
+  },
+  {
+   "t": 2400,
+   "changed": 8309,
+   "evaluated": 52002,
+   "pen": 24,
+   "sink_pct_w": 0.977
+  }
+ ],
+ "kicks": [
+  {
+   "kick_m_per_s": 0.25,
+   "quiet_after_steps": 28,
+   "ever_changed": 587,
+   "ever_changed_pct": 0.74,
+   "wake_volume_body_steps": 5227,
+   "peak_changed": 431,
+   "reach_D": 8.3,
+   "moved_over_0p1D": 0,
+   "evaluated_body_steps": 110565,
+   "full_body_steps": 2226196,
+   "wall_s": 0.2
+  },
+  {
+   "kick_m_per_s": 1,
+   "quiet_after_steps": 59,
+   "ever_changed": 2914,
+   "ever_changed_pct": 3.67,
+   "wake_volume_body_steps": 41665,
+   "peak_changed": 1544,
+   "reach_D": 21.9,
+   "moved_over_0p1D": 0,
+   "evaluated_body_steps": 483464,
+   "full_body_steps": 4690913,
+   "wall_s": 1
+  },
+  {
+   "kick_m_per_s": 4,
+   "quiet_after_steps": 81,
+   "ever_changed": 10795,
+   "ever_changed_pct": 13.58,
+   "wake_volume_body_steps": 191794,
+   "peak_changed": 6022,
+   "reach_D": 28.1,
+   "moved_over_0p1D": 3,
+   "evaluated_body_steps": 1286299,
+   "full_body_steps": 6440067,
+   "wall_s": 2.9
+  }
+ ]
+}

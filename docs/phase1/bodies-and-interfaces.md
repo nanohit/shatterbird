@@ -20,7 +20,7 @@ per substep, 8 substeps per frame.
 |---|---|---|---|
 | D1 | 64-layer stack, cold start: final < 2 %, transient < 5 % | final 0.52 %; transient 11.5 % / 5.8 % / 2.9 % / 1.4 % at 1 / 2 / 4 / 8 iterations | fails as pre-registered (1 iteration), passes from 4 |
 | D2 | stack and 20k pile reach an exact fixed point within 10 s | 22k pile: zero state changes from substep 1692 (3.5 s) at 4 iterations, never within 8000 at 2; 64-stack: 34 s; 125k pile on the GPU (23 diameters deep): still moving after 3000 substeps | pass for the 22k pile, fail for the tall stack and the deep pile |
-| D3 | a kick wakes < 5 % of 20k | 17.5 % / 52 % / 95 % of 22k for 0.25 / 1 / 4 m/s; quiet again after 50 / 75 / 240 substeps | fail |
+| D3 | a kick wakes < 5 % of 20k; wake volume grows < 1.3x from 20k to 80k | default quantum: 17.5 % / 52 % / 95 % of 22k for 0.25 / 1 / 4 m/s, quiet after 50 / 75 / 240 substeps; the 80k pile did not settle in the JS lab. Quantum 4x coarser: 8 % / 19 % / 31 % of 22k, and 0.7 % / 3.7 % / 13.6 % of 80k with wake volume x0.29 / x0.68 / x1.32 of the 22k one | fail at the default quantum; with the coarser one the wake does not grow with the pile |
 | D4 | change-driven stepping bit-identical | identical every step through settle, rest and a kick (full state incl. impulses) | pass |
 | D5 | WGSL bit-identical; cost <= 3x Phase 1b | identical (8000 spheres x 600 substeps); 18.2 ns per sphere-substep at 125k, 22.0 at 1M = 3.9x / 3.4x (2.9x / 2.6x at 2 iterations) | identity pass, cost fail at the iteration count that rests |
 
@@ -36,10 +36,11 @@ What this says about the engine:
   iterations; time to exact rest grows as layers^2 / iterations. Holding a 64-stack within 5 % needs
   4 iterations per substep; a 23-diameter pile does not rest in 6 s even then. This is the non-local
   influence the hypothesis talks about, and no local iteration removes it.
-- **Change is not local at this resolution.** A 1 m/s kick to one sphere changes half of a 22k
-  pile. Reach shrinks only as the square root of the quantum: with a 4x coarser quantum (impulse
-  changes below 2 pos-steps ignored, rest below 0.7 mm/s) the same kick changes 19 % and the ledger
-  takes 1.6 % of the weight instead of 0.4 %. Bit-exact sleep and small wakes pull against each other.
+- **How local a change is, is set by the quantum.** At the default quantum a 1 m/s kick to one
+  sphere changes half of a 22k pile. With a 4x coarser quantum (impulse changes below 2 pos-steps
+  ignored, rest below 0.7 mm/s) the wake is a bounded region: 2.9k bodies of 80k for the same kick,
+  no larger than in the 22k pile, and change-driven stepping evaluates 5–20x fewer body-steps than
+  full stepping while it lasts. The price is on the ledger: 1.6 % of the weight instead of 0.4 %.
 - **Honest frame cost** (full stepping, M3 Pro): 125k spheres 18 ms, 1M spheres 176 ms per frame at 8
   substeps and 4 iterations; 1664 B of buffers per body. The earlier "100k bodies in 7 ms" estimate
   does not survive a solver that holds stacks.
@@ -49,7 +50,7 @@ instead of 32x finer (the finer unit produced idle limit cycles); hairline gaps 
 impulse (releasing it re-launched resting bodies); push-out on positions instead of velocities, then
 only for moving partners (it kept deep piles sliding at the friction limit); kinetic friction; the
 rest quantum with a ledger. Not done: rotation and rigid clumps, re-sort, change-driven stepping on
-the GPU, other devices, the 80k wake comparison (the JS settle did not finish).
+the GPU, other devices (the probe page now carries this solver as a stage).
 
 Drop: position-based Jacobi without stored impulses for anything stacked; velocity-level push-out
 with stored impulses (runaway); impulse units finer than velocity units; "wake region is small" as
