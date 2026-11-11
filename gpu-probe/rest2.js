@@ -118,11 +118,25 @@ const REST2 = (() => {
       const o = 4 * (b + s), id = src[o + 3] >>> 0; geom(S, i, id);
       const { ex, ey, ez, len, pen } = geo, sph = id < WALL, wj = sph ? rin[4 * id + 3] : 0, den = n + ((wj >> CN_SH) & 31);
       let Px = src[o], Py = src[o + 1], Pz = src[o + 2];
-      if ((mw & W_ELIG) && (id === FLOOR || (sph && ey * 2 >= len && pen >= -prm.g0 && (pos[4 * id + 3] & 1)))) { share(S, rin, 4 * i, mw, id); Px -= sh[0]; Py -= sh[1]; Pz -= sh[2]; }
-      else if (sph && (wj & W_ELIG) && slowi && -ey * 2 >= len && pen >= -prm.g0) { share(S, rin, 4 * id, wj, i); Px += sh[0]; Py += sh[1]; Pz += sh[2]; }
-      else {
-        let rx = vx, ry = vy, rz = vz;
-        if (sph) { rx -= rin[4 * id]; ry -= rin[4 * id + 1]; rz -= rin[4 * id + 2]; }
+      // routed contact: the upper body's residual goes to its supports. route 1: the whole vector; route 2: only its
+      // vertical part, the horizontal parts stay with the Jacobi rule on the same contact.
+      let routed = 0;
+      if ((mw & W_ELIG) && (id === FLOOR || (sph && ey * 2 >= len && pen >= -prm.g0 && (pos[4 * id + 3] & 1)))) { share(S, rin, 4 * i, mw, id); routed = 1; if (prm.route === 1) { Px -= sh[0]; Pz -= sh[2]; } Py -= sh[1]; }
+      else if (sph && (wj & W_ELIG) && slowi && -ey * 2 >= len && pen >= -prm.g0) { share(S, rin, 4 * id, wj, i); routed = 1; if (prm.route === 1) { Px += sh[0]; Pz += sh[2]; } Py += sh[1]; }
+      if (prm.route === 3 && routed) {
+        // route 3: along the contact normal only. The upper body's residual, projected on the normal, goes into this
+        // support with weight 1 / (number of supports); the tangential relative velocity keeps the Jacobi rule.
+        const up = (mw & W_ELIG) && (id === FLOOR || (sph && ey * 2 >= len)), o4 = up ? 4 * i : 4 * id, w = up ? mw : wj, ns = (w >> NS_SH) & 7, sg = up ? 1 : -1;
+        Px = src[o]; Py = src[o + 1]; Pz = src[o + 2];
+        const q = tr((cl(rin[o4]) * ex + cl(rin[o4 + 1]) * ey + cl(rin[o4 + 2]) * ez) * sg / len);   // residual of the upper body along its own outward normal
+        Px -= tr(q * ex * sg / (len * ns)) * sg; Py -= tr(q * ey * sg / (len * ns)) * sg; Pz -= tr(q * ez * sg / (len * ns)) * sg;
+        let rx = vx, ry = vy, rz = vz; if (sph) { rx -= rin[4 * id]; ry -= rin[4 * id + 1]; rz -= rin[4 * id + 2]; }
+        const rn = tr((cl(rx) * ex + cl(ry) * ey + cl(rz) * ez) / len); rx -= tr(rn * ex / len); ry -= tr(rn * ey / len); rz -= tr(rn * ez / len);
+        Px -= cl(tr(rx / den)); Py -= cl(tr(ry / den)); Pz -= cl(tr(rz / den));
+      }
+      else if (!routed || prm.route === 2) {
+        let rx = vx, ry = routed ? 0 : vy, rz = vz;
+        if (sph) { rx -= rin[4 * id]; if (!routed) ry -= rin[4 * id + 1]; rz -= rin[4 * id + 2]; }
         if (pen < -prm.g0) { const g = (pen + prm.g0) * 256 * F; rx -= tr(g * ex / len); ry -= tr(g * ey / len); rz -= tr(g * ez / len); }
         const th = prm.th;
         if (!th || rx >= th || rx <= -th || ry >= th || ry <= -th || rz >= th || rz <= -th) { Px -= cl(tr(rx / den)); Py -= cl(tr(ry / den)); Pz -= cl(tr(rz / den)); }
@@ -481,6 +495,8 @@ fn seed(i: u32, c: u32) { let s = i & 63u; let k = atomicAdd(&at[AT_SEED + s], 1
   async function gpu(h, S0, prm, opt = {}) {
     const { dev, mk, pipe } = h, U = GPUBufferUsage, SU = U.STORAGE | U.COPY_SRC | U.COPY_DST, N = S0.N, cells = S0.gx * S0.gy * S0.gz, I = prm.iters;
     if (I < 2 || (I & 1)) throw new Error('iters must be even');
+    if (prm.route > 1) throw new Error('route 2 and 3 exist in the JS specification only');
+    if (prm.eps > 63) throw new Error('eps must fit the 7-bit anchor record');
     const capc = opt.capc || Math.max(4096, Math.min(cells, 1 << 20)), seg = opt.seg || Math.max(256, Math.ceil(N / 128)), dense = opt.dense === undefined ? Math.ceil(N / 32) : opt.dense, force = opt.force ? 1 : 0;
     const buf = (sz, fill) => { const b = dev.createBuffer({ size: sz, usage: SU, mappedAtCreation: fill !== undefined }); if (fill !== undefined) { new Uint32Array(b.getMappedRange()).fill(fill); b.unmap(); } return b; };
     const la0 = new Int32Array(4 * K * N); la0.set(S0.slot);
@@ -503,13 +519,19 @@ fn seed(i: u32, c: u32) { let s = i & 63u; let k = atomicAdd(&at[AT_SEED + s], 1
     for (let k = 0; k < I; k++) add('solve', U1(k === 0 ? 1 : 0, k + 2), k & 1 ? [b.bl, b.pos, b.fa, b.lb, b.rb, b.la, b.ra, b.corr] : [b.bl, b.pos, b.fa, b.la, b.ra, b.lb, b.rb, b.corr], 48);
     add('finish', U1(0, I + 1), [b.bl, b.pos, b.vel, b.fa, b.ra, b.corr, b.seeds, b.at], 48);
     add('reset', u0, [b.bl, b.lz, b.fa, b.fb], 36); add('resetall', u0, [b.fa, b.fb], 60);
-    const enc = (steps, only) => { const e = dev.createCommandEncoder(); for (let t = 0; t < steps; t++) for (const [k, g, d] of P) { if (only && !only.includes(k)) continue; const ps = e.beginComputePass(); ps.setPipeline(pl[k]); ps.setBindGroup(0, g); if (typeof d === 'number') ps.dispatchWorkgroupsIndirect(b.ind, d); else ps.dispatchWorkgroups(...d); ps.end(); } return [e.finish()]; };
+    // All dispatches of a batch of substeps go into one compute pass (a pass boundary costs far more than a
+    // dispatch); `split` gives every stage its own pass, for per-stage timestamps.
+    const enc = (steps, split) => { const e = dev.createCommandEncoder(); let ps = split ? null : e.beginComputePass();
+      for (let t = 0; t < steps; t++) for (const [k, g, d] of P) { if (split) ps = e.beginComputePass(); ps.setPipeline(pl[k]); ps.setBindGroup(0, g); if (typeof d === 'number') ps.dispatchWorkgroupsIndirect(b.ind, d); else ps.dispatchWorkgroups(...d); if (split) ps.end(); }
+      if (!split) ps.end(); return [e.finish()]; };
     const all = [...Object.values(b), ...unis]; let bytes = 0; for (const x of Object.values(b)) bytes += x.size;
-    return { b, enc, cells, passes: P.length, bytes_per_body: bytes / N, free: () => all.forEach(x => x.destroy()) };
+    return { b, enc, cells, seg, capc, dense, passes: P.length, bytes_per_body: bytes / N, free: () => all.forEach(x => x.destroy()) };
   }
   // Counters of a GPU run as numbers: faults (4), evaluated body-substeps, full and incremental substeps.
   function counters(at) { const u = new Uint32Array(at.buffer, at.byteOffset, at.length), two = k => u[k] + u[k + 1] * 4294967296; return { faults: [0, 1, 2, 3].map(k => u[AT.FAULT + k]), work: two(AT.WORK), full_steps: u[AT.FULLSTEPS], inc_steps: u[AT.INCSTEPS] }; }
-  const PRM = { grav: 111, f: 32, mu8: 4, muk8: 3, iters: 4, slop: 4, cq: 8, eps: 32, g0: 2, margin: 16, hi: 24, th: 0, route: 1, vr: 28416 };
+  // route: 0 = Jacobi on every contact (the variant that passed the consequence tests); 1 = routing of the residual to supports
+  // (zero-flux rest, small wakes, but a more mobile pile: not adopted). 2 and 3 are lab variants of the JS specification only.
+  const PRM = { grav: 111, f: 32, mu8: 4, muk8: 3, iters: 4, slop: 4, cq: 8, eps: 32, g0: 2, margin: 16, hi: 24, th: 0, route: 0, vr: 28416 };
   return { DIAM, R, K, WALL, FLOOR, make: mk, lattice, prime, step, stepInc, stats, hash, canon, geom, geo, match, solve, finish, buildGrid, cellOf, rng, PRM, W_ELIG, W_DIRTY, CN_SH, WGSL, gpu, counters, AT, HDR };
 })();
 if (typeof module !== 'undefined') module.exports = REST2;

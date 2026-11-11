@@ -27,6 +27,8 @@ if (mode === 'physics') {
   const n = +(process.argv[3] || 16), seed = +(process.env.SB_SEED || 11), Tset = +(process.env.SB_TSET || 20000), K = V.K, D = 960 * 256, t0 = Date.now();
   const S = V.prime(V.lattice(n, n, n, 1400, 1400, 200, seed, 1, 2, 4096, prm.f), prm), N = S.N, out = { prm, n, seed, N };
   out.settle = { ...settle(S, Tset), ...restState(S) }; console.log('settle ' + JSON.stringify(out.settle));
+  // SB_AFTER='{"route":1}': parameters switched after the pile has formed (same pile, different response)
+  if (process.env.SB_AFTER) { Object.assign(prm, JSON.parse(process.env.SB_AFTER)); out.prm_after = { ...prm }; }
   const snap = () => ({ pos: S.pos.slice(), vel: S.vel.slice(), slot: S.slot.slice() }), base = snap();
   const load = (T, st) => { T.pos.set(st.pos); T.vel.set(st.vel); T.slot.set(st.slot); T.seed = null; T.evals = 0; return T; };
   const disp = (T, i) => Math.hypot(T.pos[4 * i] - base.pos[4 * i], T.pos[4 * i + 1] - base.pos[4 * i + 1], T.pos[4 * i + 2] - base.pos[4 * i + 2]) / D;
@@ -51,4 +53,20 @@ if (mode === 'physics') {
   for (let t = 1; t <= 6000; t++) { const r = V.stepInc(T, prm); if (t === 240 || t === 480 || t === 960 || t === 1920 || t === 3840) { const o = obs(t); o.changed = r.changed; o.anchors_pct_weight = +(lsum(T) / W(N) * 100).toFixed(4); out.slump.push(o); console.log('slump ' + JSON.stringify({ ...o, profile_D: undefined })); } if (r.changed === 0) { rest = t; break; } }
   const fin = obs(rest > 0 ? rest : 6000); fin.rest_at = rest; fin.fault = Array.from(T.faults).map((x, k) => x + S.faults[k]).join('/'); out.slump.push(fin); console.log('slump end ' + JSON.stringify({ ...fin, profile_D: undefined }));
   out.wall_s = (Date.now() - t0) / 1000; if (process.env.SB_OUT) fs.writeFileSync(process.env.SB_OUT, JSON.stringify(out, null, 1));
+}
+// depth: clouds of fixed footprint and growing height; time to exact rest and what keeps bodies changing.
+// Per window of 100 substeps: bodies not quiet, of which moving (position changed), pushed out, impulses only.
+if (mode === 'depth') {
+  const nx = +(process.argv[3] || 12), rows = [], K = V.K;
+  for (const ny of (process.argv[4] || '6,12,24,48').split(',').map(Number)) {
+    const S = V.prime(V.lattice(nx, ny, nx, 1400, 1400, 200, 11, 1, 2, 4096, prm.f), prm), N = S.N, Tmax = +(process.env.SB_TMAX || 30000), t0 = Date.now(); let rest = -1, hist = [], acc = [0, 0, 0, 0], last = null;
+    for (let t = 1; t <= Tmax; t++) {
+      const p0 = t % 100 === 0 ? S.pos.slice() : null; const r = V.stepInc(S, prm);
+      if (p0) { let mv = 0, po = 0, im = 0; for (let i = 0; i < N; i++) if (!S.quiet[i]) { if (S.corr[4 * i] | S.corr[4 * i + 1] | S.corr[4 * i + 2]) po++; else if (S.pos[4 * i] !== p0[4 * i] || S.pos[4 * i + 1] !== p0[4 * i + 1] || S.pos[4 * i + 2] !== p0[4 * i + 2]) mv++; else im++; } hist.push([t, r.changed, mv, po, im]); }
+      if (r.changed === 0) { rest = t; break; }
+    }
+    const st = V.stats(S), row = { layers_dropped: ny, N, depth_D: +(st.top / 960).toFixed(1), rest_at: rest, route: prm.route, iters: prm.iters, anchors_pct_weight: +(st.anchor_abs / W(N) * 100).toFixed(4), pen_max: st.pen_max, contacts: +st.contacts.toFixed(2), faults: Array.from(S.faults).join('/'), wall_s: +((Date.now() - t0) / 1000).toFixed(0), history_t_changed_moving_pushed_impulse_only: hist.filter((h, i) => i % Math.max(1, Math.floor(hist.length / 12)) === 0 || i === hist.length - 1) };
+    rows.push(row); console.log(JSON.stringify(row));
+  }
+  if (process.env.SB_OUT) fs.writeFileSync(process.env.SB_OUT, JSON.stringify({ prm, rows }, null, 1));
 }

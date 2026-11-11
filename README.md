@@ -1,6 +1,11 @@
 # Shatterbird — Phase 0 (mechanics and solver truth, CPU f64)
 
-**Phase 1d/1e (current): bodies at rest on the GPU, and the price of interfaces** — [`docs/phase1/bodies-and-interfaces.md`](docs/phase1/bodies-and-interfaces.md).
+**Phase 1f (current): one canonical contact system, full or incremental, on two GPUs** — [`docs/phase1/canonical-system.md`](docs/phase1/canonical-system.md).
+- **Same bits on Apple M3 Pro and NVIDIA GTX 1660 SUPER**, stepped fully or incrementally: positions, velocities, contact sets, impulses; also with the bodies renumbered and with a forced overflow. Remote worker: `gpu-probe/worker.mjs`.
+- **Incremental execution with its real scheduling cost:** at 524k bodies a resting world costs 1.4–3.7 % of full stepping, the wake of a kick 2.3–5.1 %, nothing extra when everything moves.
+- **The rest quantum is a force threshold (0.9 % of a body's weight):** large rearrangements do not notice, small responses are suppressed 3–20x. Routing of momentum to supports settles stacks 60x faster but changes consequences; not adopted.
+
+**Phase 1d/1e: bodies at rest on the GPU, and the price of interfaces** — [`docs/phase1/bodies-and-interfaces.md`](docs/phase1/bodies-and-interfaces.md).
 - **Rest as an exact integer fixed point:** a contact solver with stored impulses (JS specification and WGSL, bit-identical) brings a 22k-sphere pile to zero state changes; skipping unchanged neighbourhoods is then bit-exact. Cost 18 ns per sphere-substep at 125k; tall stacks and deep piles settle slowly (layers^2 / iterations); a 1 m/s kick still wakes half of a 22k pile.
 - **Collars only at the impulsive port:** members sit directly on supports and on each other; with a rigorous screen for the interior damage check the eight-span beam costs 0.081 of the full run (was 0.45). Not robust at two and four spans.
 

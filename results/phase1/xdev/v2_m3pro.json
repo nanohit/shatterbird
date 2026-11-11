@@ -5,12 +5,12 @@
   "os": "14.7.4",
   "gpu_driver": "Chipset Model: Apple M3 Pro; Metal Support: Metal 3;",
   "chrome": "Chrome/157.0.8103.39",
-  "adapter_wait_tries": 0,
-  "wall_s": 12.978
+  "launch_attempts": 1,
+  "wall_s": 12.568
  },
  "tag": "m3pro",
  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
- "when": "2026-11-11T17:27:21.588Z",
+ "when": "2026-11-11T22:01:26.348Z",
  "errors": [],
  "adapter": {
   "vendor": "apple",
@@ -111,14 +111,14 @@
     "gpu_full": "b3d6ed9f",
     "gpu_inc": "b3d6ed9f",
     "identical": true,
-    "work_js": 3192383,
-    "work_gpu_inc": 3192383,
+    "work_js": 3189172,
+    "work_gpu_inc": 3189172,
     "work_gpu_full": 5324800,
     "faults_inc": "0/201/13434/95385",
     "faults_full": "0/201/13434/95385",
     "faults_js": "0/201/13434/95385",
-    "inc_full_steps": 2,
-    "inc_inc_steps": 1298
+    "inc_full_steps": 1,
+    "inc_inc_steps": 1299
    }
   ]
  },

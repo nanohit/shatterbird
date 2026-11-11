@@ -1,0 +1,89 @@
+{
+ "N": 4096,
+ "prm": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 4,
+  "slop": 4,
+  "cq": 8,
+  "eps": 32,
+  "g0": 2,
+  "margin": 16,
+  "hi": 24,
+  "th": 0,
+  "route": 0,
+  "vr": 28416
+ },
+ "rows": [
+  {
+   "window": "falling 1-300",
+   "not_quiet_per_substep": 4070,
+   "bodies_changing_at_iteration": [
+    1723,
+    1648,
+    1624,
+    1603
+   ],
+   "contact_sides_changing_at_iteration": [
+    4995,
+    4881,
+    4806,
+    4740
+   ],
+   "contact_sides": 7336
+  },
+  {
+   "window": "settling 301-600",
+   "not_quiet_per_substep": 4051,
+   "bodies_changing_at_iteration": [
+    3983,
+    3981,
+    3979,
+    3976
+   ],
+   "contact_sides_changing_at_iteration": [
+    15740,
+    15685,
+    15646,
+    15613
+   ],
+   "contact_sides": 19026
+  },
+  {
+   "window": "settling 601-900",
+   "not_quiet_per_substep": 2317,
+   "bodies_changing_at_iteration": [
+    2183,
+    2175,
+    2158,
+    2143
+   ],
+   "contact_sides_changing_at_iteration": [
+    6993,
+    6841,
+    6733,
+    6636
+   ],
+   "contact_sides": 19531
+  },
+  {
+   "window": "wake of a 1 m/s kick",
+   "not_quiet_per_substep": 2067,
+   "bodies_changing_at_iteration": [
+    1928,
+    1923,
+    1918,
+    1913
+   ],
+   "contact_sides_changing_at_iteration": [
+    5922,
+    5803,
+    5734,
+    5669
+   ],
+   "contact_sides": 19533
+  }
+ ]
+}

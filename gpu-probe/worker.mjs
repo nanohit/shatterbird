@@ -21,37 +21,50 @@ const worker = { target };
 const server = spawn('python3', [join(here, 'serve.py'), String(HTTP)], { cwd: here, stdio: 'ignore' });
 let browser, profile, ws;
 try {
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const launch = () => {
+    if (target === 'win') {
+      const chrome = '"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"';
+      return spawn('ssh', ['-o', 'BatchMode=yes', '-o', 'ExitOnForwardFailure=yes', '-o', 'ServerAliveInterval=15', '-L', `${DBG_LOCAL}:127.0.0.1:${DBG}`, '-R', `${HTTP}:127.0.0.1:${HTTP}`, HOST,
+        `${chrome} ${flags.join(' ')} --user-data-dir=%TEMP%\\${MARK}-${STAMP}-${attempt} http://127.0.0.1:${HTTP}/${page}`], { stdio: 'ignore' });
+    }
+    return spawn('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', [...flags, '--use-angle=metal', `--user-data-dir=${profile}`, `http://127.0.0.1:${HTTP}/${page}`], { stdio: 'ignore' });
+  };
   if (target === 'win') {
-    killRemote();
+    killRemote(); await sleep(1500);
     worker.host = ssh('hostname'); worker.os = ssh('ver');
     worker.gpu_driver = ssh('nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv,noheader');
     worker.video_controllers = ssh('powershell -NoProfile -Command "Get-CimInstance Win32_VideoController | ForEach-Object { $_.Name + \' | \' + $_.DriverVersion }"');
-    const chrome = '"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"';
-    browser = spawn('ssh', ['-o', 'BatchMode=yes', '-o', 'ExitOnForwardFailure=yes', '-o', 'ServerAliveInterval=15', '-L', `${DBG_LOCAL}:127.0.0.1:${DBG}`, '-R', `${HTTP}:127.0.0.1:${HTTP}`, HOST,
-      `${chrome} ${flags.join(' ')} --user-data-dir=%TEMP%\\${MARK}-${STAMP} http://127.0.0.1:${HTTP}/${page}`], { stdio: 'ignore' });
   } else {
     profile = await mkdtemp(join(tmpdir(), 'shatterbird-worker-'));
     worker.host = sh('hostname', []); worker.os = sh('sw_vers', ['-productVersion']);
     worker.gpu_driver = sh('sh', ['-c', "system_profiler SPDisplaysDataType | grep -E 'Chipset Model|Metal' | tr -s ' ' | tr '\\n' ';'"]);
-    browser = spawn('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', [...flags, '--use-angle=metal', `--user-data-dir=${profile}`, `http://127.0.0.1:${HTTP}/${page}`], { stdio: 'ignore' });
   }
-  let tabs;
-  for (let i = 0; i < 200; i++) { try { tabs = await (await fetch(`http://127.0.0.1:${DBG_LOCAL}/json/list`)).json(); if (tabs.some(t => t.type === 'page')) break; } catch { } await new Promise(r => setTimeout(r, 150)); }
-  const tab = tabs?.find(t => t.type === 'page'); if (!tab) throw new Error('Chrome did not start on ' + target);
-  worker.chrome = (await (await fetch(`http://127.0.0.1:${DBG_LOCAL}/json/version`)).json()).Browser;
-  ws = new WebSocket(tab.webSocketDebuggerUrl.replace(/127\.0\.0\.1:\d+/, `127.0.0.1:${DBG_LOCAL}`)); await new Promise((r, j) => { ws.onopen = r; ws.onerror = j; });
-  let id = 0; const pending = new Map();
-  ws.onmessage = e => { const m = JSON.parse(e.data);
-    if (m.id) { const p = pending.get(m.id); pending.delete(m.id); m.error ? p.reject(m.error) : p.resolve(m.result); }
-    else if (m.method === 'Runtime.consoleAPICalled') console.error(`[${target}] ` + m.params.args.map(a => a.value ?? a.description ?? '').join(' ').slice(0, 400));
-    else if (m.method === 'Runtime.exceptionThrown') console.error(`[${target}] exception: ` + JSON.stringify(m.params.exceptionDetails).slice(0, 400)); };
-  const call = (method, params = {}) => new Promise((resolve, reject) => { const n = ++id; pending.set(n, { resolve, reject }); ws.send(JSON.stringify({ id: n, method, params })); });
-  const evaluate = async expression => { const r = await call('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true }); if (r.exceptionDetails) throw new Error(JSON.stringify(r.exceptionDetails).slice(0, 800)); return r.result.value; };
-  await call('Runtime.enable');
-  await evaluate(`new Promise((r,j)=>{const ok=()=>typeof ${fn.match(/^[A-Za-z_$][\w$]*/)?.[0] || 'undefined'}!=='undefined';if(ok())r();else window.addEventListener('load',()=>ok()?r():j('function missing'),{once:true});setTimeout(()=>j('load timeout'),20000)})`);
-  // hardware adapter must be there before anything runs (the GPU process can lag behind the page); never fall back to software
-  worker.adapter_wait_tries = await evaluate(`(async()=>{for(let i=0;i<40;i++){const a=navigator.gpu&&await navigator.gpu.requestAdapter({powerPreference:'high-performance'});if(a&&!(a.info&&a.info.isFallbackAdapter))return i;await new Promise(r=>setTimeout(r,500))}return -1})()`);
-  if (worker.adapter_wait_tries < 0) throw new Error('no hardware WebGPU adapter on ' + target);
+  // Chrome on the worker sometimes comes up without the GPU right after a previous instance was killed;
+  // the hardware adapter is required, so the browser is relaunched until it is there (never software).
+  let attempt = 0, evaluate, call;
+  for (;;) {
+    attempt++; browser = launch();
+    let tabs;
+    for (let i = 0; i < 200; i++) { try { tabs = await (await fetch(`http://127.0.0.1:${DBG_LOCAL}/json/list`)).json(); if (tabs.some(t => t.type === 'page')) break; } catch { } await sleep(150); }
+    const tab = tabs?.find(t => t.type === 'page'); if (!tab) throw new Error('Chrome did not start on ' + target);
+    worker.chrome = (await (await fetch(`http://127.0.0.1:${DBG_LOCAL}/json/version`)).json()).Browser;
+    ws = new WebSocket(tab.webSocketDebuggerUrl.replace(/127\.0\.0\.1:\d+/, `127.0.0.1:${DBG_LOCAL}`)); await new Promise((r, j) => { ws.onopen = r; ws.onerror = j; });
+    let id = 0; const pending = new Map();
+    ws.onmessage = e => { const m = JSON.parse(e.data);
+      if (m.id) { const p = pending.get(m.id); pending.delete(m.id); m.error ? p.reject(m.error) : p.resolve(m.result); }
+      else if (m.method === 'Runtime.consoleAPICalled') console.error(`[${target}] ` + m.params.args.map(a => a.value ?? a.description ?? '').join(' ').slice(0, 400));
+      else if (m.method === 'Runtime.exceptionThrown') console.error(`[${target}] exception: ` + JSON.stringify(m.params.exceptionDetails).slice(0, 400)); };
+    call = (method, params = {}) => new Promise((resolve, reject) => { const n = ++id; pending.set(n, { resolve, reject }); ws.send(JSON.stringify({ id: n, method, params })); });
+    evaluate = async expression => { const r = await call('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true }); if (r.exceptionDetails) throw new Error(JSON.stringify(r.exceptionDetails).slice(0, 800)); return r.result.value; };
+    await call('Runtime.enable');
+    await evaluate(`new Promise((r,j)=>{const ok=()=>typeof ${fn.match(/^[A-Za-z_$][\w$]*/)?.[0] || 'undefined'}!=='undefined';if(ok())r();else window.addEventListener('load',()=>ok()?r():j('function missing'),{once:true});setTimeout(()=>j('load timeout'),20000)})`);
+    const tries = await evaluate(`(async()=>{for(let i=0;i<8;i++){const a=navigator.gpu&&await navigator.gpu.requestAdapter({powerPreference:'high-performance'});if(a&&!(a.info&&a.info.isFallbackAdapter))return i;await new Promise(r=>setTimeout(r,500))}return -1})()`);
+    if (tries >= 0) { worker.launch_attempts = attempt; break; }
+    console.error(`[${target}] no hardware adapter on attempt ${attempt}, relaunching`);
+    ws.close(); browser.kill('SIGTERM'); if (target === 'win') killRemote(); await sleep(4000);
+    if (attempt >= 6) throw new Error('no hardware WebGPU adapter on ' + target);
+  }
   const t0 = Date.now(), result = await evaluate(`(${fn})(${popts})`);
   const outv = (result && typeof result === 'object') ? { worker: { ...worker, wall_s: (Date.now() - t0) / 1000 }, ...result } : { worker, result };
   if (outp && outp !== '-') await writeFile(outp, JSON.stringify(outv, null, 1));

@@ -14,9 +14,12 @@ async function xdev2(opts = {}) {
         hash: async () => { const s = await run.state(); return V.canon(N, s.pos, s.vel, s.slot); },
         counters: async () => V.counters(await read(G.b.at, 4 * 128)),
         // host edit of one body's velocity; the next substep runs full (the header flag "primed" is cleared)
-        kick: (i, v) => { const a = Math.max(Math.abs(v[0]), Math.abs(v[1]), Math.abs(v[2])); dev.queue.writeBuffer(G.b.vel, 16 * i, new Int32Array(v)); dev.queue.writeBuffer(G.b.pos, 16 * i + 12, new Int32Array([a <= prm.vr ? 1 : 0])); dev.queue.writeBuffer(G.b.bl, 28, new Uint32Array([0])); } };
+        // host edit of one body's velocity. With `cell` (the body's cell, world at rest) the edit is announced as a
+        // seed and the next substep stays incremental; without it the next substep runs full.
+        kick: (i, v, cell) => { const a = Math.max(Math.abs(v[0]), Math.abs(v[1]), Math.abs(v[2])); dev.queue.writeBuffer(G.b.vel, 16 * i, new Int32Array(v)); dev.queue.writeBuffer(G.b.pos, 16 * i + 12, new Int32Array([a <= prm.vr ? 1 : 0]));
+          if (cell === undefined) dev.queue.writeBuffer(G.b.bl, 28, new Uint32Array([0])); else { const s = i & 63; dev.queue.writeBuffer(G.b.seeds, 4 * s * G.seg, new Uint32Array([cell])); dev.queue.writeBuffer(G.b.at, 4 * (V.AT.SEED + s), new Uint32Array([1])); } } };
       return run; };
-    const jsKick = (S, i, v) => { S.vel[4 * i] = v[0]; S.vel[4 * i + 1] = v[1]; S.vel[4 * i + 2] = v[2]; const a = Math.max(Math.abs(v[0]), Math.abs(v[1]), Math.abs(v[2])); S.pos[4 * i + 3] = a <= prm.vr ? 1 : 0; S.seed = null; };
+    const jsKick = (S, i, v, seed) => { S.vel[4 * i] = v[0]; S.vel[4 * i + 1] = v[1]; S.vel[4 * i + 2] = v[2]; const a = Math.max(Math.abs(v[0]), Math.abs(v[1]), Math.abs(v[2])); S.pos[4 * i + 3] = a <= prm.vr ? 1 : 0; S.seed = seed ? [V.cellOf(S, i)] : null; };
     const surface = S => { let k = 0, best = -1e18; const mx = S.gx * 512 * 256, mz = S.gz * 512 * 256; for (let i = 0; i < S.N; i++) { const d = Math.hypot(S.pos[4 * i] - mx, S.pos[4 * i + 2] - mz), sc = S.pos[4 * i + 1] - 2 * d; if (sc > best) { best = sc; k = i; } } return k; };
     const diffState = (a, b, N) => { let pv = 0, sl = 0; for (let i = 0; i < N; i++) { for (let k = 0; k < 4; k++) { if (a.pos[4 * i + k] !== b.pos[4 * i + k]) pv++; if (a.vel[4 * i + k] !== b.vel[4 * i + k]) pv++; } } return pv; };
 
@@ -36,7 +39,7 @@ async function xdev2(opts = {}) {
         rows.push({ at: label, js: hj, gpu_full: hf, gpu_inc: hi, identical: ok, work_js: jwork, work_gpu_inc: ci.work, work_gpu_full: cf.work, faults_inc: ci.faults.join('/'), faults_full: cf.faults.join('/'), faults_js: Array.from(J.faults).join('/'), inc_full_steps: ci.full_steps, inc_inc_steps: ci.inc_steps }); };
       const adv = async (steps, every, label) => { for (let t = 0; t < steps; t += every) { for (let q = 0; q < every; q++) { const r = V.stepInc(J, prm); jwork += r.evaluated; if (r.changed === 0 && jrest < 0) jrest = J.t; } await gf.steps(every); await gi.steps(every); await check(label + '+' + (t + every)); } };
       await adv(opts.inc_settle || 1000, 100, 'settle'); const k = surface(J), v = [Math.round(0.5 * 5436) * prm.f, -5436 * prm.f, 0];
-      jsKick(J, k, v); gf.kick(k, v); gi.kick(k, v); await adv(300, 25, 'kick');
+      jsKick(J, k, v, jrest > 0); gf.kick(k, v); gi.kick(k, v, jrest > 0 ? V.cellOf(J, k) : undefined); await adv(300, 25, 'kick');
       R.inc = { n: N, js_rest_at: jrest, checkpoints: rows.length, mismatching_checkpoints: bad, rows: opts.verbose ? rows : rows.filter((r, i) => !r.identical || i === rows.length - 1 || i === 9) };
       gf.G.free(); gi.G.free(); log('inc: ' + JSON.stringify({ ...R.inc, rows: undefined }) + ' last ' + JSON.stringify(rows[rows.length - 1]));
     }
@@ -65,6 +68,30 @@ async function xdev2(opts = {}) {
       R.overflow = { n: N, substeps: steps, max_bodies_in_one_cell_at_start: maxcell, hash_gpu: V.canon(N, s.pos, s.vel, s.slot), hash_cpu: V.hash(B), pos_vel_words_different: diffState(s, B, N), faults_gpu: c.faults, faults_cpu: Array.from(B.faults), renumbered_pos_vel_words_different: pbad, renumbered_faults: cq.faults };
       if (opts.dump !== false) for (const k of ['pos', 'vel', 'slot']) await XD.save(`${R.tag}_v2overflow_${k}.bin`, s[k]);
       g.G.free(); gq.G.free(); log('overflow: ' + JSON.stringify(R.overflow));
+    }
+    if (tests.includes('time')) {
+      // GPU time (timestamp queries) of full and incremental stepping of the same world: all bodies falling,
+      // settling, rest, the wake of a kick. Wide shallow clouds: [nx, ny] -> nx * ny * nx bodies.
+      R.time = [];
+      for (const [nx, ny] of opts.sizes || [[64, 8]]) {
+        const A = cloud(nx, ny, 99), N = A.N, gf = await start(A, { force: true }), gi = await start(A, {}), row = { n: N, layers: ny, cells: gi.G.cells, bytes_per_body: Math.round(gi.G.bytes_per_body), passes_per_substep: gi.G.passes };
+        const tm = async (g, sub, split) => { const t = await h.gputime(() => g.G.enc(sub, split)); return t ? { ms: t.total_ms / sub, st: split ? Object.fromEntries(Object.entries(t.stage_ms).map(([k, v]) => [k, +(v / sub).toFixed(4)])) : undefined } : null; };
+        const pair = async (sub, label, split) => { const f = await tm(gf, sub, split), i = await tm(gi, sub, split); return { at: label, substeps: sub, full_ms: +f.ms.toFixed(4), inc_ms: +i.ms.toFixed(4), ratio: +(i.ms / f.ms).toFixed(4), full_stages: f.st, inc_stages: i.st }; };
+        row.falling = await pair(40, 'first 40 substeps, every body moving'); log('time ' + N + ' falling: ' + JSON.stringify({ ...row.falling, full_stages: undefined, inc_stages: undefined }));
+        // settle: chunks of 100 substeps until the incremental run evaluates nothing
+        let t = 40, w0 = (await gi.counters()).work, rest = -1; const smax = opts.settle_max || 4000; row.settle = [];
+        while (t < smax) { const p = await pair(50, 'settle'); await gf.steps(50); await gi.steps(50); t += 100; const c = await gi.counters(); p.t = t; p.evaluated_fraction = +((c.work - w0) / (100 * N)).toFixed(4); w0 = c.work; delete p.full_stages; delete p.inc_stages; row.settle.push(p); if (p.evaluated_fraction === 0) { rest = t; break; } }
+        row.rest_by_substep = rest; row.at_rest = await pair(40, 'rest'); row.at_rest_split_passes = await pair(40, 'rest, one pass per stage', true); log('time ' + N + ' rest by ' + rest + ': ' + JSON.stringify(row.at_rest));
+        const hf0 = await gf.hash(), hi0 = await gi.hash(); row.rest_hash = hi0; row.rest_identical = hf0 === hi0;
+        // kick one surface sphere, 1 m/s down and 0.5 m/s sideways; windows of 20 substeps
+        const pos = await read(gi.G.b.pos, 16 * N), k = surface({ N, gx: A.gx, gz: A.gz, pos }), v = [Math.round(0.5 * 5436) * prm.f, -5436 * prm.f, 0]; gf.kick(k, v); gi.kick(k, v, rest > 0 ? (pos[4 * k] >> 18) + A.gx * ((pos[4 * k + 1] >> 18) + A.gy * (pos[4 * k + 2] >> 18)) : undefined); row.wake = []; let wf = 0, wi = 0, quiet = -1; w0 = (await gi.counters()).work;
+        for (let q = 0; q < 20; q++) { const p = await pair(20, 'wake'); const c = await gi.counters(); p.t = (q + 1) * 20; p.evaluated_fraction = +((c.work - w0) / (20 * N)).toFixed(5); w0 = c.work; wf += p.full_ms * 20; wi += p.inc_ms * 20; delete p.full_stages; delete p.inc_stages; row.wake.push(p); if (p.evaluated_fraction === 0 && q > 0) { quiet = p.t; break; } }
+        row.wake_quiet_by = quiet; row.wake_total = { full_ms: +wf.toFixed(3), inc_ms: +wi.toFixed(3), ratio: +(wi / wf).toFixed(4) };
+        const hf1 = await gf.hash(), hi1 = await gi.hash(), ci = await gi.counters(), cf = await gf.counters(); row.wake_hash = hi1; row.wake_identical = hf1 === hi1; row.faults = { inc: ci.faults.join('/'), full: cf.faults.join('/') }; row.inc_steps = [ci.full_steps, ci.inc_steps];
+        const st = await gi.state(); let an = 0, na = 0, nc = 0; for (let i = 0; i < N; i++) { const w = st.vel[4 * i + 3]; nc += w & 31; const aw = w >> 8; if (aw) { na++; for (let c = 0; c < 3; c++) an += Math.abs(((aw >> (7 * c)) & 127) << 25 >> 25); } }
+        row.contacts_per_body = +(nc / N).toFixed(2); row.anchors_pct_weight = +(an / (N * prm.grav * prm.f) * 100).toFixed(4); row.anchored_bodies = na;
+        R.time.push(row); gf.G.free(); gi.G.free(); log('time ' + N + ': ' + JSON.stringify({ rest_by: rest, rest: row.at_rest.ratio, wake: row.wake_total, quiet: quiet, identical: [row.rest_identical, row.wake_identical], falling: row.falling.ratio, bytes: row.bytes_per_body }));
+      }
     }
     dev.destroy();
   } catch (e) { R.error = String(e && e.message || e) + ' ' + String(e && e.stack || '').slice(0, 300); }
