@@ -300,10 +300,11 @@ async function probe(opts = {}) {
   log(JSON.stringify(R.ca));
   } catch (e) { R.stage_errors.push('automaton: ' + (e.message || e)); log('automaton stage failed: ' + (e.message || e)); }
   try { mark('spheres'); if (typeof SPH !== 'undefined' && !opts.nospheres) { log('sphere contacts'); R.spheres = await SPH.stage({ dev, mk, pipe, read, timed, fnv, log }, { small }); } } catch (e) { R.stage_errors.push('spheres: ' + (e.message || e)); log('spheres stage failed: ' + (e.message || e)); }
+  try { mark('rest'); if (typeof REST !== 'undefined' && !opts.norest && !opts.fallback) { log('contacts with stored impulses'); R.rest = await REST.stage({ dev, mk, pipe, read, timed, log }, { small }); } } catch (e) { R.stage_errors.push('rest: ' + (e.message || e)); log('rest stage failed: ' + (e.message || e)); }
   mark('done'); R.errors = errs; closing = true; dev.destroy(); return R;
 }
 // Compact, human-checkable summary (about 1 KB) that fits into a prefilled GitHub issue.
-const PROBE_VERSION = 2, REPO = 'nanohit/shatterbird';
+const PROBE_VERSION = 3, REPO = 'nanohit/shatterbird';
 function compact(res) {
   const g3 = x => (typeof x === 'number' && isFinite(x)) ? +x.toPrecision(3) : x, c = { v: PROBE_VERSION };
   const one = (R, full) => {
@@ -314,6 +315,7 @@ function compact(res) {
     if (R.dispatch && full) o.disp = [g3(R.dispatch.us_per_dispatch_same_pass), g3(R.dispatch.us_per_dispatch_separate_passes)];
     if (R.ca) { o.ca = { g: R.ca.hash_gpu, c: R.ca.hash_cpu, mm: R.ca.mismatch_cells }; if (full) o.ca.ms = Object.fromEntries(Object.entries(R.ca.throughput).map(([k, x]) => [k, g3(x.ms_per_step)])); }
     if (R.spheres) { const c = R.spheres.correct, t = R.spheres.throughput || {}; o.sph = { g: c && c.hash_gpu, c: c && c.hash_cpu, mm: c && c.mismatch_words, mc: c && c.max_cell_count_gpu, cpu_ms: g3(R.spheres.cpu_ms_per_substep) }; if (full) o.sph.t = Object.fromEntries(Object.entries(t).map(([k, x]) => [k, [g3(x.ns_per_sphere_substep), g3(x.pass_ns.solve), g3(x.pass_ns.clear_insert), g3(x.contacts_per_sphere), x.max_cell_count, x.overflow]])); }
+    if (R.rest) { const c = R.rest.correct, t = R.rest.throughput || {}; o.rest = { g: c && c.hash_gpu, c: c && c.hash_cpu, mm: c && c.mismatch_words, cpu_ms: g3(R.rest.cpu_ms_per_substep) }; if (full) o.rest.t = Object.fromEntries(Object.entries(t).map(([k, x]) => [k, [g3(x.ns_per_sphere_substep), g3(x.pass_ns.match), g3(x.pass_ns.solve_all), g3(x.pass_ns.finish), g3(x.contacts_per_sphere), x.moving]])); }
     const er = [...(R.stage_errors || []), ...(R.errors || [])]; if (er.length) o.err = er.map(e => String(e).slice(0, 160)).slice(0, 4);
     return o;
   };
@@ -329,12 +331,14 @@ function verdict(c) {
   if (m.h && m.mm) L.push('   integer force kernel:  ' + ok(Object.values(m.mm).every(x => x === 0) && m.h.N_rep1 === '99b34cc3' && m.h.N_rep3 === '2ae7e6fc'));
   if (m.ca) L.push('   sand/water automaton:  ' + ok(m.ca.mm === 0 && m.ca.g === m.ca.c));
   if (m.sph) L.push('   sphere contacts:       ' + ok(m.sph.mm === 0 && m.sph.g === m.sph.c));
+  if (m.rest) L.push('   contacts with stored impulses: ' + ok(m.rest.mm === 0 && m.rest.g === m.rest.c));
   if (m.h) L.push('   float version (for comparison only, expected to differ between GPU vendors): ' + m.h.F_rep1);
   L.push('', '2. Speed of this GPU');
   if (m.bw) L.push('   memory traffic: ' + m.bw + ' GB/s');
   if (m.t && m.t.F && m.t.N) L.push('   cost of exact integers vs float: x' + (m.t.N['1'] / m.t.F['1']).toFixed(2) + ' in a normal kernel, x' + (m.t.N['128'] / m.t.F['128']).toFixed(2) + ' in a pure-arithmetic one');
   if (m.ca && m.ca.ms) { const k = Object.keys(m.ca.ms).pop(); L.push('   automaton: ' + (k * k / 1e6).toFixed(1) + ' million cells in ' + m.ca.ms[k] + ' ms per step'); }
   if (m.sph && m.sph.t) for (const [k, x] of Object.entries(m.sph.t)) L.push('   ' + Math.pow(parseInt(k), 3) + ' spheres, ' + k.split('_')[1] + ' memory order: ' + x[0] + ' ns per sphere per substep (' + (x[0] * Math.pow(parseInt(k), 3) * 8 / 1e6).toFixed(1) + ' ms per frame at 8 substeps)');
+  if (m.rest && m.rest.t) for (const [k, x] of Object.entries(m.rest.t)) L.push('   ' + Math.pow(parseInt(k), 3) + ' spheres, stored impulses, 4 iterations: ' + x[0] + ' ns per sphere per substep (' + (x[0] * Math.pow(parseInt(k), 3) * 8 / 1e6).toFixed(1) + ' ms per frame at 8 substeps)');
   if (m.err) L.push('', 'Errors: ' + m.err.join(' | '));
   if (c.prev_crash) L.push('', 'Note: an earlier run on this device stopped during stage "' + c.prev_crash + '".');
   return L.join('\n') + '\n';
