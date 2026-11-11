@@ -1,6 +1,11 @@
 # Shatterbird — Phase 0 (mechanics and solver truth, CPU f64)
 
-**Phase 1b (current): what state is sufficient, and what a contact pipeline costs** — [`docs/phase1/sufficiency.md`](docs/phase1/sufficiency.md).
+**Phase 1c (current): members with ports, end to end** — [`docs/phase1/members.md`](docs/phase1/members.md).
+- **One stepper for every level of detail:** rigid fragments, modal members and single cells; with every cell single it equals the Phase 0d reference to ten digits.
+- **Result:** consequences mostly within 10 % of the reference (threshold within 1.4 %), cost 0.43–0.51 of the full run on one span and 0.45 on eight; not a pass by the pre-registered cost criterion.
+- **Learned:** loaded interfaces need real cells; escalate on localisation, not onset; after fracture use the damaged basis with frozen damage; mode count must follow member size.
+
+**Phase 1b: what state is sufficient, and what a contact pipeline costs** — [`docs/phase1/sufficiency.md`](docs/phase1/sufficiency.md).
 - **Reference:** a 1000× change of contact stiffness moves the fracture threshold by at most 6 %, but changes the dissipated energy by up to 60 %.
 - **State:** about 20 modal coordinates after an impact, 6–11 while a crack runs, rigid fragments afterwards — only in the basis of the current damaged operator; a basis fixed in advance fails.
 - **GPU:** an integer sphere-contact pipeline with an atomics-built grid matches the CPU bit for bit at 4.7–6.5 ns per sphere-substep; memory layout changes that by up to 6×; tall stacks are the open problem.

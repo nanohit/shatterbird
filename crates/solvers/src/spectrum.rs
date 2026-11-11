@@ -502,6 +502,29 @@ impl Spectral {
         Ok(self.pairs(r, true))
     }
 
+    /// Smallest `nev` eigenpairs with a mass shift: factorises K + sigma M, so K may be
+    /// singular (free bodies). Returned values are the unshifted ones.
+    pub fn low_shift(&self, nev: usize, sigma: f64, start_seed: u64, tol: f64, max_steps: usize) -> Result<Pairs, String> {
+        let mut trip = self.k_triplets();
+        trip.extend(self.m_triplets(sigma));
+        let kmat = csc_from_triplets(self.n, trip);
+        let mut spd = Spd::analyze(&kmat);
+        spd.factor(&kmat)?;
+        let start = random_start(self.n, start_seed);
+        let mut tmp = vec![0.0; self.n];
+        let mut op = |x: &[f64], y: &mut [f64]| {
+            self.apply_msqrt(x, &mut tmp);
+            spd.solve(&mut tmp);
+            self.apply_msqrt(&tmp, y);
+        };
+        let r = lanczos(self.n, &mut op, &start, nev, tol, max_steps);
+        let mut p = self.pairs(r, true);
+        for v in p.vals.iter_mut() {
+            *v -= sigma;
+        }
+        Ok(p)
+    }
+
     /// All eigenvalues of B (descending), dense.
     pub fn dense_eigs(&self) -> Vec<f64> {
         let mut a = Mat::<f64>::zeros(self.n, self.n);

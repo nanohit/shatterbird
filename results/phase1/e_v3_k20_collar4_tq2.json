@@ -1,0 +1,853 @@
+{
+  "meta": {
+    "config": {
+      "chi": 0.8,
+      "hybrid": true,
+      "k": 20,
+      "tq": 0.002
+    },
+    "experiment": "phase1",
+    "law_version": "SB-IL1/2pt-corot v1",
+    "run": "e_v3_k20_collar4_tq2",
+    "seed": null,
+    "solver_schedule": "member stepper, dt 2 us, beam impact 50 kg",
+    "source_hash": "4f846e9e71cd9799",
+    "unix_time": 1794387254
+  },
+  "rows": [
+    {
+      "factor": null,
+      "seed": 1,
+      "v_crit": 0.4891295338459466
+    },
+    {
+      "D": 6.328674628045019,
+      "basis_wall_s": 0.027381707999999994,
+      "broken": true,
+      "cells": 454,
+      "check_flops": 253384960.0,
+      "collar": 4,
+      "crack_x": 0.9806495421304301,
+      "damage_hist_0_0.1_0.5_0.99_1": [
+        974,
+        52,
+        144,
+        38,
+        13
+      ],
+      "escalations": 1,
+      "events": [
+        {
+          "event": "reduce",
+          "members": [
+            [
+              352,
+              false
+            ]
+          ],
+          "rejected": [],
+          "t": 0.0
+        },
+        {
+          "cells": 352,
+          "event": "escalate",
+          "ratio": 0.35859765868702187,
+          "t": 0.00019399999999999965
+        },
+        {
+          "event": "reduce",
+          "members": [
+            [
+              178,
+              true
+            ],
+            [
+              174,
+              true
+            ]
+          ],
+          "rejected": [],
+          "t": 0.005478000000000078
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.009730000000000643
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.015770000000001318
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.017771999999999847
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.022307999999996515
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.024309999999995044
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.026311999999993573
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.028313999999992102
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.03031599999999063
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.032439999999991136
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.041077999999999774
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.043078000000001775
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.045078000000003775
+        }
+      ],
+      "factor": 1.25,
+      "flops": 2934151936.0,
+      "frag_mass": [
+        93.3935858042437,
+        98.60641419575637
+      ],
+      "frag_v": [
+        [
+          -0.1092170503984344,
+          -0.32225136668033266
+        ],
+        [
+          0.10344329069158223,
+          -0.35169077035289764
+        ]
+      ],
+      "hybrid": true,
+      "k": 20,
+      "reductions": 2,
+      "seed": 1,
+      "single_fraction": 0.30964771929824564,
+      "v0": 0.6076837052918642,
+      "v_imp": -0.04078159306496425,
+      "wall_s": 0.989734208
+    },
+    {
+      "D": 11.678539208408003,
+      "basis_wall_s": 0.029741293000000002,
+      "broken": true,
+      "cells": 454,
+      "check_flops": 258032420.0,
+      "collar": 4,
+      "crack_x": 1.0520515052559631,
+      "damage_hist_0_0.1_0.5_0.99_1": [
+        776,
+        83,
+        233,
+        115,
+        14
+      ],
+      "escalations": 1,
+      "events": [
+        {
+          "event": "reduce",
+          "members": [
+            [
+              352,
+              false
+            ]
+          ],
+          "rejected": [],
+          "t": 0.0
+        },
+        {
+          "cells": 352,
+          "event": "escalate",
+          "ratio": 0.40171634361108427,
+          "t": 0.00012999999999999983
+        },
+        {
+          "event": "reduce",
+          "members": [
+            [
+              174,
+              true
+            ],
+            [
+              178,
+              true
+            ]
+          ],
+          "rejected": [],
+          "t": 0.004505999999999949
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.006506000000000215
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.00850600000000048
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.010506000000000746
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.012506000000001011
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.014506000000001277
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.016508000000000776
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.018509999999999305
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.020511999999997834
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.022513999999996363
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.024515999999994893
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.026517999999993422
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.02851999999999195
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.03052199999999048
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.03252199999999122
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.03452199999999322
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.03652199999999522
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.03852199999999722
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.04052199999999922
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.04252200000000122
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.04452200000000322
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.04652200000000522
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.04852200000000722
+        }
+      ],
+      "factor": 2.0,
+      "flops": 2842661228.0,
+      "frag_mass": [
+        92.94894012363706,
+        99.05105987636301
+      ],
+      "frag_v": [
+        [
+          -0.15152959779430653,
+          -0.4724074447658605
+        ],
+        [
+          0.142194495747521,
+          -0.47979669861751634
+        ]
+      ],
+      "hybrid": true,
+      "k": 20,
+      "reductions": 2,
+      "seed": 1,
+      "single_fraction": 0.29562947368421055,
+      "v0": 0.9722939284669827,
+      "v_imp": -0.31003498621683234,
+      "wall_s": 1.12707125
+    },
+    {
+      "D": 2.628849881518767e-8,
+      "basis_wall_s": 0.011981167,
+      "broken": false,
+      "cells": 454,
+      "check_flops": 454500000.0,
+      "collar": 4,
+      "crack_x": null,
+      "damage_hist_0_0.1_0.5_0.99_1": [
+        1221,
+        0,
+        0,
+        0,
+        0
+      ],
+      "escalations": 0,
+      "events": [
+        {
+          "event": "reduce",
+          "members": [
+            [
+              352,
+              false
+            ]
+          ],
+          "rejected": [],
+          "t": 0.0
+        }
+      ],
+      "factor": 0.30854867156582005,
+      "flops": 2566800000.0,
+      "frag_mass": [
+        191.99999999999994
+      ],
+      "frag_v": [
+        [
+          1.7512589143599273e-14,
+          -0.00378068025022082
+        ]
+      ],
+      "hybrid": true,
+      "k": 20,
+      "reductions": 1,
+      "seed": 1,
+      "single_fraction": 0.22807017543859648,
+      "v0": 0.15,
+      "v_imp": 0.06540436790712756,
+      "wall_s": 0.898822375
+    },
+    {
+      "factor": null,
+      "seed": 2,
+      "v_crit": 0.525034399920273
+    },
+    {
+      "D": 7.2106066316525075,
+      "basis_wall_s": 0.031266958999999976,
+      "broken": true,
+      "cells": 449,
+      "check_flops": 243381500.0,
+      "collar": 4,
+      "crack_x": 0.987625547909536,
+      "damage_hist_0_0.1_0.5_0.99_1": [
+        903,
+        71,
+        156,
+        56,
+        13
+      ],
+      "escalations": 1,
+      "events": [
+        {
+          "event": "reduce",
+          "members": [
+            [
+              342,
+              false
+            ]
+          ],
+          "rejected": [],
+          "t": 0.0
+        },
+        {
+          "cells": 342,
+          "event": "escalate",
+          "ratio": 0.3702597923026404,
+          "t": 0.00016199999999999974
+        },
+        {
+          "event": "reduce",
+          "members": [
+            [
+              173,
+              true
+            ],
+            [
+              169,
+              true
+            ]
+          ],
+          "rejected": [],
+          "t": 0.005470000000000077
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.007470000000000343
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.009470000000000608
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.013394000000001129
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.015394000000001394
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.017396000000000123
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.019397999999998652
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.02139999999999718
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.024403999999994975
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.026405999999993504
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.028417999999992026
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.033939999999992636
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.035939999999994636
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.037939999999996636
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.039939999999998636
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.041940000000000636
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.04394000000000264
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.04919400000000789
+        }
+      ],
+      "factor": 1.25,
+      "flops": 2998445516.0,
+      "frag_mass": [
+        96.26535142462177,
+        95.73464857537819
+      ],
+      "frag_v": [
+        [
+          -0.09487264499828883,
+          -0.38962418876099253
+        ],
+        [
+          0.09539856935025992,
+          -0.32868256139691915
+        ]
+      ],
+      "hybrid": true,
+      "k": 20,
+      "reductions": 2,
+      "seed": 2,
+      "single_fraction": 0.3221878492239468,
+      "v0": 0.676943762839922,
+      "v_imp": -0.08080972685446754,
+      "wall_s": 1.078728625
+    },
+    {
+      "D": 12.99147872343364,
+      "basis_wall_s": 0.029729039,
+      "broken": true,
+      "cells": 449,
+      "check_flops": 224288920.0,
+      "collar": 4,
+      "crack_x": 0.9881557803727269,
+      "damage_hist_0_0.1_0.5_0.99_1": [
+        705,
+        86,
+        261,
+        130,
+        17
+      ],
+      "escalations": 1,
+      "events": [
+        {
+          "event": "reduce",
+          "members": [
+            [
+              342,
+              false
+            ]
+          ],
+          "rejected": [],
+          "t": 0.0
+        },
+        {
+          "cells": 342,
+          "event": "escalate",
+          "ratio": 0.3043415353911161,
+          "t": 0.00011399999999999987
+        },
+        {
+          "event": "reduce",
+          "members": [
+            [
+              173,
+              true
+            ],
+            [
+              169,
+              true
+            ]
+          ],
+          "rejected": [],
+          "t": 0.008716000000000508
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.010716000000000774
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.012716000000001039
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.014716000000001304
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.01671800000000062
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.01871999999999915
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.02072199999999768
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.023111999999995924
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.025113999999994453
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.027115999999992983
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.029117999999991512
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.03111999999999004
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.033119999999991816
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.035119999999993816
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.037119999999995816
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.039119999999997816
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.041119999999999816
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.04312000000000182
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.04512000000000382
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.04712000000000582
+        },
+        {
+          "event": "reduce",
+          "members": [],
+          "rejected": [],
+          "t": 0.04912000000000782
+        }
+      ],
+      "factor": 2.0,
+      "flops": 3344914798.0,
+      "frag_mass": [
+        96.26535142462177,
+        95.73464857537819
+      ],
+      "frag_v": [
+        [
+          -0.11418031109162084,
+          -0.5266458493063052
+        ],
+        [
+          0.11481326705189873,
+          -0.519383133093736
+        ]
+      ],
+      "hybrid": true,
+      "k": 20,
+      "reductions": 2,
+      "seed": 2,
+      "single_fraction": 0.37214563192904654,
+      "v0": 1.083110020543875,
+      "v_imp": -0.3358474853982287,
+      "wall_s": 1.302522333
+    },
+    {
+      "D": 2.6241746878254416e-8,
+      "basis_wall_s": 0.014902167,
+      "broken": false,
+      "cells": 449,
+      "check_flops": 437000000.0,
+      "collar": 4,
+      "crack_x": null,
+      "damage_hist_0_0.1_0.5_0.99_1": [
+        1199,
+        0,
+        0,
+        0,
+        0
+      ],
+      "escalations": 0,
+      "events": [
+        {
+          "event": "reduce",
+          "members": [
+            [
+              342,
+              false
+            ]
+          ],
+          "rejected": [],
+          "t": 0.0
+        }
+      ],
+      "factor": 0.27698017219834914,
+      "flops": 2643725000.0,
+      "frag_mass": [
+        192.00000000000017
+      ],
+      "frag_v": [
+        [
+          2.8090051985840668e-15,
+          0.010138861916392673
+        ]
+      ],
+      "hybrid": true,
+      "k": 20,
+      "reductions": 1,
+      "seed": 2,
+      "single_fraction": 0.24168514412416853,
+      "v0": 0.15,
+      "v_imp": 0.08265966140386988,
+      "wall_s": 0.954920875
+    }
+  ]
+}
