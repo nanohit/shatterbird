@@ -2,7 +2,7 @@
 
 **Phase 1f (current): one canonical contact system, full or incremental, on two GPUs** — [`docs/phase1/canonical-system.md`](docs/phase1/canonical-system.md).
 - **Same bits on Apple M3 Pro and NVIDIA GTX 1660 SUPER**, stepped fully or incrementally: positions, velocities, contact sets, impulses; also with the bodies renumbered and with a forced overflow. Remote worker: `gpu-probe/worker.mjs`.
-- **Incremental execution with its real scheduling cost:** at 524k bodies a resting world costs 1.4–3.7 % of full stepping, the wake of a kick 2.3–5.1 %, nothing extra when everything moves.
+- **Incremental execution with its real scheduling cost:** a resting world costs 0.11–0.13 ms per substep at any size (0.85–1.4 % of full stepping at 524k bodies), the wake of a kick 1.8–2.5 %, nothing extra when everything moves.
 - **The rest quantum is a force threshold (0.9 % of a body's weight):** large rearrangements do not notice, small responses are suppressed 3–20x. Routing of momentum to supports settles stacks 60x faster but changes consequences; not adopted.
 
 **Phase 1d/1e: bodies at rest on the GPU, and the price of interfaces** — [`docs/phase1/bodies-and-interfaces.md`](docs/phase1/bodies-and-interfaces.md).

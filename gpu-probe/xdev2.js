@@ -44,6 +44,25 @@ async function xdev2(opts = {}) {
       gf.G.free(); gi.G.free(); log('inc: ' + JSON.stringify({ ...R.inc, rows: undefined }) + ' last ' + JSON.stringify(rows[rows.length - 1]));
     }
 
+    if (tests.includes('fuzz')) {
+      // random host edits on a settled pile: single kicks, bursts of many kicks (the substep turns full and
+      // back), and a run with tiny list capacities so that the overflow path (full substep, global reset
+      // of the marks) is taken. JS full stepping against GPU incremental, every 40 substeps.
+      R.fuzz = [];
+      for (const cfg of opts.fuzz || [{ label: 'default capacities' }, { label: 'cell lists of 256 entries, seed stripes of 8', capc: 256, seg: 8 }, { label: 'never switch to full by seed count', dense: 0xFFFFFFFF }]) {
+        const n = opts.fuzz_n || 14, A = cloud(n), J = cloud(n), N = A.N, gi = await start(A, cfg), rnd = V.rng(4242), rows = []; let bad = 0, edits = 0;
+        const sync = async label => { const hi = await gi.hash(), hj = V.hash(J); if (hi !== hj) bad++; rows.push({ at: label, js: hj, gpu_inc: hi, ok: hi === hj }); };
+        for (let t = 0; t < 800; t += 100) { for (let q = 0; q < 100; q++) V.step(J, prm); await gi.steps(100); } await sync('settled');
+        for (let round = 0; round < (opts.fuzz_rounds || 24); round++) {
+          const burst = round % 6 === 5 ? 300 : 1 + rnd() % 3;
+          for (let b = 0; b < burst; b++) { const i = rnd() % N, sp = 1000 + rnd() % 20000, v = [((rnd() % 2001) - 1000) * sp / 1000 * prm.f | 0, -sp * prm.f, ((rnd() % 2001) - 1000) * sp / 1000 * prm.f | 0]; jsKick(J, i, v); gi.kick(i, v); edits++; }
+          for (let q = 0; q < 40; q++) V.step(J, prm); await gi.steps(40); await sync('round ' + round + ', ' + burst + ' kicks');
+        }
+        const c = await gi.counters(); R.fuzz.push({ config: cfg, n: N, host_edits: edits, checkpoints: rows.length, mismatching_checkpoints: bad, full_substeps: c.full_steps, incremental_substeps: c.inc_steps, faults_gpu: c.faults.join('/'), faults_js: Array.from(J.faults).join('/'), first_mismatch: rows.find(r => !r.ok) || null, last: rows[rows.length - 1] });
+        gi.G.free(); log('fuzz ' + cfg.label + ': ' + JSON.stringify(R.fuzz[R.fuzz.length - 1]));
+      }
+    }
+
     if (tests.includes('perm')) {
       const n = opts.perm_n || 20, steps = opts.perm_steps || 600, A = cloud(n), N = A.N, P = cloud(n), rnd = V.rng(777), pi = new Uint32Array(N);
       for (let i = 0; i < N; i++) pi[i] = i; for (let i = N - 1; i > 0; i--) { const j = rnd() % (i + 1), t = pi[i]; pi[i] = pi[j]; pi[j] = t; }

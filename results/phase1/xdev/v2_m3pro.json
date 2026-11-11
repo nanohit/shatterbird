@@ -6,11 +6,11 @@
   "gpu_driver": "Chipset Model: Apple M3 Pro; Metal Support: Metal 3;",
   "chrome": "Chrome/157.0.8103.39",
   "launch_attempts": 1,
-  "wall_s": 12.568
+  "wall_s": 13.054
  },
  "tag": "m3pro",
  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
- "when": "2026-11-11T22:01:26.348Z",
+ "when": "2026-11-11T22:07:18.608Z",
  "errors": [],
  "adapter": {
   "vendor": "apple",
@@ -58,7 +58,7 @@
    "full_steps": 400,
    "inc_steps": 0,
    "bytes_per_body": 734,
-   "passes_per_substep": 19
+   "passes_per_substep": 25
   },
   "full": {
    "n": 8000,
@@ -81,7 +81,7 @@
    "full_steps": 600,
    "inc_steps": 0,
    "bytes_per_body": 689,
-   "passes_per_substep": 19
+   "passes_per_substep": 25
   }
  },
  "inc": {

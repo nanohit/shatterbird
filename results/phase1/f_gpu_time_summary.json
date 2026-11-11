@@ -1,389 +1,263 @@
 {
- "note": "GPU time per substep from timestamp queries, one compute pass per batch; wide clouds of 8 layers; kick = 1 m/s on one surface sphere",
+ "note": "GPU time per substep from timestamp queries, one compute pass per batch; wide clouds of 8 layers, Jacobi variant (route 0), incremental grid; kick = 1 m/s on one surface sphere",
  "rows": [
   {
    "device": "Apple M3 Pro",
    "driver": "Chipset Model: Apple M3 Pro; Metal Support: Metal 3;",
    "chrome": "Chrome/157.0.8103.39",
-   "route": 0,
    "bodies": 32768,
    "bytes_per_body": 679,
+   "passes_per_substep": 25,
    "rest_by_substep": 940,
    "all_moving_ms": [
-    0.7324,
-    0.245
+    0.6931,
+    0.2934
+   ],
+   "settle_ratios": [
+    1.0856,
+    1.0014,
+    0.9527,
+    1.0259,
+    0.9847,
+    0.9876,
+    0.9982,
+    0.6752,
+    0.2008
    ],
    "rest_ms": [
-    0.6061,
-    0.101
+    0.6566,
+    0.1125
    ],
-   "rest_ratio": 0.1667,
+   "rest_ratio": 0.1713,
    "wake_substeps": 120,
    "wake_total_ms": [
-    72.106,
-    37.662
+    79.21,
+    43.236
    ],
-   "wake_ratio": 0.5223,
+   "wake_ratio": 0.5458,
    "identical_full_vs_incremental": [
     true,
     true
    ],
    "hash_rest": "6c9faace",
    "hash_after_wake": "08c241ec",
-   "anchors_pct_weight": 0.3748,
-   "grid_rebuild_ms_at_rest": 0.0195
+   "anchors_pct_weight": 0.3748
   },
   {
    "device": "Apple M3 Pro",
    "driver": "Chipset Model: Apple M3 Pro; Metal Support: Metal 3;",
    "chrome": "Chrome/157.0.8103.39",
-   "route": 0,
    "bodies": 204800,
    "bytes_per_body": 676,
+   "passes_per_substep": 25,
    "rest_by_substep": 1140,
    "all_moving_ms": [
-    1.4148,
-    1.3889
+    1.5268,
+    1.5366
+   ],
+   "settle_ratios": [
+    1.0003,
+    0.9614,
+    1.0281,
+    0.9999,
+    1.0029,
+    0.9895,
+    0.9526,
+    0.1217,
+    0.0795,
+    0.0704,
+    0.0362
    ],
    "rest_ms": [
-    3.3453,
-    0.1487
+    3.5637,
+    0.1106
    ],
-   "rest_ratio": 0.0444,
+   "rest_ratio": 0.031,
    "wake_substeps": 100,
    "wake_total_ms": [
-    366.168,
-    27.542
+    361.49,
+    20.404
    ],
-   "wake_ratio": 0.0752,
+   "wake_ratio": 0.0564,
    "identical_full_vs_incremental": [
     true,
     true
    ],
    "hash_rest": "d397987c",
    "hash_after_wake": "57516992",
-   "anchors_pct_weight": 0.4034,
-   "grid_rebuild_ms_at_rest": 0.0682
+   "anchors_pct_weight": 0.4034
   },
   {
    "device": "Apple M3 Pro",
    "driver": "Chipset Model: Apple M3 Pro; Metal Support: Metal 3;",
    "chrome": "Chrome/157.0.8103.39",
-   "route": 0,
    "bodies": 524288,
    "bytes_per_body": 663,
+   "passes_per_substep": 25,
    "rest_by_substep": 1040,
    "all_moving_ms": [
-    3.3883,
-    3.2827
+    3.6748,
+    3.6961
+   ],
+   "settle_ratios": [
+    0.9952,
+    1.0026,
+    1.0036,
+    1.0074,
+    0.988,
+    0.967,
+    1.025,
+    0.0469,
+    0.0277,
+    0.0138
    ],
    "rest_ms": [
-    9.7511,
-    0.358
+    9.1529,
+    0.1306
    ],
-   "rest_ratio": 0.0367,
+   "rest_ratio": 0.0143,
    "wake_substeps": 140,
    "wake_total_ms": [
-    1344.116,
-    68.646
+    1274.646,
+    31.992
    ],
-   "wake_ratio": 0.0511,
+   "wake_ratio": 0.0251,
    "identical_full_vs_incremental": [
     true,
     true
    ],
    "hash_rest": "09ad489d",
    "hash_after_wake": "3e72942b",
-   "anchors_pct_weight": 0.4048,
-   "grid_rebuild_ms_at_rest": 0.2449
-  },
-  {
-   "device": "Apple M3 Pro",
-   "driver": "Chipset Model: Apple M3 Pro; Metal Support: Metal 3;",
-   "chrome": "Chrome/157.0.8103.39",
-   "route": 1,
-   "bodies": 32768,
-   "bytes_per_body": 679,
-   "rest_by_substep": 940,
-   "all_moving_ms": [
-    0.5202,
-    0.2292
-   ],
-   "rest_ms": [
-    0.6039,
-    0.0713
-   ],
-   "rest_ratio": 0.1181,
-   "wake_substeps": 120,
-   "wake_total_ms": [
-    72.804,
-    20.954
-   ],
-   "wake_ratio": 0.2878,
-   "identical_full_vs_incremental": [
-    true,
-    true
-   ],
-   "hash_rest": "a797148f",
-   "hash_after_wake": "d1ce73d1",
-   "anchors_pct_weight": 0.0212,
-   "grid_rebuild_ms_at_rest": 0.0152
-  },
-  {
-   "device": "Apple M3 Pro",
-   "driver": "Chipset Model: Apple M3 Pro; Metal Support: Metal 3;",
-   "chrome": "Chrome/157.0.8103.39",
-   "route": 1,
-   "bodies": 204800,
-   "bytes_per_body": 676,
-   "rest_by_substep": 940,
-   "all_moving_ms": [
-    1.2042,
-    1.2257
-   ],
-   "rest_ms": [
-    3.2333,
-    0.1275
-   ],
-   "rest_ratio": 0.0394,
-   "wake_substeps": 40,
-   "wake_total_ms": [
-    128.688,
-    8.22
-   ],
-   "wake_ratio": 0.0639,
-   "identical_full_vs_incremental": [
-    true,
-    true
-   ],
-   "hash_rest": "c745419a",
-   "hash_after_wake": "b13a1447",
-   "anchors_pct_weight": 0.0212,
-   "grid_rebuild_ms_at_rest": 0.0604
-  },
-  {
-   "device": "Apple M3 Pro",
-   "driver": "Chipset Model: Apple M3 Pro; Metal Support: Metal 3;",
-   "chrome": "Chrome/157.0.8103.39",
-   "route": 1,
-   "bodies": 524288,
-   "bytes_per_body": 663,
-   "rest_by_substep": 1140,
-   "all_moving_ms": [
-    3.154,
-    3.1282
-   ],
-   "rest_ms": [
-    8.3895,
-    0.2974
-   ],
-   "rest_ratio": 0.0354,
-   "wake_substeps": 60,
-   "wake_total_ms": [
-    507.646,
-    20.386
-   ],
-   "wake_ratio": 0.0402,
-   "identical_full_vs_incremental": [
-    true,
-    true
-   ],
-   "hash_rest": "5cae0903",
-   "hash_after_wake": "00900e3d",
-   "anchors_pct_weight": 0.0211,
-   "grid_rebuild_ms_at_rest": 0.2179
+   "anchors_pct_weight": 0.4048
   },
   {
    "device": "NVIDIA GTX 1660 SUPER",
    "driver": "NVIDIA GeForce GTX 1660 SUPER, 610.88, 6144 MiB",
    "chrome": "Chrome/157.0.8103.38",
-   "route": 0,
    "bodies": 32768,
    "bytes_per_body": 679,
+   "passes_per_substep": 25,
    "rest_by_substep": 940,
    "all_moving_ms": [
-    0.3321,
-    0.3319
+    0.3789,
+    0.378
+   ],
+   "settle_ratios": [
+    1.0018,
+    0.9964,
+    0.9542,
+    0.9959,
+    0.9987,
+    0.9976,
+    0.9986,
+    0.5815,
+    0.1186
    ],
    "rest_ms": [
-    1.0216,
-    0.0951
+    1.0647,
+    0.1243
    ],
-   "rest_ratio": 0.0931,
+   "rest_ratio": 0.1167,
    "wake_substeps": 120,
    "wake_total_ms": [
-    122.588,
-    56.094
+    127.684,
+    60.42
    ],
-   "wake_ratio": 0.4576,
+   "wake_ratio": 0.4732,
    "identical_full_vs_incremental": [
     true,
     true
    ],
    "hash_rest": "6c9faace",
    "hash_after_wake": "08c241ec",
-   "anchors_pct_weight": 0.3748,
-   "grid_rebuild_ms_at_rest": 0.018
+   "anchors_pct_weight": 0.3748
   },
   {
    "device": "NVIDIA GTX 1660 SUPER",
    "driver": "NVIDIA GeForce GTX 1660 SUPER, 610.88, 6144 MiB",
    "chrome": "Chrome/157.0.8103.38",
-   "route": 0,
    "bodies": 204800,
    "bytes_per_body": 676,
+   "passes_per_substep": 25,
    "rest_by_substep": 1140,
    "all_moving_ms": [
-    1.1303,
-    1.1277
+    1.171,
+    1.1692
+   ],
+   "settle_ratios": [
+    0.9996,
+    1,
+    1,
+    0.9994,
+    0.9996,
+    1.0004,
+    0.9375,
+    0.1035,
+    0.0527,
+    0.0536,
+    0.0217
    ],
    "rest_ms": [
-    5.8053,
-    0.1394
+    5.8299,
+    0.1253
    ],
-   "rest_ratio": 0.024,
+   "rest_ratio": 0.0215,
    "wake_substeps": 100,
    "wake_total_ms": [
-    580.73,
-    23.768
+    582.888,
+    22.852
    ],
-   "wake_ratio": 0.0409,
+   "wake_ratio": 0.0392,
    "identical_full_vs_incremental": [
     true,
     true
    ],
    "hash_rest": "d397987c",
    "hash_after_wake": "57516992",
-   "anchors_pct_weight": 0.4034,
-   "grid_rebuild_ms_at_rest": 0.0597
+   "anchors_pct_weight": 0.4034
   },
   {
    "device": "NVIDIA GTX 1660 SUPER",
    "driver": "NVIDIA GeForce GTX 1660 SUPER, 610.88, 6144 MiB",
    "chrome": "Chrome/157.0.8103.38",
-   "route": 0,
    "bodies": 524288,
    "bytes_per_body": 663,
+   "passes_per_substep": 25,
    "rest_by_substep": 1040,
    "all_moving_ms": [
-    2.6628,
-    2.6596
+    2.7035,
+    2.7022
+   ],
+   "settle_ratios": [
+    1.0007,
+    0.9979,
+    0.9998,
+    0.9996,
+    1.0001,
+    0.9999,
+    0.9996,
+    0.0483,
+    0.019,
+    0.0086
    ],
    "rest_ms": [
-    14.6786,
-    0.2032
+    14.7286,
+    0.1257
    ],
-   "rest_ratio": 0.0138,
+   "rest_ratio": 0.0085,
    "wake_substeps": 140,
    "wake_total_ms": [
-    2055.668,
-    46.74
+    2061.76,
+    36.874
    ],
-   "wake_ratio": 0.0227,
+   "wake_ratio": 0.0179,
    "identical_full_vs_incremental": [
     true,
     true
    ],
    "hash_rest": "09ad489d",
    "hash_after_wake": "3e72942b",
-   "anchors_pct_weight": 0.4048,
-   "grid_rebuild_ms_at_rest": 0.1236
-  },
-  {
-   "device": "NVIDIA GTX 1660 SUPER",
-   "driver": "NVIDIA GeForce GTX 1660 SUPER, 610.88, 6144 MiB",
-   "chrome": "Chrome/157.0.8103.38",
-   "route": 1,
-   "bodies": 32768,
-   "bytes_per_body": 679,
-   "rest_by_substep": 940,
-   "all_moving_ms": [
-    0.3349,
-    0.3341
-   ],
-   "rest_ms": [
-    1.0458,
-    0.0946
-   ],
-   "rest_ratio": 0.0905,
-   "wake_substeps": 120,
-   "wake_total_ms": [
-    125.538,
-    23.834
-   ],
-   "wake_ratio": 0.1899,
-   "identical_full_vs_incremental": [
-    true,
-    true
-   ],
-   "hash_rest": "a797148f",
-   "hash_after_wake": "d1ce73d1",
-   "anchors_pct_weight": 0.0212,
-   "grid_rebuild_ms_at_rest": 0.0178
-  },
-  {
-   "device": "NVIDIA GTX 1660 SUPER",
-   "driver": "NVIDIA GeForce GTX 1660 SUPER, 610.88, 6144 MiB",
-   "chrome": "Chrome/157.0.8103.38",
-   "route": 1,
-   "bodies": 204800,
-   "bytes_per_body": 676,
-   "rest_by_substep": 940,
-   "all_moving_ms": [
-    1.1315,
-    1.1348
-   ],
-   "rest_ms": [
-    5.9196,
-    0.1404
-   ],
-   "rest_ratio": 0.0237,
-   "wake_substeps": 40,
-   "wake_total_ms": [
-    236.538,
-    8.448
-   ],
-   "wake_ratio": 0.0357,
-   "identical_full_vs_incremental": [
-    true,
-    true
-   ],
-   "hash_rest": "c745419a",
-   "hash_after_wake": "b13a1447",
-   "anchors_pct_weight": 0.0212,
-   "grid_rebuild_ms_at_rest": 0.0597
-  },
-  {
-   "device": "NVIDIA GTX 1660 SUPER",
-   "driver": "NVIDIA GeForce GTX 1660 SUPER, 610.88, 6144 MiB",
-   "chrome": "Chrome/157.0.8103.38",
-   "route": 1,
-   "bodies": 524288,
-   "bytes_per_body": 663,
-   "rest_by_substep": 1140,
-   "all_moving_ms": [
-    2.6606,
-    2.657
-   ],
-   "rest_ms": [
-    14.9559,
-    0.2035
-   ],
-   "rest_ratio": 0.0136,
-   "wake_substeps": 60,
-   "wake_total_ms": [
-    895.51,
-    16.734
-   ],
-   "wake_ratio": 0.0187,
-   "identical_full_vs_incremental": [
-    true,
-    true
-   ],
-   "hash_rest": "5cae0903",
-   "hash_after_wake": "00900e3d",
-   "anchors_pct_weight": 0.0211,
-   "grid_rebuild_ms_at_rest": 0.1237
+   "anchors_pct_weight": 0.4048
   }
  ]
 }

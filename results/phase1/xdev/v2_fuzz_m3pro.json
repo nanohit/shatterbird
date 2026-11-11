@@ -1,0 +1,148 @@
+{
+ "worker": {
+  "target": "local",
+  "host": "MacBook-Pro-Pavel.local",
+  "os": "14.7.4",
+  "gpu_driver": "Chipset Model: Apple M3 Pro; Metal Support: Metal 3;",
+  "chrome": "Chrome/157.0.8103.39",
+  "launch_attempts": 1,
+  "wall_s": 31.805
+ },
+ "tag": "m3pro",
+ "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+ "when": "2026-11-11T22:07:32.565Z",
+ "errors": [],
+ "adapter": {
+  "vendor": "apple",
+  "architecture": "metal-3",
+  "device": "0x0000",
+  "description": "Apple M3 Pro",
+  "isFallbackAdapter": false
+ },
+ "timestamp_query": true,
+ "spec": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 4,
+  "slop": 4,
+  "cq": 8,
+  "eps": 32,
+  "g0": 2,
+  "margin": 16,
+  "hi": 24,
+  "th": 0,
+  "route": 0,
+  "vr": 28416
+ },
+ "fuzz": [
+  {
+   "config": {
+    "label": "default capacities"
+   },
+   "n": 2744,
+   "host_edits": 1240,
+   "checkpoints": 25,
+   "mismatching_checkpoints": 0,
+   "full_substeps": 1731,
+   "incremental_substeps": 29,
+   "faults_gpu": "0/214/2488/57079",
+   "faults_js": "0/214/2488/57079",
+   "first_mismatch": null,
+   "last": {
+    "at": "round 23, 300 kicks",
+    "js": "699f0727",
+    "gpu_inc": "699f0727",
+    "ok": true
+   }
+  },
+  {
+   "config": {
+    "label": "cell lists of 256 entries, seed stripes of 8",
+    "capc": 256,
+    "seg": 8
+   },
+   "n": 2744,
+   "host_edits": 1240,
+   "checkpoints": 25,
+   "mismatching_checkpoints": 0,
+   "full_substeps": 1760,
+   "incremental_substeps": 0,
+   "faults_gpu": "0/214/2488/57079",
+   "faults_js": "0/214/2488/57079",
+   "first_mismatch": null,
+   "last": {
+    "at": "round 23, 300 kicks",
+    "js": "699f0727",
+    "gpu_inc": "699f0727",
+    "ok": true
+   }
+  },
+  {
+   "config": {
+    "label": "never switch to full by seed count",
+    "dense": 4294967295
+   },
+   "n": 2744,
+   "host_edits": 1240,
+   "checkpoints": 25,
+   "mismatching_checkpoints": 0,
+   "full_substeps": 25,
+   "incremental_substeps": 1735,
+   "faults_gpu": "0/214/2488/57079",
+   "faults_js": "0/214/2488/57079",
+   "first_mismatch": null,
+   "last": {
+    "at": "round 23, 300 kicks",
+    "js": "699f0727",
+    "gpu_inc": "699f0727",
+    "ok": true
+   }
+  },
+  {
+   "config": {
+    "label": "cell lists of 256 entries, seeds never force full",
+    "capc": 256,
+    "dense": 4294967295
+   },
+   "n": 2744,
+   "host_edits": 1240,
+   "checkpoints": 25,
+   "mismatching_checkpoints": 0,
+   "full_substeps": 1760,
+   "incremental_substeps": 0,
+   "faults_gpu": "0/214/2488/57079",
+   "faults_js": "0/214/2488/57079",
+   "first_mismatch": null,
+   "last": {
+    "at": "round 23, 300 kicks",
+    "js": "699f0727",
+    "gpu_inc": "699f0727",
+    "ok": true
+   }
+  },
+  {
+   "config": {
+    "label": "cell lists of 4096 entries, seeds never force full",
+    "capc": 4096,
+    "dense": 4294967295
+   },
+   "n": 2744,
+   "host_edits": 1240,
+   "checkpoints": 25,
+   "mismatching_checkpoints": 0,
+   "full_substeps": 1665,
+   "incremental_substeps": 95,
+   "faults_gpu": "0/214/2488/57079",
+   "faults_js": "0/214/2488/57079",
+   "first_mismatch": null,
+   "last": {
+    "at": "round 23, 300 kicks",
+    "js": "699f0727",
+    "gpu_inc": "699f0727",
+    "ok": true
+   }
+  }
+ ]
+}

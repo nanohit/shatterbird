@@ -225,6 +225,7 @@ const REST2 = (() => {
   }
 
   // ---- WebGPU implementation (i32 / u32 only), full or incremental. ----
+  // The grid persists between substeps: an incremental substep relinks only the bodies of the seed cells.
   // Buffers: pos (xyz, flags), vel (xyz, contact count), la / lb (K slots per body: impulse, partner id;
   // la also holds the state between substeps), ra / rb (residual and flag word per level), corr,
   // grid (cell heads, then one `next` link per body), fa / fb (per-cell distance marks), bl (header of
@@ -276,10 +277,12 @@ fn skip(c: u32) -> bool { return bl[0] == 0u && fa[c] > p.thr; }
   var m = 0u; var tot = 0u; var ovf = false;
   for (var s = 0u; s < 64u; s++) { let c = atomicExchange(&at[AT_SEED + s], 0u); let cc = min(c, p.seg); bl[8u + s] = cc; m = max(m, cc); tot += c; if (c > p.seg) { ovf = true; } }
   let full = ovf || tot > p.dense || bl[7] == 0u || p.force != 0u; bl[7] = 1u;
-  for (var q = 0u; q < 4u; q++) { atomicStore(&at[q], 0u); }
-  bl[0] = select(0u, 1u, full); bl[5] = m; bl[6] = 0u; bl[2] = 0u; bl[3] = 0u; bl[4] = 0u;
-  for (var q = 0u; q < 18u; q++) { ind[q] = 0u; }
-  if (full) { bl[1] = p.n; ind[12] = (p.n + 63u) / 64u; ind[13] = 1u; ind[14] = 1u; }
+  for (var q = 0u; q < 5u; q++) { atomicStore(&at[q], 0u); }
+  bl[0] = select(0u, 1u, full); bl[5] = m; bl[6] = 0u; bl[2] = 0u; bl[3] = 0u; bl[4] = 0u; bl[72] = 0u;
+  for (var q = 0u; q < 33u; q++) { ind[q] = 0u; }
+  let cg = (cells() + 63u) / 64u;
+  if (full) { bl[1] = p.n; ind[12] = (p.n + 63u) / 64u; ind[13] = 1u; ind[14] = 1u;
+    ind[18] = min(65535u, cg); ind[19] = (cg + 65534u) / 65535u; ind[20] = 1u; ind[21] = (p.n + 63u) / 64u; ind[22] = 1u; ind[23] = 1u; }   // full substep: full grid rebuild
   else { bl[1] = 0u; ind[0] = (m + 63u) / 64u; ind[1] = 64u; ind[2] = 1u; }
 }`,
     // distance transform along x: seeds get 16, their row neighbours 16 + |dx| (the offset marks "x stage")
@@ -304,15 +307,48 @@ fn app(c: u32) { let k = atomicAdd(&at[AT_NX], 1u); if (k < p.capc) { lx[k] = c;
 @group(0) @binding(2) var<storage, read_write> bl: array<u32>;
 @group(0) @binding(3) var<storage, read_write> ind: array<u32>;
 @compute @workgroup_size(1) fn main() {
-  // p.first selects the stage: 1 after x, 2 after y, 3 after z, 4 after the body list
+  // p.first selects the stage: 1 after x, 2 after y, 3 after z, 4 after the body list, 5 after the bodies of the seed cells were gathered
   if (bl[0] != 0u) { if (p.first == 4u) { let w = atomicAdd(&at[AT_WORK], p.n); if (w + p.n < w) { atomicAdd(&at[AT_WORK + 1u], 1u); } atomicAdd(&at[AT_WORK + 2u], 1u); } return; }
   let c = atomicLoad(&at[p.first - 1u]);
-  if (p.first < 4u && c > p.capc) { bl[0] = 1u; bl[6] = 1u; bl[1] = p.n; ind[12] = (p.n + 63u) / 64u; ind[13] = 1u; ind[14] = 1u; ind[15] = min(65535u, (cells() + 63u) / 64u); ind[16] = ((cells() + 63u) / 64u + 65534u) / 65535u; ind[17] = 1u; return; }
+  if (p.first < 4u && c > p.capc) { let cg = (cells() + 63u) / 64u; bl[0] = 1u; bl[6] = 1u; bl[1] = p.n; ind[12] = (p.n + 63u) / 64u; ind[13] = 1u; ind[14] = 1u; ind[15] = min(65535u, cg); ind[16] = (cg + 65534u) / 65535u; ind[17] = 1u;
+    // the seed cells are not all known when the x list overflowed: rebuild the whole grid late
+    if (p.first == 1u) { ind[24] = min(65535u, cg); ind[25] = (cg + 65534u) / 65535u; ind[26] = 1u; ind[27] = (p.n + 63u) / 64u; ind[28] = 1u; ind[29] = 1u; }
+    return; }
   let gcount = (c + 63u) / 64u;
   if (p.first == 1u) { bl[2] = c; ind[3] = gcount; ind[4] = 1u; ind[5] = 1u; }
   if (p.first == 2u) { bl[3] = c; ind[6] = gcount; ind[7] = 1u; ind[8] = 1u; }
   if (p.first == 3u) { bl[4] = c; ind[9] = gcount; ind[10] = 1u; ind[11] = 1u; }
+  if (p.first == 5u) { bl[72] = c; ind[30] = gcount; ind[31] = 1u; ind[32] = 1u; }
   if (p.first == 4u) { bl[1] = c; ind[12] = gcount; ind[13] = 1u; ind[14] = 1u; let w = atomicAdd(&at[AT_WORK], c); if (w + c < w) { atomicAdd(&at[AT_WORK + 1u], 1u); } atomicAdd(&at[AT_WORK + 3u], 1u); }
+}`,
+    // incremental grid: the lists of the seed cells (every cell a body left or entered is one) are rebuilt from
+    // the bodies they held; all other cells keep their lists.
+    gather: HEAD + `
+@group(0) @binding(1) var<storage, read_write> bl: array<u32>;
+@group(0) @binding(2) var<storage, read> lx: array<u32>;
+@group(0) @binding(3) var<storage, read> fa: array<u32>;
+@group(0) @binding(4) var<storage, read> grid: array<u32>;
+@group(0) @binding(5) var<storage, read_write> at: array<atomic<u32>>;
+@compute @workgroup_size(64) fn main(@builtin(global_invocation_id) g: vec3u) {
+  if (bl[0] != 0u || g.x >= bl[2]) { return; } let c = lx[g.x]; if (fa[c] != 16u) { return; }
+  var j = grid[c]; let nc = cells();
+  while (j != EMPTY) { let k = atomicAdd(&at[4], 1u); bl[HDR + k] = j; j = grid[nc + j]; }
+}`,
+    clearseed: HEAD + `
+@group(0) @binding(1) var<storage, read> bl: array<u32>;
+@group(0) @binding(2) var<storage, read> lx: array<u32>;
+@group(0) @binding(3) var<storage, read> fa: array<u32>;
+@group(0) @binding(4) var<storage, read_write> grid: array<u32>;
+@compute @workgroup_size(64) fn main(@builtin(global_invocation_id) g: vec3u) {
+  if (bl[0] != 0u || g.x >= bl[2] || g.x >= p.capc) { return; } let c = lx[g.x]; if (fa[c] == 16u) { grid[c] = EMPTY; }
+}`,
+    reinsert: HEAD + `
+@group(0) @binding(1) var<storage, read> bl: array<u32>;
+@group(0) @binding(2) var<storage, read> pos: array<vec4i>;
+@group(0) @binding(3) var<storage, read_write> grid: array<atomic<u32>>;
+@compute @workgroup_size(64) fn main(@builtin(global_invocation_id) g: vec3u) {
+  if (bl[0] != 0u || g.x >= bl[72]) { return; } let i = bl[HDR + g.x];
+  let c = cidx(pos[i].xyz >> vec3u(18u)); atomicStore(&grid[cells() + i], atomicExchange(&grid[c], i));
 }`,
     marky: HEAD + `
 @group(0) @binding(1) var<storage, read> bl: array<u32>;
@@ -501,17 +537,20 @@ fn seed(i: u32, c: u32) { let s = i & 63u; let k = atomicAdd(&at[AT_SEED + s], 1
     const buf = (sz, fill) => { const b = dev.createBuffer({ size: sz, usage: SU, mappedAtCreation: fill !== undefined }); if (fill !== undefined) { new Uint32Array(b.getMappedRange()).fill(fill); b.unmap(); } return b; };
     const la0 = new Int32Array(4 * K * N); la0.set(S0.slot);
     const b = { pos: mk(S0.pos), vel: mk(S0.vel), la: mk(la0), lb: buf(16 * K * N), ra: buf(16 * N), rb: buf(16 * N), corr: buf(16 * N), grid: buf(4 * (cells + N)), fa: buf(4 * cells, 0xFFFFFFFF), fb: buf(4 * cells, 0xFFFFFFFF),
-      bl: buf(4 * (HDR + N)), lx: buf(4 * capc), ly: buf(4 * capc), lz: buf(4 * capc), seeds: buf(4 * 64 * seg), at: buf(4 * 128), ind: dev.createBuffer({ size: 4 * 18, usage: SU | U.INDIRECT }) };
+      bl: buf(4 * (HDR + N)), lx: buf(4 * capc), ly: buf(4 * capc), lz: buf(4 * capc), seeds: buf(4 * 64 * seg), at: buf(4 * 128), ind: dev.createBuffer({ size: 4 * 36, usage: SU | U.INDIRECT }) };
     const uni = (first, thr) => { const u = new ArrayBuffer(96), dv = new DataView(u); [N, S0.gx, S0.gy, S0.gz].forEach((x, k) => dv.setUint32(4 * k, x, true));
       [prm.grav, prm.f, prm.mu8, prm.muk8, prm.slop, prm.cq, prm.eps, prm.g0, prm.margin, prm.hi, prm.th, prm.route, prm.vr].forEach((x, k) => dv.setInt32(16 + 4 * k, x, true));
       [I, first, thr, capc, seg, dense, force].forEach((x, k) => dv.setUint32(68 + 4 * k, x, true)); const ub = dev.createBuffer({ size: 96, usage: U.UNIFORM | U.COPY_DST }); dev.queue.writeBuffer(ub, 0, u); return ub; };
     const pl = {}; for (const k of Object.keys(WGSL)) pl[k] = await pipe(WGSL[k]);
     const bg = (k, u, bufs) => dev.createBindGroup({ layout: pl[k].getBindGroupLayout(0), entries: [u, ...bufs].map((buffer, binding) => ({ binding, resource: { buffer } })) });
-    const u0 = uni(0, 0), unis = [u0], cg = [Math.min(65535, Math.ceil(cells / 64)), Math.ceil(Math.ceil(cells / 64) / 65535)], P = [];
+    const u0 = uni(0, 0), unis = [u0], P = [];
     const add = (k, u, bufs, disp) => P.push([k, bg(k, u, bufs), disp]); const U1 = (f, t) => { const x = uni(f, t); unis.push(x); return x; };
-    add('clear', u0, [b.grid], cg); add('insert', u0, [b.pos, b.grid], [Math.ceil(N / 64)]);
-    add('args0', u0, [b.at, b.bl, b.ind], [1]); add('markx', u0, [b.bl, b.seeds, b.fa, b.lx, b.at], 0);
-    add('args1', U1(1, 0), [b.at, b.bl, b.ind], [1]); add('marky', u0, [b.bl, b.lx, b.fa, b.fb, b.ly, b.at], 12);
+    add('args0', u0, [b.at, b.bl, b.ind], [1]); add('clear', u0, [b.grid], 72); add('insert', u0, [b.pos, b.grid], 84);
+    add('markx', u0, [b.bl, b.seeds, b.fa, b.lx, b.at], 0);
+    add('args1', U1(1, 0), [b.at, b.bl, b.ind], [1]); add('clear', u0, [b.grid], 96); add('insert', u0, [b.pos, b.grid], 108);
+    add('gather', u0, [b.bl, b.lx, b.fa, b.grid, b.at], 12); add('clearseed', u0, [b.bl, b.lx, b.fa, b.grid], 12);
+    add('args1', U1(5, 0), [b.at, b.bl, b.ind], [1]); add('reinsert', u0, [b.bl, b.pos, b.grid], 120);
+    add('marky', u0, [b.bl, b.lx, b.fa, b.fb, b.ly, b.at], 12);
     add('args1', U1(2, 0), [b.at, b.bl, b.ind], [1]); add('markz', u0, [b.bl, b.ly, b.fb, b.fa, b.lz, b.at], 24);
     add('args1', U1(3, 0), [b.at, b.bl, b.ind], [1]); add('collect', u0, [b.bl, b.lz, b.grid, b.at], 36);
     add('args1', U1(4, 0), [b.at, b.bl, b.ind], [1]);

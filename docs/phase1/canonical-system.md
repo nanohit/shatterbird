@@ -54,39 +54,46 @@ No overflow occurred in these scenes, which is why the race in the 8-slot cells 
 
 ## 4. Incremental execution on the GPU
 
-Per substep: grid rebuild; a one-invocation pass reads the seed counters (cells touched by bodies that
-were not quiet in the previous substep, written by the end-of-step pass into 64 striped lists) and
-decides full or incremental; an exact Chebyshev distance transform over cells in three passes (x, y,
-z; atomic min, each pass appends newly reached cells to a list); bodies of the reached cells are
-compacted into an active list; contact search for distance <= 1, iteration k for distance <= k + 2,
-end of step for distance <= iterations + 1; marks are reset through the list. All dispatches are
-indirect; list overflow or too many seeds switches that substep to full. 19 dispatches per substep,
-all in one compute pass (one pass per stage costs 4x more at rest on Metal).
+Per substep: a one-invocation pass reads the seed counters (cells touched by bodies that were not
+quiet in the previous substep, written by the end-of-step pass into 64 striped lists) and decides
+full or incremental; an exact Chebyshev distance transform over cells in three passes (x, y, z;
+atomic min, each pass appends newly reached cells to a list); the grid is kept between substeps and
+only the lists of the seed cells are rebuilt (every cell a body left or entered is a seed cell);
+bodies of the reached cells are compacted into an active list; contact search for distance <= 1,
+iteration k for distance <= k + 2, end of step for distance <= iterations + 1; marks are reset through
+the list. All dispatches are indirect; list overflow or too many seeds switches that substep to full
+(with a full grid rebuild). 25 dispatches per substep, all in one compute pass (a pass per stage
+costs about 4x more at rest on Metal).
 
 Identity: JS incremental = GPU full = GPU incremental at 22 checkpoints through falling, settling,
 rest, a kick and its wake (4096 bodies), on both GPUs, including the fault counters; the number of
 evaluated body-substeps on the GPU equals the JS count exactly (3 212 058), so the distance transform
-is exact. At 32k, 205k and 524k bodies the hashes of full and incremental runs agree at rest and
-after the wake, and the M3 Pro and GTX hashes agree with each other.
+is exact. A fuzz run (1240 random host edits on a settled pile: single kicks and bursts of 300, five
+configurations including list capacities small enough to force the overflow path and a setting that
+never switches to full) matches JS full stepping at all 25 checkpoints of every configuration on both
+GPUs. At 32k, 205k and 524k bodies the hashes of full and incremental runs agree at rest and after the
+wake, and the M3 Pro and GTX hashes agree with each other.
 
 GPU time per substep, Jacobi variant (`f_gpu_time_summary.json`):
 
 | bodies | device | all moving, full / incr. | at rest, full / incr. | wake of a 1 m/s kick, full / incr. |
 |---|---|---|---|---|
-| 524 288 | M3 Pro | 3.39 / 3.28 ms | 9.75 / 0.358 ms (3.7 %) | 1344 / 68.6 ms over 140 substeps (5.1 %) |
-| 524 288 | GTX 1660 S | 2.66 / 2.66 ms | 14.68 / 0.203 ms (1.4 %) | 2056 / 46.7 ms (2.3 %) |
-| 204 800 | M3 Pro | 1.41 / 1.39 ms | 3.35 / 0.149 ms (4.4 %) | 366 / 27.5 ms (7.5 %) |
-| 204 800 | GTX 1660 S | 1.13 / 1.13 ms | 5.81 / 0.139 ms (2.4 %) | 581 / 23.8 ms (4.1 %) |
-| 32 768 | M3 Pro | — | 0.61 / 0.101 ms (17 %) | 72 / 37.7 ms (52 %) |
-| 32 768 | GTX 1660 S | 0.33 / 0.33 ms | 1.02 / 0.095 ms (9 %) | 123 / 56.1 ms (46 %) |
+| 524 288 | M3 Pro | 3.3 / 3.3 ms | 9.15 / 0.131 ms (1.4 %) | 1275 / 32.0 ms over 140 substeps (2.5 %) |
+| 524 288 | GTX 1660 S | 2.66 / 2.66 ms | 14.73 / 0.126 ms (0.85 %) | 2062 / 36.9 ms (1.8 %) |
+| 204 800 | M3 Pro | 1.4 / 1.4 ms | 3.56 / 0.111 ms (3.1 %) | 361 / 20.4 ms (5.6 %) |
+| 204 800 | GTX 1660 S | 1.13 / 1.13 ms | 5.83 / 0.125 ms (2.1 %) | 583 / 22.9 ms (3.9 %) |
+| 32 768 | M3 Pro | — | 0.66 / 0.113 ms (17 %) | 79 / 43.2 ms (55 %) |
+| 32 768 | GTX 1660 S | 0.33 / 0.33 ms | 1.07 / 0.124 ms (12 %) | 128 / 60.4 ms (47 %) |
 
-What the floor is made of (524k, M3 Pro, at rest): grid rebuild 0.22 ms (O(N), about 60 %), the other
-17 dispatches 0.1–0.16 ms. The scheduling itself costs nothing measurable when everything moves
-(the substep switches to full). At 32k the kick wakes the whole pile (it is only 64 cells wide), so
-there is little to gain; at 524k it wakes 0.5–0.7 % of the bodies.
-
-Not asymptotically free: the grid rebuild is still O(N). An incremental grid (relink only bodies of
-cells touched by moving bodies) would remove it; not built.
+- **A resting world costs the same at any size**: 0.11–0.13 ms per substep on both GPUs for 32k,
+  205k and 524k bodies. That is the fixed price of 25 dispatches; no term proportional to the number
+  of bodies or cells is left. With a full grid rebuild every substep the same state cost 0.36 ms at
+  524k on the M3 Pro (0.22 ms of it the rebuild).
+- **Deciding costs nothing measurable when everything moves**: the substep switches to full.
+- At 32k the kick wakes the whole pile (it is only 64 cells wide), so there is little to gain; at
+  524k it wakes 0.5–0.7 % of the bodies.
+- During settling the incremental run is not cheaper until bodies start to rest (ratios 1.0, then
+  0.05–0.1 in the last few hundred substeps).
 
 Memory: 663 B per body at 524k (596 B per body, the rest per cell; the grid has 3 cells per body
 because of the head room). Pre-registered <= 600 B: failed. Packing a slot into 12 B would give about
@@ -169,7 +176,7 @@ iteration later, momentum is conserved exactly.
 | F4 no silent drops, canonical overflow | passed on both GPUs |
 | F5 ledger on the GPU | replaced: the anchor is state, compared bit for bit as part of it |
 | F6 incremental = full, both GPUs | passed at every checkpoint |
-| F7 cost of scheduling plus work | passed: rest 1.4–3.7 %, wake 2.3–5.1 % of full at 524k; no overhead when everything moves |
+| F7 cost of scheduling plus work | passed: rest 0.85–1.4 %, wake 1.8–2.5 % of full at 524k; no overhead when everything moves; rest cost independent of size |
 | F8 memory <= 600 B | failed (663 B) |
 
 ## 9. Open, not answered here
@@ -191,5 +198,5 @@ iteration later, momentum is conserved exactly.
   layers, which is the idea of the 1e members. Next experiment: two-pass propagation over support
   layers as an option of the same specification, judged by the same slump and kick observables; pass
   = consequences within tolerance and a 64-column at rest within 200 substeps.
-- Rotation and rigid clumps, incremental grid, 12-byte slots, phones (the v2 pipeline needs 8 storage
-  buffers per stage, the default limit).
+- Rotation and rigid clumps, 12-byte slots, phones (the v2 pipeline needs 8 storage buffers per stage,
+  the default limit), host edits that move bodies (they must seed the old and the new cell).
