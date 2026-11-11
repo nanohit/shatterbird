@@ -1,0 +1,160 @@
+{
+ "main": {
+  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+  "time": "2026-11-10T23:43:40.665Z",
+  "tag": "chrome_metal_m3pro",
+  "adapter": {
+   "vendor": "apple",
+   "architecture": "metal-3",
+   "device": "",
+   "description": "",
+   "fallback": false
+  },
+  "limits": {
+   "maxStorageBufferBindingSize": 4294967292,
+   "maxBufferSize": 4294967292,
+   "maxComputeWorkgroupsPerDimension": 65535,
+   "maxStorageBuffersPerShaderStage": 10
+  },
+  "facet": {
+   "hashes": {
+    "cpu_rep1": "99b34cc3",
+    "N_rep1": "99b34cc3",
+    "W_rep1": "99b34cc3",
+    "F_rep1": "e4992206",
+    "Ffma_rep1": "8131c96b",
+    "Falt_rep1": "ff370890",
+    "cpu_rep3": "2ae7e6fc",
+    "N_rep3": "2ae7e6fc",
+    "W_rep3": "2ae7e6fc",
+    "F_rep3": "8d0160d4",
+    "Ffma_rep3": "0fb0f9ba",
+    "Falt_rep3": "f6114742"
+   },
+   "mismatch_vs_cpu": {
+    "N_rep1": 0,
+    "W_rep1": 0,
+    "N_rep3": 0,
+    "W_rep3": 0
+   },
+   "float_census": {
+    "rep1": {
+     "F_vs_Ffma": {
+      "words": 0.03748779296875,
+      "elements": 0.0441436767578125
+     },
+     "F_vs_Falt": {
+      "words": 0.344482421875,
+      "elements": 0.5746917724609375
+     }
+    },
+    "rep3": {
+     "F_vs_Ffma": {
+      "words": 0.0574798583984375,
+      "elements": 0.101776123046875
+     },
+     "F_vs_Falt": {
+      "words": 0.32825927734375,
+      "elements": 0.7252197265625
+     }
+    }
+   },
+   "float_vs_spec": {
+    "max_abs_force_lsb": 18432,
+    "rounded_float_differs_fraction": 0.9988327026367188
+   },
+   "timing": {
+    "nf": 1048576,
+    "bytes_per_facet": 112,
+    "ns_per_eval": {
+     "F": {
+      "1": 1.5004475926616578,
+      "8": 1.505146858859086,
+      "32": 1.716613766689079,
+      "128": 6.13530477266977
+     },
+     "N": {
+      "1": 1.5128742554473071,
+      "8": 1.5020370483398438,
+      "32": 2.5204249790736606,
+      "128": 9.775161743164062
+     },
+     "W": {
+      "1": 1.4885612146194351,
+      "8": 1.7467297981822507,
+      "32": 6.739298498814605,
+      "128": 26.655197189029423
+     }
+    },
+    "summary": {
+     "ns_per_facet_memory_bound": 1.5004475926616578,
+     "compute_ns_per_eval": {
+      "F": 0.04602803131229886,
+      "N": 0.07557017462594169,
+      "W": 0.207457278023071
+     },
+     "tax_compute_bound": {
+      "N": 1.6418293911638377,
+      "W": 4.507194248988826
+     },
+     "tax_at_rep": {
+      "1": {
+       "N": 1.0082819705576025,
+       "W": 0.9920781118245274
+      },
+      "8": {
+       "N": 0.9979338823311903,
+       "W": 1.1605045633263233
+      },
+      "32": {
+       "N": 1.4682539706849336,
+       "W": 3.9259259302184417
+      },
+      "128": {
+       "N": 1.59326424772056,
+       "W": 4.344559590220723
+      }
+     }
+    }
+   }
+  },
+  "bandwidth": {
+   "bytes": 67108864,
+   "GB_per_s_read_plus_write": 119.30464711111111
+  },
+  "dispatch": {
+   "us_per_dispatch_same_pass": 1.25,
+   "us_per_dispatch_separate_passes": 1.8499999642372131
+  },
+  "ca": {
+   "hash_gpu": "5065ab0a",
+   "hash_cpu": "5065ab0a",
+   "mismatch_cells": 0,
+   "changed_fraction_after_64": 0.63458251953125,
+   "throughput": {
+    "1024": {
+     "cells": 1048576,
+     "ms_per_step": 0.04999999701976776,
+     "cell_updates_per_s": 20971521250.000072,
+     "GB_per_s": 167.77217000000059
+    },
+    "2048": {
+     "cells": 4194304,
+     "ms_per_step": 0.3187500014901161,
+     "cell_updates_per_s": 13158600722.798923,
+     "GB_per_s": 105.2688057823914
+    },
+    "4096": {
+     "cells": 16777216,
+     "ms_per_step": 1.8499999940395355,
+     "cell_updates_per_s": 9068765434.623814,
+     "GB_per_s": 72.5501234769905
+    }
+   }
+  },
+  "errors": []
+ },
+ "fallback": {
+  "error": "AbortError: Failed to execute 'mapAsync' on 'GPUBuffer': A valid external Instance reference no longer exists."
+ }
+}

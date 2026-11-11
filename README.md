@@ -1,6 +1,12 @@
 # Shatterbird — Phase 0 (mechanics and solver truth, CPU f64)
 
-**Phase 0d (current): adaptive engine for fracture without computing every internal oscillation** — [`docs/phase0d/adaptive-engine.md`](docs/phase0d/adaptive-engine.md).
+**Phase 1 (current): Shatterbird as a deterministic runtime** — [`docs/phase1/runtime-reframing.md`](docs/phase1/runtime-reframing.md).
+- **Question:** what has to be computed at all, and what determinism costs, before asking how to compute an elastic network cheaply.
+- **Measured on one GPU:** integer kernels are bit-identical to their reference and cost the same as f32 when memory-bound; bytes, not arithmetic, set the tick budget.
+- **Mechanics:** wave-free predictors reproduce the explicit support-removal threshold within 5 % and the impact threshold 13–19 % low.
+- **Code:** `gpu-probe/det.html` (portable probe), `cargo run --release -p experiments --bin phase1 -- wavefree`. Outputs go to `results/phase1/`.
+
+**Phase 0d: adaptive engine for fracture without computing every internal oscillation** — [`docs/phase0d/adaptive-engine.md`](docs/phase0d/adaptive-engine.md).
 - **What it is:** one implicit Newton system over coarse patches (multiscale P2 bases) and single-cell patches. Cells are split where damage, stress or impact demands it and merged back when quiet, with the projection loss booked.
 - **Time integration:** variable-step BDF2, with the step set by the local error of fracture- and contact-relevant openings. A cost switch runs the whole model explicitly whenever that is cheaper.
 - **Results:** pre-registered support-removal and impact criteria, scaling and mass-failure experiments, plus the multirate explicit/implicit coupling and why it was set aside.
