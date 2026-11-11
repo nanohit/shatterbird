@@ -299,10 +299,11 @@ async function probe(opts = {}) {
   for (const w of small ? [1024] : [1024, 2048, 4096]) { const steps = 16, ms = await caRun(w, w, steps, caInit(w, w, 5), true); R.ca.throughput[w] = { cells: w * w, ms_per_step: ms / steps, cell_updates_per_s: w * w * steps / (ms * 1e-3), GB_per_s: 8 * w * w * steps / (ms * 1e6) }; }
   log(JSON.stringify(R.ca));
   } catch (e) { R.stage_errors.push('automaton: ' + (e.message || e)); log('automaton stage failed: ' + (e.message || e)); }
+  try { mark('spheres'); if (typeof SPH !== 'undefined' && !opts.nospheres) { log('sphere contacts'); R.spheres = await SPH.stage({ dev, mk, pipe, read, timed, fnv, log }, { small }); } } catch (e) { R.stage_errors.push('spheres: ' + (e.message || e)); log('spheres stage failed: ' + (e.message || e)); }
   mark('done'); R.errors = errs; closing = true; dev.destroy(); return R;
 }
 // Compact, human-checkable summary (about 1 KB) that fits into a prefilled GitHub issue.
-const PROBE_VERSION = 1, REPO = 'nanohit/shatterbird';
+const PROBE_VERSION = 2, REPO = 'nanohit/shatterbird';
 function compact(res) {
   const g3 = x => (typeof x === 'number' && isFinite(x)) ? +x.toPrecision(3) : x, c = { v: PROBE_VERSION };
   const one = (R, full) => {
@@ -312,6 +313,7 @@ function compact(res) {
     if (R.bandwidth && full) o.bw = g3(R.bandwidth.GB_per_s_read_plus_write);
     if (R.dispatch && full) o.disp = [g3(R.dispatch.us_per_dispatch_same_pass), g3(R.dispatch.us_per_dispatch_separate_passes)];
     if (R.ca) { o.ca = { g: R.ca.hash_gpu, c: R.ca.hash_cpu, mm: R.ca.mismatch_cells }; if (full) o.ca.ms = Object.fromEntries(Object.entries(R.ca.throughput).map(([k, x]) => [k, g3(x.ms_per_step)])); }
+    if (R.spheres) { const c = R.spheres.correct, t = R.spheres.throughput || {}; o.sph = { g: c && c.hash_gpu, c: c && c.hash_cpu, mm: c && c.mismatch_words, mc: c && c.max_cell_count_gpu, cpu_ms: g3(R.spheres.cpu_ms_per_substep) }; if (full) o.sph.t = Object.fromEntries(Object.entries(t).map(([k, x]) => [k, [g3(x.ns_per_sphere_substep), g3(x.pass_ns.solve), g3(x.pass_ns.clear_insert), g3(x.contacts_per_sphere), x.max_cell_count, x.overflow]])); }
     const er = [...(R.stage_errors || []), ...(R.errors || [])]; if (er.length) o.err = er.map(e => String(e).slice(0, 160)).slice(0, 4);
     return o;
   };
@@ -322,7 +324,7 @@ async function runAll(opts = {}) {
   out.textContent = ''; let prev = null; try { prev = localStorage.getItem('sb_stage'); } catch (e) { }
   const res = { tag: opts.tag || 'run', small: !!opts.small, prev_crash: prev && prev !== 'done' ? prev : null };
   try { res.main = await probe(opts); } catch (e) { res.main = { error: String(e && e.message || e), ua: navigator.userAgent }; }
-  if (!opts.nofallback) { try { res.fallback = await probe({ ...opts, fallback: true, small: true }); } catch (e) { res.fallback = { error: String(e && e.message || e) }; } }
+  if (!opts.nofallback) { try { res.fallback = await probe({ ...opts, fallback: true, small: true, nospheres: false }); } catch (e) { res.fallback = { error: String(e && e.message || e) }; } }
   try { localStorage.setItem('sb_stage', 'done'); } catch (e) { }
   window.__det = res; window.__compact = compact(res);
   out.textContent += '\n=== COMPACT RESULT (this is what gets sent) ===\n' + JSON.stringify(window.__compact, null, 1);

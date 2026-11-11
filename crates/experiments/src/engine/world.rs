@@ -944,6 +944,17 @@ impl World {
 
 
     /// Energy of the active zone's own terms: KE, E facets (incl. interface), gravity.
+    /// Research hook (Phase 1b): replace the kinematic state. The leapfrog restarts from the
+    /// synchronised velocity on the next substep; damage history is untouched.
+    pub fn set_kinematics(&mut self, q: Vec<[f64; 3]>, v: Vec<[f64; 3]>) {
+        self.q = q;
+        self.v = v;
+        self.vh.clone_from(&self.v);
+        for f in self.fresh.iter_mut() {
+            *f = true;
+        }
+    }
+
     pub fn e_energy(&self, q: &[[f64; 3]], v: &[[f64; 3]]) -> f64 {
         let m = &self.sc.m;
         let mut u = 0.0;

@@ -1,0 +1,263 @@
+{
+ "tag": "chrome_metal_m3pro_v2",
+ "small": false,
+ "prev_crash": null,
+ "main": {
+  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+  "time": "2026-11-11T04:17:53.284Z",
+  "tag": "chrome_metal_m3pro_v2",
+  "adapter": {
+   "vendor": "apple",
+   "architecture": "metal-3",
+   "device": "",
+   "description": "",
+   "fallback": false
+  },
+  "limits": {
+   "maxStorageBufferBindingSize": 4294967292,
+   "maxBufferSize": 4294967292,
+   "maxComputeWorkgroupsPerDimension": 65535,
+   "maxStorageBuffersPerShaderStage": 10
+  },
+  "stage_errors": [],
+  "facet": {
+   "hashes": {
+    "cpu_rep1": "99b34cc3",
+    "N_rep1": "99b34cc3",
+    "W_rep1": "99b34cc3",
+    "F_rep1": "e4992206",
+    "Ffma_rep1": "8131c96b",
+    "Falt_rep1": "ff370890",
+    "cpu_rep3": "2ae7e6fc",
+    "N_rep3": "2ae7e6fc",
+    "W_rep3": "2ae7e6fc",
+    "F_rep3": "8d0160d4",
+    "Ffma_rep3": "0fb0f9ba",
+    "Falt_rep3": "f6114742"
+   },
+   "mismatch_vs_cpu": {
+    "N_rep1": 0,
+    "W_rep1": 0,
+    "N_rep3": 0,
+    "W_rep3": 0
+   },
+   "float_census": {
+    "rep1": {
+     "F_vs_Ffma": {
+      "words": 0.03748779296875,
+      "elements": 0.0441436767578125
+     },
+     "F_vs_Falt": {
+      "words": 0.344482421875,
+      "elements": 0.5746917724609375
+     }
+    },
+    "rep3": {
+     "F_vs_Ffma": {
+      "words": 0.0574798583984375,
+      "elements": 0.101776123046875
+     },
+     "F_vs_Falt": {
+      "words": 0.32825927734375,
+      "elements": 0.7252197265625
+     }
+    }
+   },
+   "float_vs_spec": {
+    "max_abs_force_lsb": 18432,
+    "rounded_float_differs_fraction": 0.9988327026367188
+   },
+   "timing": {
+    "nf": 1048576,
+    "bytes_per_facet": 112,
+    "ns_per_eval": {
+     "F": {
+      "1": 1.7356872490381647,
+      "8": 1.7309188876879489,
+      "32": 1.9836425792618684,
+      "128": 7.009506229375499
+     },
+     "N": {
+      "1": 1.7331994078394137,
+      "8": 1.7070770297777926,
+      "32": 2.930959067271033,
+      "128": 11.205673217773438
+     },
+     "W": {
+      "1": 1.6917353120690044,
+      "8": 2.0217895496443816,
+      "32": 7.7088673909505205,
+      "128": 30.66062924972357
+     }
+    },
+    "summary": {
+     "ns_per_facet_memory_bound": 1.7356872490381647,
+     "compute_ns_per_eval": {
+      "F": 0.05235274635535032,
+      "N": 0.08619493906773339,
+      "W": 0.2390808526955526
+     },
+     "tax_compute_bound": {
+      "N": 1.6464263112898658,
+      "W": 4.566729910839131
+     },
+     "tax_at_rep": {
+      "1": {
+       "N": 0.9985666535257838,
+       "W": 0.9746775019557721
+      },
+      "8": {
+       "N": 0.9862258953439449,
+       "W": 1.16804407417667
+      },
+      "32": {
+       "N": 1.4775641024814408,
+       "W": 3.886217946490673
+      },
+      "128": {
+       "N": 1.5986394549180376,
+       "W": 4.374149654255351
+      }
+     }
+    }
+   }
+  },
+  "bandwidth": {
+   "bytes": 67108864,
+   "GB_per_s_read_plus_write": 114.22785390674514
+  },
+  "dispatch": {
+   "us_per_dispatch_same_pass": 1.600000023841858,
+   "us_per_dispatch_separate_passes": 2.25
+  },
+  "ca": {
+   "hash_gpu": "5065ab0a",
+   "hash_cpu": "5065ab0a",
+   "mismatch_cells": 0,
+   "changed_fraction_after_64": 0.63458251953125,
+   "throughput": {
+    "1024": {
+     "cells": 1048576,
+     "ms_per_step": 0.05624999850988388,
+     "cell_updates_per_s": 18641351604.938286,
+     "GB_per_s": 149.1308128395063
+    },
+    "2048": {
+     "cells": 4194304,
+     "ms_per_step": 0.34375,
+     "cell_updates_per_s": 12201611636.363638,
+     "GB_per_s": 97.6128930909091
+    },
+    "4096": {
+     "cells": 16777216,
+     "ms_per_step": 1.3875000029802322,
+     "cell_updates_per_s": 12091687181.235289,
+     "GB_per_s": 96.73349744988232
+    }
+   }
+  },
+  "spheres": {
+   "spec": {
+    "diam": 1024,
+    "slots": 8,
+    "grav": 111,
+    "w": 2
+   },
+   "cpu_ms_per_substep": 6.714062500745058,
+   "correct": {
+    "n": 21952,
+    "substeps": 64,
+    "hash_gpu": "738b4865d8570d24",
+    "hash_cpu": "738b4865d8570d24",
+    "mismatch_words": 0,
+    "max_cell_count_gpu": 4,
+    "cpu": {
+     "over": 0,
+     "maxc": 4,
+     "contacts_per_sphere": 2.77341472303207,
+     "max_pen": 215,
+     "mean_pen": 33.180414572451625
+    }
+   },
+   "throughput": {
+    "50_coherent": {
+     "n": 125000,
+     "layout": "coherent",
+     "cells": 148877,
+     "substeps_timed": 70,
+     "ms_per_substep": 0.5814285704067775,
+     "ns_per_sphere_substep": 4.65142856325422,
+     "pass_ns": {
+      "integrate": 0.22857142857142856,
+      "clear": 0.1028571401323591,
+      "clear_insert": 0.26285715103149415,
+      "solve": 4.937142862592425
+     },
+     "contacts_per_sphere": 9.257376,
+     "max_cell_count": 6,
+     "overflow": 0,
+     "max_pen": 369,
+     "mean_pen": 50.93595766230085
+    },
+    "50_shuffled": {
+     "n": 125000,
+     "layout": "shuffled",
+     "cells": 148877,
+     "substeps_timed": 42,
+     "ms_per_substep": 1,
+     "ns_per_sphere_substep": 8,
+     "pass_ns": {
+      "integrate": 0.22857143765404112,
+      "clear": 0.09523809523809523,
+      "clear_insert": 0.323809510185605,
+      "solve": 7.809523809523809
+     },
+     "contacts_per_sphere": 8.326352,
+     "max_cell_count": 6,
+     "overflow": 0,
+     "max_pen": 359,
+     "mean_pen": 50.41767727331249
+    },
+    "100_coherent": {
+     "n": 1000000,
+     "layout": "coherent",
+     "cells": 1061208,
+     "substeps_timed": 7,
+     "ms_per_substep": 6.528571435383388,
+     "ns_per_sphere_substep": 6.528571435383388,
+     "pass_ns": {
+      "integrate": 0.3999999931880406,
+      "clear": 0.07142857142857142,
+      "clear_insert": 0.5714285714285714,
+      "solve": 5.485714282308306
+     },
+     "contacts_per_sphere": 10.769602,
+     "max_cell_count": 6,
+     "overflow": 0,
+     "max_pen": 503,
+     "mean_pen": 94.61847039472768
+    },
+    "100_shuffled": {
+     "n": 1000000,
+     "layout": "shuffled",
+     "cells": 1061208,
+     "substeps_timed": 4,
+     "ms_per_substep": 41.025000005960464,
+     "ns_per_sphere_substep": 41.025000005960464,
+     "pass_ns": {
+      "integrate": 0.42500001192092896,
+      "clear": 0.10000002384185791,
+      "clear_insert": 0.875,
+      "solve": 40.125
+     },
+     "contacts_per_sphere": 10.808608,
+     "max_cell_count": 6,
+     "overflow": 0,
+     "max_pen": 475,
+     "mean_pen": 95.00533630232496
+    }
+   }
+  },
+  "errors": []
+ }
+}
