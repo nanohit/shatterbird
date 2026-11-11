@@ -320,6 +320,25 @@ function compact(res) {
   c.tag = res.tag; c.small = !!res.small; c.ua = (res.main && res.main.ua || navigator.userAgent).slice(0, 200); c.prev_crash = res.prev_crash || undefined;
   c.main = one(res.main, true); c.fb = one(res.fallback, false); return c;
 }
+// Plain-language reading of the compact result.
+function verdict(c) {
+  const m = c.main || {}, L = [], ok = b => b ? 'IDENTICAL to the reference' : 'DIFFERS from the reference  <-- this is the important case, please send it';
+  if (m.error) return 'Could not run: ' + m.error + '\n';
+  L.push('=== WHAT THIS RUN SHOWS ===', 'GPU: ' + (m.ad || '?').split('|').filter(x => x).join(' '), '');
+  L.push('1. Same bits as every other device?');
+  if (m.h && m.mm) L.push('   integer force kernel:  ' + ok(Object.values(m.mm).every(x => x === 0) && m.h.N_rep1 === '99b34cc3' && m.h.N_rep3 === '2ae7e6fc'));
+  if (m.ca) L.push('   sand/water automaton:  ' + ok(m.ca.mm === 0 && m.ca.g === m.ca.c));
+  if (m.sph) L.push('   sphere contacts:       ' + ok(m.sph.mm === 0 && m.sph.g === m.sph.c));
+  if (m.h) L.push('   float version (for comparison only, expected to differ between GPU vendors): ' + m.h.F_rep1);
+  L.push('', '2. Speed of this GPU');
+  if (m.bw) L.push('   memory traffic: ' + m.bw + ' GB/s');
+  if (m.t && m.t.F && m.t.N) L.push('   cost of exact integers vs float: x' + (m.t.N['1'] / m.t.F['1']).toFixed(2) + ' in a normal kernel, x' + (m.t.N['128'] / m.t.F['128']).toFixed(2) + ' in a pure-arithmetic one');
+  if (m.ca && m.ca.ms) { const k = Object.keys(m.ca.ms).pop(); L.push('   automaton: ' + (k * k / 1e6).toFixed(1) + ' million cells in ' + m.ca.ms[k] + ' ms per step'); }
+  if (m.sph && m.sph.t) for (const [k, x] of Object.entries(m.sph.t)) L.push('   ' + Math.pow(parseInt(k), 3) + ' spheres, ' + k.split('_')[1] + ' memory order: ' + x[0] + ' ns per sphere per substep (' + (x[0] * Math.pow(parseInt(k), 3) * 8 / 1e6).toFixed(1) + ' ms per frame at 8 substeps)');
+  if (m.err) L.push('', 'Errors: ' + m.err.join(' | '));
+  if (c.prev_crash) L.push('', 'Note: an earlier run on this device stopped during stage "' + c.prev_crash + '".');
+  return L.join('\n') + '\n';
+}
 async function runAll(opts = {}) {
   out.textContent = ''; let prev = null; try { prev = localStorage.getItem('sb_stage'); } catch (e) { }
   const res = { tag: opts.tag || 'run', small: !!opts.small, prev_crash: prev && prev !== 'done' ? prev : null };
@@ -327,7 +346,7 @@ async function runAll(opts = {}) {
   if (!opts.nofallback) { try { res.fallback = await probe({ ...opts, fallback: true, small: true, nospheres: false }); } catch (e) { res.fallback = { error: String(e && e.message || e) }; } }
   try { localStorage.setItem('sb_stage', 'done'); } catch (e) { }
   window.__det = res; window.__compact = compact(res);
-  out.textContent += '\n=== COMPACT RESULT (this is what gets sent) ===\n' + JSON.stringify(window.__compact, null, 1);
+  out.textContent = verdict(window.__compact) + '\n=== RAW RESULT (this is what gets sent; no need to read it) ===\n' + JSON.stringify(window.__compact);
   try { if (location.hostname === '127.0.0.1' || location.hostname === 'localhost') await fetch('/save/det_' + (opts.tag || 'run') + '.json', { method: 'POST', body: JSON.stringify(res, null, 1) }); } catch (e) { }
   const st = document.getElementById('st'); if (st) st.textContent = 'done - now press "Send result" (or "Copy result" and paste it to Pavel)';
   return res;
