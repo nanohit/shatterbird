@@ -90,6 +90,17 @@ async function xdev2(opts = {}) {
       if (opts.dump !== false) for (const k of ['pos', 'vel', 'slot']) await XD.save(`${R.tag}_v2overflow_${k}.bin`, s[k]);
       g.G.free(); gq.G.free(); log('overflow: ' + JSON.stringify(R.overflow));
     }
+    if (tests.includes('trace')) {
+      // GPU against JS substep by substep (full stepping); at the first difference: the bodies and slots that differ
+      const n = opts.trace_n || 8, A = cloud(n), J = cloud(n), N = A.N, g = await start(A, { force: true }); R.trace = { n: N, first_difference: -1 };
+      for (let t = 1; t <= (opts.trace_steps || 200); t++) { V.step(J, prm); await g.steps(1); const st = await g.state(); const bad = [];
+        for (let i = 0; i < N && bad.length < 6; i++) { let d = false; for (let c = 0; c < 4; c++) if (st.pos[4 * i + c] !== J.pos[4 * i + c] || st.vel[4 * i + c] !== J.vel[4 * i + c]) d = true;
+          const m = J.vel[4 * i + 3] & 31, key = (sl, q) => Array.from(sl.subarray(4 * (i * K + q), 4 * (i * K + q) + 4)), gs = [], js = []; for (let q = 0; q < m; q++) { gs.push(key(st.slot, q)); js.push(key(J.slot, q)); }
+          const sk = a => a.map(x => x.join(',')).sort(); const ga = sk(gs), ja = sk(js), sl = []; for (let q = 0; q < m; q++) if (ga[q] !== ja[q]) sl.push({ gpu: ga[q], js: ja[q] });
+          if (d || sl.length) bad.push({ i, gpu_vel: Array.from(st.vel.subarray(4 * i, 4 * i + 4)), js_vel: Array.from(J.vel.subarray(4 * i, 4 * i + 4)), slots: sl }); }
+        if (bad.length) { R.trace.first_difference = t; R.trace.bodies = bad; break; } }
+      g.G.free(); log('trace: ' + JSON.stringify(R.trace).slice(0, 3000));
+    }
     if (tests.includes('stuck')) {
       // diagnosis: step a cloud incrementally, then record every body whose velocity, position or impulses change over
       // opts.stuck_window consecutive substeps, with its contacts
@@ -97,6 +108,7 @@ async function xdev2(opts = {}) {
       const snaps = []; for (let t = 0; t < (opts.stuck_window || 16); t++) { snaps.push(await g.state()); await g.steps(1); }
       const moving = new Set(); for (let t = 1; t < snaps.length; t++) for (let i = 0; i < N; i++) { let d = false; for (let c = 0; c < 4 && !d; c++) if (snaps[t].pos[4 * i + c] !== snaps[t - 1].pos[4 * i + c] || snaps[t].vel[4 * i + c] !== snaps[t - 1].vel[4 * i + c]) d = true; if (!d) { const m = snaps[t].vel[4 * i + 3] & 31; for (let q = 0; q < 4 * m && !d; q++) if (snaps[t].slot[4 * i * K + q] !== snaps[t - 1].slot[4 * i * K + q]) d = true; } if (d) moving.add(i); }
       const S = { ...A, pos: snaps[0].pos, vel: snaps[0].vel, slot: snaps[0].slot }, list = [...moving].slice(0, 12);
+      if (opts.stuck_dump) for (const k of ['pos', 'vel', 'slot']) await XD.save(`${R.tag}_stuck_${k}.bin`, snaps[0][k]);
       R.stuck = { n: N, changing_bodies: moving.size, bodies: list.map(i => ({ i, y_D: +(snaps[0].pos[4 * i + 1] / 245760).toFixed(2), vel: snaps.map(sn => [sn.vel[4 * i], sn.vel[4 * i + 1], sn.vel[4 * i + 2], sn.vel[4 * i + 3] >> 8]), dpos: snaps.map(sn => [sn.pos[4 * i] - snaps[0].pos[4 * i], sn.pos[4 * i + 1] - snaps[0].pos[4 * i + 1], sn.pos[4 * i + 2] - snaps[0].pos[4 * i + 2]]),
         contacts: Array.from({ length: snaps[0].vel[4 * i + 3] & 31 }, (_, q) => { const o = 4 * (i * K + q), id = snaps[0].slot[o + 3] >>> 0; V.geom(S, i, id); return { id: id >= V.WALL ? 'W' + (id - V.WALL) : id, n: [V.geo.ex / V.geo.len, V.geo.ey / V.geo.len, V.geo.ez / V.geo.len].map(x => +x.toFixed(2)), pen: V.geo.pen, P: snaps.map(sn => [sn.slot[o], sn.slot[o + 1], sn.slot[o + 2]]) }; }) })) };
       // the same substep in the JS specification, from the GPU state: identity, and the last two levels of the residual

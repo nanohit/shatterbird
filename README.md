@@ -1,6 +1,12 @@
 # Shatterbird — Phase 0 (mechanics and solver truth, CPU f64)
 
-**Phase 1g (current): what a resting pile has to remember, and what the solver gets wrong** — [`docs/phase1/rest-physics.md`](docs/phase1/rest-physics.md).
+**Phase 1h (current): carrying load further per iteration, fully parallel** — [`docs/phase1/long-range.md`](docs/phase1/long-range.md).
+- **Chebyshev-accelerated Jacobi (law v4), no extra memory:** the previous level of the impulses is what the ping-pong copy already holds. Two rules were forced by measurement: accelerate only contacts with a body above the rest threshold (otherwise integer limit cycles prevent exact rest), and only the normal part of the impulse (otherwise friction slips).
+- **Evaluated on five held-out piles against 128 iterations:** v4 at N iterations matches plain Jacobi at 2N on kicks and support removal, lies between N and 2N under sustained frictional load; columns settle 2.7–4.8x faster but still ~L^1.8; stacks under a sudden tilt still shear.
+- **Same bits on M3 Pro and GTX 1660 SUPER** after two exactness rules (the change-driven skip must test the unaccelerated update; no reprojection of unchanged values). GPU time per iteration +8–56 % when everything moves, wakes at 8–16 iterations cheaper than plain 2N.
+- **Found:** a trap in the rest rule of v3 (a body just above the threshold slides forever over an anchored one; lab fix `reff`), and that a sudden load on a column, like a small kick, is not defined without a physical compliance.
+
+**Phase 1g: what a resting pile has to remember, and what the solver gets wrong** — [`docs/phase1/rest-physics.md`](docs/phase1/rest-physics.md).
 - **Remeasured at equal horizons from one common equilibrium, with controls:** the rest quantum does not suppress responses on the millimetre scale (the 1f claim is withdrawn); the dominant error is the Jacobi iteration count, which makes a pile too soft (a downward kick sinks 3–6x too far at 4 iterations, 1.0–1.35x at 32).
 - **The model lacks a compliance:** how far a kicked sphere sinks into a pile keeps falling with iterations (256 vs 128: 0.5–0.76); it is not defined by a rigid contact law.
 - **Rest as an exact balance (law v3):** residuals below the threshold are handed to a designated support through the contact; at rest nothing leans on the world frame, floor and walls carry 100.0000 % of the weight. The impulse network is history (two exact equilibria of one geometry, both at rest, differ by 54 %; from zero impulses the equilibrium of a 1728 pile is not even found), and it is the memory that has to be stored.

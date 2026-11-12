@@ -1,0 +1,960 @@
+{
+ "reference": "i128c1",
+ "seeds": [
+  11
+ ],
+ "error": {
+  "h3": {
+   "kick down0.25: bodies > 0.01 D": 0.6931471805599453,
+   "kick down0.25: bodies > 0.1 D": 0.0,
+   "kick down1: bodies > 0.01 D": 1.7047480922384253,
+   "kick down1: bodies > 0.1 D": 0.0,
+   "kick down4: bodies > 0.01 D": 1.5723966407537513,
+   "kick down4: bodies > 0.1 D": 0.28768207245178085,
+   "kick side1: bodies > 0.01 D": 0.11778303565638346,
+   "kick side1: bodies > 0.1 D": 0.13353139262452257,
+   "slump: centre of mass dx": 0.19845093872383823,
+   "slump: centre of mass dy": 0.10290194971253758,
+   "slump: bodies > 1 D": 0.0,
+   "slump: bodies > 0.1 D": 0.26826398659467937,
+   "tilt 0.2: centre of mass dx": 1.589702959017521,
+   "tilt 0.2: bodies > 0.1 D": 2.1972245773362196,
+   "tilt 0.3: centre of mass dx": 1.8672670217362002,
+   "tilt 0.3: bodies > 0.1 D": 1.466337068793427,
+   "tilt 0.4: centre of mass dx": 1.3811016192738343,
+   "tilt 0.4: bodies > 0.1 D": 0.9828763366334511,
+   "tilt 0.5: centre of mass dx": 1.524542508929222,
+   "tilt 0.5: bodies > 0.1 D": 2.0591998867274066,
+   "removal: bodies > 0.01 D": 1.1700712526502546,
+   "removal: bodies > 0.1 D": 2.0794415416798357
+  },
+  "h3i8": {
+   "kick down0.25: bodies > 0.01 D": 0.6931471805599453,
+   "kick down0.25: bodies > 0.1 D": 0.0,
+   "kick down1: bodies > 0.01 D": 1.6094379124341003,
+   "kick down1: bodies > 0.1 D": 0.0,
+   "kick down4: bodies > 0.01 D": 1.2264456601779945,
+   "kick down4: bodies > 0.1 D": 0.28768207245178085,
+   "kick side1: bodies > 0.01 D": 0.11778303565638346,
+   "kick side1: bodies > 0.1 D": 0.0,
+   "slump: centre of mass dx": 0.11913713200411269,
+   "slump: centre of mass dy": 0.04227732789610287,
+   "slump: bodies > 1 D": 0.0,
+   "slump: bodies > 0.1 D": 0.109199291964992,
+   "tilt 0.2: centre of mass dx": 1.1161382078864575,
+   "tilt 0.2: bodies > 0.1 D": 1.7047480922384253,
+   "tilt 0.3: centre of mass dx": 1.1645106563764493,
+   "tilt 0.3: bodies > 0.1 D": 0.8823891801984737,
+   "tilt 0.4: centre of mass dx": 0.9475114023603604,
+   "tilt 0.4: bodies > 0.1 D": 0.5619549702885949,
+   "tilt 0.5: centre of mass dx": 1.1142359570458416,
+   "tilt 0.5: bodies > 0.1 D": 1.1978472108992533,
+   "removal: bodies > 0.01 D": 0.9382696385929302,
+   "removal: bodies > 0.1 D": 1.791759469228055
+  },
+  "h3i16": {
+   "kick down0.25: bodies > 0.01 D": 0.6931471805599453,
+   "kick down0.25: bodies > 0.1 D": 0.0,
+   "kick down1: bodies > 0.01 D": 1.0986122886681098,
+   "kick down1: bodies > 0.1 D": 0.0,
+   "kick down4: bodies > 0.01 D": 0.780158557549575,
+   "kick down4: bodies > 0.1 D": 0.0,
+   "kick side1: bodies > 0.01 D": 0.08701137698962981,
+   "kick side1: bodies > 0.1 D": 0.0,
+   "slump: centre of mass dx": 0.030032287098875076,
+   "slump: centre of mass dy": 0.027559155422081334,
+   "slump: bodies > 1 D": 0.0,
+   "slump: bodies > 0.1 D": 0.109199291964992,
+   "tilt 0.2: centre of mass dx": 0.6751363655015058,
+   "tilt 0.2: bodies > 0.1 D": 0.9162907318741551,
+   "tilt 0.3: centre of mass dx": 0.8494781730355124,
+   "tilt 0.3: bodies > 0.1 D": 0.7339691750802005,
+   "tilt 0.4: centre of mass dx": 0.5480523183124076,
+   "tilt 0.4: bodies > 0.1 D": 0.2711527705005703,
+   "tilt 0.5: centre of mass dx": 0.7132126298145353,
+   "tilt 0.5: bodies > 0.1 D": 0.5970733504703231,
+   "removal: bodies > 0.01 D": 0.9382696385929302,
+   "removal: bodies > 0.1 D": 2.302585092994046
+  },
+  "h3i32": {
+   "kick down0.25: bodies > 0.01 D": 0.6931471805599453,
+   "kick down0.25: bodies > 0.1 D": 0.0,
+   "kick down1: bodies > 0.01 D": 0.9162907318741551,
+   "kick down1: bodies > 0.1 D": 0.0,
+   "kick down4: bodies > 0.01 D": 0.4353180712578455,
+   "kick down4: bodies > 0.1 D": 0.0,
+   "kick side1: bodies > 0.01 D": 0.08004270767353636,
+   "kick side1: bodies > 0.1 D": 0.13353139262452257,
+   "slump: centre of mass dx": 0.001523229540521638,
+   "slump: centre of mass dy": 0.016793005882621087,
+   "slump: bodies > 1 D": 0.0,
+   "slump: bodies > 0.1 D": 0.03774032798284711,
+   "tilt 0.2: centre of mass dx": 0.45441236533138557,
+   "tilt 0.2: bodies > 0.1 D": 0.6931471805599453,
+   "tilt 0.3: centre of mass dx": 0.5838744299411236,
+   "tilt 0.3: bodies > 0.1 D": 0.6061358035703155,
+   "tilt 0.4: centre of mass dx": 0.11147722853657674,
+   "tilt 0.4: bodies > 0.1 D": 0.17904823144898543,
+   "tilt 0.5: centre of mass dx": 0.3801445720612492,
+   "tilt 0.5: bodies > 0.1 D": 0.1617552792124776,
+   "removal: bodies > 0.01 D": 0.8938178760220965,
+   "removal: bodies > 0.1 D": 2.302585092994046
+  },
+  "a16r95": {
+   "kick down0.25: bodies > 0.01 D": 0.6931471805599453,
+   "kick down0.25: bodies > 0.1 D": 0.0,
+   "kick down1: bodies > 0.01 D": 0.4054651081081644,
+   "kick down1: bodies > 0.1 D": 0.0,
+   "kick down4: bodies > 0.01 D": 0.5198754592859086,
+   "kick down4: bodies > 0.1 D": 0.0,
+   "kick side1: bodies > 0.01 D": 0.0408219945202552,
+   "kick side1: bodies > 0.1 D": 0.0,
+   "slump: centre of mass dx": 0.12318845422329142,
+   "slump: centre of mass dy": 0.07658464139516419,
+   "slump: bodies > 1 D": 0.10536051565782635,
+   "slump: bodies > 0.1 D": 0.109199291964992,
+   "tilt 0.2: centre of mass dx": 0.625247406663786,
+   "tilt 0.2: bodies > 0.1 D": 1.3862943611198906,
+   "tilt 0.3: centre of mass dx": 0.632116632210638,
+   "tilt 0.3: bodies > 0.1 D": 0.6061358035703155,
+   "tilt 0.4: centre of mass dx": 0.5152778492791162,
+   "tilt 0.4: bodies > 0.1 D": 0.4324209180966926,
+   "tilt 0.5: centre of mass dx": 0.8406642610220895,
+   "tilt 0.5: bodies > 0.1 D": 0.766709747736962,
+   "removal: bodies > 0.01 D": 1.2685113254635072,
+   "removal: bodies > 0.1 D": 2.0794415416798357
+  },
+  "g16r95": {
+   "kick down0.25: bodies > 0.01 D": 0.6931471805599453,
+   "kick down0.25: bodies > 0.1 D": 0.0,
+   "kick down1: bodies > 0.01 D": 0.4054651081081644,
+   "kick down1: bodies > 0.1 D": 0.0,
+   "kick down4: bodies > 0.01 D": 0.4643056081310978,
+   "kick down4: bodies > 0.1 D": 0.0,
+   "kick side1: bodies > 0.01 D": 0.0408219945202552,
+   "kick side1: bodies > 0.1 D": 0.0,
+   "slump: centre of mass dx": 0.12453525577367008,
+   "slump: centre of mass dy": 0.078152039835177,
+   "slump: bodies > 1 D": 0.10536051565782635,
+   "slump: bodies > 0.1 D": 0.109199291964992,
+   "tilt 0.2: centre of mass dx": 0.47739944251634786,
+   "tilt 0.2: bodies > 0.1 D": 1.0986122886681098,
+   "tilt 0.3: centre of mass dx": 0.6438221139974437,
+   "tilt 0.3: bodies > 0.1 D": 0.6061358035703155,
+   "tilt 0.4: centre of mass dx": 0.40466797773514623,
+   "tilt 0.4: bodies > 0.1 D": 0.30796674362328663,
+   "tilt 0.5: centre of mass dx": 0.7681439099933214,
+   "tilt 0.5: bodies > 0.1 D": 0.7082989855805476,
+   "removal: bodies > 0.01 D": 0.8938178760220965,
+   "removal: bodies > 0.1 D": 1.9459101490553132
+  },
+  "n8r95": {
+   "kick down0.25: bodies > 0.01 D": 0.6931471805599453,
+   "kick down0.25: bodies > 0.1 D": 0.0,
+   "kick down1: bodies > 0.01 D": 1.0986122886681098,
+   "kick down1: bodies > 0.1 D": 0.0,
+   "kick down4: bodies > 0.01 D": 0.84078317936601,
+   "kick down4: bodies > 0.1 D": 0.6931471805599453,
+   "kick side1: bodies > 0.01 D": 0.08004270767353636,
+   "kick side1: bodies > 0.1 D": 0.13353139262452257,
+   "slump: centre of mass dx": 0.11506932978478729,
+   "slump: centre of mass dy": 0.07344245499209162,
+   "slump: bodies > 1 D": 0.0,
+   "slump: bodies > 0.1 D": 0.109199291964992,
+   "tilt 0.2: centre of mass dx": 0.9731013049088706,
+   "tilt 0.2: bodies > 0.1 D": 1.7047480922384253,
+   "tilt 0.3: centre of mass dx": 1.0077738882551783,
+   "tilt 0.3: bodies > 0.1 D": 0.7339691750802005,
+   "tilt 0.4: centre of mass dx": 0.6947395375843087,
+   "tilt 0.4: bodies > 0.1 D": 0.4430030274272296,
+   "tilt 0.5: centre of mass dx": 0.7622038865877887,
+   "tilt 0.5: bodies > 0.1 D": 0.6422555732635561,
+   "removal: bodies > 0.01 D": 1.0216512475319812,
+   "removal: bodies > 0.1 D": 2.302585092994046
+  },
+  "n16r975": {
+   "kick down0.25: bodies > 0.01 D": 0.6931471805599453,
+   "kick down0.25: bodies > 0.1 D": 0.0,
+   "kick down1: bodies > 0.01 D": 0.0,
+   "kick down1: bodies > 0.1 D": 0.0,
+   "kick down4: bodies > 0.01 D": 0.4643056081310978,
+   "kick down4: bodies > 0.1 D": 0.28768207245178085,
+   "kick side1: bodies > 0.01 D": 0.0,
+   "kick side1: bodies > 0.1 D": 0.13353139262452257,
+   "slump: centre of mass dx": 0.009188426054406255,
+   "slump: centre of mass dy": 0.016793005882621087,
+   "slump: bodies > 1 D": 0.0,
+   "slump: bodies > 0.1 D": 0.03774032798284711,
+   "tilt 0.2: centre of mass dx": 0.6275083165122509,
+   "tilt 0.2: bodies > 0.1 D": 1.252762968495368,
+   "tilt 0.3: centre of mass dx": 0.6547969822107529,
+   "tilt 0.3: bodies > 0.1 D": 0.6505875661411494,
+   "tilt 0.4: centre of mass dx": 0.2790794386245604,
+   "tilt 0.4: bodies > 0.1 D": 0.12323264042394806,
+   "tilt 0.5: centre of mass dx": 0.3801445720612492,
+   "tilt 0.5: bodies > 0.1 D": 0.22466910462304696,
+   "removal: bodies > 0.01 D": 0.6931471805599453,
+   "removal: bodies > 0.1 D": 1.9459101490553132
+  },
+  "n32r9875": {
+   "kick down0.25: bodies > 0.01 D": 0.6931471805599453,
+   "kick down0.25: bodies > 0.1 D": 0.0,
+   "kick down1: bodies > 0.01 D": 0.0,
+   "kick down1: bodies > 0.1 D": 0.0,
+   "kick down4: bodies > 0.01 D": 0.04652001563489282,
+   "kick down4: bodies > 0.1 D": 0.0,
+   "kick side1: bodies > 0.01 D": 0.0,
+   "kick side1: bodies > 0.1 D": 0.0,
+   "slump: centre of mass dx": 0.01691047214831651,
+   "slump: centre of mass dy": 0.005067578412305444,
+   "slump: bodies > 1 D": 0.0,
+   "slump: bodies > 0.1 D": 0.0,
+   "tilt 0.2: centre of mass dx": 0.33087330784500585,
+   "tilt 0.2: bodies > 0.1 D": 0.4054651081081644,
+   "tilt 0.3: centre of mass dx": 0.208832312215309,
+   "tilt 0.3: bodies > 0.1 D": 0.4054651081081644,
+   "tilt 0.4: centre of mass dx": 0.007197152218485779,
+   "tilt 0.4: bodies > 0.1 D": 0.15963014559188396,
+   "tilt 0.5: centre of mass dx": 0.12439305247727836,
+   "tilt 0.5: bodies > 0.1 D": 0.022642476749759752,
+   "removal: bodies > 0.01 D": 0.7472144018302211,
+   "removal: bodies > 0.1 D": 1.9459101490553132
+  }
+ },
+ "values": {
+  "h3": {
+   "kick down0.25: bodies > 0.01 D": [
+    0
+   ],
+   "kick down0.25: bodies > 0.1 D": [
+    0
+   ],
+   "kick down1: bodies > 0.01 D": [
+    10
+   ],
+   "kick down1: bodies > 0.1 D": [
+    0
+   ],
+   "kick down4: bodies > 0.01 D": [
+    105
+   ],
+   "kick down4: bodies > 0.1 D": [
+    3
+   ],
+   "kick side1: bodies > 0.01 D": [
+    26
+   ],
+   "kick side1: bodies > 0.1 D": [
+    7
+   ],
+   "slump: centre of mass dx": [
+    0.007
+   ],
+   "slump: centre of mass dy": [
+    0.01209
+   ],
+   "slump: bodies > 1 D": [
+    8
+   ],
+   "slump: bodies > 0.1 D": [
+    33
+   ],
+   "tilt 0.2: centre of mass dx": [
+    0.004795
+   ],
+   "tilt 0.2: bodies > 0.1 D": [
+    17
+   ],
+   "tilt 0.3: centre of mass dx": [
+    0.01594
+   ],
+   "tilt 0.3: bodies > 0.1 D": [
+    51
+   ],
+   "tilt 0.4: centre of mass dx": [
+    0.04894
+   ],
+   "tilt 0.4: bodies > 0.1 D": [
+    162
+   ],
+   "tilt 0.5: centre of mass dx": [
+    0.1429
+   ],
+   "tilt 0.5: bodies > 0.1 D": [
+    1026
+   ],
+   "removal: bodies > 0.01 D": [
+    28
+   ],
+   "removal: bodies > 0.1 D": [
+    7
+   ],
+   "events never at exact rest": [
+    0
+   ],
+   "control moved": [
+    0
+   ]
+  },
+  "h3i8": {
+   "kick down0.25: bodies > 0.01 D": [
+    0
+   ],
+   "kick down0.25: bodies > 0.1 D": [
+    0
+   ],
+   "kick down1: bodies > 0.01 D": [
+    9
+   ],
+   "kick down1: bodies > 0.1 D": [
+    0
+   ],
+   "kick down4: bodies > 0.01 D": [
+    74
+   ],
+   "kick down4: bodies > 0.1 D": [
+    3
+   ],
+   "kick side1: bodies > 0.01 D": [
+    26
+   ],
+   "kick side1: bodies > 0.1 D": [
+    6
+   ],
+   "slump: centre of mass dx": [
+    0.00639
+   ],
+   "slump: centre of mass dy": [
+    0.01132
+   ],
+   "slump: bodies > 1 D": [
+    8
+   ],
+   "slump: bodies > 0.1 D": [
+    28
+   ],
+   "tilt 0.2: centre of mass dx": [
+    0.002609
+   ],
+   "tilt 0.2: bodies > 0.1 D": [
+    10
+   ],
+   "tilt 0.3: centre of mass dx": [
+    0.007389
+   ],
+   "tilt 0.3: bodies > 0.1 D": [
+    28
+   ],
+   "tilt 0.4: centre of mass dx": [
+    0.03137
+   ],
+   "tilt 0.4: bodies > 0.1 D": [
+    106
+   ],
+   "tilt 0.5: centre of mass dx": [
+    0.09447
+   ],
+   "tilt 0.5: bodies > 0.1 D": [
+    433
+   ],
+   "removal: bodies > 0.01 D": [
+    22
+   ],
+   "removal: bodies > 0.1 D": [
+    5
+   ],
+   "events never at exact rest": [
+    0
+   ],
+   "control moved": [
+    0
+   ]
+  },
+  "h3i16": {
+   "kick down0.25: bodies > 0.01 D": [
+    0
+   ],
+   "kick down0.25: bodies > 0.1 D": [
+    0
+   ],
+   "kick down1: bodies > 0.01 D": [
+    5
+   ],
+   "kick down1: bodies > 0.1 D": [
+    0
+   ],
+   "kick down4: bodies > 0.01 D": [
+    47
+   ],
+   "kick down4: bodies > 0.1 D": [
+    2
+   ],
+   "kick side1: bodies > 0.01 D": [
+    21
+   ],
+   "kick side1: bodies > 0.1 D": [
+    6
+   ],
+   "slump: centre of mass dx": [
+    0.00576
+   ],
+   "slump: centre of mass dy": [
+    0.01114
+   ],
+   "slump: bodies > 1 D": [
+    8
+   ],
+   "slump: bodies > 0.1 D": [
+    28
+   ],
+   "tilt 0.2: centre of mass dx": [
+    0.001322
+   ],
+   "tilt 0.2: bodies > 0.1 D": [
+    4
+   ],
+   "tilt 0.3: centre of mass dx": [
+    0.005122
+   ],
+   "tilt 0.3: bodies > 0.1 D": [
+    24
+   ],
+   "tilt 0.4: centre of mass dx": [
+    0.02071
+   ],
+   "tilt 0.4: bodies > 0.1 D": [
+    79
+   ],
+   "tilt 0.5: centre of mass dx": [
+    0.06293
+   ],
+   "tilt 0.5: bodies > 0.1 D": [
+    237
+   ],
+   "removal: bodies > 0.01 D": [
+    22
+   ],
+   "removal: bodies > 0.1 D": [
+    9
+   ],
+   "events never at exact rest": [
+    0
+   ],
+   "control moved": [
+    0
+   ]
+  },
+  "h3i32": {
+   "kick down0.25: bodies > 0.01 D": [
+    0
+   ],
+   "kick down0.25: bodies > 0.1 D": [
+    0
+   ],
+   "kick down1: bodies > 0.01 D": [
+    4
+   ],
+   "kick down1: bodies > 0.1 D": [
+    0
+   ],
+   "kick down4: bodies > 0.01 D": [
+    33
+   ],
+   "kick down4: bodies > 0.1 D": [
+    2
+   ],
+   "kick side1: bodies > 0.01 D": [
+    25
+   ],
+   "kick side1: bodies > 0.1 D": [
+    7
+   ],
+   "slump: centre of mass dx": [
+    0.00557
+   ],
+   "slump: centre of mass dy": [
+    0.01101
+   ],
+   "slump: bodies > 1 D": [
+    8
+   ],
+   "slump: bodies > 0.1 D": [
+    26
+   ],
+   "tilt 0.2: centre of mass dx": [
+    0.0008621
+   ],
+   "tilt 0.2: bodies > 0.1 D": [
+    3
+   ],
+   "tilt 0.3: centre of mass dx": [
+    0.003694
+   ],
+   "tilt 0.3: bodies > 0.1 D": [
+    21
+   ],
+   "tilt 0.4: centre of mass dx": [
+    0.01303
+   ],
+   "tilt 0.4: bodies > 0.1 D": [
+    50
+   ],
+   "tilt 0.5: centre of mass dx": [
+    0.04482
+   ],
+   "tilt 0.5: bodies > 0.1 D": [
+    153
+   ],
+   "removal: bodies > 0.01 D": [
+    21
+   ],
+   "removal: bodies > 0.1 D": [
+    9
+   ],
+   "events never at exact rest": [
+    0
+   ],
+   "control moved": [
+    0
+   ]
+  },
+  "a16r95": {
+   "kick down0.25: bodies > 0.01 D": [
+    0
+   ],
+   "kick down0.25: bodies > 0.1 D": [
+    0
+   ],
+   "kick down1: bodies > 0.01 D": [
+    2
+   ],
+   "kick down1: bodies > 0.1 D": [
+    0
+   ],
+   "kick down4: bodies > 0.01 D": [
+    36
+   ],
+   "kick down4: bodies > 0.1 D": [
+    2
+   ],
+   "kick side1: bodies > 0.01 D": [
+    24
+   ],
+   "kick side1: bodies > 0.1 D": [
+    6
+   ],
+   "slump: centre of mass dx": [
+    0.00642
+   ],
+   "slump: centre of mass dy": [
+    0.01175
+   ],
+   "slump: bodies > 1 D": [
+    9
+   ],
+   "slump: bodies > 0.1 D": [
+    28
+   ],
+   "tilt 0.2: centre of mass dx": [
+    0.001209
+   ],
+   "tilt 0.2: bodies > 0.1 D": [
+    7
+   ],
+   "tilt 0.3: centre of mass dx": [
+    0.003926
+   ],
+   "tilt 0.3: bodies > 0.1 D": [
+    21
+   ],
+   "tilt 0.4: centre of mass dx": [
+    0.02001
+   ],
+   "tilt 0.4: bodies > 0.1 D": [
+    93
+   ],
+   "tilt 0.5: centre of mass dx": [
+    0.07162
+   ],
+   "tilt 0.5: bodies > 0.1 D": [
+    281
+   ],
+   "removal: bodies > 0.01 D": [
+    31
+   ],
+   "removal: bodies > 0.1 D": [
+    7
+   ],
+   "events never at exact rest": [
+    0
+   ],
+   "control moved": [
+    0
+   ]
+  },
+  "g16r95": {
+   "kick down0.25: bodies > 0.01 D": [
+    0
+   ],
+   "kick down0.25: bodies > 0.1 D": [
+    0
+   ],
+   "kick down1: bodies > 0.01 D": [
+    2
+   ],
+   "kick down1: bodies > 0.1 D": [
+    0
+   ],
+   "kick down4: bodies > 0.01 D": [
+    34
+   ],
+   "kick down4: bodies > 0.1 D": [
+    2
+   ],
+   "kick side1: bodies > 0.01 D": [
+    24
+   ],
+   "kick side1: bodies > 0.1 D": [
+    6
+   ],
+   "slump: centre of mass dx": [
+    0.00643
+   ],
+   "slump: centre of mass dy": [
+    0.01177
+   ],
+   "slump: bodies > 1 D": [
+    9
+   ],
+   "slump: bodies > 0.1 D": [
+    28
+   ],
+   "tilt 0.2: centre of mass dx": [
+    0.0009054
+   ],
+   "tilt 0.2: bodies > 0.1 D": [
+    5
+   ],
+   "tilt 0.3: centre of mass dx": [
+    0.003984
+   ],
+   "tilt 0.3: bodies > 0.1 D": [
+    21
+   ],
+   "tilt 0.4: centre of mass dx": [
+    0.01781
+   ],
+   "tilt 0.4: bodies > 0.1 D": [
+    82
+   ],
+   "tilt 0.5: centre of mass dx": [
+    0.06654
+   ],
+   "tilt 0.5: bodies > 0.1 D": [
+    265
+   ],
+   "removal: bodies > 0.01 D": [
+    21
+   ],
+   "removal: bodies > 0.1 D": [
+    6
+   ],
+   "events never at exact rest": [
+    0
+   ],
+   "control moved": [
+    0
+   ]
+  },
+  "n8r95": {
+   "kick down0.25: bodies > 0.01 D": [
+    0
+   ],
+   "kick down0.25: bodies > 0.1 D": [
+    0
+   ],
+   "kick down1: bodies > 0.01 D": [
+    5
+   ],
+   "kick down1: bodies > 0.1 D": [
+    0
+   ],
+   "kick down4: bodies > 0.01 D": [
+    50
+   ],
+   "kick down4: bodies > 0.1 D": [
+    5
+   ],
+   "kick side1: bodies > 0.01 D": [
+    25
+   ],
+   "kick side1: bodies > 0.1 D": [
+    7
+   ],
+   "slump: centre of mass dx": [
+    0.00636
+   ],
+   "slump: centre of mass dy": [
+    0.01171
+   ],
+   "slump: bodies > 1 D": [
+    8
+   ],
+   "slump: bodies > 0.1 D": [
+    28
+   ],
+   "tilt 0.2: centre of mass dx": [
+    0.002128
+   ],
+   "tilt 0.2: bodies > 0.1 D": [
+    10
+   ],
+   "tilt 0.3: centre of mass dx": [
+    0.006172
+   ],
+   "tilt 0.3: bodies > 0.1 D": [
+    24
+   ],
+   "tilt 0.4: centre of mass dx": [
+    0.02414
+   ],
+   "tilt 0.4: bodies > 0.1 D": [
+    94
+   ],
+   "tilt 0.5: centre of mass dx": [
+    0.06614
+   ],
+   "tilt 0.5: bodies > 0.1 D": [
+    248
+   ],
+   "removal: bodies > 0.01 D": [
+    24
+   ],
+   "removal: bodies > 0.1 D": [
+    9
+   ],
+   "events never at exact rest": [
+    0
+   ],
+   "control moved": [
+    0
+   ]
+  },
+  "n16r975": {
+   "kick down0.25: bodies > 0.01 D": [
+    0
+   ],
+   "kick down0.25: bodies > 0.1 D": [
+    0
+   ],
+   "kick down1: bodies > 0.01 D": [
+    1
+   ],
+   "kick down1: bodies > 0.1 D": [
+    0
+   ],
+   "kick down4: bodies > 0.01 D": [
+    34
+   ],
+   "kick down4: bodies > 0.1 D": [
+    3
+   ],
+   "kick side1: bodies > 0.01 D": [
+    23
+   ],
+   "kick side1: bodies > 0.1 D": [
+    7
+   ],
+   "slump: centre of mass dx": [
+    0.0055
+   ],
+   "slump: centre of mass dy": [
+    0.01101
+   ],
+   "slump: bodies > 1 D": [
+    8
+   ],
+   "slump: bodies > 0.1 D": [
+    26
+   ],
+   "tilt 0.2: centre of mass dx": [
+    0.001214
+   ],
+   "tilt 0.2: bodies > 0.1 D": [
+    6
+   ],
+   "tilt 0.3: centre of mass dx": [
+    0.004039
+   ],
+   "tilt 0.3: bodies > 0.1 D": [
+    22
+   ],
+   "tilt 0.4: centre of mass dx": [
+    0.01559
+   ],
+   "tilt 0.4: bodies > 0.1 D": [
+    68
+   ],
+   "tilt 0.5: centre of mass dx": [
+    0.04482
+   ],
+   "tilt 0.5: bodies > 0.1 D": [
+    163
+   ],
+   "removal: bodies > 0.01 D": [
+    17
+   ],
+   "removal: bodies > 0.1 D": [
+    6
+   ],
+   "events never at exact rest": [
+    0
+   ],
+   "control moved": [
+    0
+   ]
+  },
+  "n32r9875": {
+   "kick down0.25: bodies > 0.01 D": [
+    0
+   ],
+   "kick down0.25: bodies > 0.1 D": [
+    0
+   ],
+   "kick down1: bodies > 0.01 D": [
+    1
+   ],
+   "kick down1: bodies > 0.1 D": [
+    0
+   ],
+   "kick down4: bodies > 0.01 D": [
+    20
+   ],
+   "kick down4: bodies > 0.1 D": [
+    2
+   ],
+   "kick side1: bodies > 0.01 D": [
+    23
+   ],
+   "kick side1: bodies > 0.1 D": [
+    6
+   ],
+   "slump: centre of mass dx": [
+    0.00545
+   ],
+   "slump: centre of mass dy": [
+    0.01087
+   ],
+   "slump: bodies > 1 D": [
+    8
+   ],
+   "slump: bodies > 0.1 D": [
+    25
+   ],
+   "tilt 0.2: centre of mass dx": [
+    0.0006457
+   ],
+   "tilt 0.2: bodies > 0.1 D": [
+    2
+   ],
+   "tilt 0.3: centre of mass dx": [
+    0.002226
+   ],
+   "tilt 0.3: bodies > 0.1 D": [
+    17
+   ],
+   "tilt 0.4: centre of mass dx": [
+    0.01146
+   ],
+   "tilt 0.4: bodies > 0.1 D": [
+    51
+   ],
+   "tilt 0.5: centre of mass dx": [
+    0.03448
+   ],
+   "tilt 0.5: bodies > 0.1 D": [
+    133
+   ],
+   "removal: bodies > 0.01 D": [
+    18
+   ],
+   "removal: bodies > 0.1 D": [
+    6
+   ],
+   "events never at exact rest": [
+    0
+   ],
+   "control moved": [
+    0
+   ]
+  },
+  "i128c1": {
+   "kick down0.25: bodies > 0.01 D": [
+    1
+   ],
+   "kick down0.25: bodies > 0.1 D": [
+    0
+   ],
+   "kick down1: bodies > 0.01 D": [
+    1
+   ],
+   "kick down1: bodies > 0.1 D": [
+    0
+   ],
+   "kick down4: bodies > 0.01 D": [
+    21
+   ],
+   "kick down4: bodies > 0.1 D": [
+    2
+   ],
+   "kick side1: bodies > 0.01 D": [
+    23
+   ],
+   "kick side1: bodies > 0.1 D": [
+    6
+   ],
+   "slump: centre of mass dx": [
+    0.00556
+   ],
+   "slump: centre of mass dy": [
+    0.01081
+   ],
+   "slump: bodies > 1 D": [
+    8
+   ],
+   "slump: bodies > 0.1 D": [
+    25
+   ],
+   "tilt 0.2: centre of mass dx": [
+    0.0001821
+   ],
+   "tilt 0.2: bodies > 0.1 D": [
+    1
+   ],
+   "tilt 0.3: centre of mass dx": [
+    0.001618
+   ],
+   "tilt 0.3: bodies > 0.1 D": [
+    11
+   ],
+   "tilt 0.4: centre of mass dx": [
+    0.01155
+   ],
+   "tilt 0.4: bodies > 0.1 D": [
+    60
+   ],
+   "tilt 0.5: centre of mass dx": [
+    0.03033
+   ],
+   "tilt 0.5: bodies > 0.1 D": [
+    130
+   ],
+   "removal: bodies > 0.01 D": [
+    8
+   ],
+   "removal: bodies > 0.1 D": [
+    0
+   ]
+  }
+ }
+}

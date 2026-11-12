@@ -3,12 +3,13 @@
 from a cache directory and compares every variant with a reference variant kick by kick, substep by substep.
 usage: g_summary.py <cache dir> <n> <reference name> [out.json] [name1,name2,...]"""
 import json, sys, os, glob, math, struct, array
+SEEDS = [int(x) for x in os.environ.get('SEEDS', '11,12,13').split(',')]
 d, n, ref = sys.argv[1], sys.argv[2], sys.argv[3]
 out = sys.argv[4] if len(sys.argv) > 4 else None
 EPS = 1e-4
 def load(name):
     runs = {}
-    for seed in (11, 12, 13):
+    for seed in SEEDS:
         for pat, new in ((f'{d}/resp_{n}_{seed}_{name}.json', False), (f'{d}/r2_{n}_{seed}_{name}.json', True)):
             if not os.path.exists(pat): continue
             j = json.load(open(pat))

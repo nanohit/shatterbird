@@ -1,0 +1,239 @@
+{
+ "worker": {
+  "target": "win",
+  "host": "DESKTOP-ELEP24S",
+  "os": "Microsoft Windows [Version 10.0.22621.4317]",
+  "gpu_driver": "NVIDIA GeForce GTX 1660 SUPER, 610.88, 6144 MiB",
+  "video_controllers": "SudoMaker Virtual Display Adapter | 0.22.37.632\r\nNVIDIA GeForce GTX 1660 SUPER | 32.0.16.1088",
+  "chrome": "Chrome/157.0.8103.38",
+  "launch_attempts": 2,
+  "wall_s": 274.638
+ },
+ "tag": "gtx1660s",
+ "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+ "when": "2026-11-12T21:58:37.305Z",
+ "errors": [],
+ "adapter": {
+  "vendor": "nvidia",
+  "architecture": "turing",
+  "device": "0x21c4",
+  "description": "NVIDIA GeForce GTX 1660 SUPER",
+  "isFallbackAdapter": false
+ },
+ "timestamp_query": true,
+ "spec": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 16,
+  "slop": 4,
+  "cq": 8,
+  "eps": 32,
+  "g0": 2,
+  "margin": 16,
+  "hi": 24,
+  "th": 0,
+  "route": 0,
+  "vr": 28416,
+  "hand": 32,
+  "gx": 0,
+  "gz": 0,
+  "tq": 4,
+  "shock": 0,
+  "shockit": 4,
+  "cone": 1,
+  "lazy": 0,
+  "cheb": 0.975,
+  "chebs": 0,
+  "chebg": 32,
+  "chebn": 1
+ },
+ "full": {
+  "small": {
+   "n": 1728,
+   "substeps": 400,
+   "hash_gpu": "d2dc3621",
+   "hash_cpu": "d2dc3621",
+   "pos_vel_words_different": 0,
+   "faults_gpu": [
+    0,
+    718,
+    88,
+    6307
+   ],
+   "faults_cpu": [
+    0,
+    718,
+    88,
+    6307
+   ],
+   "full_steps": 400,
+   "inc_steps": 0,
+   "bytes_per_body": 734,
+   "passes_per_substep": 37
+  },
+  "full": {
+   "n": 8000,
+   "substeps": 600,
+   "hash_gpu": "3ba85f3a",
+   "hash_cpu": "3ba85f3a",
+   "pos_vel_words_different": 0,
+   "faults_gpu": [
+    0,
+    5385,
+    93724,
+    19593
+   ],
+   "faults_cpu": [
+    0,
+    5385,
+    93724,
+    19593
+   ],
+   "full_steps": 600,
+   "inc_steps": 0,
+   "bytes_per_body": 689,
+   "passes_per_substep": 37
+  }
+ },
+ "inc": {
+  "n": 4096,
+  "js_rest_at": 669,
+  "checkpoints": 22,
+  "mismatching_checkpoints": 0,
+  "rows": [
+   {
+    "at": "settle+1000",
+    "js": "fa3d0b3c",
+    "gpu_full": "fa3d0b3c",
+    "gpu_inc": "fa3d0b3c",
+    "identical": true,
+    "work_js": 2739603,
+    "work_gpu_inc": 2739603,
+    "work_gpu_full": 4096000,
+    "faults_inc": "0/2245/11508/11199",
+    "faults_full": "0/2245/11508/11199",
+    "faults_js": "0/2245/11508/11199",
+    "inc_full_steps": 1,
+    "inc_inc_steps": 999
+   },
+   {
+    "at": "kick+300",
+    "js": "b9656385",
+    "gpu_full": "b9656385",
+    "gpu_inc": "b9656385",
+    "identical": true,
+    "work_js": 2862483,
+    "work_gpu_inc": 2862483,
+    "work_gpu_full": 5324800,
+    "faults_inc": "0/2245/11508/11202",
+    "faults_full": "0/2245/11508/11202",
+    "faults_js": "0/2245/11508/11202",
+    "inc_full_steps": 1,
+    "inc_inc_steps": 1299
+   }
+  ]
+ },
+ "fuzz": [
+  {
+   "config": {
+    "label": "default capacities"
+   },
+   "n": 2744,
+   "host_edits": 1240,
+   "checkpoints": 25,
+   "mismatching_checkpoints": 0,
+   "full_substeps": 1542,
+   "incremental_substeps": 218,
+   "faults_gpu": "0/1743/2209/9257",
+   "faults_js": "0/1743/2209/9257",
+   "first_mismatch": null,
+   "last": {
+    "at": "round 23, 300 kicks",
+    "js": "f3ce09f7",
+    "gpu_inc": "f3ce09f7",
+    "ok": true
+   }
+  },
+  {
+   "config": {
+    "label": "cell lists of 256 entries, seed stripes of 8",
+    "capc": 256,
+    "seg": 8
+   },
+   "n": 2744,
+   "host_edits": 1240,
+   "checkpoints": 25,
+   "mismatching_checkpoints": 0,
+   "full_substeps": 1660,
+   "incremental_substeps": 100,
+   "faults_gpu": "0/1743/2209/9257",
+   "faults_js": "0/1743/2209/9257",
+   "first_mismatch": null,
+   "last": {
+    "at": "round 23, 300 kicks",
+    "js": "f3ce09f7",
+    "gpu_inc": "f3ce09f7",
+    "ok": true
+   }
+  },
+  {
+   "config": {
+    "label": "never switch to full by seed count",
+    "dense": 4294967295
+   },
+   "n": 2744,
+   "host_edits": 1240,
+   "checkpoints": 25,
+   "mismatching_checkpoints": 0,
+   "full_substeps": 25,
+   "incremental_substeps": 1735,
+   "faults_gpu": "0/1743/2209/9257",
+   "faults_js": "0/1743/2209/9257",
+   "first_mismatch": null,
+   "last": {
+    "at": "round 23, 300 kicks",
+    "js": "f3ce09f7",
+    "gpu_inc": "f3ce09f7",
+    "ok": true
+   }
+  }
+ ],
+ "permutation": {
+  "n": 8000,
+  "substeps": 600,
+  "coincident_pairs": 40,
+  "canonical_ids": true,
+  "mismatch_words_pos_vel": 0,
+  "bodies_with_different_contacts_or_impulses": 0,
+  "faults": "0/5692/92444/20816 | 0/5692/92444/20816"
+ },
+ "overflow": {
+  "n": 1000,
+  "substeps": 60,
+  "max_bodies_in_one_cell_at_start": 20,
+  "hash_gpu": "6e86d9d0",
+  "hash_cpu": "6e86d9d0",
+  "pos_vel_words_different": 0,
+  "faults_gpu": [
+   256850,
+   198,
+   0,
+   256
+  ],
+  "faults_cpu": [
+   256850,
+   198,
+   0,
+   256
+  ],
+  "renumbered_pos_vel_words_different": 0,
+  "renumbered_faults": [
+   256850,
+   198,
+   0,
+   256
+  ]
+ }
+}

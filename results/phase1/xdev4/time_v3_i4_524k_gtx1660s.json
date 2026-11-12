@@ -1,0 +1,295 @@
+{
+ "worker": {
+  "target": "win",
+  "host": "DESKTOP-ELEP24S",
+  "os": "Microsoft Windows [Version 10.0.22621.4317]",
+  "gpu_driver": "NVIDIA GeForce GTX 1660 SUPER, 610.88, 6144 MiB",
+  "video_controllers": "SudoMaker Virtual Display Adapter | 0.22.37.632\r\nNVIDIA GeForce GTX 1660 SUPER | 32.0.16.1088",
+  "chrome": "Chrome/157.0.8103.38",
+  "launch_attempts": 2,
+  "wall_s": 27.734
+ },
+ "tag": "gtx1660s",
+ "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+ "when": "2026-11-12T22:12:21.103Z",
+ "errors": [],
+ "adapter": {
+  "vendor": "nvidia",
+  "architecture": "turing",
+  "device": "0x21c4",
+  "description": "NVIDIA GeForce GTX 1660 SUPER",
+  "isFallbackAdapter": false
+ },
+ "timestamp_query": true,
+ "spec": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 4,
+  "slop": 4,
+  "cq": 8,
+  "eps": 32,
+  "g0": 2,
+  "margin": 16,
+  "hi": 24,
+  "th": 0,
+  "route": 0,
+  "vr": 28416,
+  "hand": 32,
+  "gx": 0,
+  "gz": 0,
+  "tq": 4,
+  "shock": 0,
+  "shockit": 4,
+  "cone": 1,
+  "lazy": 0,
+  "cheb": 0,
+  "chebs": 0,
+  "chebg": 0,
+  "chebn": 0,
+  "fstate": 0
+ },
+ "time": [
+  {
+   "n": 524288,
+   "layers": 8,
+   "cells": 1610752,
+   "bytes_per_body": 663,
+   "passes_per_substep": 25,
+   "falling": {
+    "at": "first 40 substeps, every body moving",
+    "substeps": 40,
+    "full_ms": 2.8292,
+    "inc_ms": 2.5942,
+    "ratio": 0.9169
+   },
+   "settle": [
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 4.1311,
+     "inc_ms": 4.1262,
+     "ratio": 0.9988,
+     "t": 140,
+     "evaluated_fraction": 1
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 10.6193,
+     "inc_ms": 10.6195,
+     "ratio": 1,
+     "t": 240,
+     "evaluated_fraction": 1
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 14.8757,
+     "inc_ms": 14.8708,
+     "ratio": 0.9997,
+     "t": 340,
+     "evaluated_fraction": 1
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 15.4905,
+     "inc_ms": 15.494,
+     "ratio": 1.0002,
+     "t": 440,
+     "evaluated_fraction": 1
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 14.4825,
+     "inc_ms": 14.4736,
+     "ratio": 0.9994,
+     "t": 540,
+     "evaluated_fraction": 1
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 9.6104,
+     "inc_ms": 9.613,
+     "ratio": 1.0003,
+     "t": 640,
+     "evaluated_fraction": 1
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 8.6371,
+     "inc_ms": 6.4559,
+     "ratio": 0.7475,
+     "t": 740,
+     "evaluated_fraction": 0.3597
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 8.7819,
+     "inc_ms": 0.6528,
+     "ratio": 0.0743,
+     "t": 840,
+     "evaluated_fraction": 0.0266
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 8.8579,
+     "inc_ms": 0.2816,
+     "ratio": 0.0318,
+     "t": 940,
+     "evaluated_fraction": 0.0023
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 8.8877,
+     "inc_ms": 0.1258,
+     "ratio": 0.0142,
+     "t": 1040,
+     "evaluated_fraction": 0
+    }
+   ],
+   "rest_by_substep": 1040,
+   "at_rest": {
+    "at": "rest",
+    "substeps": 40,
+    "full_ms": 8.8802,
+    "inc_ms": 0.1259,
+    "ratio": 0.0142
+   },
+   "at_rest_split_passes": {
+    "at": "rest, one pass per stage",
+    "substeps": 40,
+    "full_ms": 8.9903,
+    "inc_ms": 0.2233,
+    "ratio": 0.0248,
+    "full_stages": {
+     "args0": 0.0096,
+     "clear": 0.0705,
+     "insert": 0.0855,
+     "markx": 0.0104,
+     "args1": 0.0289,
+     "gather": 0.0102,
+     "clearseed": 0.0101,
+     "reinsert": 0.0105,
+     "marky": 0.0103,
+     "markz": 0.0103,
+     "collect": 0.0103,
+     "match": 3.9982,
+     "solve": 4.5255,
+     "finish": 0.1785,
+     "reset": 0.0105,
+     "resetall": 0.0108
+    },
+    "inc_stages": {
+     "args0": 0.0083,
+     "clear": 0.0193,
+     "insert": 0.0195,
+     "markx": 0.0095,
+     "args1": 0.0287,
+     "gather": 0.0096,
+     "clearseed": 0.0096,
+     "reinsert": 0.0098,
+     "marky": 0.01,
+     "markz": 0.0099,
+     "collect": 0.0098,
+     "match": 0.0102,
+     "solve": 0.0392,
+     "finish": 0.0098,
+     "reset": 0.0098,
+     "resetall": 0.01
+    }
+   },
+   "rest_hash": "574ef8ba",
+   "rest_identical": true,
+   "wake": [
+    {
+     "at": "wake",
+     "substeps": 20,
+     "full_ms": 8.8417,
+     "inc_ms": 0.2956,
+     "ratio": 0.0334,
+     "t": 20,
+     "evaluated_fraction": 0.00415
+    },
+    {
+     "at": "wake",
+     "substeps": 20,
+     "full_ms": 8.843,
+     "inc_ms": 0.3091,
+     "ratio": 0.035,
+     "t": 40,
+     "evaluated_fraction": 0.00552
+    },
+    {
+     "at": "wake",
+     "substeps": 20,
+     "full_ms": 8.8577,
+     "inc_ms": 0.2999,
+     "ratio": 0.0339,
+     "t": 60,
+     "evaluated_fraction": 0.00459
+    },
+    {
+     "at": "wake",
+     "substeps": 20,
+     "full_ms": 8.8753,
+     "inc_ms": 0.2727,
+     "ratio": 0.0307,
+     "t": 80,
+     "evaluated_fraction": 0.00244
+    },
+    {
+     "at": "wake",
+     "substeps": 20,
+     "full_ms": 8.8817,
+     "inc_ms": 0.1479,
+     "ratio": 0.0167,
+     "t": 100,
+     "evaluated_fraction": 0.0002
+    },
+    {
+     "at": "wake",
+     "substeps": 20,
+     "full_ms": 8.8811,
+     "inc_ms": 0.1261,
+     "ratio": 0.0142,
+     "t": 120,
+     "evaluated_fraction": 0
+    }
+   ],
+   "wake_quiet_by": 120,
+   "wake_total": {
+    "full_ms": 1063.61,
+    "inc_ms": 29.026,
+    "ratio": 0.0273
+   },
+   "wake_response": {
+    "kicked_D": 0.01064,
+    "sum_D": 0.0885,
+    "over_0p01D": 2,
+    "over_0p1D": 0
+   },
+   "wake_hash": "3c133055",
+   "wake_identical": true,
+   "faults": {
+    "inc": "0/268/0/3128345",
+    "full": "0/268/0/3128345"
+   },
+   "inc_steps": [
+    668,
+    572
+   ],
+   "contacts_per_body": 4.43,
+   "anchors_pct_weight": 0,
+   "anchored_bodies": 6
+  }
+ ]
+}

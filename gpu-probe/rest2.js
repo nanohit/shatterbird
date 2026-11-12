@@ -137,18 +137,49 @@ const REST2 = (() => {
   // Share of the residual (x, y, z) of an eligible body that goes to one of its ns supports.
   const sh = [0, 0, 0];
   function share(S, rr, o, w, pid) { const ns = (w >> NS_SH) & 7, d = (w & W_HASDES) && (pid === FLOOR ? (w & W_DESFLOOR) : (!(w & W_DESFLOOR) && (w >>> DES_SH) === pkey(S, pid))); for (let k = 0; k < 3; k++) { const q = tr(rr[o + k] / ns); sh[k] = d ? rr[o + k] - (ns - 1) * q : q; } }
+  // Chebyshev acceleration (phase 1h): omega of iteration k in 1/256, for spectral radius prm.cheb (0 = off) and
+  // delay prm.chebs. Iteration k produces level k+1; accelerated iterations need level k-1, held by the
+  // destination copy, so k >= 1.
+  const omCache = new Map();
+  function omega(prm, k) {
+    if (!prm.cheb) return 256; const key = prm.cheb + ':' + (prm.chebs | 0) + ':' + prm.iters; let t = omCache.get(key);
+    if (!t) { t = []; const r2 = prm.cheb * prm.cheb, s0 = Math.max(1, prm.chebs | 0); let w = 1; for (let q = 0; q < prm.iters; q++) { if (q < s0) w = 1; else if (q === s0) w = 2 / (2 - r2); else w = 4 / (4 - r2 * w); t.push(Math.round(w * 256)); } omCache.set(key, t); }
+    return t[k];
+  }
+  // friction-cone projection of pc[] for a contact (normal ex, ey, ez / len), the arithmetic of the solve
+  const pc = [0, 0, 0]; let pcSlide = 0;
+  function projC(prm, ex, ey, ez, len) {
+    const F = prm.f, PM = 16384 * F, TQ = (prm.tq || 4) * F, cl = q => q > PM ? PM : q < -PM ? -PM : q;
+    let Px = cl(pc[0]), Py = cl(pc[1]), Pz = cl(pc[2]); const pn = tr((Px * ex + Py * ey + Pz * ez) / len);
+    if (pn <= 0) { Px = Py = Pz = 0; }
+    else if (prm.cone) {
+      const nx = tr(pn * ex / len), ny = tr(pn * ey / len), nz = tr(pn * ez / len), Tx = Px - nx, Ty = Py - ny, Tz = Pz - nz, m = Math.max(Math.abs(Tx), Math.abs(Ty), Math.abs(Tz));
+      let q = 1; while (tr(m / q) > 16383) q *= 2;
+      const tx = tr(Tx / q), ty = tr(Ty / q), tz = tr(Tz / q), t2 = tx * tx + ty * ty + tz * tz, ms = prm.fstate ? (pcSlide ? prm.muk8 : prm.mu8) : prm.mu8, mk = prm.fstate ? ms : prm.muk8, lm = tr(tr(ms * pn / 8) / q);
+      if (lm < 28378 && t2 > lm * lm) { const tl = isqrt(t2), lk = tr(tr(mk * pn / 8) / q); Px = nx + tr(tx * lk / tl) * q; Py = ny + tr(ty * lk / tl) * q; Pz = nz + tr(tz * lk / tl) * q; }
+    }
+    else {
+      const nx = tr(pn * ex / len), ny = tr(pn * ey / len), nz = tr(pn * ez / len), tx = tr((Px - nx) / TQ), ty = tr((Py - ny) / TQ), tz = tr((Pz - nz) / TQ), t2 = tx * tx + ty * ty + tz * tz, lm = tr(prm.mu8 * pn / (8 * TQ));
+      if (t2 > lm * lm) { const tl = isqrt(t2), lk = tr(prm.muk8 * pn / (8 * TQ)); Px = nx + tr(tx * lk / tl) * TQ; Py = ny + tr(ty * lk / tl) * TQ; Pz = nz + tr(tz * lk / tl) * TQ; }
+    }
+    pc[0] = cl(Px); pc[1] = cl(Py); pc[2] = cl(Pz);
+  }
   // Is partner pid the designated support published in flag word w (handover)?
   const isDes = (S, w, pid) => (w & W_HASDES) && (pid >= WALL ? ((w & W_DESFLOOR) && (w >>> DES_SH) === pid - WALL) : (!(w & W_DESFLOOR) && (w >>> DES_SH) === pkey(S, pid)));
   // One iteration for body i: level k (src, rin) -> level k+1 (dst, rout). corr: push-out, iteration 0 only.
   function solve(S, i, prm, src, dst, rin, rout, corr) {
     const { pos, vel } = S, b = i * K, mw = rin[4 * i + 3], n = (mw >> CN_SH) & 31, F = prm.f, PM = 16384 * F, TQ = (prm.tq || 4) * F, cl = q => q > PM ? PM : q < -PM ? -PM : q;
-    let ax = 0, ay = 0, az = 0, sup = 0, dirty = 0, clamp = 0, kx = 0, ky = 0, kz = 0;
+    let ax = 0, ay = 0, az = 0, sup = 0, dirty = 0, clamp = 0, kx = 0, ky = 0, kz = 0, moving = 0;
     const vx = rin[4 * i], vy = rin[4 * i + 1], vz = rin[4 * i + 2], slowi = pos[4 * i + 3] & 1;
-    const HD = prm.hand | 0, si = HD && Math.abs(vx) <= HD && Math.abs(vy) <= HD && Math.abs(vz) <= HD;
+    const HD = prm.hand | 0, si = HD && Math.abs(vx) <= HD && Math.abs(vy) <= HD && Math.abs(vz) <= HD, om = S.kit >= 1 ? omega(prm, S.kit) : 256;
     for (let s = 0; s < n; s++) {
       const o = 4 * (b + s), id = src[o + 3] >>> 0; geom(S, i, id);
       const { ex, ey, ez, len, pen } = geo, sph = id < WALL, wj = sph ? rin[4 * id + 3] : 0, den = n + ((wj >> CN_SH) & 31);
       let Px = src[o], Py = src[o + 1], Pz = src[o + 2];
+      // fstate: a contact slides in this substep if the tangential relative velocity at its start exceeds the rest threshold;
+      // a sliding contact gets the kinetic cone, a sticking one the static cone (clamped to it, not dropped to kinetic)
+      let slide = 0; if (prm.fstate) { const ux = vel[4 * i] - (sph ? vel[4 * id] : 0), uy = vel[4 * i + 1] - (sph ? vel[4 * id + 1] : 0), uz = vel[4 * i + 2] - (sph ? vel[4 * id + 2] : 0), un = tr((ux * ex + uy * ey + uz * ez) / len), tx0 = ux - tr(un * ex / len), ty0 = uy - tr(un * ey / len), tz0 = uz - tr(un * ez / len); slide = Math.max(Math.abs(tx0), Math.abs(ty0), Math.abs(tz0)) > (prm.hand || 32) ? 1 : 0; }
+      pcSlide = slide;
       // routed contact: the upper body's residual goes to its supports. route 1: the whole vector; route 2: only its
       // vertical part, the horizontal parts stay with the Jacobi rule on the same contact.
       let routed = 0;
@@ -178,7 +209,10 @@ const REST2 = (() => {
       }
       else if (!routed || (prm.route === 2 && routed !== 4)) {
         let rx = vx, ry = routed ? 0 : vy, rz = vz;
-        if (sph) { rx -= rin[4 * id]; if (!routed) ry -= rin[4 * id + 1]; rz -= rin[4 * id + 2]; }
+        // lab (reff): a supported body whose residual the end of the substep will set to rest counts as at rest here too
+        const E = prm.eps, still = (w, x, y, z) => prm.reff && (w & W_SUP) && Math.abs(x) <= E && Math.abs(y) <= E && Math.abs(z) <= E;
+        if (still(mw, vx, vy, vz)) { rx = 0; ry = 0; rz = 0; }
+        if (sph) { if (!still(wj, rin[4 * id], rin[4 * id + 1], rin[4 * id + 2])) { rx -= rin[4 * id]; if (!routed) ry -= rin[4 * id + 1]; rz -= rin[4 * id + 2]; } }
         if (pen < -prm.g0) { const g = (pen + prm.g0) * 256 * F; rx -= tr(g * ex / len); ry -= tr(g * ey / len); rz -= tr(g * ez / len); }
         const th = prm.th;
         if (!th || rx >= th || rx <= -th || ry >= th || ry <= -th || rz >= th || rz <= -th) { Px -= cl(tr(rx / den)); Py -= cl(tr(ry / den)); Pz -= cl(tr(rz / den)); }
@@ -191,8 +225,8 @@ const REST2 = (() => {
         // cone with a relative resolution of 2^-14: the tangential part is scaled by a power of two so that it fits 14 bits
         const nx = tr(pn * ex / len), ny = tr(pn * ey / len), nz = tr(pn * ez / len), Tx = Px - nx, Ty = Py - ny, Tz = Pz - nz, m = Math.max(Math.abs(Tx), Math.abs(Ty), Math.abs(Tz));
         let q = 1; while (tr(m / q) > 16383) q *= 2;
-        const tx = tr(Tx / q), ty = tr(Ty / q), tz = tr(Tz / q), t2 = tx * tx + ty * ty + tz * tz, lm = tr(tr(prm.mu8 * pn / 8) / q);
-        if (lm < 28378 && t2 > lm * lm) { const tl = isqrt(t2), lk = tr(tr(prm.muk8 * pn / 8) / q); Px = nx + tr(tx * lk / tl) * q; Py = ny + tr(ty * lk / tl) * q; Pz = nz + tr(tz * lk / tl) * q; }
+        const tx = tr(Tx / q), ty = tr(Ty / q), tz = tr(Tz / q), t2 = tx * tx + ty * ty + tz * tz, ms = prm.fstate ? (slide ? prm.muk8 : prm.mu8) : prm.mu8, mk = prm.fstate ? ms : prm.muk8, lm = tr(tr(ms * pn / 8) / q);
+        if (lm < 28378 && t2 > lm * lm) { const tl = isqrt(t2), lk = tr(tr(mk * pn / 8) / q); Px = nx + tr(tx * lk / tl) * q; Py = ny + tr(ty * lk / tl) * q; Pz = nz + tr(tz * lk / tl) * q; }
       }
       else {
         const nx = tr(pn * ex / len), ny = tr(pn * ey / len), nz = tr(pn * ez / len), tx = tr((Px - nx) / TQ), ty = tr((Py - ny) / TQ), tz = tr((Pz - nz) / TQ);
@@ -200,6 +234,14 @@ const REST2 = (() => {
         if (t2 > lm * lm) { const tl = isqrt(t2), lk = tr(prm.muk8 * pn / (8 * TQ)); Px = nx + tr(tx * lk / tl) * TQ; Py = ny + tr(ty * lk / tl) * TQ; Pz = nz + tr(tz * lk / tl) * TQ; }
       }
       Px = cl(Px); Py = cl(Py); Pz = cl(Pz);
+      // Chebyshev: P = proj(P_{k-1} + omega (P_hat - P_{k-1})), P_{k-1} read from the destination copy (same partner only)
+      if (Px !== src[o] || Py !== src[o + 1] || Pz !== src[o + 2]) moving = 1;
+      const gate = !prm.chebg || Math.abs(vx) > prm.chebg || Math.abs(vy) > prm.chebg || Math.abs(vz) > prm.chebg || (sph && (Math.abs(rin[4 * id]) > prm.chebg || Math.abs(rin[4 * id + 1]) > prm.chebg || Math.abs(rin[4 * id + 2]) > prm.chebg));
+      if (om !== 256 && gate && dst[o + 3] === src[o + 3]) { const ox = dst[o], oy = dst[o + 1], oz = dst[o + 2]; pc[0] = ox + tr(om * (Px - ox) / 256); pc[1] = oy + tr(om * (Py - oy) / 256); pc[2] = oz + tr(om * (Pz - oz) / 256);
+        // chebn: keep only the normal part of the acceleration (friction stays plain Jacobi)
+        if (prm.chebn) { const dx = cl(pc[0] - Px), dy = cl(pc[1] - Py), dz = cl(pc[2] - Pz), dn = tr((dx * ex + dy * ey + dz * ez) / len); pc[0] = Px + tr(dn * ex / len); pc[1] = Py + tr(dn * ey / len); pc[2] = Pz + tr(dn * ez / len); }
+        // reproject only a value the acceleration changed: integer projection is not idempotent on the cone boundary
+        if (pc[0] !== Px || pc[1] !== Py || pc[2] !== Pz) { projC(prm, ex, ey, ez, len); Px = pc[0]; Py = pc[1]; Pz = pc[2]; } }
       if (Px | Py | Pz) sup = 1;
       if (Px !== src[o] || Py !== src[o + 1] || Pz !== src[o + 2]) dirty = 1;
       dst[o] = Px; dst[o + 1] = Py; dst[o + 2] = Pz; dst[o + 3] = src[o + 3];
@@ -209,7 +251,7 @@ const REST2 = (() => {
     const qx = vel[4 * i] + (prm.gx | 0) * F + ax, qy = vel[4 * i + 1] - prm.grav * F + ay, qz = vel[4 * i + 2] + (prm.gz | 0) * F + az;
     rout[4 * i] = qx; rout[4 * i + 1] = qy; rout[4 * i + 2] = qz;
     rout[4 * i + 3] = (mw & ~W_SUP) | sup * W_SUP | (dirty | clamp) * W_DIRTY | clamp * W_CLAMP;
-    if (S.dit) S.dit[i] = (dirty | clamp) ? 1 : 0;
+    if (S.dit) S.dit[i] = (dirty | clamp | moving) ? 1 : 0;
     if (corr) { corr[4 * i] = kx; corr[4 * i + 1] = ky; corr[4 * i + 2] = kz; }
   }
   // ---- prototype (JS only, sequential): two-pass propagation over the support order, before the Jacobi iterations ----
@@ -306,7 +348,7 @@ const REST2 = (() => {
     for (let i = 0; i < N; i++) match(S, i, prm);
     if (prm.shock) shock(S, prm);
     if (prm.lazy) { if (!S.dit) { S.dit = new Uint8Array(N); S.lazy = 0; } S.dit.fill(0); }
-    for (let k = 0; k < I; k++) { if (prm.lazy) S.lazy += k === 0 ? N : lazyNeed(S, f => { for (let i = 0; i < N; i++) f(i); }); for (let i = 0; i < N; i++) solve(S, i, prm, S.L[k & 1], S.L[(k + 1) & 1], S.r[k & 1], S.r[(k + 1) & 1], k === 0 ? S.corr : null); }
+    for (let k = 0; k < I; k++) { S.kit = k; if (prm.lazy) S.lazy += k === 0 ? N : lazyNeed(S, f => { for (let i = 0; i < N; i++) f(i); }); for (let i = 0; i < N; i++) solve(S, i, prm, S.L[k & 1], S.L[(k + 1) & 1], S.r[k & 1], S.r[(k + 1) & 1], k === 0 ? S.corr : null); }
     if (prm.lazy) S.lazy += 2 * N;
     let nq = 0; for (let i = 0; i < N; i++) { const c0 = cellOf(S, i); if (finish(S, i, prm)) { nq++; seed.push(c0); const c1 = cellOf(S, i); if (c1 !== c0) seed.push(c1); } }
     S.seed = seed; S.evals += N * (I + 2); S.t++; return { changed: nq, evaluated: N, work: N * (I + 2) };
@@ -327,7 +369,7 @@ const REST2 = (() => {
     let work = 0; const upto = (d, f) => { for (let q = 0; q <= Math.min(d, rmax); q++) { const l = bod[q]; work += l.length; for (let t = 0; t < l.length; t++) f(l[t]); } };
     upto(1, i => match(S, i, prm));
     if (prm.lazy) { if (!S.dit) { S.dit = new Uint8Array(S.N); S.lazy = 0; } S.dit.fill(0); }
-    for (let k = 0; k < I; k++) { if (prm.lazy) { if (k === 0) { let c = 0; upto(2, () => c++); work -= c; S.lazy += c; } else { const w0 = work; S.lazy += lazyNeed(S, f => upto(k + 2, f)); work = w0; } }
+    for (let k = 0; k < I; k++) { S.kit = k; if (prm.lazy) { if (k === 0) { let c = 0; upto(2, () => c++); work -= c; S.lazy += c; } else { const w0 = work; S.lazy += lazyNeed(S, f => upto(k + 2, f)); work = w0; } }
       upto(k + 2, i => solve(S, i, prm, S.L[k & 1], S.L[(k + 1) & 1], S.r[k & 1], S.r[(k + 1) & 1], k === 0 ? S.corr : null)); }
     if (prm.lazy) { let c = 0; const w0 = work; upto(1, () => c++); upto(rmax, () => c++); work = w0; S.lazy += c; }
     const seed = []; let nq = 0, ev = 0;
@@ -361,7 +403,7 @@ const REST2 = (() => {
   const HDR = 128, AT = { NX: 0, NY: 1, NZ: 2, NB: 3, SEED: 8, LED: 96, FAULT: 108, WORK: 112, FULLSTEPS: 114, INCSTEPS: 115 };
   const HEAD = `
 struct P { n: u32, gx: u32, gy: u32, gz: u32, grav: i32, f: i32, mu8: i32, muk8: i32, slop: i32, cq: i32, eps: i32, g0: i32, margin: i32, hi: i32, th: i32, route: i32,
-  vr: i32, iters: u32, first: u32, thr: u32, capc: u32, seg: u32, dense: u32, force: u32, hand: i32, cone: i32, lazy: u32, pad0: u32 }
+  vr: i32, iters: u32, first: u32, thr: u32, capc: u32, seg: u32, dense: u32, force: u32, hand: i32, cone: i32, lazy: u32, om: u32, chebg: i32, chebn: u32, pad2: u32, pad3: u32 }
 @group(0) @binding(0) var<uniform> p: P;
 const DIAM = 960; const RAD = 480; const K = 16u; const VMAX = 25600; const WALL = 0xFFFFFFF0u; const FLOOR = 0xFFFFFFF2u; const EMPTY = 0xFFFFFFFFu; const UNM = 0xFFFFFFFFu; const HDR = 128u;
 const NOC = -2147483647; const XO = 64u; const AT_NX = 0u; const AT_NY = 1u; const AT_NZ = 2u; const AT_NB = 3u; const AT_SEED = 8u; const AT_LED = 96u; const AT_FAULT = 108u; const AT_WORK = 112u;
@@ -379,6 +421,18 @@ fn pkey(x: vec3i) -> u32 { let u = vec3u(x); return ((u.x * 73856093u) ^ (u.y * 
 // share of the residual r of an eligible body (flag word w) for one support; isdes: that support is the designated one
 fn share(r: vec3i, w: u32, isdes: bool) -> vec3i { let ns = i32((w >> 5u) & 7u); let q = r / ns; if (isdes) { return r - (ns - 1) * q; } return q; }
 fn isdes(w: u32, floor: bool, key: u32) -> bool { if ((w & 16u) == 0u) { return false; } if (floor) { return (w & 0x8000u) != 0u; } return (w & 0x8000u) == 0u && (w >> 16u) == key; }
+// friction-cone projection of an impulse (the arithmetic of the solve; used again after Chebyshev acceleration)
+fn cone_proj(Q0: vec3i, ge: Geo) -> vec3i {
+  let F = p.f; let PM = 16384 * F; let TQ = 4 * F; var Q = clamp(Q0, vec3i(-PM), vec3i(PM));
+  let pn = dot(Q, ge.e) / ge.len;
+  if (pn <= 0) { Q = vec3i(0); }
+  else if (p.cone != 0) { let nv = (pn * ge.e) / ge.len; let T = Q - nv; let m = max(abs(T.x), max(abs(T.y), abs(T.z))); var q = 1; for (; m / q > 16383;) { q *= 2; }
+    let t = T / q; let t2 = dot(t, t); let lm = ((p.mu8 * pn) / 8) / q;
+    if (lm < 28378 && t2 > lm * lm) { let tl = i32(isqrt(u32(t2))); let lkk = ((p.muk8 * pn) / 8) / q; Q = nv + ((t * lkk) / tl) * q; } }
+  else { let nv = (pn * ge.e) / ge.len; let t = (Q - nv) / TQ; let t2 = dot(t, t); let lm = (p.mu8 * pn) / (8 * TQ);
+    if (t2 > lm * lm) { let tl = i32(isqrt(u32(t2))); let lkk = (p.muk8 * pn) / (8 * TQ); Q = nv + ((t * lkk) / tl) * TQ; } }
+  return clamp(Q, vec3i(-PM), vec3i(PM));
+}
 // handover: is partner id (key: hash of its position, if a sphere) the designated support published in flag word w?
 fn isdesh(w: u32, id: u32, key: u32) -> bool { if ((w & 16u) == 0u) { return false; } if (id >= WALL) { return (w & 0x8000u) != 0u && (w >> 16u) == id - WALL; } return (w & 0x8000u) == 0u && (w >> 16u) == key; }
 `;
@@ -611,7 +665,7 @@ fn body(k: u32) -> u32 { if (bl[0] != 0u) { return k; } return bl[HDR + k]; }
     for (var s = 0u; s < n; s++) { let id = bitcast<u32>(lk[i * K + s].w); if (id < WALL && (bitcast<u32>(rk[id].w) & 0x2000u) != 0u) { need = true; break; } }
     if (!need) { rn[i] = me; return; }
   }
-  var dacc = vec3i(0); var sup = false; var dirty = false; var cr = vec3i(0); var clamps = 0u;
+  var dacc = vec3i(0); var sup = false; var dirty = false; var cr = vec3i(0); var clamps = 0u; var moving = false;
   for (var s = 0u; s < n; s++) {
     let L = lk[i * K + s]; let id = bitcast<u32>(L.w); var ge: Geo; var wj = 0u; var rj = vec3i(0); var slowj = true; let sph = id < WALL; var kj = 0u;
     if (sph) { let pj = pos[id]; let q = rk[id]; ge = geo_sph(pu, pj.xyz >> vec3u(8u), idlt(pw.w, pj.w, i, id)); wj = bitcast<u32>(q.w); rj = q.xyz; slowj = (pj.w & 1) != 0; kj = pkey(pj.xyz); } else { ge = geo_wall(pu, id - WALL); }
@@ -639,10 +693,17 @@ fn body(k: u32) -> u32 { if (bl[0] != 0u) { return k; } return bl[HDR + k]; }
     else { let nv = (pn * ge.e) / ge.len; let t = (Q - nv) / TQ; let t2 = dot(t, t); let lm = (p.mu8 * pn) / (8 * TQ);
       if (t2 > lm * lm) { let tl = i32(isqrt(u32(t2))); let lkk = (p.muk8 * pn) / (8 * TQ); Q = nv + ((t * lkk) / tl) * TQ; } }
     Q = clamp(Q, vec3i(-PM), vec3i(PM));
+    // Chebyshev (phase 1h): Q = proj(P_{k-1} + om (Q - P_{k-1}) / 256), P_{k-1} = what the destination copy still holds (same partner only)
+    // bit 13 must mean "this body is not stationary": with acceleration the plain update can move while the accelerated one does not
+    if (any(Q != L.xyz)) { moving = true; }
+    let gate = p.chebg == 0 || any(abs(me.xyz) > vec3i(p.chebg)) || (sph && any(abs(rj) > vec3i(p.chebg)));
+    if (p.om != 256u && gate) { let O = ln[i * K + s]; if (O.w == L.w) { var A = O.xyz + (i32(p.om) * (Q - O.xyz)) / 256;
+      if (p.chebn != 0u) { let D = clamp(A - Q, vec3i(-PM), vec3i(PM)); let dn = dot(D, ge.e) / ge.len; A = Q + (dn * ge.e) / ge.len; }
+      if (any(A != Q)) { Q = cone_proj(A, ge); } } }
     if (any(Q != vec3i(0))) { sup = true; } if (any(Q != L.xyz)) { dirty = true; }
     ln[i * K + s] = vec4i(Q, L.w); dacc += Q - L.xyz;
   }
-  var w = mw & ~0x2002u; if (sup) { w |= 2u; } if (dirty || clamps != 0u) { w |= 0x2004u; } if (clamps != 0u) { w |= 0x4000u; }
+  var w = mw & ~0x2002u; if (sup) { w |= 2u; } if (dirty || clamps != 0u) { w |= 0x2004u; } if (moving) { w |= 0x2000u; } if (clamps != 0u) { w |= 0x4000u; }
   rn[i] = vec4i(me.xyz + dacc, bitcast<i32>(w));
   if (p.first != 0u) { corr[i] = vec4i(cr, 0); }
 }`,
@@ -696,19 +757,19 @@ fn seed(i: u32, c: u32) { let s = i & 63u; let k = atomicAdd(&at[AT_SEED + s], 1
     if (prm.route > 1) throw new Error('route 2 and 3 exist in the JS specification only');
     if (prm.eps > 63) throw new Error('eps must fit the 7-bit anchor record');
     if (prm.hand && prm.route) throw new Error('handover and routing share flag bits: use one');
-    if (prm.shock || prm.gx || prm.gz || (prm.tq || 4) !== 4) throw new Error('shock, tilted gravity and tq exist in the JS lab only');
+    if (prm.shock || prm.gx || prm.gz || (prm.tq || 4) !== 4 || prm.fstate || prm.reff) throw new Error('shock, tilted gravity, tq, fstate and reff exist in the JS lab only');
     const capc = opt.capc || Math.max(4096, Math.min(cells, 1 << 20)), seg = opt.seg || Math.max(256, Math.ceil(N / 128)), dense = opt.dense === undefined ? Math.ceil(N / 32) : opt.dense, force = opt.force ? 1 : 0;
     const buf = (sz, fill) => { const b = dev.createBuffer({ size: sz, usage: SU, mappedAtCreation: fill !== undefined }); if (fill !== undefined) { new Uint32Array(b.getMappedRange()).fill(fill); b.unmap(); } return b; };
     const la0 = new Int32Array(4 * K * N); la0.set(S0.slot);
     const b = { pos: mk(S0.pos), vel: mk(S0.vel), la: mk(la0), lb: buf(16 * K * N), ra: buf(16 * N), rb: buf(16 * N), corr: buf(16 * N), grid: buf(4 * (cells + N)), fa: buf(4 * cells, 0xFFFFFFFF), fb: buf(4 * cells, 0xFFFFFFFF),
       bl: buf(4 * (HDR + N)), lx: buf(4 * capc), ly: buf(4 * capc), lz: buf(4 * capc), seeds: buf(4 * 64 * seg), at: buf(4 * 128), ind: dev.createBuffer({ size: 4 * 36, usage: SU | U.INDIRECT }) };
-    const uni = (first, thr) => { const u = new ArrayBuffer(112), dv = new DataView(u); [N, S0.gx, S0.gy, S0.gz].forEach((x, k) => dv.setUint32(4 * k, x, true));
+    const uni = (first, thr, om = 256) => { const u = new ArrayBuffer(128), dv = new DataView(u); [N, S0.gx, S0.gy, S0.gz].forEach((x, k) => dv.setUint32(4 * k, x, true));
       [prm.grav, prm.f, prm.mu8, prm.muk8, prm.slop, prm.cq, prm.eps, prm.g0, prm.margin, prm.hi, prm.th, prm.route, prm.vr].forEach((x, k) => dv.setInt32(16 + 4 * k, x, true));
-      [I, first, thr, capc, seg, dense, force].forEach((x, k) => dv.setUint32(68 + 4 * k, x, true)); dv.setInt32(96, prm.hand | 0, true); dv.setInt32(100, prm.cone | 0, true); dv.setUint32(104, prm.lazy ? 1 : 0, true); const ub = dev.createBuffer({ size: 112, usage: U.UNIFORM | U.COPY_DST }); dev.queue.writeBuffer(ub, 0, u); return ub; };
+      [I, first, thr, capc, seg, dense, force].forEach((x, k) => dv.setUint32(68 + 4 * k, x, true)); dv.setInt32(96, prm.hand | 0, true); dv.setInt32(100, prm.cone | 0, true); dv.setUint32(104, prm.lazy ? 1 : 0, true); dv.setUint32(108, om, true); dv.setInt32(112, prm.chebg | 0, true); dv.setUint32(116, prm.chebn ? 1 : 0, true); const ub = dev.createBuffer({ size: 128, usage: U.UNIFORM | U.COPY_DST }); dev.queue.writeBuffer(ub, 0, u); return ub; };
     const pl = {}; for (const k of Object.keys(WGSL)) pl[k] = await pipe(WGSL[k]);
     const bg = (k, u, bufs) => dev.createBindGroup({ layout: pl[k].getBindGroupLayout(0), entries: [u, ...bufs].map((buffer, binding) => ({ binding, resource: { buffer } })) });
     const u0 = uni(0, 0), unis = [u0], P = [];
-    const add = (k, u, bufs, disp) => P.push([k, bg(k, u, bufs), disp]); const U1 = (f, t) => { const x = uni(f, t); unis.push(x); return x; };
+    const add = (k, u, bufs, disp) => P.push([k, bg(k, u, bufs), disp]); const U1 = (f, t, om) => { const x = uni(f, t, om); unis.push(x); return x; };
     add('args0', u0, [b.at, b.bl, b.ind], [1]); add('clear', u0, [b.grid], 72); add('insert', u0, [b.pos, b.grid], 84);
     add('markx', u0, [b.bl, b.seeds, b.fa, b.lx, b.at], 0);
     add('args1', U1(1, 0), [b.at, b.bl, b.ind], [1]); add('clear', u0, [b.grid], 96); add('insert', u0, [b.pos, b.grid], 108);
@@ -719,7 +780,7 @@ fn seed(i: u32, c: u32) { let s = i & 63u; let k = atomicAdd(&at[AT_SEED + s], 1
     add('args1', U1(3, 0), [b.at, b.bl, b.ind], [1]); add('collect', u0, [b.bl, b.lz, b.grid, b.at], 36);
     add('args1', U1(4, 0), [b.at, b.bl, b.ind], [1]);
     add('match', U1(0, 1), [b.bl, b.pos, b.vel, b.grid, b.fa, b.la, b.ra, b.at], 48);
-    for (let k = 0; k < I; k++) add('solve', U1(k === 0 ? 1 : 0, k + 2), k & 1 ? [b.bl, b.pos, b.lb, b.rb, b.la, b.ra, b.corr] : [b.bl, b.pos, b.la, b.ra, b.lb, b.rb, b.corr], 48);
+    for (let k = 0; k < I; k++) add('solve', U1(k === 0 ? 1 : 0, k + 2, k >= 1 ? omega(prm, k) : 256), k & 1 ? [b.bl, b.pos, b.lb, b.rb, b.la, b.ra, b.corr] : [b.bl, b.pos, b.la, b.ra, b.lb, b.rb, b.corr], 48);
     add('finish', U1(0, I + 1), [b.bl, b.pos, b.vel, b.fa, b.ra, b.corr, b.seeds, b.at], 48);
     add('reset', u0, [b.bl, b.lz, b.fa, b.fb], 36); add('resetall', u0, [b.fa, b.fb], 60);
     // All dispatches of a batch of substeps go into one compute pass (a pass boundary costs far more than a
@@ -734,12 +795,12 @@ fn seed(i: u32, c: u32) { let s = i & 63u; let k = atomicAdd(&at[AT_SEED + s], 1
   function counters(at) { const u = new Uint32Array(at.buffer, at.byteOffset, at.length), two = k => u[k] + u[k + 1] * 4294967296; return { faults: [0, 1, 2, 3].map(k => u[AT.FAULT + k]), work: two(AT.WORK), full_steps: u[AT.FULLSTEPS], inc_steps: u[AT.INCSTEPS] }; }
   // route: 0 = Jacobi on every contact (the variant that passed the consequence tests); 1 = routing of the residual to supports
   // (zero-flux rest, small wakes, but a more mobile pile: not adopted). 2 and 3 are lab variants of the JS specification only.
-  const PRM = { grav: 111, f: 32, mu8: 4, muk8: 3, iters: 4, slop: 4, cq: 8, eps: 32, g0: 2, margin: 16, hi: 24, th: 0, route: 0, vr: 28416, hand: 0, gx: 0, gz: 0, tq: 4, shock: 0, shockit: 4, cone: 0, lazy: 0 };
+  const PRM = { grav: 111, f: 32, mu8: 4, muk8: 3, iters: 4, slop: 4, cq: 8, eps: 32, g0: 2, margin: 16, hi: 24, th: 0, route: 0, vr: 28416, hand: 0, gx: 0, gz: 0, tq: 4, shock: 0, shockit: 4, cone: 0, lazy: 0, cheb: 0, chebs: 0, chebg: 0, chebn: 0, fstate: 0, reff: 0 };
   // specification v3: below the threshold a body that arrived at rest hands its residual - a force imbalance - to its designated
   // support through the contact, so the impulses relax to an exact balance and the anchors vanish at rest; momentum below the
   // threshold is not stored in impulses: a supported body slower than the threshold at the end of a substep is set to rest (anchor,
   // recorded); cone resolved to 2^-14; canonical ids
   const PRM3 = { ...PRM, eps: 32, hand: 32, cone: 1 };
-  return { DIAM, R, K, WALL, FLOOR, make: mk, lattice, prime, step, stepInc, stats, hash, canon, geom, geo, match, solve, finish, buildGrid, cellOf, rng, assignIds, PRM, PRM3, W_ELIG, W_DIRTY, CN_SH, WGSL, gpu, counters, AT, HDR };
+  return { DIAM, R, K, WALL, FLOOR, make: mk, lattice, prime, step, stepInc, stats, hash, canon, geom, geo, match, solve, finish, buildGrid, cellOf, rng, assignIds, omega, PRM, PRM3, W_ELIG, W_DIRTY, CN_SH, WGSL, gpu, counters, AT, HDR };
 })();
 if (typeof module !== 'undefined') module.exports = REST2;

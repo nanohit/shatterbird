@@ -2,12 +2,13 @@
 """Phase 1g: slump, tilt, support removal and cost (work of incremental stepping, work of change-driven iterations)
 per variant. Reads the resp2 records of lab3.cjs. usage: g_events.py <cache dir> <n> <out.json> name1,name2,..."""
 import json, sys, os, statistics as st
+SEEDS = [int(x) for x in os.environ.get('SEEDS', '11,12,13').split(',')]
 d, n, out, names = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4].split(',')
 res = {}
 def mean(x): return sum(x) / len(x) if x else None
 for name in names:
     runs = []
-    for seed in (11, 12, 13):
+    for seed in SEEDS:
         f = f'{d}/r2_{n}_{seed}_{name}.json'
         if os.path.exists(f): j = json.load(open(f)); runs += [(seed, r, j['N'], j['prm']['iters']) for r in j['runs']]
     if not runs: continue

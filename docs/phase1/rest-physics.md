@@ -149,6 +149,13 @@ from the geometry would not find the same pile, and would struggle to find one a
 
 ## 4. Law v3: rest as an exact balance of contact impulses
 
+> **Corrections (Phase 1h, 2026-11-13, [`long-range.md`](long-range.md)).** (1) Not every event of this phase
+> came to exact rest: plain v3 at 32 iterations never rested on one tilt event (pile 12, tan 0.5); the data had it,
+> the text did not. (2) The rest rule below has a trap. A body just above the threshold that sits on a body just
+> below it slides forever, because the anchor the end of the substep applies to the lower body is invisible
+> to the iterations. A lab fix (`reff`) is described in 1h and is not yet part of the law. (3) The integer projection of the
+> equilibrium was replaced at the end of this phase; the ensemble runs of this report all used the older one, consistently.
+
 What changed against v2, all in `rest2.js` (JS and WGSL):
 
 * **Handover.** A body below the threshold (32 units per axis) that arrived at rest relaxes no contact

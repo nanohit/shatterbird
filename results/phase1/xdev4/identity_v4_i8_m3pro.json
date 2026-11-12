@@ -1,0 +1,138 @@
+{
+ "worker": {
+  "target": "local",
+  "host": "MacBook-Pro-Pavel.local",
+  "os": "14.7.4",
+  "gpu_driver": "Chipset Model: Apple M3 Pro; Metal Support: Metal 3;",
+  "chrome": "Chrome/157.0.8103.52",
+  "launch_attempts": 1,
+  "wall_s": 27.494
+ },
+ "tag": "m3pro",
+ "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+ "when": "2026-11-12T22:00:43.522Z",
+ "errors": [],
+ "adapter": {
+  "vendor": "apple",
+  "architecture": "metal-3",
+  "device": "0x0000",
+  "description": "Apple M3 Pro",
+  "isFallbackAdapter": false
+ },
+ "timestamp_query": true,
+ "spec": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 8,
+  "slop": 4,
+  "cq": 8,
+  "eps": 32,
+  "g0": 2,
+  "margin": 16,
+  "hi": 24,
+  "th": 0,
+  "route": 0,
+  "vr": 28416,
+  "hand": 32,
+  "gx": 0,
+  "gz": 0,
+  "tq": 4,
+  "shock": 0,
+  "shockit": 4,
+  "cone": 1,
+  "lazy": 0,
+  "cheb": 0.95,
+  "chebs": 0,
+  "chebg": 32,
+  "chebn": 1,
+  "fstate": 0
+ },
+ "full": {
+  "small": {
+   "n": 1728,
+   "substeps": 400,
+   "hash_gpu": "3e744ae3",
+   "hash_cpu": "3e744ae3",
+   "pos_vel_words_different": 0,
+   "faults_gpu": [
+    0,
+    326,
+    107,
+    3494
+   ],
+   "faults_cpu": [
+    0,
+    326,
+    107,
+    3494
+   ],
+   "full_steps": 400,
+   "inc_steps": 0,
+   "bytes_per_body": 734,
+   "passes_per_substep": 29
+  },
+  "full": {
+   "n": 8000,
+   "substeps": 600,
+   "hash_gpu": "0751c2f6",
+   "hash_cpu": "0751c2f6",
+   "pos_vel_words_different": 0,
+   "faults_gpu": [
+    0,
+    2508,
+    97064,
+    16983
+   ],
+   "faults_cpu": [
+    0,
+    2508,
+    97064,
+    16983
+   ],
+   "full_steps": 600,
+   "inc_steps": 0,
+   "bytes_per_body": 689,
+   "passes_per_substep": 29
+  }
+ },
+ "inc": {
+  "n": 4096,
+  "js_rest_at": 660,
+  "checkpoints": 22,
+  "mismatching_checkpoints": 0,
+  "rows": [
+   {
+    "at": "settle+1000",
+    "js": "da9188e4",
+    "gpu_full": "da9188e4",
+    "gpu_inc": "da9188e4",
+    "identical": true,
+    "work_js": 2686241,
+    "work_gpu_inc": 2686241,
+    "work_gpu_full": 4096000,
+    "faults_inc": "0/933/11451/8312",
+    "faults_full": "0/933/11451/8312",
+    "faults_js": "0/933/11451/8312",
+    "inc_full_steps": 1,
+    "inc_inc_steps": 999
+   },
+   {
+    "at": "kick+300",
+    "js": "0ea0505f",
+    "gpu_full": "0ea0505f",
+    "gpu_inc": "0ea0505f",
+    "identical": true,
+    "work_js": 2862478,
+    "work_gpu_inc": 2862478,
+    "work_gpu_full": 5324800,
+    "faults_inc": "0/933/11451/8312",
+    "faults_full": "0/933/11451/8312",
+    "faults_js": "0/933/11451/8312",
+    "inc_full_steps": 1,
+    "inc_inc_steps": 1299
+   }
+  ]
+ }
+}

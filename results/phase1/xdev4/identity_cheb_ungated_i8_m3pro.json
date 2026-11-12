@@ -1,0 +1,209 @@
+{
+ "worker": {
+  "target": "local",
+  "host": "MacBook-Pro-Pavel.local",
+  "os": "14.7.4",
+  "gpu_driver": "Chipset Model: Apple M3 Pro; Metal Support: Metal 3;",
+  "chrome": "Chrome/157.0.8103.52",
+  "launch_attempts": 1,
+  "wall_s": 81.172
+ },
+ "tag": "m3pro",
+ "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+ "when": "2026-11-12T21:38:04.840Z",
+ "errors": [],
+ "adapter": {
+  "vendor": "apple",
+  "architecture": "metal-3",
+  "device": "0x0000",
+  "description": "Apple M3 Pro",
+  "isFallbackAdapter": false
+ },
+ "timestamp_query": true,
+ "spec": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 8,
+  "slop": 4,
+  "cq": 8,
+  "eps": 32,
+  "g0": 2,
+  "margin": 16,
+  "hi": 24,
+  "th": 0,
+  "route": 0,
+  "vr": 28416,
+  "hand": 32,
+  "gx": 0,
+  "gz": 0,
+  "tq": 4,
+  "shock": 0,
+  "shockit": 4,
+  "cone": 1,
+  "lazy": 0,
+  "cheb": 0.95,
+  "chebs": 0
+ },
+ "full": {
+  "small": {
+   "n": 1728,
+   "substeps": 400,
+   "hash_gpu": "b13597fb",
+   "hash_cpu": "b13597fb",
+   "pos_vel_words_different": 0,
+   "faults_gpu": [
+    0,
+    403,
+    118,
+    3969
+   ],
+   "faults_cpu": [
+    0,
+    403,
+    118,
+    3969
+   ],
+   "full_steps": 400,
+   "inc_steps": 0,
+   "bytes_per_body": 734,
+   "passes_per_substep": 29
+  },
+  "full": {
+   "n": 8000,
+   "substeps": 600,
+   "hash_gpu": "ca00eeeb",
+   "hash_cpu": "ca00eeeb",
+   "pos_vel_words_different": 0,
+   "faults_gpu": [
+    0,
+    2980,
+    97451,
+    20605
+   ],
+   "faults_cpu": [
+    0,
+    2980,
+    97451,
+    20605
+   ],
+   "full_steps": 600,
+   "inc_steps": 0,
+   "bytes_per_body": 689,
+   "passes_per_substep": 29
+  }
+ },
+ "inc": {
+  "n": 4096,
+  "js_rest_at": 955,
+  "checkpoints": 22,
+  "mismatching_checkpoints": 0,
+  "rows": [
+   {
+    "at": "settle+1000",
+    "js": "fdb3d45d",
+    "gpu_full": "fdb3d45d",
+    "gpu_inc": "fdb3d45d",
+    "identical": true,
+    "work_js": 3891601,
+    "work_gpu_inc": 3891601,
+    "work_gpu_full": 4096000,
+    "faults_inc": "0/1195/11643/9618",
+    "faults_full": "0/1195/11643/9618",
+    "faults_js": "0/1195/11643/9618",
+    "inc_full_steps": 1,
+    "inc_inc_steps": 999
+   },
+   {
+    "at": "kick+300",
+    "js": "e25003f3",
+    "gpu_full": "e25003f3",
+    "gpu_inc": "e25003f3",
+    "identical": true,
+    "work_js": 4567554,
+    "work_gpu_inc": 4567554,
+    "work_gpu_full": 5324800,
+    "faults_inc": "0/1195/11643/9625",
+    "faults_full": "0/1195/11643/9625",
+    "faults_js": "0/1195/11643/9625",
+    "inc_full_steps": 1,
+    "inc_inc_steps": 1299
+   }
+  ]
+ },
+ "fuzz": [
+  {
+   "config": {
+    "label": "default capacities"
+   },
+   "n": 2744,
+   "host_edits": 1240,
+   "checkpoints": 25,
+   "mismatching_checkpoints": 0,
+   "full_substeps": 1697,
+   "incremental_substeps": 63,
+   "faults_gpu": "0/821/2329/8276",
+   "faults_js": "0/821/2329/8276",
+   "first_mismatch": null,
+   "last": {
+    "at": "round 23, 300 kicks",
+    "js": "24f51e04",
+    "gpu_inc": "24f51e04",
+    "ok": true
+   }
+  },
+  {
+   "config": {
+    "label": "cell lists of 256 entries, seed stripes of 8",
+    "capc": 256,
+    "seg": 8
+   },
+   "n": 2744,
+   "host_edits": 1240,
+   "checkpoints": 25,
+   "mismatching_checkpoints": 0,
+   "full_substeps": 1760,
+   "incremental_substeps": 0,
+   "faults_gpu": "0/821/2329/8276",
+   "faults_js": "0/821/2329/8276",
+   "first_mismatch": null,
+   "last": {
+    "at": "round 23, 300 kicks",
+    "js": "24f51e04",
+    "gpu_inc": "24f51e04",
+    "ok": true
+   }
+  },
+  {
+   "config": {
+    "label": "never switch to full by seed count",
+    "dense": 4294967295
+   },
+   "n": 2744,
+   "host_edits": 1240,
+   "checkpoints": 25,
+   "mismatching_checkpoints": 0,
+   "full_substeps": 25,
+   "incremental_substeps": 1735,
+   "faults_gpu": "0/821/2329/8276",
+   "faults_js": "0/821/2329/8276",
+   "first_mismatch": null,
+   "last": {
+    "at": "round 23, 300 kicks",
+    "js": "24f51e04",
+    "gpu_inc": "24f51e04",
+    "ok": true
+   }
+  }
+ ],
+ "permutation": {
+  "n": 8000,
+  "substeps": 600,
+  "coincident_pairs": 40,
+  "canonical_ids": true,
+  "mismatch_words_pos_vel": 0,
+  "bodies_with_different_contacts_or_impulses": 0,
+  "faults": "0/2884/97287/20707 | 0/2884/97287/20707"
+ }
+}

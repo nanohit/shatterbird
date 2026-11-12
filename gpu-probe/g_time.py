@@ -5,8 +5,8 @@ rows = []
 for f in sorted(glob.glob(sys.argv[1] + '/time_*.json')):
     j = json.load(open(f))
     if 'time' not in j or not j['time']: print('no data', f, j.get('error')); continue
-    r = j['time'][0]; m = re.match(r'time_(v2|v3_i(\d+))_(\w+?)_(\w+)\.json', os.path.basename(f)); spec = j['spec']
-    rows.append({'device': m.group(4), 'bodies': r['n'], 'law': 'v2 (anchor)' if spec['hand'] == 0 else 'v3', 'iterations': spec['iters'],
+    r = j['time'][0]; m = re.match(r'time_(v2|v[34]_i(\d+))_(\w+?)_(\w+)\.json', os.path.basename(f)); spec = j['spec']
+    rows.append({'device': m.group(4), 'bodies': r['n'], 'law': 'v2 (anchor)' if spec['hand'] == 0 else ('v4' if spec.get('cheb') else 'v3'), 'iterations': spec['iters'],
         'falling_full_ms': r['falling']['full_ms'], 'falling_inc_ms': r['falling']['inc_ms'], 'rest_by_substep': r['rest_by_substep'],
         'rest_full_ms': r['at_rest']['full_ms'], 'rest_inc_ms': r['at_rest']['inc_ms'],
         'settle_inc_ms_total': round(sum(p['inc_ms'] * 100 for p in r['settle']), 1), 'settle_full_ms_total': round(sum(p['full_ms'] * 100 for p in r['settle']), 1),

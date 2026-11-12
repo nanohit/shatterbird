@@ -1,0 +1,258 @@
+{
+ "worker": {
+  "target": "local",
+  "host": "MacBook-Pro-Pavel.local",
+  "os": "14.7.4",
+  "gpu_driver": "Chipset Model: Apple M3 Pro; Metal Support: Metal 3;",
+  "chrome": "Chrome/157.0.8103.52",
+  "launch_attempts": 1,
+  "wall_s": 10.511
+ },
+ "tag": "m3pro",
+ "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+ "when": "2026-11-12T22:02:55.358Z",
+ "errors": [],
+ "adapter": {
+  "vendor": "apple",
+  "architecture": "metal-3",
+  "device": "0x0000",
+  "description": "Apple M3 Pro",
+  "isFallbackAdapter": false
+ },
+ "timestamp_query": true,
+ "spec": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 8,
+  "slop": 4,
+  "cq": 8,
+  "eps": 32,
+  "g0": 2,
+  "margin": 16,
+  "hi": 24,
+  "th": 0,
+  "route": 0,
+  "vr": 28416,
+  "hand": 32,
+  "gx": 0,
+  "gz": 0,
+  "tq": 4,
+  "shock": 0,
+  "shockit": 4,
+  "cone": 1,
+  "lazy": 0,
+  "cheb": 0,
+  "chebs": 0,
+  "chebg": 0,
+  "chebn": 0,
+  "fstate": 0
+ },
+ "time": [
+  {
+   "n": 204800,
+   "layers": 8,
+   "cells": 634933,
+   "bytes_per_body": 676,
+   "passes_per_substep": 29,
+   "falling": {
+    "at": "first 40 substeps, every body moving",
+    "substeps": 40,
+    "full_ms": 2.4449,
+    "inc_ms": 2.2277,
+    "ratio": 0.9112
+   },
+   "settle": [
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 3.2596,
+     "inc_ms": 3.337,
+     "ratio": 1.0238,
+     "t": 140,
+     "evaluated_fraction": 1
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 5.3774,
+     "inc_ms": 5.3674,
+     "ratio": 0.9982,
+     "t": 240,
+     "evaluated_fraction": 1
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 6.3217,
+     "inc_ms": 6.305,
+     "ratio": 0.9974,
+     "t": 340,
+     "evaluated_fraction": 1
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 6.402,
+     "inc_ms": 6.4987,
+     "ratio": 1.0151,
+     "t": 440,
+     "evaluated_fraction": 1
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 6.1269,
+     "inc_ms": 6.043,
+     "ratio": 0.9863,
+     "t": 540,
+     "evaluated_fraction": 1
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 4.9818,
+     "inc_ms": 5.0308,
+     "ratio": 1.0098,
+     "t": 640,
+     "evaluated_fraction": 0.9571
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 4.5454,
+     "inc_ms": 1.5501,
+     "ratio": 0.341,
+     "t": 740,
+     "evaluated_fraction": 0.1809
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 4.4936,
+     "inc_ms": 0.3766,
+     "ratio": 0.0838,
+     "t": 840,
+     "evaluated_fraction": 0.0163
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 4.4911,
+     "inc_ms": 0.0993,
+     "ratio": 0.0221,
+     "t": 940,
+     "evaluated_fraction": 0
+    }
+   ],
+   "rest_by_substep": 940,
+   "at_rest": {
+    "at": "rest",
+    "substeps": 40,
+    "full_ms": 4.439,
+    "inc_ms": 0.1528,
+    "ratio": 0.0344
+   },
+   "at_rest_split_passes": {
+    "at": "rest, one pass per stage",
+    "substeps": 40,
+    "full_ms": 4.6071,
+    "inc_ms": 0.4538,
+    "ratio": 0.0985,
+    "full_stages": {
+     "args0": 0.0142,
+     "clear": 0.0427,
+     "insert": 0.05,
+     "markx": 0.0078,
+     "args1": 0.0152,
+     "gather": 0.0047,
+     "clearseed": 0.0048,
+     "reinsert": 0.0049,
+     "marky": 0.0048,
+     "markz": 0.0048,
+     "collect": 0.0062,
+     "match": 1.3033,
+     "solve": 2.7758,
+     "finish": 0.2441,
+     "reset": 0.0235,
+     "resetall": 0.0049
+    },
+    "inc_stages": {
+     "args0": 0.0355,
+     "clear": 0.0276,
+     "insert": 0.0165,
+     "markx": 0.0295,
+     "args1": 0.0175,
+     "gather": 0.0218,
+     "clearseed": 0.0047,
+     "reinsert": 0.0046,
+     "marky": 0.0047,
+     "markz": 0.0048,
+     "collect": 0.0046,
+     "match": 0.0045,
+     "solve": 0.0371,
+     "finish": 0.0047,
+     "reset": 0.0046,
+     "resetall": 0.0047
+    }
+   },
+   "rest_hash": "8fe55374",
+   "rest_identical": true,
+   "wake": [
+    {
+     "at": "wake",
+     "substeps": 20,
+     "full_ms": 4.4323,
+     "inc_ms": 0.4328,
+     "ratio": 0.0977,
+     "t": 20,
+     "evaluated_fraction": 0.02053
+    },
+    {
+     "at": "wake",
+     "substeps": 20,
+     "full_ms": 4.5908,
+     "inc_ms": 0.342,
+     "ratio": 0.0745,
+     "t": 40,
+     "evaluated_fraction": 0.01676
+    },
+    {
+     "at": "wake",
+     "substeps": 20,
+     "full_ms": 4.5322,
+     "inc_ms": 0.1589,
+     "ratio": 0.0351,
+     "t": 60,
+     "evaluated_fraction": 0
+    }
+   ],
+   "wake_quiet_by": 60,
+   "wake_total": {
+    "full_ms": 271.106,
+    "inc_ms": 18.674,
+    "ratio": 0.0689
+   },
+   "wake_response": {
+    "kicked_D": 0.0032,
+    "sum_D": 0.0469,
+    "over_0p01D": 0,
+    "over_0p1D": 0
+   },
+   "wake_hash": "98402f7a",
+   "wake_identical": true,
+   "faults": {
+    "inc": "0/251/0/596843",
+    "full": "0/251/0/596843"
+   },
+   "inc_steps": [
+    633,
+    447
+   ],
+   "contacts_per_body": 4.33,
+   "anchors_pct_weight": 0,
+   "anchored_bodies": 7
+  }
+ ]
+}

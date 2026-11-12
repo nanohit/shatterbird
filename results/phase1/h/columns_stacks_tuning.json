@@ -1,0 +1,1085 @@
+{
+ "note": "cold columns (substeps to exact rest, transient sag) and stacks under sudden tilt; p = plain v3, c = accelerated without gate, g = gated, n = gated normal-only (v4); tuning set",
+ "rows": {
+  "p8": {
+   "columns": [
+    {
+     "layers": 8,
+     "rest_at": 111,
+     "sag_transient_pct": 0.164,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 16,
+     "rest_at": 391,
+     "sag_transient_pct": 0.348,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 32,
+     "rest_at": 1383,
+     "sag_transient_pct": 0.712,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 64,
+     "rest_at": 5011,
+     "sag_transient_pct": 1.436,
+     "anchors_pct_weight": 0
+    }
+   ],
+   "stacks": [
+    {
+     "layers": 3,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 3,
+     "tan": 0.604,
+     "verdict": "slides as a block"
+    },
+    {
+     "layers": 8,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 8,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 8,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 16,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 16,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 16,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 32,
+     "tan": 0.297,
+     "verdict": "shears"
+    },
+    {
+     "layers": 32,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 32,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    }
+   ]
+  },
+  "p16": {
+   "columns": [
+    {
+     "layers": 8,
+     "rest_at": 57,
+     "sag_transient_pct": 0.074,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 16,
+     "rest_at": 196,
+     "sag_transient_pct": 0.166,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 32,
+     "rest_at": 687,
+     "sag_transient_pct": 0.348,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 64,
+     "rest_at": 2415,
+     "sag_transient_pct": 0.711,
+     "anchors_pct_weight": 0
+    }
+   ],
+   "stacks": [
+    {
+     "layers": 3,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 3,
+     "tan": 0.604,
+     "verdict": "slides as a block"
+    },
+    {
+     "layers": 8,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 8,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 8,
+     "tan": 0.604,
+     "verdict": "slides as a block"
+    },
+    {
+     "layers": 16,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 16,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 16,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 32,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 32,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 32,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    }
+   ]
+  },
+  "p32": {
+   "columns": [
+    {
+     "layers": 8,
+     "rest_at": 29,
+     "sag_transient_pct": 0.032,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 16,
+     "rest_at": 100,
+     "sag_transient_pct": 0.078,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 32,
+     "rest_at": 346,
+     "sag_transient_pct": 0.169,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 64,
+     "rest_at": 1177,
+     "sag_transient_pct": 0.351,
+     "anchors_pct_weight": 0
+    }
+   ],
+   "stacks": [
+    {
+     "layers": 3,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.45,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.604,
+     "verdict": "slides as a block"
+    },
+    {
+     "layers": 8,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 8,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 8,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 16,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 16,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 16,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 32,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 32,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 32,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    }
+   ]
+  },
+  "c8_0.95_s0": {
+   "columns": [
+    {
+     "layers": 8,
+     "rest_at": 45,
+     "sag_transient_pct": 0.041,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 16,
+     "rest_at": 153,
+     "sag_transient_pct": 0.1,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 32,
+     "rest_at": 590,
+     "sag_transient_pct": 0.216,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 64,
+     "rest_at": 2326,
+     "sag_transient_pct": 0.445,
+     "anchors_pct_weight": 0
+    }
+   ],
+   "stacks": [
+    {
+     "layers": 3,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.45,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.604,
+     "verdict": "slides as a block"
+    },
+    {
+     "layers": 8,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 8,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 8,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 16,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 16,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 16,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 32,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 32,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 32,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    }
+   ]
+  },
+  "c16_0.98_s0": {
+   "columns": [
+    {
+     "layers": 8,
+     "rest_at": 18,
+     "sag_transient_pct": 0.007,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 16,
+     "rest_at": 56,
+     "sag_transient_pct": 0.026,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 32,
+     "rest_at": 207,
+     "sag_transient_pct": 0.063,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 64,
+     "rest_at": 798,
+     "sag_transient_pct": 0.136,
+     "anchors_pct_weight": 0
+    }
+   ],
+   "stacks": [
+    {
+     "layers": 3,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.45,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.604,
+     "verdict": "slides as a block"
+    },
+    {
+     "layers": 8,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 8,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 8,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 16,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 16,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 16,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 32,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 32,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 32,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    }
+   ]
+  },
+  "c32_0.99_s0": {
+   "columns": [
+    {
+     "layers": 8,
+     "rest_at": 11,
+     "sag_transient_pct": 0,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 16,
+     "rest_at": 29,
+     "sag_transient_pct": 0.006,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 32,
+     "rest_at": 100,
+     "sag_transient_pct": 0.019,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 64,
+     "rest_at": 318,
+     "sag_transient_pct": 0.045,
+     "anchors_pct_weight": 0
+    }
+   ],
+   "stacks": [
+    {
+     "layers": 3,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.45,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.604,
+     "verdict": "slides as a block"
+    },
+    {
+     "layers": 8,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 8,
+     "tan": 0.45,
+     "verdict": "holds"
+    },
+    {
+     "layers": 8,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 16,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 16,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 16,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 32,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 32,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 32,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    }
+   ]
+  },
+  "g8r95": {
+   "columns": [
+    {
+     "layers": 8,
+     "rest_at": 39,
+     "sag_transient_pct": 0.041,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 16,
+     "rest_at": 140,
+     "sag_transient_pct": 0.1,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 32,
+     "rest_at": 509,
+     "sag_transient_pct": 0.216,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 64,
+     "rest_at": 1847,
+     "sag_transient_pct": 0.445,
+     "anchors_pct_weight": 0
+    }
+   ],
+   "stacks": [
+    {
+     "layers": 3,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.45,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.604,
+     "verdict": "slides as a block"
+    },
+    {
+     "layers": 8,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 8,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 8,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 16,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 16,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 16,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 32,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 32,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 32,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    }
+   ]
+  },
+  "g16r975": {
+   "columns": [
+    {
+     "layers": 8,
+     "rest_at": 15,
+     "sag_transient_pct": 0.009,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 16,
+     "rest_at": 52,
+     "sag_transient_pct": 0.03,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 32,
+     "rest_at": 183,
+     "sag_transient_pct": 0.071,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 64,
+     "rest_at": 667,
+     "sag_transient_pct": 0.152,
+     "anchors_pct_weight": 0
+    }
+   ],
+   "stacks": [
+    {
+     "layers": 3,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.45,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.604,
+     "verdict": "slides as a block"
+    },
+    {
+     "layers": 8,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 8,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 8,
+     "tan": 0.604,
+     "verdict": "slides as a block"
+    },
+    {
+     "layers": 16,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 16,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 16,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 32,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 32,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 32,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    }
+   ]
+  },
+  "g32r9875": {
+   "columns": [
+    {
+     "layers": 8,
+     "rest_at": 7,
+     "sag_transient_pct": 0.001,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 16,
+     "rest_at": 21,
+     "sag_transient_pct": 0.008,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 32,
+     "rest_at": 74,
+     "sag_transient_pct": 0.022,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 64,
+     "rest_at": 246,
+     "sag_transient_pct": 0.051,
+     "anchors_pct_weight": 0
+    }
+   ],
+   "stacks": [
+    {
+     "layers": 3,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.45,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.604,
+     "verdict": "slides as a block"
+    },
+    {
+     "layers": 8,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 8,
+     "tan": 0.45,
+     "verdict": "holds"
+    },
+    {
+     "layers": 8,
+     "tan": 0.604,
+     "verdict": "slides as a block"
+    },
+    {
+     "layers": 16,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 16,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 16,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 32,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 32,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 32,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    }
+   ]
+  },
+  "n8r95": {
+   "columns": [
+    {
+     "layers": 8,
+     "rest_at": 39,
+     "sag_transient_pct": 0.041,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 16,
+     "rest_at": 140,
+     "sag_transient_pct": 0.1,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 32,
+     "rest_at": 509,
+     "sag_transient_pct": 0.216,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 64,
+     "rest_at": 1847,
+     "sag_transient_pct": 0.445,
+     "anchors_pct_weight": 0
+    }
+   ],
+   "stacks": [
+    {
+     "layers": 3,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 3,
+     "tan": 0.604,
+     "verdict": "slides as a block"
+    },
+    {
+     "layers": 8,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 8,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 8,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 16,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 16,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 16,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 32,
+     "tan": 0.297,
+     "verdict": "shears"
+    },
+    {
+     "layers": 32,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 32,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    }
+   ]
+  },
+  "n16r975": {
+   "columns": [
+    {
+     "layers": 8,
+     "rest_at": 15,
+     "sag_transient_pct": 0.009,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 16,
+     "rest_at": 52,
+     "sag_transient_pct": 0.03,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 32,
+     "rest_at": 183,
+     "sag_transient_pct": 0.071,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 64,
+     "rest_at": 667,
+     "sag_transient_pct": 0.152,
+     "anchors_pct_weight": 0
+    }
+   ],
+   "stacks": [
+    {
+     "layers": 3,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 3,
+     "tan": 0.604,
+     "verdict": "slides as a block"
+    },
+    {
+     "layers": 8,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 8,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 8,
+     "tan": 0.604,
+     "verdict": "slides as a block"
+    },
+    {
+     "layers": 16,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 16,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 16,
+     "tan": 0.604,
+     "verdict": "slides as a block"
+    },
+    {
+     "layers": 32,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 32,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 32,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    }
+   ]
+  },
+  "n32r9875": {
+   "columns": [
+    {
+     "layers": 8,
+     "rest_at": 7,
+     "sag_transient_pct": 0.001,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 16,
+     "rest_at": 21,
+     "sag_transient_pct": 0.008,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 32,
+     "rest_at": 74,
+     "sag_transient_pct": 0.022,
+     "anchors_pct_weight": 0
+    },
+    {
+     "layers": 64,
+     "rest_at": 246,
+     "sag_transient_pct": 0.051,
+     "anchors_pct_weight": 0
+    }
+   ],
+   "stacks": [
+    {
+     "layers": 3,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.45,
+     "verdict": "holds"
+    },
+    {
+     "layers": 3,
+     "tan": 0.604,
+     "verdict": "slides as a block"
+    },
+    {
+     "layers": 8,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 8,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 8,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 16,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 16,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 16,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    },
+    {
+     "layers": 32,
+     "tan": 0.297,
+     "verdict": "holds"
+    },
+    {
+     "layers": 32,
+     "tan": 0.45,
+     "verdict": "shears"
+    },
+    {
+     "layers": 32,
+     "tan": 0.604,
+     "verdict": "falls apart"
+    }
+   ]
+  }
+ }
+}
