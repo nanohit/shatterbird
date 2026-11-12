@@ -1,9 +1,16 @@
 # Shatterbird — Phase 0 (mechanics and solver truth, CPU f64)
 
-**Phase 1f (current): one canonical contact system, full or incremental, on two GPUs** — [`docs/phase1/canonical-system.md`](docs/phase1/canonical-system.md).
+**Phase 1g (current): what a resting pile has to remember, and what the solver gets wrong** — [`docs/phase1/rest-physics.md`](docs/phase1/rest-physics.md).
+- **Remeasured at equal horizons from one common equilibrium, with controls:** the rest quantum does not suppress responses on the millimetre scale (the 1f claim is withdrawn); the dominant error is the Jacobi iteration count, which makes a pile too soft (a downward kick sinks 3–6x too far at 4 iterations, 1.0–1.35x at 32).
+- **The model lacks a compliance:** how far a kicked sphere sinks into a pile keeps falling with iterations (256 vs 128: 0.5–0.76); it is not defined by a rigid contact law.
+- **Rest as an exact balance (law v3):** residuals below the threshold are handed to a designated support through the contact; at rest nothing leans on the world frame, floor and walls carry 100.0000 % of the weight. The impulse network is history (two exact equilibria of one geometry, both at rest, differ by 54 %; from zero impulses the equilibrium of a 1728 pile is not even found), and it is the memory that has to be stored.
+- **Change-driven iterations on the GPU** (bitwise unchanged results): a wake at 16–32 iterations costs about what it costs at 4. Same bits on M3 Pro and GTX 1660 SUPER, also with coincident bodies renumbered (canonical ids).
+- **Not solved:** stacks under sideways load shear at any Jacobi iteration count; two-pass propagation holds them but breaks piles (not ported).
+
+**Phase 1f: one canonical contact system, full or incremental, on two GPUs** — [`docs/phase1/canonical-system.md`](docs/phase1/canonical-system.md).
 - **Same bits on Apple M3 Pro and NVIDIA GTX 1660 SUPER**, stepped fully or incrementally: positions, velocities, contact sets, impulses; also with the bodies renumbered and with a forced overflow. Remote worker: `gpu-probe/worker.mjs`.
 - **Incremental execution with its real scheduling cost:** a resting world costs 0.11–0.13 ms per substep at any size (0.85–1.4 % of full stepping at 524k bodies), the wake of a kick 1.8–2.5 %, nothing extra when everything moves.
-- **The rest quantum is a force threshold (0.9 % of a body's weight):** large rearrangements do not notice, small responses are suppressed 3–20x. Routing of momentum to supports settles stacks 60x faster but changes consequences; not adopted.
+- **The rest quantum is a force threshold (0.9 % of a body's weight):** large rearrangements do not notice; the "small responses suppressed 3–20x" of this phase was mismeasured and is withdrawn in 1g. Routing of momentum to supports settles stacks 60x faster but changes consequences; not adopted.
 
 **Phase 1d/1e: bodies at rest on the GPU, and the price of interfaces** — [`docs/phase1/bodies-and-interfaces.md`](docs/phase1/bodies-and-interfaces.md).
 - **Rest as an exact integer fixed point:** a contact solver with stored impulses (JS specification and WGSL, bit-identical) brings a 22k-sphere pile to zero state changes; skipping unchanged neighbourhoods is then bit-exact. Cost 18 ns per sphere-substep at 125k; tall stacks and deep piles settle slowly (layers^2 / iterations); a 1 m/s kick still wakes half of a 22k pile.

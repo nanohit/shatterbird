@@ -1,0 +1,57 @@
+{
+ "n": 12,
+ "N": 1728,
+ "K": 16,
+ "margin_units": 16,
+ "tammes_bound_pct_D": {
+  "partners_13": 2.8,
+  "partners_17": 12.3
+ },
+ "first_overflow": {
+  "scale": 0.7,
+  "max_partners_in_margin": 17,
+  "max_pair_overlap_pct_D": 30.5
+ },
+ "rows": [
+  {
+   "scale": 1,
+   "max_partners_in_margin": 8,
+   "max_pair_overlap_pct_D": 0.7
+  },
+  {
+   "scale": 0.95,
+   "max_partners_in_margin": 10,
+   "max_pair_overlap_pct_D": 5.7
+  },
+  {
+   "scale": 0.9,
+   "max_partners_in_margin": 11,
+   "max_pair_overlap_pct_D": 10.7
+  },
+  {
+   "scale": 0.85,
+   "max_partners_in_margin": 12,
+   "max_pair_overlap_pct_D": 15.6
+  },
+  {
+   "scale": 0.8,
+   "max_partners_in_margin": 13,
+   "max_pair_overlap_pct_D": 20.6
+  },
+  {
+   "scale": 0.75,
+   "max_partners_in_margin": 14,
+   "max_pair_overlap_pct_D": 25.5
+  },
+  {
+   "scale": 0.7,
+   "max_partners_in_margin": 17,
+   "max_pair_overlap_pct_D": 30.5
+  },
+  {
+   "scale": 0.65,
+   "max_partners_in_margin": 19,
+   "max_pair_overlap_pct_D": 35.5
+  }
+ ]
+}

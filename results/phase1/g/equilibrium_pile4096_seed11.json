@@ -1,0 +1,245 @@
+{
+ "n": 16,
+ "seed": 11,
+ "N": 4096,
+ "base": {
+  "anchors_pct_weight": 0.4655,
+  "anchored_bodies": 4077,
+  "floor_pct": 102.935,
+  "walls_pct": -2.922,
+  "contacts": 4.77,
+  "pen_max": 8
+ },
+ "solves": [
+  {
+   "contacts": 10190,
+   "touching": 8838,
+   "asymmetric": 0,
+   "warm": true,
+   "mu": 0.45,
+   "sweeps": 200000,
+   "float_imbalance_max": 76.66902250865814,
+   "hist": [
+    [
+     1,
+     3570
+    ],
+    [
+     2,
+     912
+    ],
+    [
+     4,
+     238
+    ],
+    [
+     8,
+     122
+    ],
+    [
+     16,
+     120
+    ],
+    [
+     32,
+     116
+    ],
+    [
+     64,
+     110
+    ],
+    [
+     128,
+     98.9
+    ],
+    [
+     256,
+     84.7
+    ],
+    [
+     512,
+     79.8
+    ],
+    [
+     1024,
+     92.7
+    ],
+    [
+     2048,
+     79.7
+    ],
+    [
+     4096,
+     76.7
+    ],
+    [
+     8192,
+     76.7
+    ],
+    [
+     16384,
+     76.7
+    ],
+    [
+     32768,
+     76.7
+    ],
+    [
+     65536,
+     76.7
+    ],
+    [
+     131072,
+     76.7
+    ],
+    [
+     200000,
+     76.7
+    ]
+   ],
+   "float_cone": {
+    "loaded": 8831,
+    "tension": 0,
+    "mobilisation_mean": 0.53,
+    "over_cone": 0,
+    "within_10pct_of_cone": 27,
+    "floor_y": 14972656.880467383,
+    "wall_y": -424067.11485270195
+   },
+   "rounding_imbalance_max": 76,
+   "unreached": 0,
+   "carried_max": 277,
+   "unbalanced": 0,
+   "int_cone": {
+    "loaded": 8734,
+    "tension": 0,
+    "mobilisation_mean": 0.527,
+    "over_cone": 0,
+    "within_10pct_of_cone": 90,
+    "floor_y": 14973059,
+    "wall_y": -424067
+   },
+   "ms": 50821,
+   "min_keep": 64,
+   "fixed_point": {
+    "iters4_eps0": {
+     "changed_in_3_steps": 72,
+     "hash_same": false
+    },
+    "iters32_eps0": {
+     "changed_in_3_steps": 69,
+     "hash_same": false
+    },
+    "iters4_eps32": {
+     "changed_in_3_steps": 14,
+     "hash_same": false
+    },
+    "v3_iters4": {
+     "changed_in_3_steps": 0,
+     "hash_same": true
+    },
+    "v3_iters4_fine_cone_eps0": {
+     "changed_in_3_steps": 0,
+     "hash_same": true
+    }
+   }
+  },
+  {
+   "contacts": 10190,
+   "touching": 8838,
+   "asymmetric": 0,
+   "warm": true,
+   "mu": 0.5,
+   "sweeps": 448,
+   "float_imbalance_max": 9.740551831782795e-8,
+   "hist": [
+    [
+     1,
+     82.3
+    ],
+    [
+     2,
+     31.9
+    ],
+    [
+     4,
+     15.3
+    ],
+    [
+     8,
+     10.2
+    ],
+    [
+     16,
+     6.05
+    ],
+    [
+     32,
+     2.38
+    ],
+    [
+     64,
+     0.481
+    ],
+    [
+     128,
+     0.032
+    ],
+    [
+     256,
+     0.000195
+    ],
+    [
+     448,
+     9.74e-8
+    ]
+   ],
+   "float_cone": {
+    "loaded": 8836,
+    "tension": 0,
+    "mobilisation_mean": 0.529,
+    "over_cone": 15,
+    "within_10pct_of_cone": 349,
+    "floor_y": 14974178.412698034,
+    "wall_y": -425186.41258113255
+   },
+   "rounding_imbalance_max": 72,
+   "unreached": 0,
+   "carried_max": 116,
+   "unbalanced": 0,
+   "int_cone": {
+    "loaded": 8732,
+    "tension": 0,
+    "mobilisation_mean": 0.525,
+    "over_cone": 12,
+    "within_10pct_of_cone": 283,
+    "floor_y": 14974116,
+    "wall_y": -425124
+   },
+   "ms": 154,
+   "min_keep": 64,
+   "fixed_point": {
+    "iters4_eps0": {
+     "changed_in_3_steps": 0,
+     "hash_same": true
+    },
+    "iters32_eps0": {
+     "changed_in_3_steps": 0,
+     "hash_same": true
+    },
+    "iters4_eps32": {
+     "changed_in_3_steps": 0,
+     "hash_same": true
+    },
+    "v3_iters4": {
+     "changed_in_3_steps": 169,
+     "hash_same": false
+    },
+    "v3_iters4_fine_cone_eps0": {
+     "changed_in_3_steps": 457,
+     "hash_same": false
+    }
+   }
+  }
+ ]
+}

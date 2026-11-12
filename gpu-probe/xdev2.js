@@ -6,20 +6,20 @@ async function xdev2(opts = {}) {
   const V = REST2, K = V.K, R = { tag: opts.tag || 'dev', ua: navigator.userAgent, when: new Date().toISOString(), errors: [] }, tests = opts.tests || ['full', 'inc', 'perm', 'overflow'];
   try {
     const h = await XD.setup(R), { dev, read, log } = h, prm = { ...V.PRM, ...(opts.prm || {}) }; R.spec = prm;
-    const cloud = (n, ny = n, seed = 11) => V.prime(V.lattice(n, ny, n, 1400, 1400, 200, seed, 1, 2, 4096, prm.f), prm);
+    const cloud = (n, ny = n, seed = 11) => { const S = V.lattice(n, ny, n, 1400, 1400, 200, seed, 1, 2, 4096, prm.f); if (opts.ids) V.assignIds(S); return V.prime(S, prm); };
     // a GPU run: steps, state read-back, canonical hash, counters, host edits
     const start = async (S0, o) => { h.names(Object.keys(V.WGSL)); const G = await V.gpu(h, S0, prm, o), N = S0.N;
-      const run = { G, N, steps: async n => { for (let t = 0; t < n; t += 40) { dev.queue.submit(G.enc(Math.min(40, n - t))); await dev.queue.onSubmittedWorkDone(); } },
+      const run = { G, N, steps: async n => { const B = opts.batch || 40; for (let t = 0; t < n; t += B) { dev.queue.submit(G.enc(Math.min(B, n - t))); await dev.queue.onSubmittedWorkDone(); } },
         state: async () => ({ pos: await read(G.b.pos, 16 * N), vel: await read(G.b.vel, 16 * N), slot: await read(G.b.la, 16 * K * N) }),
         hash: async () => { const s = await run.state(); return V.canon(N, s.pos, s.vel, s.slot); },
         counters: async () => V.counters(await read(G.b.at, 4 * 128)),
         // host edit of one body's velocity; the next substep runs full (the header flag "primed" is cleared)
         // host edit of one body's velocity. With `cell` (the body's cell, world at rest) the edit is announced as a
         // seed and the next substep stays incremental; without it the next substep runs full.
-        kick: (i, v, cell) => { const a = Math.max(Math.abs(v[0]), Math.abs(v[1]), Math.abs(v[2])); dev.queue.writeBuffer(G.b.vel, 16 * i, new Int32Array(v)); dev.queue.writeBuffer(G.b.pos, 16 * i + 12, new Int32Array([a <= prm.vr ? 1 : 0]));
+        kick: (i, v, cell) => { const a = Math.max(Math.abs(v[0]), Math.abs(v[1]), Math.abs(v[2])); dev.queue.writeBuffer(G.b.vel, 16 * i, new Int32Array(v)); dev.queue.writeBuffer(G.b.pos, 16 * i + 12, new Int32Array([(S0.pos[4 * i + 3] & ~1) | (a <= prm.vr ? 1 : 0)]));
           if (cell === undefined) dev.queue.writeBuffer(G.b.bl, 28, new Uint32Array([0])); else { const s = i & 63; dev.queue.writeBuffer(G.b.seeds, 4 * s * G.seg, new Uint32Array([cell])); dev.queue.writeBuffer(G.b.at, 4 * (V.AT.SEED + s), new Uint32Array([1])); } } };
       return run; };
-    const jsKick = (S, i, v, seed) => { S.vel[4 * i] = v[0]; S.vel[4 * i + 1] = v[1]; S.vel[4 * i + 2] = v[2]; const a = Math.max(Math.abs(v[0]), Math.abs(v[1]), Math.abs(v[2])); S.pos[4 * i + 3] = a <= prm.vr ? 1 : 0; S.seed = seed ? [V.cellOf(S, i)] : null; };
+    const jsKick = (S, i, v, seed) => { S.vel[4 * i] = v[0]; S.vel[4 * i + 1] = v[1]; S.vel[4 * i + 2] = v[2]; const a = Math.max(Math.abs(v[0]), Math.abs(v[1]), Math.abs(v[2])); S.pos[4 * i + 3] = (S.pos[4 * i + 3] & ~1) | (a <= prm.vr ? 1 : 0); S.seed = seed ? [V.cellOf(S, i)] : null; };
     const surface = S => { let k = 0, best = -1e18; const mx = S.gx * 512 * 256, mz = S.gz * 512 * 256; for (let i = 0; i < S.N; i++) { const d = Math.hypot(S.pos[4 * i] - mx, S.pos[4 * i + 2] - mz), sc = S.pos[4 * i + 1] - 2 * d; if (sc > best) { best = sc; k = i; } } return k; };
     const diffState = (a, b, N) => { let pv = 0, sl = 0; for (let i = 0; i < N; i++) { for (let k = 0; k < 4; k++) { if (a.pos[4 * i + k] !== b.pos[4 * i + k]) pv++; if (a.vel[4 * i + k] !== b.vel[4 * i + k]) pv++; } } return pv; };
 
@@ -66,11 +66,13 @@ async function xdev2(opts = {}) {
     if (tests.includes('perm')) {
       const n = opts.perm_n || 20, steps = opts.perm_steps || 600, A = cloud(n), N = A.N, P = cloud(n), rnd = V.rng(777), pi = new Uint32Array(N);
       for (let i = 0; i < N; i++) pi[i] = i; for (let i = N - 1; i > 0; i--) { const j = rnd() % (i + 1), t = pi[i]; pi[i] = pi[j]; pi[j] = t; }
+      // opts.coincide: that many pairs of bodies start at exactly the same position (and velocity): the degenerate case
+      for (let q = 0; q < (opts.coincide || 0); q++) for (let c = 0; c < 3; c++) { A.pos[4 * (7 * q + 1) + c] = A.pos[4 * (7 * q) + c]; A.vel[4 * (7 * q + 1) + c] = A.vel[4 * (7 * q) + c]; }
       for (let k = 0; k < N; k++) for (let c = 0; c < 4; c++) { P.pos[4 * k + c] = A.pos[4 * pi[k] + c]; P.vel[4 * k + c] = A.vel[4 * pi[k] + c]; }
       const ga = await start(A, { force: true }), gp = await start(P, { force: true }); await ga.steps(steps); await gp.steps(steps); const a = await ga.state(), p = await gp.state(); let bad = 0, sbad = 0;
       const key = (st, i, map) => { const m = st.vel[4 * i + 3] & 31, o = []; for (let q = 0; q < m; q++) { const b = 4 * (i * K + q), id = st.slot[b + 3] >>> 0; o.push([id >= V.WALL ? id : map(id), st.slot[b], st.slot[b + 1], st.slot[b + 2]].join(',')); } return o.sort().join(';'); };
       for (let k = 0; k < N; k++) { const i = pi[k]; for (let c = 0; c < 4; c++) { if (p.pos[4 * k + c] !== a.pos[4 * i + c]) bad++; if (p.vel[4 * k + c] !== a.vel[4 * i + c]) bad++; } if (key(p, k, j => pi[j]) !== key(a, i, j => j)) sbad++; }
-      R.permutation = { n: N, substeps: steps, mismatch_words_pos_vel: bad, bodies_with_different_contacts_or_impulses: sbad, faults: (await ga.counters()).faults.join('/') + ' | ' + (await gp.counters()).faults.join('/') };
+      R.permutation = { n: N, substeps: steps, coincident_pairs: opts.coincide || 0, canonical_ids: !!opts.ids, mismatch_words_pos_vel: bad, bodies_with_different_contacts_or_impulses: sbad, faults: (await ga.counters()).faults.join('/') + ' | ' + (await gp.counters()).faults.join('/') };
       ga.G.free(); gp.G.free(); log('permutation: ' + JSON.stringify(R.permutation));
     }
 
@@ -88,13 +90,32 @@ async function xdev2(opts = {}) {
       if (opts.dump !== false) for (const k of ['pos', 'vel', 'slot']) await XD.save(`${R.tag}_v2overflow_${k}.bin`, s[k]);
       g.G.free(); gq.G.free(); log('overflow: ' + JSON.stringify(R.overflow));
     }
+    if (tests.includes('stuck')) {
+      // diagnosis: step a cloud incrementally, then record every body whose velocity, position or impulses change over
+      // opts.stuck_window consecutive substeps, with its contacts
+      const [nx, ny] = (opts.sizes || [[64, 8]])[0], A = cloud(nx, ny, 99), N = A.N, g = await start(A, {}); await g.steps(opts.stuck_after || 2000);
+      const snaps = []; for (let t = 0; t < (opts.stuck_window || 16); t++) { snaps.push(await g.state()); await g.steps(1); }
+      const moving = new Set(); for (let t = 1; t < snaps.length; t++) for (let i = 0; i < N; i++) { let d = false; for (let c = 0; c < 4 && !d; c++) if (snaps[t].pos[4 * i + c] !== snaps[t - 1].pos[4 * i + c] || snaps[t].vel[4 * i + c] !== snaps[t - 1].vel[4 * i + c]) d = true; if (!d) { const m = snaps[t].vel[4 * i + 3] & 31; for (let q = 0; q < 4 * m && !d; q++) if (snaps[t].slot[4 * i * K + q] !== snaps[t - 1].slot[4 * i * K + q]) d = true; } if (d) moving.add(i); }
+      const S = { ...A, pos: snaps[0].pos, vel: snaps[0].vel, slot: snaps[0].slot }, list = [...moving].slice(0, 12);
+      R.stuck = { n: N, changing_bodies: moving.size, bodies: list.map(i => ({ i, y_D: +(snaps[0].pos[4 * i + 1] / 245760).toFixed(2), vel: snaps.map(sn => [sn.vel[4 * i], sn.vel[4 * i + 1], sn.vel[4 * i + 2], sn.vel[4 * i + 3] >> 8]), dpos: snaps.map(sn => [sn.pos[4 * i] - snaps[0].pos[4 * i], sn.pos[4 * i + 1] - snaps[0].pos[4 * i + 1], sn.pos[4 * i + 2] - snaps[0].pos[4 * i + 2]]),
+        contacts: Array.from({ length: snaps[0].vel[4 * i + 3] & 31 }, (_, q) => { const o = 4 * (i * K + q), id = snaps[0].slot[o + 3] >>> 0; V.geom(S, i, id); return { id: id >= V.WALL ? 'W' + (id - V.WALL) : id, n: [V.geo.ex / V.geo.len, V.geo.ey / V.geo.len, V.geo.ez / V.geo.len].map(x => +x.toFixed(2)), pen: V.geo.pen, P: snaps.map(sn => [sn.slot[o], sn.slot[o + 1], sn.slot[o + 2]]) }; }) })) };
+      // the same substep in the JS specification, from the GPU state: identity, and the last two levels of the residual
+      { const J = V.make(N, A.gx, A.gy, A.gz); J.pos.set(snaps[0].pos); J.vel.set(snaps[0].vel); J.slot.set(snaps[0].slot); J.seed = null; V.step(J, prm); let bad = 0; for (let i = 0; i < N; i++) for (let c = 0; c < 4; c++) { if (J.pos[4 * i + c] !== snaps[1].pos[4 * i + c]) bad++; if (J.vel[4 * i + c] !== snaps[1].vel[4 * i + c]) bad++; }
+        R.stuck.js_step_words_different = bad; R.stuck.levels = list.map(i => { const o = { i, r_last: Array.from(J.r[0].subarray(4 * i, 4 * i + 3)), r_before: Array.from(J.r[1].subarray(4 * i, 4 * i + 3)), w: (J.r[0][4 * i + 3] >>> 0).toString(16), partners: [] };
+          for (let q = 0; q < (J.vel[4 * i + 3] & 31); q++) { const id = J.slot[4 * (i * K + q) + 3] >>> 0; if (id < V.WALL) o.partners.push({ id, r_last: Array.from(J.r[0].subarray(4 * id, 4 * id + 3)), r_before: Array.from(J.r[1].subarray(4 * id, 4 * id + 3)), w: (J.r[0][4 * id + 3] >>> 0).toString(16), vel: Array.from(snaps[0].vel.subarray(4 * id, 4 * id + 4)), n: J.vel[4 * id + 3] & 31,
+            contacts: Array.from({ length: J.vel[4 * id + 3] & 31 }, (_, s2) => { const oo = 4 * (id * K + s2), k2 = J.slot[oo + 3] >>> 0; V.geom(J, id, k2); return [k2 >= V.WALL ? 'W' + (k2 - V.WALL) : k2, +(V.geo.ey / V.geo.len).toFixed(2), V.geo.pen, J.slot[oo], J.slot[oo + 1], J.slot[oo + 2]]; }) }); } return o; }); }
+      g.G.free(); log('stuck: ' + moving.size + ' changing bodies');
+    }
     if (tests.includes('time')) {
       // GPU time (timestamp queries) of full and incremental stepping of the same world: all bodies falling,
       // settling, rest, the wake of a kick. Wide shallow clouds: [nx, ny] -> nx * ny * nx bodies.
       R.time = [];
       for (const [nx, ny] of opts.sizes || [[64, 8]]) {
         const A = cloud(nx, ny, 99), N = A.N, gf = await start(A, { force: true }), gi = await start(A, {}), row = { n: N, layers: ny, cells: gi.G.cells, bytes_per_body: Math.round(gi.G.bytes_per_body), passes_per_substep: gi.G.passes };
-        const tm = async (g, sub, split) => { const t = await h.gputime(() => g.G.enc(sub, split)); return t ? { ms: t.total_ms / sub, st: split ? Object.fromEntries(Object.entries(t.stage_ms).map(([k, v]) => [k, +(v / sub).toFixed(4)])) : undefined } : null; };
+        // opts.batch caps the substeps per command buffer (a Windows driver resets the device when one runs ~2 s)
+        const tm = async (g, sub, split) => { const B = opts.batch || sub; let ms = 0, st = null;
+          for (let d = 0; d < sub; d += B) { const k = Math.min(B, sub - d), t = await h.gputime(() => g.G.enc(k, split)); if (!t) return null; ms += t.total_ms; if (split) { st = st || {}; for (const [q, v] of Object.entries(t.stage_ms)) st[q] = (st[q] || 0) + v; } }
+          return { ms: ms / sub, st: split ? Object.fromEntries(Object.entries(st).map(([q, v]) => [q, +(v / sub).toFixed(4)])) : undefined }; };
         const pair = async (sub, label, split) => { const f = await tm(gf, sub, split), i = await tm(gi, sub, split); return { at: label, substeps: sub, full_ms: +f.ms.toFixed(4), inc_ms: +i.ms.toFixed(4), ratio: +(i.ms / f.ms).toFixed(4), full_stages: f.st, inc_stages: i.st }; };
         row.falling = await pair(40, 'first 40 substeps, every body moving'); log('time ' + N + ' falling: ' + JSON.stringify({ ...row.falling, full_stages: undefined, inc_stages: undefined }));
         // settle: chunks of 100 substeps until the incremental run evaluates nothing
@@ -104,8 +125,10 @@ async function xdev2(opts = {}) {
         const hf0 = await gf.hash(), hi0 = await gi.hash(); row.rest_hash = hi0; row.rest_identical = hf0 === hi0;
         // kick one surface sphere, 1 m/s down and 0.5 m/s sideways; windows of 20 substeps
         const pos = await read(gi.G.b.pos, 16 * N), k = surface({ N, gx: A.gx, gz: A.gz, pos }), v = [Math.round(0.5 * 5436) * prm.f, -5436 * prm.f, 0]; gf.kick(k, v); gi.kick(k, v, rest > 0 ? (pos[4 * k] >> 18) + A.gx * ((pos[4 * k + 1] >> 18) + A.gy * (pos[4 * k + 2] >> 18)) : undefined); row.wake = []; let wf = 0, wi = 0, quiet = -1; w0 = (await gi.counters()).work;
-        for (let q = 0; q < 20; q++) { const p = await pair(20, 'wake'); const c = await gi.counters(); p.t = (q + 1) * 20; p.evaluated_fraction = +((c.work - w0) / (20 * N)).toFixed(5); w0 = c.work; wf += p.full_ms * 20; wi += p.inc_ms * 20; delete p.full_stages; delete p.inc_stages; row.wake.push(p); if (p.evaluated_fraction === 0 && q > 0) { quiet = p.t; break; } }
+        for (let q = 0; q < (opts.wake_windows || 20); q++) { const p = await pair(20, 'wake'); const c = await gi.counters(); p.t = (q + 1) * 20; p.evaluated_fraction = +((c.work - w0) / (20 * N)).toFixed(5); w0 = c.work; wf += p.full_ms * 20; wi += p.inc_ms * 20; delete p.full_stages; delete p.inc_stages; row.wake.push(p); if (p.evaluated_fraction === 0 && q > 0) { quiet = p.t; break; } }
         row.wake_quiet_by = quiet; row.wake_total = { full_ms: +wf.toFixed(3), inc_ms: +wi.toFixed(3), ratio: +(wi / wf).toFixed(4) };
+        { const p1 = await read(gi.G.b.pos, 16 * N), DD = 960 * 256; let sum = 0, n01 = 0, n001 = 0; const dd = i => Math.hypot(p1[4 * i] - pos[4 * i], p1[4 * i + 1] - pos[4 * i + 1], p1[4 * i + 2] - pos[4 * i + 2]) / DD; for (let i = 0; i < N; i++) { const d = dd(i); sum += d; if (d > 0.1) n01++; if (d > 0.01) n001++; }
+          row.wake_response = { kicked_D: +dd(k).toFixed(5), sum_D: +sum.toFixed(4), over_0p01D: n001, over_0p1D: n01 }; }
         const hf1 = await gf.hash(), hi1 = await gi.hash(), ci = await gi.counters(), cf = await gf.counters(); row.wake_hash = hi1; row.wake_identical = hf1 === hi1; row.faults = { inc: ci.faults.join('/'), full: cf.faults.join('/') }; row.inc_steps = [ci.full_steps, ci.inc_steps];
         const st = await gi.state(); let an = 0, na = 0, nc = 0; for (let i = 0; i < N; i++) { const w = st.vel[4 * i + 3]; nc += w & 31; const aw = w >> 8; if (aw) { na++; for (let c = 0; c < 3; c++) an += Math.abs(((aw >> (7 * c)) & 127) << 25 >> 25); } }
         row.contacts_per_body = +(nc / N).toFixed(2); row.anchors_pct_weight = +(an / (N * prm.grav * prm.f) * 100).toFixed(4); row.anchored_bodies = na;

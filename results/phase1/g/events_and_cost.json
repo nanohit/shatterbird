@@ -1,0 +1,1462 @@
+{
+ "i4e32": {
+  "runs": 108,
+  "down0.25": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 53.0,
+   "work_incremental_mean": 423273,
+   "work_change_driven_mean": 296999,
+   "anchor_impulse_cum_over_kick_momentum": 8.697
+  },
+  "down1": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 102.0,
+   "work_incremental_mean": 976241,
+   "work_change_driven_mean": 817514,
+   "anchor_impulse_cum_over_kick_momentum": 6.619
+  },
+  "down4": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 149.0,
+   "work_incremental_mean": 1471027,
+   "work_change_driven_mean": 1316177,
+   "anchor_impulse_cum_over_kick_momentum": 2.256
+  },
+  "side1": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 101.5,
+   "work_incremental_mean": 1114015,
+   "work_change_driven_mean": 890556,
+   "anchor_impulse_cum_over_kick_momentum": 11.667
+  },
+  "slump": {
+   "240": {
+    "x95_D": 18.791,
+    "com_dx_D": 0.0136,
+    "com_dy_D": -0.0212,
+    "moved_over_1D": [
+     9,
+     20,
+     24
+    ],
+    "moved_over_0p1D": [
+     40,
+     65,
+     51
+    ]
+   },
+   "960": {
+    "x95_D": 18.791,
+    "com_dx_D": 0.0158,
+    "com_dy_D": -0.0255,
+    "moved_over_1D": [
+     9,
+     22,
+     27
+    ],
+    "moved_over_0p1D": [
+     40,
+     65,
+     51
+    ]
+   },
+   "3840": {
+    "x95_D": 18.791,
+    "com_dx_D": 0.0158,
+    "com_dy_D": -0.0255,
+    "moved_over_1D": [
+     9,
+     22,
+     27
+    ],
+    "moved_over_0p1D": [
+     40,
+     65,
+     51
+    ]
+   },
+   "quiet_at": [
+    285,
+    580,
+    559
+   ],
+   "work_change_driven": [
+    1733740,
+    2721032,
+    3083932
+   ],
+   "work_incremental": [
+    2208614,
+    3436845,
+    3854205
+   ]
+  },
+  "tilt0.2": {
+   "com_dx_D": [
+    0.0052,
+    0.0073,
+    0.0058
+   ],
+   "moved_over_0p1D": [
+    20,
+    20,
+    18
+   ],
+   "moved_over_1D": [
+    0,
+    4,
+    0
+   ],
+   "quiet_at": [
+    206,
+    706,
+    282
+   ]
+  },
+  "tilt0.3": {
+   "com_dx_D": [
+    0.0183,
+    0.0166,
+    0.0167
+   ],
+   "moved_over_0p1D": [
+    67,
+    45,
+    71
+   ],
+   "moved_over_1D": [
+    0,
+    5,
+    0
+   ],
+   "quiet_at": [
+    465,
+    297,
+    335
+   ]
+  },
+  "tilt0.4": {
+   "com_dx_D": [
+    0.056,
+    0.0366,
+    0.0476
+   ],
+   "moved_over_0p1D": [
+    211,
+    113,
+    159
+   ],
+   "moved_over_1D": [
+    6,
+    13,
+    13
+   ],
+   "quiet_at": [
+    528,
+    428,
+    410
+   ]
+  },
+  "tilt0.5": {
+   "com_dx_D": [
+    0.1509,
+    0.09,
+    0.1013
+   ],
+   "moved_over_0p1D": [
+    1065,
+    378,
+    364
+   ],
+   "moved_over_1D": [
+    20,
+    20,
+    27
+   ],
+   "quiet_at": [
+    579,
+    616,
+    450
+   ]
+  },
+  "remove": {
+   "events": 18,
+   "sum_D_mean": 0.841,
+   "max_D_median": 0.1923,
+   "over_0p1D_total": 30,
+   "over_0p01D_total": 107,
+   "moving_after_6_substeps": 18,
+   "quiet_within_800": 18,
+   "work_change_driven_mean": 759292,
+   "work_incremental_mean": 985948
+  }
+ },
+ "h3": {
+  "runs": 108,
+  "down0.25": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 48.5,
+   "work_incremental_mean": 354905,
+   "work_change_driven_mean": 228460,
+   "anchor_impulse_cum_over_kick_momentum": 2.202
+  },
+  "down1": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 89.0,
+   "work_incremental_mean": 782985,
+   "work_change_driven_mean": 579758,
+   "anchor_impulse_cum_over_kick_momentum": 1.491
+  },
+  "down4": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 140.0,
+   "work_incremental_mean": 1262537,
+   "work_change_driven_mean": 1041590,
+   "anchor_impulse_cum_over_kick_momentum": 0.644
+  },
+  "side1": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 101.5,
+   "work_incremental_mean": 909447,
+   "work_change_driven_mean": 639133,
+   "anchor_impulse_cum_over_kick_momentum": 2.584
+  },
+  "slump": {
+   "240": {
+    "x95_D": 18.788,
+    "com_dx_D": 0.0108,
+    "com_dy_D": -0.0173,
+    "moved_over_1D": [
+     8,
+     15,
+     14
+    ],
+    "moved_over_0p1D": [
+     32,
+     51,
+     49
+    ]
+   },
+   "960": {
+    "x95_D": 18.788,
+    "com_dx_D": 0.0113,
+    "com_dy_D": -0.0185,
+    "moved_over_1D": [
+     8,
+     18,
+     14
+    ],
+    "moved_over_0p1D": [
+     32,
+     55,
+     49
+    ]
+   },
+   "3840": {
+    "x95_D": 18.788,
+    "com_dx_D": 0.0113,
+    "com_dy_D": -0.0185,
+    "moved_over_1D": [
+     8,
+     18,
+     14
+    ],
+    "moved_over_0p1D": [
+     32,
+     55,
+     49
+    ]
+   },
+   "quiet_at": [
+    306,
+    376,
+    311
+   ],
+   "work_change_driven": [
+    1069240,
+    1942205,
+    1744102
+   ],
+   "work_incremental": [
+    1518912,
+    2624567,
+    2316192
+   ]
+  },
+  "tilt0.2": {
+   "com_dx_D": [
+    0.0047,
+    0.0062,
+    0.0048
+   ],
+   "moved_over_0p1D": [
+    14,
+    15,
+    14
+   ],
+   "moved_over_1D": [
+    0,
+    4,
+    0
+   ],
+   "quiet_at": [
+    205,
+    702,
+    302
+   ]
+  },
+  "tilt0.3": {
+   "com_dx_D": [
+    0.0157,
+    0.0156,
+    0.0144
+   ],
+   "moved_over_0p1D": [
+    50,
+    34,
+    54
+   ],
+   "moved_over_1D": [
+    1,
+    5,
+    0
+   ],
+   "quiet_at": [
+    373,
+    306,
+    382
+   ]
+  },
+  "tilt0.4": {
+   "com_dx_D": [
+    0.0504,
+    0.0319,
+    0.043
+   ],
+   "moved_over_0p1D": [
+    166,
+    90,
+    144
+   ],
+   "moved_over_1D": [
+    4,
+    7,
+    7
+   ],
+   "quiet_at": [
+    334,
+    312,
+    425
+   ]
+  },
+  "tilt0.5": {
+   "com_dx_D": [
+    0.1425,
+    0.0823,
+    0.0932
+   ],
+   "moved_over_0p1D": [
+    1008,
+    294,
+    340
+   ],
+   "moved_over_1D": [
+    18,
+    16,
+    21
+   ],
+   "quiet_at": [
+    451,
+    657,
+    390
+   ]
+  },
+  "remove": {
+   "events": 18,
+   "sum_D_mean": 0.722,
+   "max_D_median": 0.1983,
+   "over_0p1D_total": 25,
+   "over_0p01D_total": 104,
+   "moving_after_6_substeps": 18,
+   "quiet_within_800": 18,
+   "work_change_driven_mean": 525319,
+   "work_incremental_mean": 785755
+  }
+ },
+ "h3i8": {
+  "runs": 108,
+  "down0.25": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 30.0,
+   "work_incremental_mean": 427474,
+   "work_change_driven_mean": 193517,
+   "anchor_impulse_cum_over_kick_momentum": 1.206
+  },
+  "down1": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 50.0,
+   "work_incremental_mean": 866278,
+   "work_change_driven_mean": 488423,
+   "anchor_impulse_cum_over_kick_momentum": 0.793
+  },
+  "down4": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 85.5,
+   "work_incremental_mean": 1482863,
+   "work_change_driven_mean": 989652,
+   "anchor_impulse_cum_over_kick_momentum": 0.388
+  },
+  "side1": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 65.0,
+   "work_incremental_mean": 1152586,
+   "work_change_driven_mean": 572118,
+   "anchor_impulse_cum_over_kick_momentum": 1.444
+  },
+  "slump": {
+   "240": {
+    "x95_D": 18.78,
+    "com_dx_D": 0.0099,
+    "com_dy_D": -0.0166,
+    "moved_over_1D": [
+     8,
+     14,
+     16
+    ],
+    "moved_over_0p1D": [
+     28,
+     43,
+     43
+    ]
+   },
+   "960": {
+    "x95_D": 18.782,
+    "com_dx_D": 0.012,
+    "com_dy_D": -0.0206,
+    "moved_over_1D": [
+     8,
+     18,
+     20
+    ],
+    "moved_over_0p1D": [
+     28,
+     45,
+     45
+    ]
+   },
+   "3840": {
+    "x95_D": 18.782,
+    "com_dx_D": 0.012,
+    "com_dy_D": -0.0206,
+    "moved_over_1D": [
+     8,
+     18,
+     20
+    ],
+    "moved_over_0p1D": [
+     28,
+     45,
+     45
+    ]
+   },
+   "quiet_at": [
+    246,
+    521,
+    554
+   ],
+   "work_change_driven": [
+    1249859,
+    2335787,
+    2706137
+   ],
+   "work_incremental": [
+    2592341,
+    5057027,
+    5757851
+   ]
+  },
+  "tilt0.2": {
+   "com_dx_D": [
+    0.0028,
+    0.0036,
+    0.0033
+   ],
+   "moved_over_0p1D": [
+    14,
+    12,
+    14
+   ],
+   "moved_over_1D": [
+    0,
+    2,
+    0
+   ],
+   "quiet_at": [
+    200,
+    391,
+    292
+   ]
+  },
+  "tilt0.3": {
+   "com_dx_D": [
+    0.0099,
+    0.0108,
+    0.0084
+   ],
+   "moved_over_0p1D": [
+    40,
+    31,
+    29
+   ],
+   "moved_over_1D": [
+    1,
+    5,
+    0
+   ],
+   "quiet_at": [
+    386,
+    326,
+    415
+   ]
+  },
+  "tilt0.4": {
+   "com_dx_D": [
+    0.0336,
+    0.021,
+    0.0279
+   ],
+   "moved_over_0p1D": [
+    110,
+    68,
+    110
+   ],
+   "moved_over_1D": [
+    5,
+    6,
+    4
+   ],
+   "quiet_at": [
+    571,
+    313,
+    357
+   ]
+  },
+  "tilt0.5": {
+   "com_dx_D": [
+    0.095,
+    0.0511,
+    0.0636
+   ],
+   "moved_over_0p1D": [
+    450,
+    152,
+    217
+   ],
+   "moved_over_1D": [
+    16,
+    14,
+    19
+   ],
+   "quiet_at": [
+    526,
+    386,
+    440
+   ]
+  },
+  "remove": {
+   "events": 18,
+   "sum_D_mean": 0.673,
+   "max_D_median": 0.1747,
+   "over_0p1D_total": 24,
+   "over_0p01D_total": 79,
+   "moving_after_6_substeps": 18,
+   "quiet_within_800": 18,
+   "work_change_driven_mean": 532509,
+   "work_incremental_mean": 1168664
+  }
+ },
+ "h3i16": {
+  "runs": 108,
+  "down0.25": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 19.0,
+   "work_incremental_mean": 531453,
+   "work_change_driven_mean": 163653,
+   "anchor_impulse_cum_over_kick_momentum": 0.652
+  },
+  "down1": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 29.0,
+   "work_incremental_mean": 1081401,
+   "work_change_driven_mean": 424383,
+   "anchor_impulse_cum_over_kick_momentum": 0.425
+  },
+  "down4": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 48.5,
+   "work_incremental_mean": 1619672,
+   "work_change_driven_mean": 892100,
+   "anchor_impulse_cum_over_kick_momentum": 0.218
+  },
+  "side1": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 56.0,
+   "work_incremental_mean": 2020684,
+   "work_change_driven_mean": 579920,
+   "anchor_impulse_cum_over_kick_momentum": 0.844
+  },
+  "slump": {
+   "240": {
+    "x95_D": 18.774,
+    "com_dx_D": 0.0093,
+    "com_dy_D": -0.0164,
+    "moved_over_1D": [
+     8,
+     14,
+     17
+    ],
+    "moved_over_0p1D": [
+     28,
+     42,
+     43
+    ]
+   },
+   "960": {
+    "x95_D": 18.774,
+    "com_dx_D": 0.0105,
+    "com_dy_D": -0.0184,
+    "moved_over_1D": [
+     8,
+     14,
+     21
+    ],
+    "moved_over_0p1D": [
+     28,
+     44,
+     44
+    ]
+   },
+   "3840": {
+    "x95_D": 18.774,
+    "com_dx_D": 0.0105,
+    "com_dy_D": -0.0184,
+    "moved_over_1D": [
+     8,
+     14,
+     21
+    ],
+    "moved_over_0p1D": [
+     28,
+     44,
+     44
+    ]
+   },
+   "quiet_at": [
+    287,
+    381,
+    466
+   ],
+   "work_change_driven": [
+    1582697,
+    2327020,
+    3087869
+   ],
+   "work_incremental": [
+    6248150,
+    8601315,
+    10792308
+   ]
+  },
+  "tilt0.2": {
+   "com_dx_D": [
+    0.0014,
+    0.0017,
+    0.0018
+   ],
+   "moved_over_0p1D": [
+    5,
+    9,
+    10
+   ],
+   "moved_over_1D": [
+    0,
+    1,
+    0
+   ],
+   "quiet_at": [
+    157,
+    316,
+    349
+   ]
+  },
+  "tilt0.3": {
+   "com_dx_D": [
+    0.0049,
+    0.009,
+    0.0049
+   ],
+   "moved_over_0p1D": [
+    23,
+    30,
+    21
+   ],
+   "moved_over_1D": [
+    0,
+    5,
+    0
+   ],
+   "quiet_at": [
+    230,
+    351,
+    445
+   ]
+  },
+  "tilt0.4": {
+   "com_dx_D": [
+    0.0218,
+    0.015,
+    0.0222
+   ],
+   "moved_over_0p1D": [
+    84,
+    48,
+    104
+   ],
+   "moved_over_1D": [
+    3,
+    6,
+    4
+   ],
+   "quiet_at": [
+    476,
+    403,
+    413
+   ]
+  },
+  "tilt0.5": {
+   "com_dx_D": [
+    0.063,
+    0.0376,
+    0.049
+   ],
+   "moved_over_0p1D": [
+    238,
+    127,
+    187
+   ],
+   "moved_over_1D": [
+    9,
+    15,
+    16
+   ],
+   "quiet_at": [
+    410,
+    644,
+    404
+   ]
+  },
+  "remove": {
+   "events": 18,
+   "sum_D_mean": 0.682,
+   "max_D_median": 0.1674,
+   "over_0p1D_total": 27,
+   "over_0p01D_total": 76,
+   "moving_after_6_substeps": 18,
+   "quiet_within_800": 18,
+   "work_change_driven_mean": 563376,
+   "work_incremental_mean": 2033049
+  }
+ },
+ "h3i32": {
+  "runs": 108,
+  "down0.25": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 12.0,
+   "work_incremental_mean": 703998,
+   "work_change_driven_mean": 147048,
+   "anchor_impulse_cum_over_kick_momentum": 0.339
+  },
+  "down1": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 19.0,
+   "work_incremental_mean": 1213891,
+   "work_change_driven_mean": 372377,
+   "anchor_impulse_cum_over_kick_momentum": 0.238
+  },
+  "down4": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 39.5,
+   "work_incremental_mean": 2400163,
+   "work_change_driven_mean": 903604,
+   "anchor_impulse_cum_over_kick_momentum": 0.131
+  },
+  "side1": {
+   "kicks": 18,
+   "quiet_within_800": 18,
+   "quiet_at_median": 50.0,
+   "work_incremental_mean": 3540103,
+   "work_change_driven_mean": 589768,
+   "anchor_impulse_cum_over_kick_momentum": 0.476
+  },
+  "slump": {
+   "240": {
+    "x95_D": 18.772,
+    "com_dx_D": 0.0087,
+    "com_dy_D": -0.0158,
+    "moved_over_1D": [
+     8,
+     14,
+     17
+    ],
+    "moved_over_0p1D": [
+     26,
+     37,
+     38
+    ]
+   },
+   "960": {
+    "x95_D": 18.772,
+    "com_dx_D": 0.0096,
+    "com_dy_D": -0.0176,
+    "moved_over_1D": [
+     8,
+     16,
+     17
+    ],
+    "moved_over_0p1D": [
+     26,
+     40,
+     38
+    ]
+   },
+   "3840": {
+    "x95_D": 18.772,
+    "com_dx_D": 0.0096,
+    "com_dy_D": -0.0176,
+    "moved_over_1D": [
+     8,
+     16,
+     17
+    ],
+    "moved_over_0p1D": [
+     26,
+     40,
+     38
+    ]
+   },
+   "quiet_at": [
+    287,
+    498,
+    367
+   ],
+   "work_change_driven": [
+    1828806,
+    3314922,
+    2973130
+   ],
+   "work_incremental": [
+    13781811,
+    24159011,
+    17984973
+   ]
+  },
+  "tilt0.2": {
+   "com_dx_D": [
+    0.0009,
+    0.0011,
+    0.0016
+   ],
+   "moved_over_0p1D": [
+    3,
+    8,
+    10
+   ],
+   "moved_over_1D": [
+    0,
+    1,
+    0
+   ],
+   "quiet_at": [
+    233,
+    232,
+    268
+   ]
+  },
+  "tilt0.3": {
+   "com_dx_D": [
+    0.0035,
+    0.008,
+    0.0038
+   ],
+   "moved_over_0p1D": [
+    20,
+    27,
+    21
+   ],
+   "moved_over_1D": [
+    0,
+    5,
+    0
+   ],
+   "quiet_at": [
+    223,
+    398,
+    317
+   ]
+  },
+  "tilt0.4": {
+   "com_dx_D": [
+    0.0137,
+    0.0117,
+    0.0156
+   ],
+   "moved_over_0p1D": [
+    54,
+    41,
+    81
+   ],
+   "moved_over_1D": [
+    2,
+    5,
+    2
+   ],
+   "quiet_at": [
+    374,
+    341,
+    325
+   ]
+  },
+  "tilt0.5": {
+   "com_dx_D": [
+    0.0451,
+    0.0282,
+    0.0415
+   ],
+   "moved_over_0p1D": [
+    161,
+    106,
+    168
+   ],
+   "moved_over_1D": [
+    10,
+    12,
+    15
+   ],
+   "quiet_at": [
+    398,
+    -1,
+    401
+   ]
+  },
+  "remove": {
+   "events": 18,
+   "sum_D_mean": 0.563,
+   "max_D_median": 0.1033,
+   "over_0p1D_total": 24,
+   "over_0p01D_total": 70,
+   "moving_after_6_substeps": 18,
+   "quiet_within_800": 18,
+   "work_change_driven_mean": 559245,
+   "work_incremental_mean": 3627519
+  }
+ },
+ "tp3": {
+  "runs": 15,
+  "down1": {
+   "kicks": 6,
+   "quiet_within_800": 6,
+   "quiet_at_median": 32.5,
+   "work_incremental_mean": 335232,
+   "work_change_driven_mean": 0,
+   "anchor_impulse_cum_over_kick_momentum": 0.226
+  },
+  "side1": {
+   "kicks": 3,
+   "quiet_within_800": 3,
+   "quiet_at_median": 38,
+   "work_incremental_mean": 577152,
+   "work_change_driven_mean": 0,
+   "anchor_impulse_cum_over_kick_momentum": 0.583
+  },
+  "slump": {
+   "240": {
+    "x95_D": 18.707,
+    "com_dx_D": 0.0066,
+    "com_dy_D": -0.0114,
+    "moved_over_1D": [
+     9
+    ],
+    "moved_over_0p1D": [
+     33
+    ]
+   },
+   "960": {
+    "x95_D": 18.707,
+    "com_dx_D": 0.0067,
+    "com_dy_D": -0.0115,
+    "moved_over_1D": [
+     9
+    ],
+    "moved_over_0p1D": [
+     33
+    ]
+   },
+   "3840": {
+    "x95_D": 18.707,
+    "com_dx_D": 0.0067,
+    "com_dy_D": -0.0115,
+    "moved_over_1D": [
+     9
+    ],
+    "moved_over_0p1D": [
+     33
+    ]
+   },
+   "quiet_at": [
+    308
+   ],
+   "work_change_driven": [
+    0
+   ],
+   "work_incremental": [
+    3193344
+   ]
+  },
+  "tilt0.3": {
+   "com_dx_D": [
+    0.1254
+   ],
+   "moved_over_0p1D": [
+    872
+   ],
+   "moved_over_1D": [
+    9
+   ],
+   "quiet_at": [
+    -1
+   ]
+  },
+  "remove": {
+   "events": 3,
+   "sum_D_mean": 0.435,
+   "max_D_median": 0.0353,
+   "over_0p1D_total": 4,
+   "over_0p01D_total": 14,
+   "moving_after_6_substeps": 3,
+   "quiet_within_800": 3,
+   "work_change_driven_mean": 0,
+   "work_incremental_mean": 407808
+  }
+ },
+ "i16c1": {
+  "runs": 108,
+  "down0.25": {
+   "kicks": 18,
+   "quiet_within_800": 0,
+   "quiet_at_median": 801.0,
+   "work_incremental_mean": 24836694,
+   "work_change_driven_mean": 0,
+   "anchor_impulse_cum_over_kick_momentum": 0.0
+  },
+  "down1": {
+   "kicks": 18,
+   "quiet_within_800": 0,
+   "quiet_at_median": 801.0,
+   "work_incremental_mean": 24851804,
+   "work_change_driven_mean": 0,
+   "anchor_impulse_cum_over_kick_momentum": 0.0
+  },
+  "down4": {
+   "kicks": 18,
+   "quiet_within_800": 0,
+   "quiet_at_median": 801.0,
+   "work_incremental_mean": 24858726,
+   "work_change_driven_mean": 0,
+   "anchor_impulse_cum_over_kick_momentum": 0.0
+  },
+  "side1": {
+   "kicks": 18,
+   "quiet_within_800": 0,
+   "quiet_at_median": 801.0,
+   "work_incremental_mean": 24845471,
+   "work_change_driven_mean": 0,
+   "anchor_impulse_cum_over_kick_momentum": 0.0
+  },
+  "slump": {
+   "240": {
+    "x95_D": 18.774,
+    "com_dx_D": 0.0089,
+    "com_dy_D": -0.0162,
+    "moved_over_1D": [
+     8,
+     14,
+     16
+    ],
+    "moved_over_0p1D": [
+     28,
+     43,
+     39
+    ]
+   },
+   "960": {
+    "x95_D": 18.775,
+    "com_dx_D": 0.0097,
+    "com_dy_D": -0.0176,
+    "moved_over_1D": [
+     8,
+     16,
+     16
+    ],
+    "moved_over_0p1D": [
+     28,
+     45,
+     39
+    ]
+   },
+   "3840": {
+    "x95_D": 18.775,
+    "com_dx_D": 0.0097,
+    "com_dy_D": -0.0176,
+    "moved_over_1D": [
+     8,
+     16,
+     16
+    ],
+    "moved_over_0p1D": [
+     28,
+     45,
+     39
+    ]
+   },
+   "quiet_at": [
+    -1,
+    -1,
+    -1
+   ],
+   "work_change_driven": [
+    0,
+    0,
+    0
+   ],
+   "work_incremental": [
+    118869811,
+    118955360,
+    118962535
+   ]
+  },
+  "tilt0.2": {
+   "com_dx_D": [
+    0.0015,
+    0.0015,
+    0.002
+   ],
+   "moved_over_0p1D": [
+    5,
+    8,
+    12
+   ],
+   "moved_over_1D": [
+    0,
+    1,
+    0
+   ],
+   "quiet_at": [
+    -1,
+    -1,
+    -1
+   ]
+  },
+  "tilt0.3": {
+   "com_dx_D": [
+    0.0049,
+    0.009,
+    0.0061
+   ],
+   "moved_over_0p1D": [
+    23,
+    28,
+    29
+   ],
+   "moved_over_1D": [
+    0,
+    5,
+    0
+   ],
+   "quiet_at": [
+    -1,
+    -1,
+    -1
+   ]
+  },
+  "tilt0.4": {
+   "com_dx_D": [
+    0.0218,
+    0.0144,
+    0.0221
+   ],
+   "moved_over_0p1D": [
+    81,
+    44,
+    102
+   ],
+   "moved_over_1D": [
+    3,
+    6,
+    5
+   ],
+   "quiet_at": [
+    -1,
+    -1,
+    -1
+   ]
+  },
+  "tilt0.5": {
+   "com_dx_D": [
+    0.0611,
+    0.0375,
+    0.0494
+   ],
+   "moved_over_0p1D": [
+    213,
+    129,
+    199
+   ],
+   "moved_over_1D": [
+    10,
+    15,
+    15
+   ],
+   "quiet_at": [
+    -1,
+    -1,
+    -1
+   ]
+  },
+  "remove": {
+   "events": 18,
+   "sum_D_mean": 0.693,
+   "max_D_median": 0.1672,
+   "over_0p1D_total": 23,
+   "over_0p01D_total": 72,
+   "moving_after_6_substeps": 18,
+   "quiet_within_800": 0,
+   "work_change_driven_mean": 0,
+   "work_incremental_mean": 24837080
+  }
+ },
+ "i64c1": {
+  "runs": 108,
+  "down0.25": {
+   "kicks": 18,
+   "quiet_within_800": 0,
+   "quiet_at_median": 801.0,
+   "work_incremental_mean": 91191647,
+   "work_change_driven_mean": 0,
+   "anchor_impulse_cum_over_kick_momentum": 0.0
+  },
+  "down1": {
+   "kicks": 18,
+   "quiet_within_800": 0,
+   "quiet_at_median": 801.0,
+   "work_incremental_mean": 91203259,
+   "work_change_driven_mean": 0,
+   "anchor_impulse_cum_over_kick_momentum": 0.0
+  },
+  "down4": {
+   "kicks": 18,
+   "quiet_within_800": 0,
+   "quiet_at_median": 801.0,
+   "work_incremental_mean": 91209387,
+   "work_change_driven_mean": 0,
+   "anchor_impulse_cum_over_kick_momentum": 0.0
+  },
+  "side1": {
+   "kicks": 18,
+   "quiet_within_800": 0,
+   "quiet_at_median": 801.0,
+   "work_incremental_mean": 91200446,
+   "work_change_driven_mean": 0,
+   "anchor_impulse_cum_over_kick_momentum": 0.0
+  },
+  "slump": {
+   "240": {
+    "x95_D": 18.772,
+    "com_dx_D": 0.0085,
+    "com_dy_D": -0.0154,
+    "moved_over_1D": [
+     8,
+     14,
+     17
+    ],
+    "moved_over_0p1D": [
+     25,
+     36,
+     38
+    ]
+   },
+   "960": {
+    "x95_D": 18.772,
+    "com_dx_D": 0.0095,
+    "com_dy_D": -0.0178,
+    "moved_over_1D": [
+     8,
+     15,
+     17
+    ],
+    "moved_over_0p1D": [
+     25,
+     42,
+     38
+    ]
+   },
+   "3840": {
+    "x95_D": 18.772,
+    "com_dx_D": 0.0095,
+    "com_dy_D": -0.0178,
+    "moved_over_1D": [
+     8,
+     15,
+     17
+    ],
+    "moved_over_0p1D": [
+     25,
+     42,
+     38
+    ]
+   },
+   "quiet_at": [
+    -1,
+    -1,
+    -1
+   ],
+   "work_change_driven": [
+    0,
+    0,
+    0
+   ],
+   "work_incremental": [
+    437466847,
+    437338318,
+    437306203
+   ]
+  },
+  "tilt0.2": {
+   "com_dx_D": [
+    0.0003,
+    0.001,
+    0.001
+   ],
+   "moved_over_0p1D": [
+    1,
+    9,
+    8
+   ],
+   "moved_over_1D": [
+    0,
+    1,
+    0
+   ],
+   "quiet_at": [
+    -1,
+    -1,
+    -1
+   ]
+  },
+  "tilt0.3": {
+   "com_dx_D": [
+    0.0027,
+    0.0068,
+    0.0033
+   ],
+   "moved_over_0p1D": [
+    18,
+    22,
+    20
+   ],
+   "moved_over_1D": [
+    0,
+    5,
+    0
+   ],
+   "quiet_at": [
+    -1,
+    -1,
+    -1
+   ]
+  },
+  "tilt0.4": {
+   "com_dx_D": [
+    0.0102,
+    0.0102,
+    0.0142
+   ],
+   "moved_over_0p1D": [
+    43,
+    35,
+    74
+   ],
+   "moved_over_1D": [
+    2,
+    5,
+    3
+   ],
+   "quiet_at": [
+    -1,
+    -1,
+    -1
+   ]
+  },
+  "tilt0.5": {
+   "com_dx_D": [
+    0.0362,
+    0.0238,
+    0.0374
+   ],
+   "moved_over_0p1D": [
+    142,
+    94,
+    162
+   ],
+   "moved_over_1D": [
+    9,
+    12,
+    12
+   ],
+   "quiet_at": [
+    -1,
+    -1,
+    -1
+   ]
+  },
+  "remove": {
+   "events": 18,
+   "sum_D_mean": 0.642,
+   "max_D_median": 0.0989,
+   "over_0p1D_total": 21,
+   "over_0p01D_total": 66,
+   "moving_after_6_substeps": 18,
+   "quiet_within_800": 0,
+   "work_change_driven_mean": 0,
+   "work_incremental_mean": 91187047
+  }
+ }
+}

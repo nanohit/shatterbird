@@ -1,0 +1,70 @@
+{
+ "prm": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 4,
+  "slop": 4,
+  "cq": 8,
+  "eps": 32,
+  "g0": 2,
+  "margin": 16,
+  "hi": 24,
+  "th": 0,
+  "route": 0,
+  "vr": 28416,
+  "hand": 32,
+  "gx": 0,
+  "gz": 0,
+  "tq": 4,
+  "shock": 0,
+  "shockit": 4,
+  "cone": 1,
+  "lazy": 0
+ },
+ "rows": [
+  {
+   "n": 12,
+   "seed": 11,
+   "N": 1728,
+   "anchors_before_pct_weight": 0.4435,
+   "anchored_before": 1728,
+   "exact_balance_after_substeps": 8,
+   "work_in_full_substeps_of_the_default_law": 6.3,
+   "moved_max_D": 0.0000282,
+   "moved_sum_D": 0.000274,
+   "floor_plus_walls_pct_weight": 100,
+   "anchors_after_pct_weight": 0,
+   "anchored_after": 0
+  },
+  {
+   "n": 12,
+   "seed": 12,
+   "N": 1728,
+   "anchors_before_pct_weight": 0.4195,
+   "anchored_before": 1722,
+   "exact_balance_after_substeps": 8,
+   "work_in_full_substeps_of_the_default_law": 6.3,
+   "moved_max_D": 0.000142,
+   "moved_sum_D": 0.000392,
+   "floor_plus_walls_pct_weight": 100,
+   "anchors_after_pct_weight": 0,
+   "anchored_after": 0
+  },
+  {
+   "n": 12,
+   "seed": 13,
+   "N": 1728,
+   "anchors_before_pct_weight": 0.3862,
+   "anchored_before": 1720,
+   "exact_balance_after_substeps": 10,
+   "work_in_full_substeps_of_the_default_law": 6.3,
+   "moved_max_D": 0.000261,
+   "moved_sum_D": 0.00119,
+   "floor_plus_walls_pct_weight": 100,
+   "anchors_after_pct_weight": 0,
+   "anchored_after": 0
+  }
+ ]
+}

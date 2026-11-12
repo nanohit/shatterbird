@@ -1,0 +1,42 @@
+{
+ "m3pro": {
+  "v2 1728x400": "b5ab16ed",
+  "v2 8000x600": "b9d80fd5",
+  "v2 inc 4096": "0ef4fc07 (0/22)",
+  "v2 fuzz": "699f0727(0),699f0727(0),699f0727(0)",
+  "v3 1728x400": "6b4b0e21=JS",
+  "v3 8000x600": "6fbbfca2=JS",
+  "v3 inc 4096": "fb1c1fc6 (0/22)",
+  "v3 fuzz": "c58c3ab3(0),c58c3ab3(0),c58c3ab3(0)",
+  "v3 perm+40 coincident (ids)": 0,
+  "v3 perm+40 coincident (no ids)": 222,
+  "v3 overflow": "82efb59b faults [243268, 6, 0, 321]",
+  "v3 i16 1728x400": "42c1ca8e",
+  "v3 i16 8000x600": "7002da71",
+  "v3 i16 inc 4096": "56c657fc (0/22)",
+  "errors": 0,
+  "adapter": "Apple M3 Pro",
+  "driver": "Chipset Model: Apple M3 Pro; Metal Support: Metal 3;",
+  "chrome": "Chrome/157.0.8103.52"
+ },
+ "gtx1660s": {
+  "v2 1728x400": "b5ab16ed",
+  "v2 8000x600": "b9d80fd5",
+  "v2 inc 4096": "0ef4fc07 (0/22)",
+  "v2 fuzz": "699f0727(0),699f0727(0),699f0727(0)",
+  "v3 1728x400": "6b4b0e21=JS",
+  "v3 8000x600": "6fbbfca2=JS",
+  "v3 inc 4096": "fb1c1fc6 (0/22)",
+  "v3 fuzz": "c58c3ab3(0),c58c3ab3(0),c58c3ab3(0)",
+  "v3 perm+40 coincident (ids)": 0,
+  "v3 perm+40 coincident (no ids)": 222,
+  "v3 overflow": "82efb59b faults [243268, 6, 0, 321]",
+  "v3 i16 1728x400": "42c1ca8e",
+  "v3 i16 8000x600": "7002da71",
+  "v3 i16 inc 4096": "56c657fc (0/22)",
+  "errors": 0,
+  "adapter": "NVIDIA GeForce GTX 1660 SUPER",
+  "driver": "NVIDIA GeForce GTX 1660 SUPER, 610.88, 6144 MiB",
+  "chrome": "Chrome/157.0.8103.38"
+ }
+}

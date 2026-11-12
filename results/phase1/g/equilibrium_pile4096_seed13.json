@@ -1,0 +1,209 @@
+{
+ "n": 16,
+ "seed": 13,
+ "N": 4096,
+ "base": {
+  "anchors_pct_weight": 0.4401,
+  "anchored_bodies": 4086,
+  "floor_pct": 103.474,
+  "walls_pct": -3.447,
+  "contacts": 4.7,
+  "pen_max": 9
+ },
+ "solves": [
+  {
+   "contacts": 10060,
+   "touching": 8750,
+   "asymmetric": 0,
+   "warm": true,
+   "mu": 0.45,
+   "sweeps": 464,
+   "float_imbalance_max": 5.337915354175493e-8,
+   "hist": [
+    [
+     1,
+     1280
+    ],
+    [
+     2,
+     636
+    ],
+    [
+     4,
+     80.6
+    ],
+    [
+     8,
+     14.9
+    ],
+    [
+     16,
+     4.68
+    ],
+    [
+     32,
+     2.02
+    ],
+    [
+     64,
+     0.501
+    ],
+    [
+     128,
+     0.0347
+    ],
+    [
+     256,
+     0.000206
+    ],
+    [
+     464,
+     5.34e-8
+    ]
+   ],
+   "float_cone": {
+    "loaded": 8743,
+    "tension": 0,
+    "mobilisation_mean": 0.535,
+    "over_cone": 0,
+    "within_10pct_of_cone": 52,
+    "floor_y": 15050354.19270132,
+    "wall_y": -501362.192638871
+   },
+   "rounding_imbalance_max": 65,
+   "unreached": 0,
+   "carried_max": 90,
+   "unbalanced": 0,
+   "int_cone": {
+    "loaded": 8654,
+    "tension": 0,
+    "mobilisation_mean": 0.532,
+    "over_cone": 0,
+    "within_10pct_of_cone": 83,
+    "floor_y": 15050330,
+    "wall_y": -501338
+   },
+   "ms": 156,
+   "min_keep": 64,
+   "fixed_point": {
+    "iters4_eps0": {
+     "changed_in_3_steps": 0,
+     "hash_same": true
+    },
+    "iters32_eps0": {
+     "changed_in_3_steps": 0,
+     "hash_same": true
+    },
+    "iters4_eps32": {
+     "changed_in_3_steps": 0,
+     "hash_same": true
+    },
+    "v3_iters4": {
+     "changed_in_3_steps": 0,
+     "hash_same": true
+    },
+    "v3_iters4_fine_cone_eps0": {
+     "changed_in_3_steps": 0,
+     "hash_same": true
+    }
+   }
+  },
+  {
+   "contacts": 10060,
+   "touching": 8750,
+   "asymmetric": 0,
+   "warm": true,
+   "mu": 0.5,
+   "sweeps": 464,
+   "float_imbalance_max": 7.856579031795263e-8,
+   "hist": [
+    [
+     1,
+     95.2
+    ],
+    [
+     2,
+     29.1
+    ],
+    [
+     4,
+     14.4
+    ],
+    [
+     8,
+     8.63
+    ],
+    [
+     16,
+     5.26
+    ],
+    [
+     32,
+     2.58
+    ],
+    [
+     64,
+     0.659
+    ],
+    [
+     128,
+     0.0478
+    ],
+    [
+     256,
+     0.000295
+    ],
+    [
+     464,
+     7.86e-8
+    ]
+   ],
+   "float_cone": {
+    "loaded": 8743,
+    "tension": 0,
+    "mobilisation_mean": 0.536,
+    "over_cone": 22,
+    "within_10pct_of_cone": 311,
+    "floor_y": 15050965.233476706,
+    "wall_y": -501973.2333858802
+   },
+   "rounding_imbalance_max": 71,
+   "unreached": 0,
+   "carried_max": 94,
+   "unbalanced": 0,
+   "int_cone": {
+    "loaded": 8646,
+    "tension": 0,
+    "mobilisation_mean": 0.532,
+    "over_cone": 9,
+    "within_10pct_of_cone": 259,
+    "floor_y": 15050976,
+    "wall_y": -501984
+   },
+   "ms": 151,
+   "min_keep": 64,
+   "fixed_point": {
+    "iters4_eps0": {
+     "changed_in_3_steps": 0,
+     "hash_same": true
+    },
+    "iters32_eps0": {
+     "changed_in_3_steps": 0,
+     "hash_same": true
+    },
+    "iters4_eps32": {
+     "changed_in_3_steps": 0,
+     "hash_same": true
+    },
+    "v3_iters4": {
+     "changed_in_3_steps": 177,
+     "hash_same": false
+    },
+    "v3_iters4_fine_cone_eps0": {
+     "changed_in_3_steps": 402,
+     "hash_same": false
+    }
+   }
+  }
+ ]
+}

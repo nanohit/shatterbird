@@ -1,0 +1,134 @@
+{
+ "worker": {
+  "target": "win",
+  "host": "DESKTOP-ELEP24S",
+  "os": "Microsoft Windows [Version 10.0.22621.4317]",
+  "gpu_driver": "NVIDIA GeForce GTX 1660 SUPER, 610.88, 6144 MiB",
+  "video_controllers": "SudoMaker Virtual Display Adapter | 0.22.37.632\r\nNVIDIA GeForce GTX 1660 SUPER | 32.0.16.1088",
+  "chrome": "Chrome/157.0.8103.38",
+  "launch_attempts": 1,
+  "wall_s": 60.595
+ },
+ "tag": "gtx1660s",
+ "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+ "when": "2026-11-12T16:53:26.024Z",
+ "errors": [],
+ "adapter": {
+  "vendor": "nvidia",
+  "architecture": "turing",
+  "device": "0x21c4",
+  "description": "NVIDIA GeForce GTX 1660 SUPER",
+  "isFallbackAdapter": false
+ },
+ "timestamp_query": true,
+ "spec": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 16,
+  "slop": 4,
+  "cq": 8,
+  "eps": 32,
+  "g0": 2,
+  "margin": 16,
+  "hi": 24,
+  "th": 0,
+  "route": 0,
+  "vr": 28416,
+  "hand": 32,
+  "gx": 0,
+  "gz": 0,
+  "tq": 4,
+  "shock": 0,
+  "shockit": 4,
+  "cone": 1,
+  "lazy": 0
+ },
+ "full": {
+  "small": {
+   "n": 1728,
+   "substeps": 400,
+   "hash_gpu": "42c1ca8e",
+   "hash_cpu": "42c1ca8e",
+   "pos_vel_words_different": 0,
+   "faults_gpu": [
+    0,
+    217,
+    99,
+    3947
+   ],
+   "faults_cpu": [
+    0,
+    217,
+    99,
+    3947
+   ],
+   "full_steps": 400,
+   "inc_steps": 0,
+   "bytes_per_body": 734,
+   "passes_per_substep": 37
+  },
+  "full": {
+   "n": 8000,
+   "substeps": 600,
+   "hash_gpu": "7002da71",
+   "hash_cpu": "7002da71",
+   "pos_vel_words_different": 0,
+   "faults_gpu": [
+    0,
+    1467,
+    94992,
+    25653
+   ],
+   "faults_cpu": [
+    0,
+    1467,
+    94992,
+    25653
+   ],
+   "full_steps": 600,
+   "inc_steps": 0,
+   "bytes_per_body": 689,
+   "passes_per_substep": 37
+  }
+ },
+ "inc": {
+  "n": 4096,
+  "js_rest_at": 692,
+  "checkpoints": 22,
+  "mismatching_checkpoints": 0,
+  "rows": [
+   {
+    "at": "settle+1000",
+    "js": "83d6507f",
+    "gpu_full": "83d6507f",
+    "gpu_inc": "83d6507f",
+    "identical": true,
+    "work_js": 2834432,
+    "work_gpu_inc": 2834432,
+    "work_gpu_full": 4096000,
+    "faults_inc": "0/580/11234/11204",
+    "faults_full": "0/580/11234/11204",
+    "faults_js": "0/580/11234/11204",
+    "inc_full_steps": 1,
+    "inc_inc_steps": 999
+   },
+   {
+    "at": "kick+300",
+    "js": "56c657fc",
+    "gpu_full": "56c657fc",
+    "gpu_inc": "56c657fc",
+    "identical": true,
+    "work_js": 2994176,
+    "work_gpu_inc": 2994176,
+    "work_gpu_full": 5324800,
+    "faults_inc": "0/580/11234/11204",
+    "faults_full": "0/580/11234/11204",
+    "faults_js": "0/580/11234/11204",
+    "inc_full_steps": 1,
+    "inc_inc_steps": 1299
+   }
+  ]
+ }
+}

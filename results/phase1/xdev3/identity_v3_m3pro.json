@@ -1,0 +1,234 @@
+{
+ "worker": {
+  "target": "local",
+  "host": "MacBook-Pro-Pavel.local",
+  "os": "14.7.4",
+  "gpu_driver": "Chipset Model: Apple M3 Pro; Metal Support: Metal 3;",
+  "chrome": "Chrome/157.0.8103.52",
+  "launch_attempts": 1,
+  "wall_s": 36.22
+ },
+ "tag": "m3pro",
+ "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+ "when": "2026-11-12T16:51:14.407Z",
+ "errors": [],
+ "adapter": {
+  "vendor": "apple",
+  "architecture": "metal-3",
+  "device": "0x0000",
+  "description": "Apple M3 Pro",
+  "isFallbackAdapter": false
+ },
+ "timestamp_query": true,
+ "spec": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 4,
+  "slop": 4,
+  "cq": 8,
+  "eps": 32,
+  "g0": 2,
+  "margin": 16,
+  "hi": 24,
+  "th": 0,
+  "route": 0,
+  "vr": 28416,
+  "hand": 32,
+  "gx": 0,
+  "gz": 0,
+  "tq": 4,
+  "shock": 0,
+  "shockit": 4,
+  "cone": 1,
+  "lazy": 0
+ },
+ "full": {
+  "small": {
+   "n": 1728,
+   "substeps": 400,
+   "hash_gpu": "6b4b0e21",
+   "hash_cpu": "6b4b0e21",
+   "pos_vel_words_different": 0,
+   "faults_gpu": [
+    0,
+    92,
+    110,
+    15156
+   ],
+   "faults_cpu": [
+    0,
+    92,
+    110,
+    15156
+   ],
+   "full_steps": 400,
+   "inc_steps": 0,
+   "bytes_per_body": 734,
+   "passes_per_substep": 25
+  },
+  "full": {
+   "n": 8000,
+   "substeps": 600,
+   "hash_gpu": "6fbbfca2",
+   "hash_cpu": "6fbbfca2",
+   "pos_vel_words_different": 0,
+   "faults_gpu": [
+    0,
+    459,
+    104645,
+    138275
+   ],
+   "faults_cpu": [
+    0,
+    459,
+    104645,
+    138275
+   ],
+   "full_steps": 600,
+   "inc_steps": 0,
+   "bytes_per_body": 689,
+   "passes_per_substep": 25
+  }
+ },
+ "inc": {
+  "n": 4096,
+  "js_rest_at": 770,
+  "checkpoints": 22,
+  "mismatching_checkpoints": 0,
+  "rows": [
+   {
+    "at": "settle+1000",
+    "js": "7925da3c",
+    "gpu_full": "7925da3c",
+    "gpu_inc": "7925da3c",
+    "identical": true,
+    "work_js": 2997543,
+    "work_gpu_inc": 2997543,
+    "work_gpu_full": 4096000,
+    "faults_inc": "0/191/13464/56159",
+    "faults_full": "0/191/13464/56159",
+    "faults_js": "0/191/13464/56159",
+    "inc_full_steps": 1,
+    "inc_inc_steps": 999
+   },
+   {
+    "at": "kick+300",
+    "js": "fb1c1fc6",
+    "gpu_full": "fb1c1fc6",
+    "gpu_inc": "fb1c1fc6",
+    "identical": true,
+    "work_js": 3308436,
+    "work_gpu_inc": 3308436,
+    "work_gpu_full": 5324800,
+    "faults_inc": "0/191/13464/56286",
+    "faults_full": "0/191/13464/56286",
+    "faults_js": "0/191/13464/56286",
+    "inc_full_steps": 1,
+    "inc_inc_steps": 1299
+   }
+  ]
+ },
+ "fuzz": [
+  {
+   "config": {
+    "label": "default capacities"
+   },
+   "n": 2744,
+   "host_edits": 1240,
+   "checkpoints": 25,
+   "mismatching_checkpoints": 0,
+   "full_substeps": 1689,
+   "incremental_substeps": 71,
+   "faults_gpu": "0/195/2484/52671",
+   "faults_js": "0/195/2484/52671",
+   "first_mismatch": null,
+   "last": {
+    "at": "round 23, 300 kicks",
+    "js": "c58c3ab3",
+    "gpu_inc": "c58c3ab3",
+    "ok": true
+   }
+  },
+  {
+   "config": {
+    "label": "cell lists of 256 entries, seed stripes of 8",
+    "capc": 256,
+    "seg": 8
+   },
+   "n": 2744,
+   "host_edits": 1240,
+   "checkpoints": 25,
+   "mismatching_checkpoints": 0,
+   "full_substeps": 1699,
+   "incremental_substeps": 61,
+   "faults_gpu": "0/195/2484/52671",
+   "faults_js": "0/195/2484/52671",
+   "first_mismatch": null,
+   "last": {
+    "at": "round 23, 300 kicks",
+    "js": "c58c3ab3",
+    "gpu_inc": "c58c3ab3",
+    "ok": true
+   }
+  },
+  {
+   "config": {
+    "label": "never switch to full by seed count",
+    "dense": 4294967295
+   },
+   "n": 2744,
+   "host_edits": 1240,
+   "checkpoints": 25,
+   "mismatching_checkpoints": 0,
+   "full_substeps": 25,
+   "incremental_substeps": 1735,
+   "faults_gpu": "0/195/2484/52671",
+   "faults_js": "0/195/2484/52671",
+   "first_mismatch": null,
+   "last": {
+    "at": "round 23, 300 kicks",
+    "js": "c58c3ab3",
+    "gpu_inc": "c58c3ab3",
+    "ok": true
+   }
+  }
+ ],
+ "permutation": {
+  "n": 8000,
+  "substeps": 600,
+  "coincident_pairs": 40,
+  "canonical_ids": true,
+  "mismatch_words_pos_vel": 0,
+  "bodies_with_different_contacts_or_impulses": 0,
+  "faults": "0/456/104695/135441 | 0/456/104695/135441"
+ },
+ "overflow": {
+  "n": 1000,
+  "substeps": 60,
+  "max_bodies_in_one_cell_at_start": 20,
+  "hash_gpu": "82efb59b",
+  "hash_cpu": "82efb59b",
+  "pos_vel_words_different": 0,
+  "faults_gpu": [
+   243268,
+   6,
+   0,
+   321
+  ],
+  "faults_cpu": [
+   243268,
+   6,
+   0,
+   321
+  ],
+  "renumbered_pos_vel_words_different": 0,
+  "renumbered_faults": [
+   243268,
+   6,
+   0,
+   321
+  ]
+ }
+}

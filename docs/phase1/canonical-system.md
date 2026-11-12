@@ -101,6 +101,14 @@ because of the head room). Pre-registered <= 600 B: failed. Packing a slot into 
 
 ## 5. Physics of the rest state and of the quantum
 
+> **Correction (Phase 1g, 2026-11-12).** The kick comparison in this section read each variant at a
+> different moment (the reference after 4000 substeps of its own creep, the variants when they came to
+> rest), without a control run and on different piles. Remeasured at equal horizons from one common
+> equilibrium ([`rest-physics.md`](rest-physics.md)): the quantum does not suppress the response on the
+> millimetre scale; it removes micrometre creep of the far field. The dominant error is the iteration
+> count, which makes the pile too soft (a downward kick sinks 3–6x too far at 4 iterations). The
+> "3–20x suppression" below is withdrawn; the text is kept as it was written.
+
 Reference: same contact law, 32 iterations, eps = 1. It never reaches an exact fixed point.
 Three piles of 4096 per variant (`f_physics_summary.json`).
 

@@ -1,0 +1,148 @@
+{
+ "prm": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 128,
+  "slop": 4,
+  "cq": 8,
+  "eps": 0,
+  "g0": 2,
+  "margin": 16,
+  "hi": 24,
+  "th": 0,
+  "route": 0,
+  "vr": 28416,
+  "hand": 0,
+  "gx": 0,
+  "gz": 0,
+  "tq": 4,
+  "shock": 0,
+  "shockit": 4,
+  "cone": 1,
+  "lazy": 0
+ },
+ "rows": [
+  {
+   "layers": 3,
+   "tan_theta": 0.297,
+   "settled_before_tilt": true,
+   "lowest_body_moved_D": 0,
+   "ideal_D": 0,
+   "spread_of_the_stack_D": 0,
+   "rest_at": 3,
+   "verdict": "holds"
+  },
+  {
+   "layers": 3,
+   "tan_theta": 0.45,
+   "settled_before_tilt": true,
+   "lowest_body_moved_D": 0,
+   "ideal_D": 0,
+   "spread_of_the_stack_D": 0,
+   "rest_at": 3,
+   "verdict": "holds"
+  },
+  {
+   "layers": 3,
+   "tan_theta": 0.604,
+   "settled_before_tilt": true,
+   "lowest_body_moved_D": 11.9112,
+   "ideal_D": 11.895,
+   "spread_of_the_stack_D": 0.0001,
+   "rest_at": -1,
+   "verdict": "slides as a block"
+  },
+  {
+   "layers": 8,
+   "tan_theta": 0.297,
+   "settled_before_tilt": true,
+   "lowest_body_moved_D": 0,
+   "ideal_D": 0,
+   "spread_of_the_stack_D": 0.0001,
+   "rest_at": 53,
+   "verdict": "holds"
+  },
+  {
+   "layers": 8,
+   "tan_theta": 0.45,
+   "settled_before_tilt": true,
+   "lowest_body_moved_D": 0,
+   "ideal_D": 0,
+   "spread_of_the_stack_D": 8.6635,
+   "rest_at": -1,
+   "verdict": "shears"
+  },
+  {
+   "layers": 8,
+   "tan_theta": 0.604,
+   "settled_before_tilt": true,
+   "lowest_body_moved_D": 11.7623,
+   "ideal_D": 11.895,
+   "spread_of_the_stack_D": 0.0017,
+   "rest_at": -1,
+   "verdict": "slides as a block"
+  },
+  {
+   "layers": 16,
+   "tan_theta": 0.297,
+   "settled_before_tilt": false,
+   "lowest_body_moved_D": -0.0014,
+   "ideal_D": 0,
+   "spread_of_the_stack_D": 0.0018,
+   "rest_at": -1,
+   "verdict": "holds"
+  },
+  {
+   "layers": 16,
+   "tan_theta": 0.45,
+   "settled_before_tilt": false,
+   "lowest_body_moved_D": 0.0005,
+   "ideal_D": 0,
+   "spread_of_the_stack_D": 12.1057,
+   "rest_at": -1,
+   "verdict": "shears"
+  },
+  {
+   "layers": 16,
+   "tan_theta": 0.604,
+   "settled_before_tilt": false,
+   "lowest_body_moved_D": 7.5183,
+   "ideal_D": 11.895,
+   "spread_of_the_stack_D": 5.3241,
+   "rest_at": -1,
+   "verdict": "falls apart"
+  },
+  {
+   "layers": 32,
+   "tan_theta": 0.297,
+   "settled_before_tilt": false,
+   "lowest_body_moved_D": -0.001,
+   "ideal_D": 0,
+   "spread_of_the_stack_D": 0.0021,
+   "rest_at": -1,
+   "verdict": "holds"
+  },
+  {
+   "layers": 32,
+   "tan_theta": 0.45,
+   "settled_before_tilt": false,
+   "lowest_body_moved_D": -0.0037,
+   "ideal_D": 0,
+   "spread_of_the_stack_D": 16.8831,
+   "rest_at": -1,
+   "verdict": "shears"
+  },
+  {
+   "layers": 32,
+   "tan_theta": 0.604,
+   "settled_before_tilt": false,
+   "lowest_body_moved_D": 7.6144,
+   "ideal_D": 11.895,
+   "spread_of_the_stack_D": 5.3998,
+   "rest_at": -1,
+   "verdict": "falls apart"
+  }
+ ]
+}

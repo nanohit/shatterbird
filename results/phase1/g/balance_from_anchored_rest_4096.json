@@ -1,0 +1,70 @@
+{
+ "prm": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 4,
+  "slop": 4,
+  "cq": 8,
+  "eps": 32,
+  "g0": 2,
+  "margin": 16,
+  "hi": 24,
+  "th": 0,
+  "route": 0,
+  "vr": 28416,
+  "hand": 32,
+  "gx": 0,
+  "gz": 0,
+  "tq": 4,
+  "shock": 0,
+  "shockit": 4,
+  "cone": 1,
+  "lazy": 0
+ },
+ "rows": [
+  {
+   "n": 16,
+   "seed": 11,
+   "N": 4096,
+   "anchors_before_pct_weight": 0.4655,
+   "anchored_before": 4077,
+   "exact_balance_after_substeps": 9,
+   "work_in_full_substeps_of_the_default_law": 7.2,
+   "moved_max_D": 0.000382,
+   "moved_sum_D": 0.00506,
+   "floor_plus_walls_pct_weight": 100,
+   "anchors_after_pct_weight": 0,
+   "anchored_after": 0
+  },
+  {
+   "n": 16,
+   "seed": 12,
+   "N": 4096,
+   "anchors_before_pct_weight": 0.449,
+   "anchored_before": 4086,
+   "exact_balance_after_substeps": 9,
+   "work_in_full_substeps_of_the_default_law": 6.9,
+   "moved_max_D": 0.000383,
+   "moved_sum_D": 0.00193,
+   "floor_plus_walls_pct_weight": 100,
+   "anchors_after_pct_weight": 0,
+   "anchored_after": 0
+  },
+  {
+   "n": 16,
+   "seed": 13,
+   "N": 4096,
+   "anchors_before_pct_weight": 0.4401,
+   "anchored_before": 4086,
+   "exact_balance_after_substeps": 9,
+   "work_in_full_substeps_of_the_default_law": 7.1,
+   "moved_max_D": 0.000391,
+   "moved_sum_D": 0.0053,
+   "floor_plus_walls_pct_weight": 100,
+   "anchors_after_pct_weight": 0,
+   "anchored_after": 0
+  }
+ ]
+}

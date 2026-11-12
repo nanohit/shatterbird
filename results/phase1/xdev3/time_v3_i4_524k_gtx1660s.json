@@ -1,0 +1,290 @@
+{
+ "worker": {
+  "target": "win",
+  "host": "DESKTOP-ELEP24S",
+  "os": "Microsoft Windows [Version 10.0.22621.4317]",
+  "gpu_driver": "NVIDIA GeForce GTX 1660 SUPER, 610.88, 6144 MiB",
+  "video_controllers": "SudoMaker Virtual Display Adapter | 0.22.37.632\r\nNVIDIA GeForce GTX 1660 SUPER | 32.0.16.1088",
+  "chrome": "Chrome/157.0.8103.38",
+  "launch_attempts": 1,
+  "wall_s": 26.787
+ },
+ "tag": "gtx1660s",
+ "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+ "when": "2026-11-12T17:06:22.741Z",
+ "errors": [],
+ "adapter": {
+  "vendor": "nvidia",
+  "architecture": "turing",
+  "device": "0x21c4",
+  "description": "NVIDIA GeForce GTX 1660 SUPER",
+  "isFallbackAdapter": false
+ },
+ "timestamp_query": true,
+ "spec": {
+  "grav": 111,
+  "f": 32,
+  "mu8": 4,
+  "muk8": 3,
+  "iters": 4,
+  "slop": 4,
+  "cq": 8,
+  "eps": 32,
+  "g0": 2,
+  "margin": 16,
+  "hi": 24,
+  "th": 0,
+  "route": 0,
+  "vr": 28416,
+  "hand": 32,
+  "gx": 0,
+  "gz": 0,
+  "tq": 4,
+  "shock": 0,
+  "shockit": 4,
+  "cone": 1,
+  "lazy": 0
+ },
+ "time": [
+  {
+   "n": 524288,
+   "layers": 8,
+   "cells": 1610752,
+   "bytes_per_body": 663,
+   "passes_per_substep": 25,
+   "falling": {
+    "at": "first 40 substeps, every body moving",
+    "substeps": 40,
+    "full_ms": 2.6872,
+    "inc_ms": 2.5851,
+    "ratio": 0.962
+   },
+   "settle": [
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 4.1203,
+     "inc_ms": 4.1157,
+     "ratio": 0.9989,
+     "t": 140,
+     "evaluated_fraction": 1
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 10.6139,
+     "inc_ms": 10.6091,
+     "ratio": 0.9995,
+     "t": 240,
+     "evaluated_fraction": 1
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 14.9031,
+     "inc_ms": 14.906,
+     "ratio": 1.0002,
+     "t": 340,
+     "evaluated_fraction": 1
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 15.5178,
+     "inc_ms": 15.5296,
+     "ratio": 1.0008,
+     "t": 440,
+     "evaluated_fraction": 1
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 14.474,
+     "inc_ms": 14.4761,
+     "ratio": 1.0001,
+     "t": 540,
+     "evaluated_fraction": 1
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 9.6104,
+     "inc_ms": 9.6164,
+     "ratio": 1.0006,
+     "t": 640,
+     "evaluated_fraction": 1
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 8.6401,
+     "inc_ms": 6.4578,
+     "ratio": 0.7474,
+     "t": 740,
+     "evaluated_fraction": 0.3597
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 8.7831,
+     "inc_ms": 0.6522,
+     "ratio": 0.0743,
+     "t": 840,
+     "evaluated_fraction": 0.0266
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 8.8574,
+     "inc_ms": 0.2808,
+     "ratio": 0.0317,
+     "t": 940,
+     "evaluated_fraction": 0.0023
+    },
+    {
+     "at": "settle",
+     "substeps": 50,
+     "full_ms": 8.8872,
+     "inc_ms": 0.1274,
+     "ratio": 0.0143,
+     "t": 1040,
+     "evaluated_fraction": 0
+    }
+   ],
+   "rest_by_substep": 1040,
+   "at_rest": {
+    "at": "rest",
+    "substeps": 40,
+    "full_ms": 8.8784,
+    "inc_ms": 0.1265,
+    "ratio": 0.0142
+   },
+   "at_rest_split_passes": {
+    "at": "rest, one pass per stage",
+    "substeps": 40,
+    "full_ms": 8.9885,
+    "inc_ms": 0.2258,
+    "ratio": 0.0251,
+    "full_stages": {
+     "args0": 0.0096,
+     "clear": 0.0706,
+     "insert": 0.0855,
+     "markx": 0.0106,
+     "args1": 0.0293,
+     "gather": 0.0103,
+     "clearseed": 0.0104,
+     "reinsert": 0.0105,
+     "marky": 0.0103,
+     "markz": 0.0105,
+     "collect": 0.0105,
+     "match": 4.0006,
+     "solve": 4.52,
+     "finish": 0.1783,
+     "reset": 0.0105,
+     "resetall": 0.0109
+    },
+    "inc_stages": {
+     "args0": 0.008,
+     "clear": 0.0199,
+     "insert": 0.0198,
+     "markx": 0.0098,
+     "args1": 0.029,
+     "gather": 0.0099,
+     "clearseed": 0.0097,
+     "reinsert": 0.01,
+     "marky": 0.0098,
+     "markz": 0.01,
+     "collect": 0.0099,
+     "match": 0.0101,
+     "solve": 0.0398,
+     "finish": 0.0099,
+     "reset": 0.0098,
+     "resetall": 0.0101
+    }
+   },
+   "rest_hash": "574ef8ba",
+   "rest_identical": true,
+   "wake": [
+    {
+     "at": "wake",
+     "substeps": 20,
+     "full_ms": 8.8359,
+     "inc_ms": 0.2941,
+     "ratio": 0.0333,
+     "t": 20,
+     "evaluated_fraction": 0.00415
+    },
+    {
+     "at": "wake",
+     "substeps": 20,
+     "full_ms": 8.8407,
+     "inc_ms": 0.3075,
+     "ratio": 0.0348,
+     "t": 40,
+     "evaluated_fraction": 0.00552
+    },
+    {
+     "at": "wake",
+     "substeps": 20,
+     "full_ms": 8.8534,
+     "inc_ms": 0.2983,
+     "ratio": 0.0337,
+     "t": 60,
+     "evaluated_fraction": 0.00459
+    },
+    {
+     "at": "wake",
+     "substeps": 20,
+     "full_ms": 8.8941,
+     "inc_ms": 0.2707,
+     "ratio": 0.0304,
+     "t": 80,
+     "evaluated_fraction": 0.00244
+    },
+    {
+     "at": "wake",
+     "substeps": 20,
+     "full_ms": 8.8824,
+     "inc_ms": 0.1448,
+     "ratio": 0.0163,
+     "t": 100,
+     "evaluated_fraction": 0.0002
+    },
+    {
+     "at": "wake",
+     "substeps": 20,
+     "full_ms": 8.8782,
+     "inc_ms": 0.1259,
+     "ratio": 0.0142,
+     "t": 120,
+     "evaluated_fraction": 0
+    }
+   ],
+   "wake_quiet_by": 120,
+   "wake_total": {
+    "full_ms": 1063.694,
+    "inc_ms": 28.826,
+    "ratio": 0.0271
+   },
+   "wake_response": {
+    "kicked_D": 0.01064,
+    "sum_D": 0.0885,
+    "over_0p01D": 2,
+    "over_0p1D": 0
+   },
+   "wake_hash": "3c133055",
+   "wake_identical": true,
+   "faults": {
+    "inc": "0/268/0/3128345",
+    "full": "0/268/0/3128345"
+   },
+   "inc_steps": [
+    668,
+    572
+   ],
+   "contacts_per_body": 4.43,
+   "anchors_pct_weight": 0,
+   "anchored_bodies": 6
+  }
+ ]
+}
