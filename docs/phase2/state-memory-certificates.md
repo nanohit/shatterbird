@@ -393,6 +393,18 @@ after the 4 m/s kick a third of it lies in many small displacements far away. Ho
 rigid is the crudest boundary model. The better one is the far field as a linear passive system behind
 its boundary, which is section 5 applied to a pile; it was not built.
 
+**A certificate from the total energy does not exist for this law** (`soft_margins.json`). A region at
+rest is a linear passive system as long as none of its contacts slips, and the elastic energy it holds
+bounds every force change inside it: a contact with cone margin m cannot slip while the energy that
+entered the region is below m²/2(√k_t + μ√k_n)². That bound is rigorous and useless. No contact of the
+resting piles is closer than 1 % to its cone (4–7 % are within 10 %), but the contacts are stiff: the
+median contact tolerates 4·10⁻⁵ of the kinetic energy of a 1 m/s kick, the best percent of them 0.9 %.
+A bound that lets all the energy meet at one contact cannot certify anything. A usable screen has to
+bound how much of a disturbance can reach a contact, which is the decay of section 4.4. With the
+measured decay (0.45 per hop) a 1 m/s kick falls below a margin of a few newtons after 6–9 hops, which
+is where the held-far-field test above stops changing the kicked sphere. With the rigorous decay bound
+(0.83 per hop) it takes about 30 hops.
+
 ### 4.7 The pass criterion proposed for this experiment
 
 "Reference: the same law with an explicit step. Pass: every observable converges, the game step is within
@@ -596,7 +608,7 @@ bodies, and there the result of this phase is mixed (section 4.6).
   measurement.
 * The wake of the physical wave is large. Holding the far field rigid costs 10–40 % of the displacement
   sum at six hops. A sleeping region as a linear passive system behind a boundary (section 1.4 applied
-  to a pile) was not built. The energy argument that would certify it is in section 9.
+  to a pile) was not built, and the energy argument that would have certified it fails (section 4.6).
 * A column still needs of the order of (L/ℓ)² substeps to come to rest. It is now the ringing of the
   declared law and no longer an artefact of the iteration count, but it is the same exponent.
 * The certificate is loose by up to the condition number and global. A local one needs the decay bound
@@ -621,6 +633,6 @@ Integer version of the compliant law, JS specification first, then WGSL, both de
 | I3 | Determinism is untouched. | JS = M3 Pro = GTX 1660 SUPER, full and incremental, fuzz of host edits | any difference |
 | I4 | It costs what it replaces. | GPU time per substep at 16 iterations ≤ 1.5 × v4 at 16; rest ≤ 0.2 ms per substep | more than 3 × |
 | I5 | The reach of a kick does not grow with the pile. | bodies re-evaluated after a 1 m/s kick in piles of 22k and 205k differ by less than 2 × | proportional to the pile |
-| I6 | A sleeping region can be held while the work done on it is below its margin. | with E = min over its contacts of (cone margin)²/2k, no contact of a held region would have slipped in the full run whenever the work delivered through its boundary stayed below E | a slip below the bound (the bound is wrong), or the bound is never above the work (it is useless) |
+| I6 | A sleeping region can be held while the disturbance that can reach it is below its margins. | with the force change at d hops bounded by the source impulse times a decay per hop, no contact of a held region would have slipped in the full run whenever the bound stayed below its cone margin, and the held region is at least half of a pile of 22k after a 1 m/s kick | a slip below the bound, or a held share below 10 % |
 
 Not relaxed: determinism, exact momentum accounting, no silent drops.
