@@ -1,0 +1,425 @@
+{
+ "ell": 4.0,
+ "dynamic": {
+  "bonds_alive": 2752,
+  "bonds_broken": 1,
+  "leverage_mean": 0.6160161644094396,
+  "leverage_quantiles": {
+   "0.01": 0.0858962260145964,
+   "0.1": 0.590644215089425,
+   "0.5": 0.6377186429891596,
+   "0.9": 0.6461047352926346,
+   "0.99": 0.8111994848066717,
+   "0.999": 0.8126463785644266
+  },
+  "leverage_max": 0.8126627490475444,
+  "bonds_with_leverage_above_0p9": 0,
+  "rank_one_update_error": 7.8629992316704e-15,
+  "influence_decay": [
+   {
+    "distance": [
+     0.5,
+     1.5
+    ],
+    "influence_median": 0.09929981591886085,
+    "influence_p95": 0.26776837432224804
+   },
+   {
+    "distance": [
+     1.5,
+     3
+    ],
+    "influence_median": 0.02361887044701141,
+    "influence_p95": 0.05799236250195919
+   },
+   {
+    "distance": [
+     3,
+     5
+    ],
+    "influence_median": 0.006155077334392642,
+    "influence_p95": 0.020365280862156627
+   },
+   {
+    "distance": [
+     5,
+     8
+    ],
+    "influence_median": 0.0016249123044584156,
+    "influence_p95": 0.0068540529832817575
+   },
+   {
+    "distance": [
+     8,
+     12
+    ],
+    "influence_median": 0.0003982999747963982,
+    "influence_p95": 0.0018595371378001117
+   },
+   {
+    "distance": [
+     12,
+     18
+    ],
+    "influence_median": 7.388274382552577e-05,
+    "influence_p95": 0.0004931975089795131
+   },
+   {
+    "distance": [
+     18,
+     30
+    ],
+    "influence_median": 5.048746053966819e-06,
+    "influence_p95": 6.580545104792283e-05
+   }
+  ]
+ },
+ "local_leverage": [
+  {
+   "radius": 1.5,
+   "nodes": 10,
+   "rel_error_median": 0.067864908144697,
+   "rel_error_max": 0.1182928370055532
+  },
+  {
+   "radius": 2.5,
+   "nodes": 20,
+   "rel_error_median": 0.03015269800135094,
+   "rel_error_max": 0.058001291459958276
+  },
+  {
+   "radius": 4,
+   "nodes": 44,
+   "rel_error_median": 0.009792366368666473,
+   "rel_error_max": 0.016332246290422778
+  },
+  {
+   "radius": 6,
+   "nodes": 86,
+   "rel_error_median": 0.0023563406294331247,
+   "rel_error_max": 0.004598551011569612
+  },
+  {
+   "radius": 9,
+   "nodes": 162,
+   "rel_error_median": 0.00029612424380516674,
+   "rel_error_max": 0.0008984890160522824
+  }
+ ],
+ "removal_consequences": [
+  {
+   "leverage": 0.6534220437661779,
+   "overload_before": 0.9983340956122451,
+   "max_overload_elsewhere_after": 0.9833603216043143,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.5017796556900669,
+   "overload_before": 0.9930445961773318,
+   "max_overload_elsewhere_after": 0.9833096266856619,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.4713760465883364,
+   "overload_before": 0.9838922906125457,
+   "max_overload_elsewhere_after": 1.13581468279379,
+   "bonds_pushed_over_limit": 1
+  },
+  {
+   "leverage": 0.5041368472875255,
+   "overload_before": 0.98149858649077,
+   "max_overload_elsewhere_after": 1.2304090935650351,
+   "bonds_pushed_over_limit": 1
+  },
+  {
+   "leverage": 0.6038326145038689,
+   "overload_before": 0.9497762016568675,
+   "max_overload_elsewhere_after": 0.9983338250420573,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.5041367326534298,
+   "overload_before": 0.9355927799426794,
+   "max_overload_elsewhere_after": 1.0130965209751972,
+   "bonds_pushed_over_limit": 1
+  },
+  {
+   "leverage": 0.46510545585894225,
+   "overload_before": 0.9097839992281008,
+   "max_overload_elsewhere_after": 1.016179635165908,
+   "bonds_pushed_over_limit": 1
+  },
+  {
+   "leverage": 0.6267271293120702,
+   "overload_before": 0.8857048756857494,
+   "max_overload_elsewhere_after": 0.9983337596922328,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.46371760198760664,
+   "overload_before": 0.8783468981660408,
+   "max_overload_elsewhere_after": 0.9983338150851996,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.6464645409978654,
+   "overload_before": 0.8773176870032406,
+   "max_overload_elsewhere_after": 1.0092990138616869,
+   "bonds_pushed_over_limit": 1
+  },
+  {
+   "leverage": 0.6021994820097701,
+   "overload_before": 0.8638301152951207,
+   "max_overload_elsewhere_after": 0.9983337753411115,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.6310353132957458,
+   "overload_before": 0.8527110986057955,
+   "max_overload_elsewhere_after": 1.0410731686826176,
+   "bonds_pushed_over_limit": 1
+  },
+  {
+   "leverage": 0.6438587492704697,
+   "overload_before": 0.8469410962040419,
+   "max_overload_elsewhere_after": 0.998333910781495,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.6014096987283214,
+   "overload_before": 0.836126099756476,
+   "max_overload_elsewhere_after": 0.9979496658695791,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.6038326910796538,
+   "overload_before": 0.8322760735638423,
+   "max_overload_elsewhere_after": 0.9978722690922467,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.6262653902465095,
+   "overload_before": 0.8293172775350871,
+   "max_overload_elsewhere_after": 0.9983335959802245,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.6010909061156533,
+   "overload_before": 0.8231435537399447,
+   "max_overload_elsewhere_after": 1.0067463407656758,
+   "bonds_pushed_over_limit": 2
+  },
+  {
+   "leverage": 0.6358017106882317,
+   "overload_before": 0.8133235192667694,
+   "max_overload_elsewhere_after": 1.0028755612743527,
+   "bonds_pushed_over_limit": 1
+  },
+  {
+   "leverage": 0.46510552213057893,
+   "overload_before": 0.803038709809808,
+   "max_overload_elsewhere_after": 1.1301744817252921,
+   "bonds_pushed_over_limit": 2
+  },
+  {
+   "leverage": 0.6008057765943228,
+   "overload_before": 0.7991237286018554,
+   "max_overload_elsewhere_after": 0.9980295322978306,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.6004586247844614,
+   "overload_before": 0.793214745219315,
+   "max_overload_elsewhere_after": 0.9983333464816014,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.6368737055529886,
+   "overload_before": 0.7900667473079044,
+   "max_overload_elsewhere_after": 0.999583589495569,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.6008057249736068,
+   "overload_before": 0.7896466731516684,
+   "max_overload_elsewhere_after": 1.0109764933669787,
+   "bonds_pushed_over_limit": 1
+  },
+  {
+   "leverage": 0.643380658197078,
+   "overload_before": 0.7895233432888217,
+   "max_overload_elsewhere_after": 0.9983337647203958,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.6080365834026551,
+   "overload_before": 0.7834039509640555,
+   "max_overload_elsewhere_after": 1.0178774856714492,
+   "bonds_pushed_over_limit": 1
+  },
+  {
+   "leverage": 0.47057420258990973,
+   "overload_before": 0.7810933237863014,
+   "max_overload_elsewhere_after": 1.1472868514905543,
+   "bonds_pushed_over_limit": 1
+  },
+  {
+   "leverage": 0.6381034970927242,
+   "overload_before": 0.7785534526057477,
+   "max_overload_elsewhere_after": 0.9983338793217545,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.6261500909155628,
+   "overload_before": 0.7785440351689648,
+   "max_overload_elsewhere_after": 0.9983327741874893,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.635856515984726,
+   "overload_before": 0.7768822188840279,
+   "max_overload_elsewhere_after": 0.9983336497876814,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.6282857656389149,
+   "overload_before": 0.7764765298791976,
+   "max_overload_elsewhere_after": 0.9978586303316409,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.6340961571801225,
+   "overload_before": 0.7716274647414114,
+   "max_overload_elsewhere_after": 1.0144805388754112,
+   "bonds_pushed_over_limit": 1
+  },
+  {
+   "leverage": 0.6368616873619712,
+   "overload_before": 0.7688086769543663,
+   "max_overload_elsewhere_after": 0.9983327948874487,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.6368949111893096,
+   "overload_before": 0.7679815688445747,
+   "max_overload_elsewhere_after": 1.0001704446845188,
+   "bonds_pushed_over_limit": 1
+  },
+  {
+   "leverage": 0.6261486538765455,
+   "overload_before": 0.7659923733639991,
+   "max_overload_elsewhere_after": 0.9983104032506506,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.62616710397597,
+   "overload_before": 0.7654995184479911,
+   "max_overload_elsewhere_after": 0.9983332908350542,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.6368781757480748,
+   "overload_before": 0.7638108528114834,
+   "max_overload_elsewhere_after": 0.9983338300019997,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.4633636432431772,
+   "overload_before": 0.7608108395433026,
+   "max_overload_elsewhere_after": 1.038880326662729,
+   "bonds_pushed_over_limit": 2
+  },
+  {
+   "leverage": 0.713934826716941,
+   "overload_before": 0.7563416713701249,
+   "max_overload_elsewhere_after": 0.9983339399746277,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.6331081789520712,
+   "overload_before": 0.7555142967928863,
+   "max_overload_elsewhere_after": 0.9983322473977995,
+   "bonds_pushed_over_limit": 0
+  },
+  {
+   "leverage": 0.6370507113483405,
+   "overload_before": 0.754804821600923,
+   "max_overload_elsewhere_after": 0.9983337274195533,
+   "bonds_pushed_over_limit": 0
+  }
+ ],
+ "static": {
+  "bonds_alive": 2752,
+  "bonds_broken": 1,
+  "leverage_mean": 0.6434066760709115,
+  "leverage_quantiles": {
+   "0.01": 0.08615488048602503,
+   "0.1": 0.6074064891282678,
+   "0.5": 0.664522272912087,
+   "0.9": 0.6780028708325508,
+   "0.99": 0.8498111002845004,
+   "0.999": 0.8503840452611846
+  },
+  "leverage_max": 0.8504022440805489,
+  "bonds_with_leverage_above_0p9": 0,
+  "rank_one_update_error": 6.33062434151847e-15,
+  "influence_decay": [
+   {
+    "distance": [
+     0.5,
+     1.5
+    ],
+    "influence_median": 0.10644030829545982,
+    "influence_p95": 0.24599980830959609
+   },
+   {
+    "distance": [
+     1.5,
+     3
+    ],
+    "influence_median": 0.02190629371801333,
+    "influence_p95": 0.06276590538245477
+   },
+   {
+    "distance": [
+     3,
+     5
+    ],
+    "influence_median": 0.008010763272437438,
+    "influence_p95": 0.02328091859008515
+   },
+   {
+    "distance": [
+     5,
+     8
+    ],
+    "influence_median": 0.002934709406244415,
+    "influence_p95": 0.009788213551595676
+   },
+   {
+    "distance": [
+     8,
+     12
+    ],
+    "influence_median": 0.0012393905017442097,
+    "influence_p95": 0.004714678965461461
+   },
+   {
+    "distance": [
+     12,
+     18
+    ],
+    "influence_median": 0.0005395242373232655,
+    "influence_p95": 0.002558259753782337
+   },
+   {
+    "distance": [
+     18,
+     30
+    ],
+    "influence_median": 0.000187823389136177,
+    "influence_p95": 0.0009045071637232332
+   }
+  ]
+ }
+}

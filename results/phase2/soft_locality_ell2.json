@@ -1,0 +1,452 @@
+{
+ "pile": "/private/tmp/claude-501/-Users-pavel-Desktop-shatterbird/892f568a-0456-4c5a-a6c0-8d6c72c61f7c/scratchpad/soft/pile_l2_s1.npz",
+ "cases": [
+  {
+   "source": 555,
+   "kick": [
+    0,
+    -0.2,
+    0
+   ],
+   "iterations": 121,
+   "kappa_bound": 109.45185915809788,
+   "q_bound": 0.8255092290644133,
+   "shells": [
+    {
+     "hops": 0,
+     "bodies": 1,
+     "energy_share": 0.4664116939051694,
+     "max_speed_ratio": 1.0
+    },
+    {
+     "hops": 1,
+     "bodies": 4,
+     "energy_share": 0.4397779136579236,
+     "max_speed_ratio": 0.7895085297245381
+    },
+    {
+     "hops": 2,
+     "bodies": 6,
+     "energy_share": 0.061626818561440186,
+     "max_speed_ratio": 0.23914494934827824
+    },
+    {
+     "hops": 3,
+     "bodies": 17,
+     "energy_share": 0.02425438033673441,
+     "max_speed_ratio": 0.10778594920290697
+    },
+    {
+     "hops": 4,
+     "bodies": 30,
+     "energy_share": 0.004813125761703486,
+     "max_speed_ratio": 0.03902581479529813
+    },
+    {
+     "hops": 5,
+     "bodies": 54,
+     "energy_share": 0.0020887102886916853,
+     "max_speed_ratio": 0.01908475496823165
+    },
+    {
+     "hops": 6,
+     "bodies": 76,
+     "energy_share": 0.0008195688560600618,
+     "max_speed_ratio": 0.012075409015637521
+    },
+    {
+     "hops": 7,
+     "bodies": 77,
+     "energy_share": 0.00015809212352817736,
+     "max_speed_ratio": 0.004931331811667145
+    },
+    {
+     "hops": 8,
+     "bodies": 68,
+     "energy_share": 3.738030877441973e-05,
+     "max_speed_ratio": 0.0025817515665156727
+    },
+    {
+     "hops": 9,
+     "bodies": 62,
+     "energy_share": 9.194918391284722e-06,
+     "max_speed_ratio": 0.0012825572221128014
+    },
+    {
+     "hops": 10,
+     "bodies": 53,
+     "energy_share": 2.3820955992700814e-06,
+     "max_speed_ratio": 0.0006570012364066061
+    },
+    {
+     "hops": 11,
+     "bodies": 52,
+     "energy_share": 6.003373870482372e-07,
+     "max_speed_ratio": 0.0003127674524829213
+    },
+    {
+     "hops": 12,
+     "bodies": 45,
+     "energy_share": 1.2617023499715866e-07,
+     "max_speed_ratio": 0.00014676356309477735
+    },
+    {
+     "hops": 13,
+     "bodies": 20,
+     "energy_share": 1.17539550889349e-08,
+     "max_speed_ratio": 6.713955069038768e-05
+    },
+    {
+     "hops": 14,
+     "bodies": 9,
+     "energy_share": 9.10095291921776e-10,
+     "max_speed_ratio": 2.4791414990040206e-05
+    },
+    {
+     "hops": 15,
+     "bodies": 1,
+     "energy_share": 1.4311491805876773e-11,
+     "max_speed_ratio": 5.539336368162847e-06
+    }
+   ],
+   "restriction": [
+    {
+     "radius_hops": 0,
+     "bodies_solved": 1,
+     "energy_error_over_response": 0.7058567059817743,
+     "source_speed_error": 0.6018014503155852
+    },
+    {
+     "radius_hops": 1,
+     "bodies_solved": 5,
+     "energy_error_over_response": 0.13108903144847836,
+     "source_speed_error": 0.13634526608717212
+    },
+    {
+     "radius_hops": 2,
+     "bodies_solved": 11,
+     "energy_error_over_response": 0.04521419216858319,
+     "source_speed_error": 0.052473264350669666
+    },
+    {
+     "radius_hops": 3,
+     "bodies_solved": 28,
+     "energy_error_over_response": 0.011294588781688807,
+     "source_speed_error": 0.014164610856808162
+    },
+    {
+     "radius_hops": 4,
+     "bodies_solved": 58,
+     "energy_error_over_response": 0.00436309906560438,
+     "source_speed_error": 0.0048582571448702915
+    },
+    {
+     "radius_hops": 6,
+     "bodies_solved": 188,
+     "energy_error_over_response": 0.0003113757764471752,
+     "source_speed_error": 0.0003864737506621969
+    },
+    {
+     "radius_hops": 8,
+     "bodies_solved": 333,
+     "energy_error_over_response": 1.8017718233366008e-05,
+     "source_speed_error": 2.3354422979875562e-05
+    }
+   ]
+  },
+  {
+   "source": 561,
+   "kick": [
+    0.2,
+    0,
+    0
+   ],
+   "iterations": 98,
+   "kappa_bound": 109.45185915809788,
+   "q_bound": 0.8255092290644133,
+   "shells": [
+    {
+     "hops": 0,
+     "bodies": 1,
+     "energy_share": 0.8493239302321842,
+     "max_speed_ratio": 1.0
+    },
+    {
+     "hops": 1,
+     "bodies": 3,
+     "energy_share": 0.1291602365165104,
+     "max_speed_ratio": 0.3858031774657416
+    },
+    {
+     "hops": 2,
+     "bodies": 6,
+     "energy_share": 0.014920553661698924,
+     "max_speed_ratio": 0.10016169135452005
+    },
+    {
+     "hops": 3,
+     "bodies": 16,
+     "energy_share": 0.004345194843459605,
+     "max_speed_ratio": 0.03810629719282544
+    },
+    {
+     "hops": 4,
+     "bodies": 34,
+     "energy_share": 0.0018643366844749208,
+     "max_speed_ratio": 0.020429646270457114
+    },
+    {
+     "hops": 5,
+     "bodies": 47,
+     "energy_share": 0.000304208921831666,
+     "max_speed_ratio": 0.007794266266132317
+    },
+    {
+     "hops": 6,
+     "bodies": 65,
+     "energy_share": 6.152304517399539e-05,
+     "max_speed_ratio": 0.0031346014568743932
+    },
+    {
+     "hops": 7,
+     "bodies": 68,
+     "energy_share": 1.5547747349965017e-05,
+     "max_speed_ratio": 0.0015788653943290963
+    },
+    {
+     "hops": 8,
+     "bodies": 65,
+     "energy_share": 3.361508217232076e-06,
+     "max_speed_ratio": 0.0008699411858615777
+    },
+    {
+     "hops": 9,
+     "bodies": 63,
+     "energy_share": 8.954696885833633e-07,
+     "max_speed_ratio": 0.000490003476997217
+    },
+    {
+     "hops": 10,
+     "bodies": 47,
+     "energy_share": 1.584769559758568e-07,
+     "max_speed_ratio": 0.00013766805286906158
+    },
+    {
+     "hops": 11,
+     "bodies": 50,
+     "energy_share": 4.203997424272595e-08,
+     "max_speed_ratio": 7.428394515042637e-05
+    },
+    {
+     "hops": 12,
+     "bodies": 56,
+     "energy_share": 9.861588221792325e-09,
+     "max_speed_ratio": 3.8642778338898115e-05
+    },
+    {
+     "hops": 13,
+     "bodies": 33,
+     "energy_share": 8.753698724422717e-10,
+     "max_speed_ratio": 1.5454197230773913e-05
+    },
+    {
+     "hops": 14,
+     "bodies": 18,
+     "energy_share": 1.1403383145345168e-10,
+     "max_speed_ratio": 7.443119599453119e-06
+    },
+    {
+     "hops": 15,
+     "bodies": 3,
+     "energy_share": 1.4885335386913505e-12,
+     "max_speed_ratio": 1.059963672364226e-06
+    }
+   ],
+   "restriction": [
+    {
+     "radius_hops": 0,
+     "bodies_solved": 1,
+     "energy_error_over_response": 0.2365595459353428,
+     "source_speed_error": 0.3030821613340653
+    },
+    {
+     "radius_hops": 1,
+     "bodies_solved": 4,
+     "energy_error_over_response": 0.02668046582853177,
+     "source_speed_error": 0.046428656364686974
+    },
+    {
+     "radius_hops": 2,
+     "bodies_solved": 10,
+     "energy_error_over_response": 0.008803785184315455,
+     "source_speed_error": 0.016158685708469945
+    },
+    {
+     "radius_hops": 3,
+     "bodies_solved": 26,
+     "energy_error_over_response": 0.0033065895162555543,
+     "source_speed_error": 0.006071205212526837
+    },
+    {
+     "radius_hops": 4,
+     "bodies_solved": 60,
+     "energy_error_over_response": 0.0005832852336896832,
+     "source_speed_error": 0.001335567278806878
+    },
+    {
+     "radius_hops": 6,
+     "bodies_solved": 172,
+     "energy_error_over_response": 2.8813686390630687e-05,
+     "source_speed_error": 6.160276402785923e-05
+    },
+    {
+     "radius_hops": 8,
+     "bodies_solved": 305,
+     "energy_error_over_response": 1.5231921433916886e-06,
+     "source_speed_error": 3.5984023914984344e-06
+    }
+   ]
+  },
+  {
+   "source": 159,
+   "kick": [
+    0,
+    -0.2,
+    0
+   ],
+   "iterations": 82,
+   "kappa_bound": 109.45185915809788,
+   "q_bound": 0.8255092290644133,
+   "shells": [
+    {
+     "hops": 0,
+     "bodies": 1,
+     "energy_share": 0.6774922277792437,
+     "max_speed_ratio": 1.0
+    },
+    {
+     "hops": 1,
+     "bodies": 3,
+     "energy_share": 0.21655211132819135,
+     "max_speed_ratio": 0.5581150300124187
+    },
+    {
+     "hops": 2,
+     "bodies": 11,
+     "energy_share": 0.09252980402667314,
+     "max_speed_ratio": 0.31780358480529897
+    },
+    {
+     "hops": 3,
+     "bodies": 23,
+     "energy_share": 0.009928779141486441,
+     "max_speed_ratio": 0.057354976495403366
+    },
+    {
+     "hops": 4,
+     "bodies": 50,
+     "energy_share": 0.002933693780801148,
+     "max_speed_ratio": 0.02975871596020833
+    },
+    {
+     "hops": 5,
+     "bodies": 80,
+     "energy_share": 0.00046177299384044787,
+     "max_speed_ratio": 0.007956670312358772
+    },
+    {
+     "hops": 6,
+     "bodies": 103,
+     "energy_share": 8.786616890956392e-05,
+     "max_speed_ratio": 0.0028442423128812403
+    },
+    {
+     "hops": 7,
+     "bodies": 101,
+     "energy_share": 1.115566415426327e-05,
+     "max_speed_ratio": 0.0012081019716682156
+    },
+    {
+     "hops": 8,
+     "bodies": 80,
+     "energy_share": 2.0318886917607954e-06,
+     "max_speed_ratio": 0.0005437991739928405
+    },
+    {
+     "hops": 9,
+     "bodies": 55,
+     "energy_share": 4.4077086208171263e-07,
+     "max_speed_ratio": 0.0002471057082846761
+    },
+    {
+     "hops": 10,
+     "bodies": 40,
+     "energy_share": 9.890164113941944e-08,
+     "max_speed_ratio": 0.00011541997623623663
+    },
+    {
+     "hops": 11,
+     "bodies": 15,
+     "energy_share": 1.3187805912484514e-08,
+     "max_speed_ratio": 5.2826191579978876e-05
+    },
+    {
+     "hops": 12,
+     "bodies": 11,
+     "energy_share": 4.1445884863897385e-09,
+     "max_speed_ratio": 3.435420491113702e-05
+    },
+    {
+     "hops": 13,
+     "bodies": 2,
+     "energy_share": 2.2311035254344695e-10,
+     "max_speed_ratio": 1.3784644893205088e-05
+    }
+   ],
+   "restriction": [
+    {
+     "radius_hops": 0,
+     "bodies_solved": 1,
+     "energy_error_over_response": 0.486363753491345,
+     "source_speed_error": 0.49288325460353755
+    },
+    {
+     "radius_hops": 1,
+     "bodies_solved": 4,
+     "energy_error_over_response": 0.16389053012980193,
+     "source_speed_error": 0.1911603861127413
+    },
+    {
+     "radius_hops": 2,
+     "bodies_solved": 15,
+     "energy_error_over_response": 0.019876930201973113,
+     "source_speed_error": 0.035105549541895535
+    },
+    {
+     "radius_hops": 3,
+     "bodies_solved": 38,
+     "energy_error_over_response": 0.004987732830972486,
+     "source_speed_error": 0.008756061076216078
+    },
+    {
+     "radius_hops": 4,
+     "bodies_solved": 88,
+     "energy_error_over_response": 0.0008026406680574349,
+     "source_speed_error": 0.0016750786760862302
+    },
+    {
+     "radius_hops": 6,
+     "bodies_solved": 271,
+     "energy_error_over_response": 1.9403476746356704e-05,
+     "source_speed_error": 4.182373768439992e-05
+    },
+    {
+     "radius_hops": 8,
+     "bodies_solved": 452,
+     "energy_error_over_response": 8.31524349894802e-07,
+     "source_speed_error": 9.854685603220913e-07
+    }
+   ]
+  }
+ ]
+}

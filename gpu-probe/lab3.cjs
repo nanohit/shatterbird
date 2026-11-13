@@ -170,3 +170,5 @@ if (mode === 'stack') {
     rows.push(row); console.log(JSON.stringify(row)); }
   if (process.env.SB_OUT) fs.writeFileSync(process.env.SB_OUT, JSON.stringify({ prm, rows }, null, 1));
 }
+
+Object.assign(module.exports, { surfaceSpheres, observe, deepBody, slumpObs, field, parsePrm });

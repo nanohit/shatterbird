@@ -1,0 +1,400 @@
+{
+ "pile": "/private/tmp/claude-501/-Users-pavel-Desktop-shatterbird/892f568a-0456-4c5a-a6c0-8d6c72c61f7c/scratchpad/soft/pile_l2_s1.npz",
+ "events": {
+  "down:1:0": [
+   {
+    "radius_hops": 99,
+    "bodies_moving": 576,
+    "kicked_D": 0.00822125497844541,
+    "sum_D": 0.05770430597431508,
+    "over_0p01D": 0,
+    "over_0p1D": 0,
+    "max_D": 0.009346420437370785,
+    "field_error": 0.0,
+    "outside_share_of_reference": 0.0
+   },
+   {
+    "radius_hops": 2,
+    "bodies_moving": 11,
+    "kicked_D": 0.008102106485299347,
+    "sum_D": 0.034547383134814355,
+    "over_0p01D": 0,
+    "over_0p1D": 0,
+    "max_D": 0.008860908228482928,
+    "field_error": 0.5889520302495728,
+    "outside_share_of_reference": 0.41463647792790237
+   },
+   {
+    "radius_hops": 3,
+    "bodies_moving": 28,
+    "kicked_D": 0.007046969238018141,
+    "sum_D": 0.037072561482475085,
+    "over_0p01D": 0,
+    "over_0p1D": 0,
+    "max_D": 0.009083929492498324,
+    "field_error": 0.4748700979213577,
+    "outside_share_of_reference": 0.2983930207824319
+   },
+   {
+    "radius_hops": 4,
+    "bodies_moving": 58,
+    "kicked_D": 0.007179040162503392,
+    "sum_D": 0.04040070066452662,
+    "over_0p01D": 0,
+    "over_0p1D": 0,
+    "max_D": 0.009308397806190548,
+    "field_error": 0.41544456789492035,
+    "outside_share_of_reference": 0.23501736589044192
+   },
+   {
+    "radius_hops": 5,
+    "bodies_moving": 112,
+    "kicked_D": 0.007771135162745581,
+    "sum_D": 0.04480623183897263,
+    "over_0p01D": 0,
+    "over_0p1D": 0,
+    "max_D": 0.009356394445988181,
+    "field_error": 0.3143068048767802,
+    "outside_share_of_reference": 0.164253142594379
+   },
+   {
+    "radius_hops": 6,
+    "bodies_moving": 188,
+    "kicked_D": 0.008134116000601889,
+    "sum_D": 0.05028908635691831,
+    "over_0p01D": 0,
+    "over_0p1D": 0,
+    "max_D": 0.00934032321280842,
+    "field_error": 0.20310557912903154,
+    "outside_share_of_reference": 0.07853508714001929
+   },
+   {
+    "radius_hops": 8,
+    "bodies_moving": 333,
+    "kicked_D": 0.008219268965913932,
+    "sum_D": 0.054847984434063406,
+    "over_0p01D": 0,
+    "over_0p1D": 0,
+    "max_D": 0.00933591053473353,
+    "field_error": 0.08102847941985732,
+    "outside_share_of_reference": 0.021041312918983854
+   }
+  ],
+  "down:4:0": [
+   {
+    "radius_hops": 99,
+    "bodies_moving": 576,
+    "kicked_D": 0.0385492878028531,
+    "sum_D": 0.9304851282046231,
+    "over_0p01D": 10,
+    "over_0p1D": 2,
+    "max_D": 0.15425926704443615,
+    "field_error": 0.0,
+    "outside_share_of_reference": 0.0
+   },
+   {
+    "radius_hops": 2,
+    "bodies_moving": 11,
+    "kicked_D": 0.033699096454296286,
+    "sum_D": 0.22142237861604008,
+    "over_0p01D": 7,
+    "over_0p1D": 0,
+    "max_D": 0.06276521977322891,
+    "field_error": 0.799999538228416,
+    "outside_share_of_reference": 0.6260806441816447
+   },
+   {
+    "radius_hops": 3,
+    "bodies_moving": 28,
+    "kicked_D": 0.021356008805295437,
+    "sum_D": 0.33180248070469653,
+    "over_0p01D": 8,
+    "over_0p1D": 0,
+    "max_D": 0.08390377063793909,
+    "field_error": 0.6852937218642242,
+    "outside_share_of_reference": 0.48460616274560486
+   },
+   {
+    "radius_hops": 4,
+    "bodies_moving": 58,
+    "kicked_D": 0.01581966648861726,
+    "sum_D": 0.3323263353737087,
+    "over_0p01D": 8,
+    "over_0p1D": 0,
+    "max_D": 0.08122123377882122,
+    "field_error": 0.7055697668243792,
+    "outside_share_of_reference": 0.43771055881312243
+   },
+   {
+    "radius_hops": 5,
+    "bodies_moving": 112,
+    "kicked_D": 0.03106128607359653,
+    "sum_D": 0.4744778677267162,
+    "over_0p01D": 8,
+    "over_0p1D": 1,
+    "max_D": 0.10388364912029684,
+    "field_error": 0.5402644007147825,
+    "outside_share_of_reference": 0.378096800094728
+   },
+   {
+    "radius_hops": 6,
+    "bodies_moving": 188,
+    "kicked_D": 0.037521597111728165,
+    "sum_D": 0.5886367084700292,
+    "over_0p01D": 8,
+    "over_0p1D": 1,
+    "max_D": 0.11605219340537125,
+    "field_error": 0.4300603052686335,
+    "outside_share_of_reference": 0.15957860525799053
+   },
+   {
+    "radius_hops": 8,
+    "bodies_moving": 333,
+    "kicked_D": 0.0384439068072298,
+    "sum_D": 0.6569780744756225,
+    "over_0p01D": 8,
+    "over_0p1D": 1,
+    "max_D": 0.1179622837509987,
+    "field_error": 0.3111445211905108,
+    "outside_share_of_reference": 0.024357062455710215
+   }
+  ],
+  "down:4:1": [
+   {
+    "radius_hops": 99,
+    "bodies_moving": 576,
+    "kicked_D": 0.04959243404401889,
+    "sum_D": 0.45507722398834477,
+    "over_0p01D": 8,
+    "over_0p1D": 0,
+    "max_D": 0.04959243404401889,
+    "field_error": 0.0,
+    "outside_share_of_reference": 0.0
+   },
+   {
+    "radius_hops": 2,
+    "bodies_moving": 10,
+    "kicked_D": 0.01860569735630404,
+    "sum_D": 0.0783030215058513,
+    "over_0p01D": 3,
+    "over_0p1D": 0,
+    "max_D": 0.01860569735630404,
+    "field_error": 1.0112743536849522,
+    "outside_share_of_reference": 0.6415932134103539
+   },
+   {
+    "radius_hops": 3,
+    "bodies_moving": 26,
+    "kicked_D": 0.0316567802455756,
+    "sum_D": 0.10339991051583625,
+    "over_0p01D": 3,
+    "over_0p1D": 0,
+    "max_D": 0.0316567802455756,
+    "field_error": 0.9480463417247628,
+    "outside_share_of_reference": 0.5155810652478079
+   },
+   {
+    "radius_hops": 4,
+    "bodies_moving": 60,
+    "kicked_D": 0.05306721124388071,
+    "sum_D": 0.30509312625778856,
+    "over_0p01D": 8,
+    "over_0p1D": 0,
+    "max_D": 0.053067211243880724,
+    "field_error": 0.4788899933918229,
+    "outside_share_of_reference": 0.2906303096020969
+   },
+   {
+    "radius_hops": 5,
+    "bodies_moving": 107,
+    "kicked_D": 0.053118525833598544,
+    "sum_D": 0.33644891515977693,
+    "over_0p01D": 8,
+    "over_0p1D": 0,
+    "max_D": 0.053118525833598544,
+    "field_error": 0.3711370059853497,
+    "outside_share_of_reference": 0.18535495571291358
+   },
+   {
+    "radius_hops": 6,
+    "bodies_moving": 172,
+    "kicked_D": 0.04950106512401734,
+    "sum_D": 0.3857410559193555,
+    "over_0p01D": 10,
+    "over_0p1D": 0,
+    "max_D": 0.04950106512401734,
+    "field_error": 0.2707121457912499,
+    "outside_share_of_reference": 0.09658398406204281
+   },
+   {
+    "radius_hops": 8,
+    "bodies_moving": 305,
+    "kicked_D": 0.04920883020604398,
+    "sum_D": 0.43836388203634746,
+    "over_0p01D": 9,
+    "over_0p1D": 0,
+    "max_D": 0.04920883020604399,
+    "field_error": 0.09231411771408288,
+    "outside_share_of_reference": 0.02241065941392826
+   }
+  ],
+  "side:1:0": [
+   {
+    "radius_hops": 99,
+    "bodies_moving": 576,
+    "kicked_D": 0.017120011281067677,
+    "sum_D": 0.11103966124241654,
+    "over_0p01D": 3,
+    "over_0p1D": 0,
+    "max_D": 0.04277104904863555,
+    "field_error": 0.0,
+    "outside_share_of_reference": 0.0
+   },
+   {
+    "radius_hops": 2,
+    "bodies_moving": 11,
+    "kicked_D": 0.02170717740489492,
+    "sum_D": 0.09327391995498063,
+    "over_0p01D": 3,
+    "over_0p1D": 0,
+    "max_D": 0.04125971846262258,
+    "field_error": 0.27549178387393936,
+    "outside_share_of_reference": 0.14536268666759775
+   },
+   {
+    "radius_hops": 3,
+    "bodies_moving": 28,
+    "kicked_D": 0.017809192521582168,
+    "sum_D": 0.09896253447940682,
+    "over_0p01D": 3,
+    "over_0p1D": 0,
+    "max_D": 0.04210300369437377,
+    "field_error": 0.14458897075841154,
+    "outside_share_of_reference": 0.08906482253782345
+   },
+   {
+    "radius_hops": 4,
+    "bodies_moving": 58,
+    "kicked_D": 0.016804265529211788,
+    "sum_D": 0.09994873483126679,
+    "over_0p01D": 3,
+    "over_0p1D": 0,
+    "max_D": 0.04267871214537631,
+    "field_error": 0.1282601053712643,
+    "outside_share_of_reference": 0.0686103553573357
+   },
+   {
+    "radius_hops": 5,
+    "bodies_moving": 112,
+    "kicked_D": 0.017703042395200184,
+    "sum_D": 0.10499303929157977,
+    "over_0p01D": 3,
+    "over_0p1D": 0,
+    "max_D": 0.042914703073611435,
+    "field_error": 0.09743788161168215,
+    "outside_share_of_reference": 0.0434922326047823
+   },
+   {
+    "radius_hops": 6,
+    "bodies_moving": 188,
+    "kicked_D": 0.01739208688633953,
+    "sum_D": 0.10816802299285704,
+    "over_0p01D": 3,
+    "over_0p1D": 0,
+    "max_D": 0.042852975573766,
+    "field_error": 0.047735671469449244,
+    "outside_share_of_reference": 0.016402832150394116
+   },
+   {
+    "radius_hops": 8,
+    "bodies_moving": 333,
+    "kicked_D": 0.017522688178784555,
+    "sum_D": 0.11033913048700626,
+    "over_0p01D": 3,
+    "over_0p1D": 0,
+    "max_D": 0.04286065416541007,
+    "field_error": 0.02161048468622012,
+    "outside_share_of_reference": 0.00341549062004584
+   }
+  ],
+  "remove:1": [
+   {
+    "radius_hops": 99,
+    "bodies_moving": 576,
+    "kicked_D": null,
+    "sum_D": 1.3821289334874378,
+    "over_0p01D": 5,
+    "over_0p1D": 2,
+    "max_D": 1.032495316737441,
+    "field_error": 0.0,
+    "outside_share_of_reference": 0.0
+   },
+   {
+    "radius_hops": 2,
+    "bodies_moving": 14,
+    "kicked_D": null,
+    "sum_D": 1.1735717435239863,
+    "over_0p01D": 3,
+    "over_0p1D": 2,
+    "max_D": 1.0304923619851207,
+    "field_error": 0.15266314919916257,
+    "outside_share_of_reference": 0.15200081269548163
+   },
+   {
+    "radius_hops": 3,
+    "bodies_moving": 37,
+    "kicked_D": null,
+    "sum_D": 1.327992859256555,
+    "over_0p01D": 4,
+    "over_0p1D": 2,
+    "max_D": 1.0323120553113843,
+    "field_error": 0.1114777077064505,
+    "outside_share_of_reference": 0.07015240275235622
+   },
+   {
+    "radius_hops": 4,
+    "bodies_moving": 75,
+    "kicked_D": null,
+    "sum_D": 1.3489273164670232,
+    "over_0p01D": 5,
+    "over_0p1D": 2,
+    "max_D": 1.0326525982431365,
+    "field_error": 0.025088535634023284,
+    "outside_share_of_reference": 0.015074528139282627
+   },
+   {
+    "radius_hops": 5,
+    "bodies_moving": 139,
+    "kicked_D": null,
+    "sum_D": 1.3647281511235476,
+    "over_0p01D": 5,
+    "over_0p1D": 2,
+    "max_D": 1.0327766222614294,
+    "field_error": 0.013347814730092613,
+    "outside_share_of_reference": 0.008923740364528466
+   },
+   {
+    "radius_hops": 6,
+    "bodies_moving": 214,
+    "kicked_D": null,
+    "sum_D": 1.3707529607239088,
+    "over_0p01D": 5,
+    "over_0p1D": 2,
+    "max_D": 1.0325085334192743,
+    "field_error": 0.009456769395990392,
+    "outside_share_of_reference": 0.005601544225381044
+   },
+   {
+    "radius_hops": 8,
+    "bodies_moving": 393,
+    "kicked_D": null,
+    "sum_D": 1.3779162385922734,
+    "over_0p01D": 5,
+    "over_0p1D": 2,
+    "max_D": 1.0326001456409335,
+    "field_error": 0.004914725892535913,
+    "outside_share_of_reference": 0.0018008934713121128
+   }
+  ]
+ }
+}
