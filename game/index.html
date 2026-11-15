@@ -2,65 +2,52 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#171d22">
-  <title>Второй удар · Shatterbird</title>
-  <link rel="stylesheet" href="style.css?v=2">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#171d24">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Золотой выстрел · Shatterbird</title>
+  <link rel="stylesheet" href="style.css?v=1">
 </head>
 <body>
-  <main>
+  <main id="arena">
+    <canvas id="scene" aria-label="Трёхмерная башня и две пушки"></canvas>
+    <div id="reticle" aria-hidden="true"><i></i></div>
     <header>
-      <a href="../">Shatterbird</a>
-      <button id="invite" class="subtle">Играть вдвоём</button>
+      <div class="brand">
+        <a href="../">Shatterbird</a>
+        <h1>Золотой выстрел</h1>
+      </div>
+      <nav aria-label="Комната и экран">
+        <button id="invite">Пригласить</button>
+        <button id="full" class="icon" aria-label="Полный экран" title="Полный экран"><span class="corners"></span></button>
+      </nav>
     </header>
-    <section class="intro">
-      <h1>Второй удар</h1>
-      <p>Два ударника, одна консольная балка. Первый раскачивает её. Поймай момент для второго удара и отдели пролёт.</p>
+    <aside id="share" hidden aria-label="Ссылка приглашения">
+      <p id="share-note">Отправь эту ссылку второму игроку</p>
+      <input id="url" type="url" readonly aria-label="Ссылка приглашения">
+      <button id="leave">Выйти из комнаты</button>
+    </aside>
+
+    <section class="outcome" id="outcome" hidden aria-live="polite">
+      <p id="outcome-caption"></p>
+      <strong id="outcome-title"></strong>
+      <button id="again">Ещё раунд</button>
     </section>
-    <section class="instrument" aria-label="Испытательная камера">
-      <canvas id="scene" aria-label="Трёхмерный вид балки и двух ударников"></canvas>
-      <div class="readout">
-        <span id="result" aria-live="polite">Загружаем пролёт…</span>
-        <span id="time">0,00 с</span>
+
+    <footer>
+      <div class="team blue"><span>Синие</span><strong id="score-a">0</strong></div>
+      <div class="actions">
+        <div id="status" role="status">Загружаем арену…</div>
+        <div class="fire-row">
+          <button class="fire" id="fire" disabled><span>Огонь</span><kbd>Пробел</kbd></button>
+          <button id="restart" class="icon restart" aria-label="Заново" title="Заново" disabled>↻</button>
+        </div>
+        <p id="tip">Наведи прицел и попади ядром в золотой куб</p>
       </div>
-    </section>
-    <section class="console" aria-label="Управление">
-      <div class="controls">
-        <button id="fire-a" class="fire a" disabled><span class="key">1</span> Удар A</button>
-        <button id="fire-b" class="fire b" disabled><span class="key">2</span> Удар B</button>
-        <button id="reset" class="subtle" disabled>Сброс</button>
-      </div>
-      <p class="hint">Ударь A, затем B примерно через секунду. Следи за свободным краем.</p>
-    </section>
-    <footer><span id="backend"></span><span id="sync"></span></footer>
+      <div class="team red"><span>Красные</span><strong id="score-b">0</strong></div>
+    </footer>
   </main>
-  <dialog id="link">
-    <form method="dialog" class="dialog-head">
-      <h2>Играть вдвоём</h2>
-      <button class="subtle" id="close-link">Закрыть</button>
-    </form>
-    <div class="roles">
-      <button id="host" class="subtle">Создать · A</button>
-      <button id="join" class="subtle">Войти · B</button>
-    </div>
-    <label for="incoming">Код партнёра</label>
-    <textarea id="incoming" rows="2" placeholder="Вставь код сюда" spellcheck="false"></textarea>
-    <button id="apply" class="subtle" disabled>Применить код</button>
-    <label for="outgoing">Твой код</label>
-    <textarea id="outgoing" rows="2" readonly spellcheck="false"></textarea>
-    <button id="copy" class="subtle" disabled>Копировать</button>
-    <details>
-      <summary>STUN / TURN</summary>
-      <label for="ice">Адрес сервера</label>
-      <input id="ice" placeholder="turn:relay.example.org:3478" autocomplete="off">
-      <label for="login">Имя пользователя TURN</label>
-      <input id="login" autocomplete="off">
-      <label for="password">Пароль TURN</label>
-      <input id="password" type="password" autocomplete="off">
-    </details>
-    <p id="peer-status" aria-live="polite">Игрок A создаёт код. B вставляет его, нажимает «Войти» и возвращает A свой код.</p>
-    <button id="offline" class="subtle" disabled>Вернуться в одиночную игру</button>
-  </dialog>
-  <script type="module" src="main.mjs?v=2"></script>
+  <script src="relay-config.js?v=1"></script>
+  <script type="module" src="game.js?v=1"></script>
 </body>
 </html>
