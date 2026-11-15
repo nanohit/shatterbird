@@ -2,11 +2,11 @@
 // The authoritative tick stores Q24 in i32. Velocity is displacement per microstep.
 export const H = {
   age: 0, fired: 1, spent: 2, touch: 3, broken: 4, separated: 5,
-  peak: 6, dissipated: 7, fault: 8, strikers: 9, modes: 13,
+  peak: 6, dissipated: 7, fault: 8, strikers: 9, splitRotation: 13, modes: 14,
 };
 export const TICK = 60;
 export const loadBeam = async () => {
-  const response = await fetch(new URL('./beam.json', import.meta.url));
+  const response = await fetch(new URL('./beam.json?v=2', import.meta.url));
   if (!response.ok) throw new Error('Не удалось загрузить пролёт');
   return fixture(await response.json());
 };
@@ -49,7 +49,7 @@ export function fixture(asset) {
       if (finished(s) || failed) return s;
       for (let j = 0; j < 2; j++) {
         const bit = 1 << j;
-        if ((mask & bit) && !(s[H.fired] & bit)) {
+        if (!s[H.broken] && (mask & bit) && !(s[H.fired] & bit)) {
           s[H.fired] |= bit;
           s[H.strikers + 2 * j + 1] = a.speed;
         }
@@ -77,6 +77,7 @@ export function fixture(asset) {
           if (breaks) {
             s[H.broken] = all;
             s[H.separated] = s[H.age] + 1;
+            s[H.splitRotation] = s[at(a.rotation.mode)];
           }
         }
         for (let j = 0; j < 2; j++) {
@@ -112,6 +113,27 @@ export function fixture(asset) {
       let u = 0;
       for (let i = 0; i < n; i++) u += (a.shape[p * n + i] / Q) * (s[H.modes + i * 2] / Q);
       xy[p] = a.mesh[p >> 1][p & 1] + u;
+    }
+    if (s[H.separated]) {
+      // Lift the floating member's rigid mode to a rotation about its current centre.
+      // Retain the geometry at split as the origin of this rotation chart.
+      const { mode, scale, center: [cx, cy] } = a.rotation;
+      const turn = (s[H.modes + mode * 2] - s[H.splitRotation]) * scale / Q;
+      const sin = Math.sin(turn), cos = Math.cos(turn);
+      let x = 0, y = 0, count = 0;
+      for (let i = 0; i < a.mesh.length; i++) {
+        if (a.mesh[i][0] < a.cut) continue;
+        x += xy[2 * i]; y += xy[2 * i + 1]; count++;
+      }
+      x /= count; y /= count;
+      for (let i = 0; i < a.mesh.length; i++) {
+        const [rx, ry] = a.mesh[i];
+        if (rx < a.cut) continue;
+        const dx = xy[2 * i] - x + (ry - cy) * turn;
+        const dy = xy[2 * i + 1] - y - (rx - cx) * turn;
+        xy[2 * i] = x + dx * cos - dy * sin;
+        xy[2 * i + 1] = y + dx * sin + dy * cos;
+      }
     }
     return xy;
   }

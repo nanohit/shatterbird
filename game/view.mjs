@@ -1,4 +1,4 @@
-import { H } from './world.mjs';
+import { H } from './world.mjs?v=2';
 
 const colours = ['#a2daf5', '#ffbd8a'];
 

@@ -1,4 +1,4 @@
-import { H } from './world.mjs';
+import { H } from './world.mjs?v=2';
 
 // The same limb product as fixed.js, with round-to-nearest, ties away from zero.
 function source(w) {
@@ -44,7 +44,7 @@ fn finished() -> bool {
   if (finished() || s[${H.fault}] != 0) { return; }
   for (var j = 0u; j < 2u; j++) {
     let bit = 1 << j;
-    if ((input[0] & bit) != 0 && (s[${H.fired}] & bit) == 0) {
+    if (s[${H.broken}] == 0 && (input[0] & bit) != 0 && (s[${H.fired}] & bit) == 0) {
       s[${H.fired}] |= bit;
       s[${H.strikers}u + 2u * j + 1u] = ${a.speed};
     }
@@ -72,6 +72,7 @@ fn finished() -> bool {
       if (breaks) {
         s[${H.broken}] = ${w.all};
         s[${H.separated}] = s[${H.age}] + 1;
+        s[${H.splitRotation}] = s[${H.modes + a.rotation.mode * 2}];
       }
     }
     for (var j = 0u; j < 2u; j++) {

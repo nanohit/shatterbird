@@ -1,7 +1,7 @@
-import { H, TICK, loadBeam, signature } from './world.mjs';
-import { gpu } from './gpu.mjs';
-import { connect, lockstep } from './peer.mjs';
-import { view } from './view.mjs';
+import { H, TICK, loadBeam, signature } from './world.mjs?v=2';
+import { gpu } from './gpu.mjs?v=2';
+import { connect, lockstep } from './peer.mjs?v=2';
+import { view } from './view.mjs?v=2';
 
 const el = id => document.getElementById(id);
 const controls = ['fire-a', 'fire-b'].map(el);
@@ -16,7 +16,7 @@ function refresh() {
   const done = w.finished(snapshot), lost = blocked || !!session?.fault;
   controls.forEach((b, i) => {
     const allowed = !session || session.side === i;
-    b.disabled = lost || !allowed || done || !!(snapshot[H.fired] & (1 << i));
+    b.disabled = lost || !allowed || done || !!snapshot[H.broken] || !!(snapshot[H.fired] & (1 << i));
   });
   el('reset').disabled = lost;
   const text = session?.fault || (snapshot[H.fault] ? 'Переполнение состояния'
@@ -126,7 +126,7 @@ async function prepare(side) {
     connection = connect(side, ice(), async channel => {
       if (epoch !== connectionEpoch) return;
       const a = w.asset;
-      const version = 'sb1-' + signature([a.bits, a.hz, a.contact_stiffness,
+      const version = 'sb2-' + signature([a.rotation.mode, a.bits, a.hz, a.contact_stiffness,
         a.seam_stiffness, a.striker_mass, a.speed, ...a.modes.flat(), ...a.bonds.flat(),
         ...a.ports.flat(), ...a.limits, ...a.launch]);
       // Receive the hello immediately, including while the local engine resets.
